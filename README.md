@@ -64,17 +64,6 @@ cd STM32F756ZG-Bare-Metal-Driver-Development
 # Follow the register structure patterns
 ```
 
-## 📚 Repository Structure
-
-```
-├── drivers/          # Peripheral driver implementations
-│   ├── rcc/         # Reset and Clock Control
-│   ├── gpio/        # General Purpose I/O
-│   └── ...
-├── core/            # ARM Cortex-M7 core definitions
-├── docs/            # Reference materials and notes
-└── examples/        # Usage examples for each driver
-```
 
 ## 📖 Reference Documentation
 
