@@ -24,10 +24,21 @@
 
 
 int main(void){
+	GPIO_handler_t GPIO1 ={0};
+	GPIO1.pGPIOx=GPIO_B;
+	GPIO1.GPIO_pin_config.GPIO_PinMode=GPIO_MODE_OUTPUT;
+	GPIO1.GPIO_pin_config.GPIO_PinNumber=14;
+	GPIO1.GPIO_pin_config.GPIO_PinOutType=GPIO_OPTYPE_PUSH_PULL;
+	GPIO1.GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
+	GPIO_clk_init(GPIO_B,ENABLE);
+	GPIO_init(&GPIO1);
+//	GPIO_WritePin(GPIO_B, 14, ENABLE);
+//	GPIO_WritePin(GPIO_B, 14, DISABLE);
 
-	GPIO_clk_init(GPIO_A,ENABLE);
-	GPIO_clk_init(GPIO_B, DISABLE);
+	while(1){
+		for(uint32_t i=0;i<1000000;i++);
+		GPIO_TogglePin(GPIO_B, 14);
 
+	}
 
-	for(;;);
 }

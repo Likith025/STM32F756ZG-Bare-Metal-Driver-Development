@@ -8,6 +8,7 @@
 #ifndef INC_STM32F7XX_DRIVER_CUSTOM_H_
 #define INC_STM32F7XX_DRIVER_CUSTOM_H_
 #include <stdint.h>
+#include <stddef.h>
 
 
 //Defining BASE address of memory regions
