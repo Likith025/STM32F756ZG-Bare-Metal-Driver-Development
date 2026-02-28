@@ -17,28 +17,44 @@
  */
 
 #include <stdint.h>
-#include "stm32f7xx_driver_custom.h"
 #include "stm32f7xx_gpio_driver.h"
+#include "stm32f7xx_uart_driver.h"
 
 
 
 
 int main(void){
-	GPIO_handler_t GPIO1 ={0};
-	GPIO1.pGPIOx=GPIO_B;
-	GPIO1.GPIO_pin_config.GPIO_PinMode=GPIO_MODE_OUTPUT;
-	GPIO1.GPIO_pin_config.GPIO_PinNumber=14;
-	GPIO1.GPIO_pin_config.GPIO_PinOutType=GPIO_OPTYPE_PUSH_PULL;
-	GPIO1.GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
-	GPIO_clk_init(GPIO_B,ENABLE);
-	GPIO_init(&GPIO1);
-//	GPIO_WritePin(GPIO_B, 14, ENABLE);
-//	GPIO_WritePin(GPIO_B, 14, DISABLE);
+
+//	uint8_t value=0;
+//	GPIO_handler_t GPIO1 ={0};
+//	GPIO1.pGPIOx=GPIO_B; //PB14 is for user LED3
+//	GPIO1.GPIO_pin_config.GPIO_PinMode=GPIO_MODE_OUTPUT;
+//	GPIO1.GPIO_pin_config.GPIO_PinNumber=14;
+//	GPIO1.GPIO_pin_config.GPIO_PinOutType=GPIO_OPTYPE_PUSH_PULL;
+//	GPIO1.GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
+//	GPIO1.GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
+//
+//	GPIO_handler_t GPIO2 ={0};
+//	GPIO2.pGPIOx=GPIO_C; //PC13 is for push button
+//	GPIO2.GPIO_pin_config.GPIO_PinMode=GPIO_MODE_INPUT;
+//	GPIO2.GPIO_pin_config.GPIO_PinNumber=13;
+//	GPIO2.GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
+//
+//	GPIO_clk_init(GPIO_C, ENABLE);
+//	GPIO_clk_init(GPIO_B,ENABLE);
+//	GPIO_init(&GPIO1);
+//	GPIO_init(&GPIO2);
+USART_handler_t* USART_CMD;
+USART_CMD->pUSART=USART_3;
+USART_CMD->USART_config.USART_Mode=USART_MODE_TXRX;
+USART_CMD->USART_config.USART_WordLength=USART_WordLen_9bits;
+
+USART_init(USART_CMD, ENABLE);
+USART_init(USART_CMD, DISABLE);
 
 	while(1){
-		for(uint32_t i=0;i<1000000;i++);
-		GPIO_TogglePin(GPIO_B, 14);
 
 	}
+
 
 }

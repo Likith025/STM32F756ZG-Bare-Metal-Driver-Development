@@ -9,7 +9,7 @@
 #define INC_STM32F7XX_GPIO_DRIVER_H_
 
 #include "stm32f7xx_driver_custom.h"
-#include<stdint.h>
+
 
 typedef enum{
 	GPIO_MODE_INPUT=0,

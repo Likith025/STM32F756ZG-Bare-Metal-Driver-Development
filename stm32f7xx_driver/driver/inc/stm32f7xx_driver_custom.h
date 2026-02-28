@@ -95,6 +95,12 @@
 #define RCC 	((RCC_RegDef_t*)RCC_BASE_ADDR)
 
 
+#define USART_2 ((USART_RegDef_t*)USART2_BASE_ADDR)
+#define USART_3 ((USART_RegDef_t*)USART3_BASE_ADDR)
+#define UART_4	((USART_RegDef_t*)UART4_BASE_ADDR)
+#define UART_5	((USART_RegDef_t*)UART5_BASE_ADDR)
+
+
 //Creating structures for peripheral registers
 
 typedef struct{
@@ -147,6 +153,19 @@ typedef struct{
 }RCC_RegDef_t;
 
 
+typedef struct{
+	volatile uint32_t  USART_CR1;
+	volatile uint32_t USART_CR2;
+	volatile uint32_t USART_CR3;
+	volatile uint32_t	USART_BRR;
+	volatile uint32_t USART_GTPR;
+	volatile uint32_t USART_RTOR;
+	volatile uint32_t USART_RQR;
+	volatile uint32_t USART_ISR;
+	volatile uint32_t USART_ICR;
+	volatile uint32_t USART_RDR;
+	volatile uint32_t USART_TDR;
+}USART_RegDef_t;
 
 
 
