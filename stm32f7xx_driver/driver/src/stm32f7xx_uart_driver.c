@@ -23,24 +23,24 @@ int8_t USART_init(USART_handler_t *usart_handle,uint8_t enable){
 	USART_RegDef_t *USART=usart_handle->pUSART;
 	USART_clK_init(USART, ENABLE);
 /*disabling USART before setting up*/
-	USART_Control(usart_handle->pUSART,DISABLE);
+	USART_Control(USART,DISABLE);
 
-	usart_handle->pUSART->USART_BRR=0x0683;
+	USART->USART_BRR=0x0683;
 
 /*Setting UP direction(Tx,Rx,both)*/
-	usart_handle->pUSART->USART_CR1&=~(3<<2);
-	usart_handle->pUSART->USART_CR1|=mode;
+	USART->USART_CR1&=~(3<<2);
+	USART->USART_CR1|=mode;
 
-	usart_handle->pUSART->USART_CR1&=~(1<<12);
-	usart_handle->pUSART->USART_CR1&=~(1<<28);
+	USART->USART_CR1&=~(1<<12);
+	USART->USART_CR1&=~(1<<28);
 
 
 	 if(len==USART_WordLen_8bits){
 		 //equivalent of resetting bits 12 and 28 which is default state
 	 }
 	else if(len==USART_WordLen_9bits){
-		usart_handle->pUSART->USART_CR1&=~(1<<28);
-		usart_handle->pUSART->USART_CR1|=(1<<12);
+		USART->USART_CR1&=~(1<<28);
+		USART->USART_CR1|=(1<<12);
 	}
 
 	else{
@@ -49,15 +49,15 @@ int8_t USART_init(USART_handler_t *usart_handle,uint8_t enable){
 
 /*parity setup*/
 	if(parity==USART_Parity_None){
-		usart_handle->pUSART->USART_CR1&=~(1<<10);
+		USART->USART_CR1&=~(1<<10);
 	}
 	else{
-		usart_handle->pUSART->USART_CR1|=(1<<10);
+		USART->USART_CR1|=(1<<10);
 		if(parity==USART_Parity_Even){
-			usart_handle->pUSART->USART_CR1&=~(1<<9);
+			USART->USART_CR1&=~(1<<9);
 		}
 		else if(parity==USART_Parity_Odd){
-			usart_handle->pUSART->USART_CR1|=(1<<9);
+			USART->USART_CR1|=(1<<9);
 		}
 		else{
 			return -1;
@@ -65,48 +65,46 @@ int8_t USART_init(USART_handler_t *usart_handle,uint8_t enable){
 
 	}
 	/* setting over sampling*/
-	usart_handle->pUSART->USART_CR1&=~(1<<15);
+	USART->USART_CR1&=~(1<<15);
 	if(usart_handle->USART_config.USART_OverSmapling==USART_OverSampling_8){
-	usart_handle->pUSART->USART_CR1|=(1<<15);
+		USART->USART_CR1|=(1<<15);
 	}
 
 
 
 	/*hardware control setup*/
-	usart_handle->pUSART->USART_CR3&=~(1<<9);
-	usart_handle->pUSART->USART_CR3&=~(1<<8);
-	if(usart_handle->USART_config.USART_HWflowControl==USART_HW_FlowCtrl_CTS){
-		//same as resetting both bits(default case)
-	}
+	USART->USART_CR3&=~(1<<9);
+	USART->USART_CR3&=~(1<<8);
 
+	if(usart_handle->USART_config.USART_HWflowControl==USART_HW_FlowCtrl_None){
+		//same as resetting
+	}
 	else if(usart_handle->USART_config.USART_HWflowControl==USART_HW_FlowCtrl_CTS){
-		usart_handle->pUSART->USART_CR3|=(1<<9);
+		USART->USART_CR3|=(1<<9);
 	}
 	else if(usart_handle->USART_config.USART_HWflowControl==USART_HW_FlowCtrl_RTS){
-		usart_handle->pUSART->USART_CR3|=(1<<8);
+		USART->USART_CR3|=(1<<8);
 	}
 	else if(usart_handle->USART_config.USART_HWflowControl==USART_HW_FlowCtrl_CTS_RTS){
-		usart_handle->pUSART->USART_CR3|=(1<<8);
-		usart_handle->pUSART->USART_CR3|=(1<<9);
+		USART->USART_CR3|=(1<<8);
+		USART->USART_CR3|=(1<<9);
 	}
 	else{
 		return -1;
 	}
 	if(Stop_Bits<=USART_StopBits_1_5){
-		usart_handle->pUSART->USART_CR2&=~(3<<12);
-		usart_handle->pUSART->USART_CR2|=(Stop_Bits<<12);
+		USART->USART_CR2&=~(3<<12);
+		USART->USART_CR2|=(Stop_Bits<<12);
 	}
 	else{
 		return -1;
 	}
 
-
-
-
-
 	USART_Control(usart_handle->pUSART,ENABLE);
 return 0;
 }
+
+
 
 int8_t USART_Control(USART_RegDef_t *pUSART,uint8_t CMD){
 	if(CMD==ENABLE){
@@ -149,7 +147,7 @@ void USART_CLearFlag(USART_RegDef_t *pUSART,USART_ClearFlags_t FlagName){
 void USART_SendData(USART_handler_t *usart_handle,uint8_t* pTxData,uint16_t len){
 	USART_RegDef_t *USART=usart_handle->pUSART;
 	uint16_t *pData_16;
-	while(len>0){
+	for(uint8_t i=0;i<len;i++){
 	while(!USART_GetFlagStatus(USART, USART_FLAG_TXE));
 
 	if(usart_handle->USART_config.USART_WordLength==USART_WordLen_9bits){
@@ -157,18 +155,18 @@ void USART_SendData(USART_handler_t *usart_handle,uint8_t* pTxData,uint16_t len)
 		USART->USART_TDR=(*pData_16&(uint16_t)0x01ff);
 		if(usart_handle->USART_config.USART_ParityControl==USART_Parity_None){
 			pTxData=pTxData+2;
-			len=len-2;
+
 		}
 		else{
 			pTxData++;
-			len--;
+
 		}
 
 	}
 	else{
 		USART->USART_TDR=(*pTxData&(uint8_t)(0x00ff));
 		pTxData++;
-		len--;
+
 	}
 
 	}
