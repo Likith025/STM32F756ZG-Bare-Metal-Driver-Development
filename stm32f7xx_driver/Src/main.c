@@ -17,44 +17,29 @@
  */
 
 #include <stdint.h>
-#include "stm32f7xx_gpio_driver.h"
-#include "stm32f7xx_uart_driver.h"
+#include <string.h>
+#include "peripheral_config.h"
 
 
+// Global handlers - persistent, accessible throughout main
 
 
 int main(void){
 
-//	uint8_t value=0;
-//	GPIO_handler_t GPIO1 ={0};
-//	GPIO1.pGPIOx=GPIO_B; //PB14 is for user LED3
-//	GPIO1.GPIO_pin_config.GPIO_PinMode=GPIO_MODE_OUTPUT;
-//	GPIO1.GPIO_pin_config.GPIO_PinNumber=14;
-//	GPIO1.GPIO_pin_config.GPIO_PinOutType=GPIO_OPTYPE_PUSH_PULL;
-//	GPIO1.GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
-//	GPIO1.GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
-//
-//	GPIO_handler_t GPIO2 ={0};
-//	GPIO2.pGPIOx=GPIO_C; //PC13 is for push button
-//	GPIO2.GPIO_pin_config.GPIO_PinMode=GPIO_MODE_INPUT;
-//	GPIO2.GPIO_pin_config.GPIO_PinNumber=13;
-//	GPIO2.GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
-//
-//	GPIO_clk_init(GPIO_C, ENABLE);
-//	GPIO_clk_init(GPIO_B,ENABLE);
-//	GPIO_init(&GPIO1);
-//	GPIO_init(&GPIO2);
-USART_handler_t* USART_CMD;
-USART_CMD->pUSART=USART_3;
-USART_CMD->USART_config.USART_Mode=USART_MODE_TXRX;
-USART_CMD->USART_config.USART_WordLength=USART_WordLen_9bits;
+    // Initialize all peripherals with their handlers
+	board_init();
+    
+    uint8_t msg[] = "HELLO\r\n";
+    
+    while(1){
+        //GPIO_TogglePin(g_led3.pGPIOx, 14);
 
-USART_init(USART_CMD, ENABLE);
-USART_init(USART_CMD, DISABLE);
+    	USART_SendData(&g_usart3, msg, strlen(msg));
+        for(volatile uint32_t i = 0; i < 200000; i++);  // crude delay
+    }
 
-	while(1){
 
-	}
 
 
 }
+

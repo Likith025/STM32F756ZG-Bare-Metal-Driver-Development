@@ -10,6 +10,46 @@
 
 #include "stm32f7xx_driver_custom.h"
 
+#define USART_ISR_PE     (1U << 0)
+#define USART_ISR_FE     (1U << 1)
+#define USART_ISR_NF     (1U << 2)
+#define USART_ISR_ORE    (1U << 3)
+#define USART_ISR_IDLE   (1U << 4)
+#define USART_ISR_RXNE   (1U << 5)
+#define USART_ISR_TC     (1U << 6)
+#define USART_ISR_TXE    (1U << 7)
+
+#define USART_ICR_PECF     		(1U << 0)
+#define USART_ICR_FECF     		(1U << 1)
+#define USART_ICR_NCF     		(1U << 2)
+#define USART_ICR_ORECF    		(1U << 3)
+#define USART_ICR_IDLECF   		(1U << 4)
+#define USART_ICR_TCCF     		(1U << 6)
+
+
+
+typedef enum{
+    USART_FLAG_PECF    = USART_ICR_PECF,
+    USART_FLAG_FECF    = USART_ICR_FECF,
+    USART_FLAG_NCF    = USART_ICR_NCF,
+    USART_FLAG_ORECF   = USART_ICR_ORECF,
+    USART_FLAG_IDLECF  = USART_ICR_IDLECF,
+    USART_FLAG_TCCF    =  USART_ICR_TCCF,
+} USART_ClearFlags_t;
+
+typedef enum{
+    USART_FLAG_PE    = USART_ISR_PE,
+    USART_FLAG_FE    = USART_ISR_FE,
+    USART_FLAG_NF    = USART_ISR_NF,
+    USART_FLAG_ORE   = USART_ISR_ORE,
+    USART_FLAG_IDLE  = USART_ISR_IDLE,
+    USART_FLAG_RXNE  = USART_ISR_RXNE,
+    USART_FLAG_TC    = USART_ISR_TC,
+    USART_FLAG_TXE   = USART_ISR_TXE
+} USART_Flags_t;
+
+
+
 typedef enum
 {
     USART_BAUD_1200   = 1200,
@@ -36,16 +76,15 @@ typedef enum{
 }USART_Parity_t;
 
 typedef enum{
-    USART_StopBits_0_5=0,
-    USART_StopBits_1,
-    USART_StopBits_1_5,
+    USART_StopBits_1=0,
+    USART_StopBits_0_5,
     USART_StopBits_2,
+    USART_StopBits_1_5,
 }USART_StopBits_t;
 
 typedef enum{
 	USART_WordLen_8bits=0,
 	USART_WordLen_9bits,
-	USART_WordLen_7bits,
 }USART_WordLen_t;
 
 typedef enum{
@@ -79,5 +118,10 @@ typedef struct{
 
 //API's//
 int8_t USART_init(USART_handler_t *usart_handle,uint8_t enable);
+int8_t USART_Control(USART_RegDef_t *pUSART,uint8_t CMD);
+int8_t USART_clK_init(USART_RegDef_t *pUSART,uint8_t CMD);
+uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSART,USART_Flags_t FlagName);
+void USART_CLearFlag(USART_RegDef_t *pUSART,USART_ClearFlags_t FlagName);
+void USART_SendData(USART_handler_t *usart_handle,uint8_t* pTxData,uint16_t len);
 
 #endif /* INC_STM32F7XX_UART_DRIVER_H_ */
