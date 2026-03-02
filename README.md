@@ -36,9 +36,9 @@ This project emphasizes:
 | Peripheral | Status | Notes |
 |-----------|--------|-------|
 | RCC | ✅ Complete | Clock control and system configuration |
-| GPIO | 🔄 In Progress | Digital I/O control |
+| GPIO | ✅ Complete | Digital I/O control |
 | EXTI | 📋 Planned | External interrupts |
-| USART/UART | 📋 Planned | Serial communication |
+| USART/UART | 🔄 In Progress | Serial communication |
 | SPI | 📋 Planned | Serial peripheral interface |
 | I2C | 📋 Planned | Inter-integrated circuit |
 | Timers | 📋 Planned | General-purpose and advanced timers |
