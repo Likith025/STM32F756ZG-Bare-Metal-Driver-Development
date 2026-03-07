@@ -14,10 +14,12 @@ int8_t USART_init(USART_handler_t *usart_handle,uint8_t enable){
 	USART_WordLen_t len=0;
 	USART_Parity_t parity=0;
 	USART_StopBits_t Stop_Bits=0;
+	USART_BaudRate_t bauarate=0;
 	len=usart_handle->USART_config.USART_WordLength;
 	mode=usart_handle->USART_config.USART_Mode;
 	parity=usart_handle->USART_config.USART_ParityControl;
 	Stop_Bits=usart_handle->USART_config.USART_StopBits;
+	bauarate=usart_handle->USART_config.USART_BaudRate;
 
 /* Setting up RCC clock to enable USART*/
 	USART_RegDef_t *USART=usart_handle->pUSART;
@@ -25,7 +27,7 @@ int8_t USART_init(USART_handler_t *usart_handle,uint8_t enable){
 /*disabling USART before setting up*/
 	USART_Control(USART,DISABLE);
 
-	USART->USART_BRR=0x0683;
+	USART_SetBaudRate(usart_handle, bauarate);
 
 /*Setting UP direction(Tx,Rx,both)*/
 	USART->USART_CR1&=~(3<<2);
@@ -172,5 +174,32 @@ void USART_SendData(USART_handler_t *usart_handle,uint8_t* pTxData,uint16_t len)
 	}
 	while(!USART_GetFlagStatus(USART, USART_FLAG_TC));
 }
+
+void USART_SetBaudRate(USART_handler_t *usart_handle,uint16_t BaudRate){
+	USART_RegDef_t *USART=usart_handle->pUSART;
+	uint32_t pclk=USART_CLK;
+	uint32_t temp_div=0;
+	uint16_t div_mantisa;
+	uint16_t div_frac;
+	if(usart_handle->USART_config.USART_OverSmapling==USART_OverSampling_16){
+		temp_div=((pclk*100)/(16*BaudRate));
+		div_mantisa=temp_div/100;
+		div_frac=temp_div%100;
+		div_frac=((((div_frac*16)+50)/100)&0xf);
+	}
+	else{
+		temp_div=((pclk*100)/(8*BaudRate));
+		div_mantisa=temp_div/100;
+		div_frac=temp_div%100;
+		div_frac=((((div_frac*8)+50)/100)&0x7);
+	}
+	USART->USART_BRR=((div_mantisa<<4)|(div_frac));
+
+
+
+
+}
+
+
 
 

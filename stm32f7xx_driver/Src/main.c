@@ -29,7 +29,7 @@ int main(void){
     // Initialize all peripherals with their handlers
 	board_init();
     
-    uint8_t msg[] = "HELLO\r\n";
+    uint8_t msg[] = "HELLO STM\r\n";
     
     while(1){
         //GPIO_TogglePin(g_led3.pGPIOx, 14);

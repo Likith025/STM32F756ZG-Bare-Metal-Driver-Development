@@ -26,6 +26,8 @@
 #define USART_ICR_IDLECF   		(1U << 4)
 #define USART_ICR_TCCF     		(1U << 6)
 
+#define USART_CLK 			16000000U  //must change to consider prescalar setup too
+
 
 
 typedef enum{
@@ -107,6 +109,8 @@ typedef struct{
 	USART_WordLen_t USART_WordLength;
 	USART_Parity_t USART_ParityControl;
 	USART_HW_FlowCtrl_t USART_HWflowControl;
+
+
 }USART_config_t;
 
 typedef struct{
@@ -123,5 +127,6 @@ int8_t USART_clK_init(USART_RegDef_t *pUSART,uint8_t CMD);
 uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSART,USART_Flags_t FlagName);
 void USART_CLearFlag(USART_RegDef_t *pUSART,USART_ClearFlags_t FlagName);
 void USART_SendData(USART_handler_t *usart_handle,uint8_t* pTxData,uint16_t len);
+void USART_SetBaudRate(USART_handler_t *usart_handle,uint16_t BaudRate);
 
 #endif /* INC_STM32F7XX_UART_DRIVER_H_ */

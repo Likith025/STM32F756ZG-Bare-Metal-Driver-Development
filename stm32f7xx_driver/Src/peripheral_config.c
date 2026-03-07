@@ -59,10 +59,11 @@ void usart3_init(USART_handler_t *handler){
     handler->pUSART = USART_3;
     handler->USART_config.USART_Mode = USART_MODE_TXRX;
     handler->USART_config.USART_WordLength = USART_WordLen_8bits;
-    handler->USART_config.USART_OverSmapling = USART_OverSampling_16;
+    handler->USART_config.USART_OverSmapling = USART_OverSampling_8;
     handler->USART_config.USART_StopBits = USART_StopBits_1;
     handler->USART_config.USART_ParityControl = USART_Parity_None;
     handler->USART_config.USART_HWflowControl = USART_HW_FlowCtrl_None;
+    handler->USART_config.USART_BaudRate=USART_BAUD_9600;
 
     USART_init(handler, ENABLE);
 }
