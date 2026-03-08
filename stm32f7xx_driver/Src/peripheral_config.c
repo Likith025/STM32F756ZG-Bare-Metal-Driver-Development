@@ -18,13 +18,23 @@ GPIO_handler_t g_usart3_rx = {0};
 
 
 
-void led_setup(GPIO_handler_t *LED){
+void led_setup_blue(GPIO_handler_t *LED){
+	LED->pGPIOx=GPIO_B;
+	LED->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_OUTPUT;
+	LED->GPIO_pin_config.GPIO_PinNumber=7;
+	LED->GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
+	LED->GPIO_pin_config.GPIO_PinOutType=GPIO_OPTYPE_PUSH_PULL;
+	GPIO_init(LED);
+
+}
+
+void led_setup_red(GPIO_handler_t *LED){
 	LED->pGPIOx=GPIO_B;
 	LED->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_OUTPUT;
 	LED->GPIO_pin_config.GPIO_PinNumber=14;
 	LED->GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
 	LED->GPIO_pin_config.GPIO_PinOutType=GPIO_OPTYPE_PUSH_PULL;
-	GPIO_init(LED);  // Pass address with &
+	GPIO_init(LED);
 
 }
 
@@ -33,8 +43,19 @@ void button_setup(GPIO_handler_t *BUTTON){
 	BUTTON->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_INPUT;
 	BUTTON->GPIO_pin_config.GPIO_PinNumber=13;
 	BUTTON->GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
-	GPIO_init(BUTTON);  // Pass address with &
+	GPIO_init(BUTTON);
+}
 
+void button_interrupt_setup(GPIO_handler_t *BUTTON){
+	BUTTON->pGPIOx=GPIO_C;
+	BUTTON->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_IT_FALLING;
+	BUTTON->GPIO_pin_config.GPIO_PinNumber=13;
+	BUTTON->GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
+	GPIO_init(BUTTON);
+
+	/* Clear stale EXTI pending flag before unmasking NVIC */
+	GPIO_IRQ_Handler(13);
+	GPIO_IntrruptConfig(IRQ_NO_EXTI10_15,15,ENABLE);
 }
 
 void usart3_init(USART_handler_t *handler){
