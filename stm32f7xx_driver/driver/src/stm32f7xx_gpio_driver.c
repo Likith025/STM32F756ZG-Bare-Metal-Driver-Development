@@ -39,7 +39,7 @@ int8_t GPIO_init(const GPIO_handler_t* GPIO_xHandler){
 	uint32_t pin=0;
 	GPIO_MODE_t mode=0;
 
-	if(GPIO_xHandler==NULL){
+	if(GPIO_xHandler==NULL || GPIO_xHandler->pGPIOx==NULL){
 		return -1;
 	}
 	GPIO_clk_init(GPIO_xHandler->pGPIOx, ENABLE);
@@ -50,10 +50,31 @@ int8_t GPIO_init(const GPIO_handler_t* GPIO_xHandler){
 		return -1;
 	}
 
+	if(mode<=GPIO_MODE_ANALOG){
+		temp=(mode)<<(2*pin);
+		GPIO_xHandler->pGPIOx->MODER&=~(0x3U<<(0x2U*pin));
+		GPIO_xHandler->pGPIOx->MODER|=temp;
+	}
+	else{
+		GPIO_xHandler->pGPIOx->MODER&=~(0x3U<<(0x2U*pin)); // input mode for EXTI
 
-	temp=(mode)<<(2*pin);
-	GPIO_xHandler->pGPIOx->MODER&=~(0x3U<<(0x2U*pin));
-	GPIO_xHandler->pGPIOx->MODER|=temp;
+		if(mode==GPIO_MODE_IT_FALLING_RAISING){
+			EXTI->EXTI_RTSR|=(1U<<pin);
+			EXTI->EXTI_FTSR|=(1U<<pin);
+		}
+		else if(mode==GPIO_MODE_IT_FALLING){
+			EXTI->EXTI_FTSR|=(1U<<pin);
+			EXTI->EXTI_RTSR&=~(1U<<pin);
+		}
+		else if(mode==GPIO_MODE_IT_RAISING){
+			EXTI->EXTI_RTSR|=(1U<<pin);
+			EXTI->EXTI_FTSR&=~(1U<<pin);
+		}
+
+		SYSCFG_CLK_Enable();
+		GPIO_SYSCFG_SetUp(GPIO_xHandler);
+		EXTI->EXTI_IMR|=(1U<<pin);
+	}
 
 
 	if(mode==GPIO_MODE_OUTPUT||mode==GPIO_MODE_ALTERNATE_FUN){
@@ -200,8 +221,9 @@ void GPIO_IRQ_PriorityConfig(uint8_t IRQ_Number, uint8_t IRQ_Priority)
 
 
 void GPIO_IRQ_Handler(uint8_t pinNumber){
-	if(EXTI->EXTI_PR&(1<<pinNumber)){
-		EXTI->EXTI_PR|=(1<<pinNumber);
+	if(pinNumber < 16U){
+		/* EXTI pending bits are cleared by writing 1 to the target line */
+		EXTI->EXTI_PR = (1U << pinNumber);
 	}
 
 }

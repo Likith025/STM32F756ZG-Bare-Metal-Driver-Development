@@ -25,12 +25,17 @@
 
 
 void GPIO_Polling(void);
+void GPIO_Interrupt(void);
 void USART_Polling(void);
+void EXTI15_10_IRQHandler(void);
+
+volatile uint8_t button_pressed = 0;
 
 int main(void)
 	{
 		//GPIO_Polling();
-	USART_Polling();
+		//USART_Polling();
+		GPIO_Interrupt();
 		}
 
 
@@ -50,6 +55,7 @@ void GPIO_Polling(void){
 	}
 }
 
+
 void USART_Polling(void){
 	GPIO_handler_t USART_TX;
 	GPIO_handler_t USART_RX;
@@ -57,18 +63,46 @@ void USART_Polling(void){
 	usart3_tx(&USART_TX);
 	usart3_rx(&USART_RX);
 	usart3_init(&USART);
-	char msg;
+	uint8_t msg = 0;
 	while(1){
-		USART_ReadData(&USART, msg, 1);
+		USART_ReadData(&USART, &msg, 1);
 		for(int i = 0; i < 1000000; i++);
-		USART_SendData(&USART, "\n\r", 2);
-		USART_SendData(&USART, msg, 1);
-
+		USART_SendData(&USART, (uint8_t*)"\n\r", 2);
+		USART_SendData(&USART, &msg, 1);
 	}
+}
+void GPIO_Interrupt(void)
+{
+    GPIO_handler_t LED_Blue;
+    GPIO_handler_t LED_Red;
+    GPIO_handler_t BUTTON;
 
+    led_setup_blue(&LED_Blue);
+    led_setup_red(&LED_Red);
+    button_interrupt_setup(&BUTTON);
 
+    while(1)
+    {
+        // System alive indicator
+        GPIO_TogglePin(GPIO_B,7);
+        for(volatile int i=0;i<200000;i++);
 
+        if(button_pressed)
+        {
+            for(volatile int i=0;i<200000;i++);   // debounce delay
+
+            if(GPIO_ReadPin(GPIO_C,13) == 0)
+            {
+                GPIO_TogglePin(GPIO_B,14);
+            }
+
+            button_pressed = 0;
+        }
+    }
 }
 
-
-
+void EXTI15_10_IRQHandler(void)
+{
+    GPIO_IRQ_Handler(13);   // clear interrupt pending bit
+    button_pressed = 1;     // signal event
+}

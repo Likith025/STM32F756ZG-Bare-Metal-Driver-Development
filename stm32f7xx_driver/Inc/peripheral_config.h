@@ -19,8 +19,10 @@ extern GPIO_handler_t g_usart3_rx;
 
 
 // Initialization functions - accept handler pointers
-void led_setup(GPIO_handler_t *LED);
+void led_setup_blue(GPIO_handler_t *LED);
+void led_setup_red(GPIO_handler_t *LED);
 void button_setup(GPIO_handler_t *BUTTON);
+void button_interrupt_setup(GPIO_handler_t *BUTTON);
 void usart3_init(USART_handler_t *handler);
 void usart3_tx(GPIO_handler_t *handler);
 void usart3_rx(GPIO_handler_t *handler);
