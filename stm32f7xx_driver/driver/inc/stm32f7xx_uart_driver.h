@@ -128,5 +128,7 @@ uint8_t USART_GetFlagStatus(USART_RegDef_t *pUSART,USART_Flags_t FlagName);
 void USART_CLearFlag(USART_RegDef_t *pUSART,USART_ClearFlags_t FlagName);
 void USART_SendData(USART_handler_t *usart_handle,uint8_t* pTxData,uint16_t len);
 void USART_SetBaudRate(USART_handler_t *usart_handle,uint16_t BaudRate);
+void USART_ReadData(USART_handler_t *usart_handle,uint8_t* pRxData,uint16_t len);
+
 
 #endif /* INC_STM32F7XX_UART_DRIVER_H_ */

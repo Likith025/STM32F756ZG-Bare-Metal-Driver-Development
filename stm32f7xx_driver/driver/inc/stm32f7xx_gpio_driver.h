@@ -11,11 +11,16 @@
 #include "stm32f7xx_driver_custom.h"
 
 
+
+
 typedef enum{
 	GPIO_MODE_INPUT=0,
 	GPIO_MODE_OUTPUT,
 	GPIO_MODE_ALTERNATE_FUN,
 	GPIO_MODE_ANALOG,
+	GPIO_MODE_IT_FALLING,
+	GPIO_MODE_IT_RAISING,
+	GPIO_MODE_IT_FALLING_RAISING,
 
 }GPIO_MODE_t;
 
@@ -38,6 +43,10 @@ typedef enum{
 	GPIO_PUPD_RESERVED
 
 }GPIO_PUPD_t;
+
+
+
+
 
 
 
@@ -74,6 +83,10 @@ int8_t GPIO_TogglePin(GPIO_RegDef_t* pGPIO_x,uint8_t PinNumber);
 
 void GPIO_IntrruptConfig(uint8_t IRQNumber,uint8_t IRQPriority, uint8_t enable);
 void GPIO_IntrruptHandler(uint8_t PinNumber);
-
+void GPIO_SYSCFG_SetUp(const GPIO_handler_t* GPIO_xHandler);
+void SYSCFG_CLK_Enable(void);
+void GPIO_IRQ_IntrruptConfig(uint8_t IRQ_Number,uint8_t status);
+void GPIO_IRQ_PriorityConfig(uint8_t IRQ_Number,uint8_t IRQ_Priority);
+void GPIO_IRQ_Handler(uint8_t pinNumber);
 
 #endif /* INC_STM32F7XX_GPIO_DRIVER_H_ */

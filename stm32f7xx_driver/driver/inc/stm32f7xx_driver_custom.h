@@ -11,6 +11,28 @@
 #include <stddef.h>
 
 
+ //Processor related macros and structs
+#define NVIC_BASE_ADDR   ((volatile uint32_t*)(0xE000E100))
+typedef struct
+{
+    volatile uint32_t ISER[8];
+    uint32_t RESERVED0[24];
+    volatile uint32_t ICER[8];
+    uint32_t RESERVED1[24];
+    volatile uint32_t ISPR[8];
+    uint32_t RESERVED2[24];
+    volatile uint32_t ICPR[8];
+    uint32_t RESERVED3[24];
+    volatile uint32_t IPR[60];
+
+} NVIC_RegDef_t;
+
+#define NVIC ((NVIC_RegDef_t*)(NVIC_BASE_ADDR))
+
+
+
+
+
 //Defining BASE address of memory regions
 #define FLASH_BASE_ADDR					0x08000000UL  //Base Address of flash memory
 #define DTCM_BASE_ADDR                  0x20000000UL	//Base Address of DTCM
@@ -100,6 +122,23 @@
 #define UART_4	((USART_RegDef_t*)UART4_BASE_ADDR)
 #define UART_5	((USART_RegDef_t*)UART5_BASE_ADDR)
 
+#define EXTI 	((EXTI_RegDef_t*)EXTI_BASE_ADDR)
+
+#define SYSCFG	((SYSCFG_RegDef_t*)SYSCFG_BASE_ADDR)
+
+
+//IRQ numbers
+#define	IRQ_NO_EXTI0	6
+#define	IRQ_NO_EXTI1	7
+#define	IRQ_NO_EXTI2	8
+#define	IRQ_NO_EXTI3	9
+#define	IRQ_NO_EXTI4	10
+#define	IRQ_NO_EXTI5_9	23
+#define IRQ_NO_EXTI10_15	40
+
+
+
+
 
 //Creating structures for peripheral registers
 
@@ -167,6 +206,29 @@ typedef struct{
 	volatile uint32_t USART_TDR;
 }USART_RegDef_t;
 
+
+typedef struct{
+	volatile uint32_t EXTI_IMR;
+	volatile uint32_t EXTI_EMR;
+	volatile uint32_t EXTI_RTSR;
+	volatile uint32_t EXTI_FTSR;
+	volatile uint32_t EXTI_SWIER;
+	volatile uint32_t EXTI_PR;
+
+}EXTI_RegDef_t;
+
+
+typedef struct{
+	volatile uint32_t SYSCFG_MEMRMP;
+	volatile uint32_t SYSCFG_PMC;
+	volatile uint32_t SYSCFG_EXTICR[4];
+	uint32_t reserved[2];
+	volatile uint32_t SYSCFG_CMPCR;
+}SYSCFG_RegDef_t;
+
+
+
+#include "stm32f7xx_gpio_driver.h"
 
 
 

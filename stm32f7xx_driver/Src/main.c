@@ -21,25 +21,54 @@
 #include "peripheral_config.h"
 
 
-// Global handlers - persistent, accessible throughout main
 
 
-int main(void){
 
-    // Initialize all peripherals with their handlers
-	board_init();
-    
-    uint8_t msg[] = "HELLO STM\r\n";
-    
-    while(1){
-        //GPIO_TogglePin(g_led3.pGPIOx, 14);
+void GPIO_Polling(void);
+void USART_Polling(void);
 
-    	USART_SendData(&g_usart3, msg, strlen(msg));
-        for(volatile uint32_t i = 0; i < 200000; i++);  // crude delay
-    }
+int main(void)
+	{
+		//GPIO_Polling();
+	USART_Polling();
+		}
 
+
+
+void GPIO_Polling(void){
+	GPIO_handler_t LED;
+	GPIO_handler_t BUTTON;
+	led_setup(&LED);
+	button_setup(&BUTTON);
+
+	GPIO_TogglePin(GPIO_B, 14);
+	for(int i = 0; i < 1000000; i++);
+	GPIO_TogglePin(GPIO_B, 14);
+
+	while(1){
+		GPIO_WritePin(GPIO_B, 14, GPIO_ReadPin(GPIO_C, 13));
+	}
+}
+
+void USART_Polling(void){
+	GPIO_handler_t USART_TX;
+	GPIO_handler_t USART_RX;
+	USART_handler_t USART;
+	usart3_tx(&USART_TX);
+	usart3_rx(&USART_RX);
+	usart3_init(&USART);
+	char msg;
+	while(1){
+		USART_ReadData(&USART, msg, 1);
+		for(int i = 0; i < 1000000; i++);
+		USART_SendData(&USART, "\n\r", 2);
+		USART_SendData(&USART, msg, 1);
+
+	}
 
 
 
 }
+
+
 

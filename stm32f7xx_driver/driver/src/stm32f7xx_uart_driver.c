@@ -200,6 +200,38 @@ void USART_SetBaudRate(USART_handler_t *usart_handle,uint16_t BaudRate){
 
 }
 
+void USART_ReadData(USART_handler_t *usart_handle,uint8_t* pRxData,uint16_t len){
+	USART_RegDef_t *USART=usart_handle->pUSART;
+	USART_config_t cUSART=usart_handle->USART_config;
+	for(int i=0;i<len;i++){
+		while(!USART_GetFlagStatus(USART, USART_FLAG_RXNE));
+		if(cUSART.USART_WordLength==USART_WordLen_9bits){
+			if(cUSART.USART_ParityControl==USART_Parity_None){
+			*((uint16_t*)pRxData)=((USART->USART_RDR)&(uint16_t)0x1ff);
+				pRxData=pRxData+2;
+			}
+			else{
+				*((uint8_t*)pRxData)=((USART->USART_RDR)&(uint8_t)0xff);
+				pRxData++;
+			}
+
+		}
+		else{
+			if(cUSART.USART_ParityControl==USART_Parity_None){
+			*((uint8_t*)pRxData)=((USART->USART_RDR)&(uint8_t)0xff);
+				pRxData++;
+			}
+			else{
+				*((uint8_t*)pRxData)=((USART->USART_RDR)&(uint8_t)0x7f);
+				pRxData++;
+			}
+
+
+		}
+
+	}
+
+}
 
 
 

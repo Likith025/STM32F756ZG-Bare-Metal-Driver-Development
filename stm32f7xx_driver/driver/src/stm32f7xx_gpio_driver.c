@@ -42,7 +42,7 @@ int8_t GPIO_init(const GPIO_handler_t* GPIO_xHandler){
 	if(GPIO_xHandler==NULL){
 		return -1;
 	}
-
+	GPIO_clk_init(GPIO_xHandler->pGPIOx, ENABLE);
 	mode=GPIO_xHandler->GPIO_pin_config.GPIO_PinMode;
 	pin=GPIO_xHandler->GPIO_pin_config.GPIO_PinNumber;
 
@@ -157,9 +157,63 @@ uint16_t GPIO_ReadPort(GPIO_RegDef_t* pGPIO_x){
 
 }
 
+void GPIO_SYSCFG_SetUp(const GPIO_handler_t* GPIO_xHandler){
+
+	uint8_t exti_index,exti_position=0;
+	uint8_t port_code=0;
+	if(GPIO_xHandler==NULL || GPIO_xHandler->pGPIOx==NULL){
+		return;
+	}
+	port_code = ((uint32_t)GPIO_xHandler->pGPIOx - GPIOA_BASE_ADDR) / 0x400;
+	exti_index=GPIO_xHandler->GPIO_pin_config.GPIO_PinNumber/4;
+	exti_position=GPIO_xHandler->GPIO_pin_config.GPIO_PinNumber%4;
+	SYSCFG->SYSCFG_EXTICR[exti_index]&=~(0xf<<(exti_position*4));
+	SYSCFG->SYSCFG_EXTICR[exti_index]|=(port_code<<(exti_position*4));
+}
+
+void SYSCFG_CLK_Enable(){
+	RCC->APB2ENR|=(1<<14);
+}
+
+void  GPIO_IRQ_IntrruptConfig(uint8_t IRQ_Number,uint8_t status){
+	if(status==ENABLE){
+		NVIC->ISER[IRQ_Number/32]|=(1<<(IRQ_Number%32));
+	}
+	else{
+		NVIC->ICER[IRQ_Number/32]|=(1<<(IRQ_Number%32));
+	}
+}
+
+void GPIO_IRQ_PriorityConfig(uint8_t IRQ_Number, uint8_t IRQ_Priority)
+{
+	uint8_t ipr_index = IRQ_Number / 4;
+	uint8_t ipr_section = IRQ_Number % 4;
+
+	uint8_t shift = (ipr_section * 8) + 4;
+
+	/* Clear previous priority */
+	NVIC->IPR[ipr_index] &= ~(0xF << shift);
+
+	/* Set new priority */
+	NVIC->IPR[ipr_index] |= (IRQ_Priority << shift);
+}
 
 
+void GPIO_IRQ_Handler(uint8_t pinNumber){
+	if(EXTI->EXTI_PR&(1<<pinNumber)){
+		EXTI->EXTI_PR|=(1<<pinNumber);
+	}
 
+}
+
+void GPIO_IntrruptConfig(uint8_t IRQNumber,uint8_t IRQPriority, uint8_t enable){
+	GPIO_IRQ_PriorityConfig(IRQNumber, IRQPriority);
+	GPIO_IRQ_IntrruptConfig(IRQNumber, enable);
+}
+
+void GPIO_IntrruptHandler(uint8_t PinNumber){
+	GPIO_IRQ_Handler(PinNumber);
+}
 
 
 
