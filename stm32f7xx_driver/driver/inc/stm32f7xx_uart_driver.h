@@ -19,6 +19,10 @@
 #define USART_ISR_TC     (1U << 6)
 #define USART_ISR_TXE    (1U << 7)
 
+
+#define USART_CR1_TXEIE 	(1U << 7)
+#define USART_CR1_TCIE 	(1U << 6)
+
 #define USART_ICR_PECF     		(1U << 0)
 #define USART_ICR_FECF     		(1U << 1)
 #define USART_ICR_NCF     		(1U << 2)
@@ -101,6 +105,12 @@ typedef enum{
 	USART_OverSampling_8,
 }USART_OverSampling_t;
 
+
+typedef enum{
+	USART_BUSY_IN_FREE=0,
+	USART_BUSY_IT_TX,
+}USART_IT_State_t;
+
 typedef struct{
 	USART_MODE_t USART_Mode;
 	USART_OverSampling_t USART_OverSmapling ;
@@ -116,6 +126,9 @@ typedef struct{
 typedef struct{
 	USART_RegDef_t *pUSART;
 	USART_config_t USART_config;
+	uint32_t tx_len;
+	uint8_t* pTXBuffer;
+	USART_IT_State_t UASRT_state;
 }USART_handler_t;
 
 
@@ -129,6 +142,7 @@ void USART_CLearFlag(USART_RegDef_t *pUSART,USART_ClearFlags_t FlagName);
 void USART_SendData(USART_handler_t *usart_handle,uint8_t* pTxData,uint16_t len);
 void USART_SetBaudRate(USART_handler_t *usart_handle,uint16_t BaudRate);
 void USART_ReadData(USART_handler_t *usart_handle,uint8_t* pRxData,uint16_t len);
+void USART_IRQHandler(USART_handler_t *usart_handle);
 
 
 #endif /* INC_STM32F7XX_UART_DRIVER_H_ */

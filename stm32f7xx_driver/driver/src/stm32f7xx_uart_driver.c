@@ -235,3 +235,77 @@ void USART_ReadData(USART_handler_t *usart_handle,uint8_t* pRxData,uint16_t len)
 
 
 
+void USART_SendData_IT(USART_handler_t *usart_handle,uint8_t *pTxData,uint32_t Len){
+	if(usart_handle->UASRT_state!=USART_BUSY_IT_TX){
+	usart_handle->tx_len=Len;
+	usart_handle->pTXBuffer=pTxData;
+	usart_handle->UASRT_state=USART_BUSY_IT_TX;
+
+	// setting up TXEIE in CR1 to enable interrupt
+	usart_handle->pUSART->USART_CR1&=~ USART_CR1_TXEIE;
+	usart_handle->pUSART->USART_CR1|=USART_CR1_TXEIE;
+
+	//setting up TCIE in CR1 to enable interrupt
+	usart_handle->pUSART->USART_CR1&=~ USART_CR1_TCIE;
+	usart_handle->pUSART->USART_CR1|=USART_CR1_TCIE;
+
+	}
+
+}
+
+void USART_IRQHandler(USART_handler_t *usart_handle){
+	uint32_t flag_1,flag_2;
+	uint16_t *pTxBuffer_16;
+
+	USART_RegDef_t *USART_reg=usart_handle->pUSART;
+
+	// checking if the interrupt is generated from TXEIE
+	flag_1=USART_reg->USART_CR1&(USART_CR1_TXEIE);
+	flag_2=USART_reg->USART_ISR&(USART_ISR_TXE);
+
+	if(flag_1 && flag_2){
+		if(usart_handle->UASRT_state==USART_BUSY_IT_TX){
+			if(usart_handle->tx_len>0){
+				if(usart_handle->USART_config.USART_WordLength==USART_WordLen_9bits){
+					pTxBuffer_16=(uint16_t*)usart_handle->pTXBuffer;
+					USART_reg->USART_TDR=(*pTxBuffer_16&(uint16_t)0x1ff);
+					if(usart_handle->USART_config.USART_ParityControl==USART_Parity_None){
+						usart_handle->pTXBuffer=usart_handle->pTXBuffer+2;
+						usart_handle->tx_len=usart_handle->tx_len-2;
+					}
+					else{
+						usart_handle->pTXBuffer=usart_handle->pTXBuffer+1;
+						usart_handle->tx_len=usart_handle->tx_len-1;
+					}
+
+				}
+				else{
+					USART_reg->USART_TDR=*(usart_handle->pTXBuffer)&0xff;
+					usart_handle->pTXBuffer=usart_handle->pTXBuffer+1;
+					usart_handle->tx_len=usart_handle->tx_len-1;
+				}
+			}
+			if(usart_handle->tx_len==0){
+				USART_reg->USART_CR1&=~ USART_CR1_TXEIE;
+			}
+
+		}
+	}
+
+	// checking if interrupt is generated from TCIE
+	flag_1=USART_reg->USART_CR1&(USART_CR1_TCIE);
+	flag_2=USART_reg->USART_ISR&(USART_ISR_TC);
+if(flag_1&&flag_2){
+	if(usart_handle->UASRT_state==USART_BUSY_IT_TX){
+		if(usart_handle->tx_len==0){
+			usart_handle->UASRT_state=USART_BUSY_IN_FREE;
+			usart_handle->pTXBuffer=NULL;
+			usart_handle->tx_len=0;
+            usart_handle->pUSART->USART_CR1 &= ~USART_CR1_TCIE;
+			usart_handle->pUSART->USART_ICR|=USART_ICR_TCCF;
+		}
+	}
+}
+}
+
+

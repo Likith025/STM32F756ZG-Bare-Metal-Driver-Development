@@ -28,6 +28,8 @@ void GPIO_Polling(void);
 void GPIO_Interrupt(void);
 void USART_Polling(void);
 void EXTI15_10_IRQHandler(void);
+void USART3_IRQHandler(void);
+
 
 volatile uint8_t button_pressed = 0;
 
@@ -106,3 +108,9 @@ void EXTI15_10_IRQHandler(void)
     GPIO_IRQ_Handler(13);   // clear interrupt pending bit
     button_pressed = 1;     // signal event
 }
+void USART3_IRQHandler(void){
+	void USART_IRQHandler(USART);
+
+
+}
+
