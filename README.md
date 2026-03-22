@@ -37,13 +37,13 @@ This project emphasizes:
 |-----------|--------|-------|
 | RCC | ✅ Complete | Clock control and system configuration |
 | GPIO | ✅ Complete | Digital I/O control |
-| EXTI | 📋 Planned | External interrupts |
-| USART/UART | 🔄 In Progress | Serial communication |
+| EXTI | ✅ Completed | External interrupts |
+| USART/UART | ✅ Completed | Serial communication |
 | SPI | 📋 Planned | Serial peripheral interface |
 | I2C | 📋 Planned | Inter-integrated circuit |
 | Timers | 📋 Planned | General-purpose and advanced timers |
 | DMA | 📋 Planned | Direct memory access |
-| NVIC | 📋 Planned | Nested vectored interrupt controller |
+| NVIC | ✅ Completed | Nested vectored interrupt controller |
 
 ## 📱 Target Hardware
 
