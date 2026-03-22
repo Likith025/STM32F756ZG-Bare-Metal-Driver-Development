@@ -8,7 +8,7 @@
 #ifndef INC_STM32F7XX_UART_DRIVER_H_
 #define INC_STM32F7XX_UART_DRIVER_H_
 
-#include "stm32f7xx_driver_custom.h"
+#include <stm32f756zg_reg.h>
 
 #define USART_ISR_PE     (1U << 0)
 #define USART_ISR_FE     (1U << 1)
@@ -22,6 +22,7 @@
 
 #define USART_CR1_TXEIE 	(1U << 7)
 #define USART_CR1_TCIE 	(1U << 6)
+#define USART_CR1_RXNEIE 	(1U << 5)
 
 #define USART_ICR_PECF     		(1U << 0)
 #define USART_ICR_FECF     		(1U << 1)
@@ -31,6 +32,9 @@
 #define USART_ICR_TCCF     		(1U << 6)
 
 #define USART_CLK 			16000000U  //must change to consider prescalar setup too
+
+
+
 
 
 
@@ -107,9 +111,16 @@ typedef enum{
 
 
 typedef enum{
-	USART_BUSY_IN_FREE=0,
+	USART_FREE=0,
 	USART_BUSY_IT_TX,
-}USART_IT_State_t;
+	USART_BUSY_IT_RX,
+}USART_State_t;
+
+typedef enum{
+	USART_EVENT_TX_CMPL=0,
+	USART_EVENT_RX_CMPL,
+	USART_ERR_ORE,
+}USART_CallBack_t;
 
 typedef struct{
 	USART_MODE_t USART_Mode;
@@ -128,7 +139,10 @@ typedef struct{
 	USART_config_t USART_config;
 	uint32_t tx_len;
 	uint8_t* pTXBuffer;
-	USART_IT_State_t UASRT_state;
+	uint32_t rx_len;
+	uint8_t* pRXBuffer;
+	USART_State_t UASRT_Txstate;
+	USART_State_t UASRT_Rxstate;
 }USART_handler_t;
 
 
@@ -142,7 +156,9 @@ void USART_CLearFlag(USART_RegDef_t *pUSART,USART_ClearFlags_t FlagName);
 void USART_SendData(USART_handler_t *usart_handle,uint8_t* pTxData,uint16_t len);
 void USART_SetBaudRate(USART_handler_t *usart_handle,uint16_t BaudRate);
 void USART_ReadData(USART_handler_t *usart_handle,uint8_t* pRxData,uint16_t len);
+void USART_ReadData_IT(USART_handler_t *usart_handle,uint8_t *pRxData,uint32_t len);
+void USART_SendData_IT(USART_handler_t *usart_handle,uint8_t *pTxData,uint32_t Len);
 void USART_IRQHandler(USART_handler_t *usart_handle);
-
+void USART_ApplicationEventCallback(USART_handler_t *usart_handle, USART_CallBack_t);
 
 #endif /* INC_STM32F7XX_UART_DRIVER_H_ */

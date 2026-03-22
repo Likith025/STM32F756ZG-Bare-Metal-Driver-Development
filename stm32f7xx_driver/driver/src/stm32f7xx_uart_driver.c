@@ -149,7 +149,7 @@ void USART_CLearFlag(USART_RegDef_t *pUSART,USART_ClearFlags_t FlagName){
 void USART_SendData(USART_handler_t *usart_handle,uint8_t* pTxData,uint16_t len){
 	USART_RegDef_t *USART=usart_handle->pUSART;
 	uint16_t *pData_16;
-	for(uint8_t i=0;i<len;i++){
+	for(uint16_t i=0;i<len;i++){
 	while(!USART_GetFlagStatus(USART, USART_FLAG_TXE));
 
 	if(usart_handle->USART_config.USART_WordLength==USART_WordLen_9bits){
@@ -236,10 +236,10 @@ void USART_ReadData(USART_handler_t *usart_handle,uint8_t* pRxData,uint16_t len)
 
 
 void USART_SendData_IT(USART_handler_t *usart_handle,uint8_t *pTxData,uint32_t Len){
-	if(usart_handle->UASRT_state!=USART_BUSY_IT_TX){
+	if(usart_handle->UASRT_Txstate!=USART_BUSY_IT_TX){
 	usart_handle->tx_len=Len;
 	usart_handle->pTXBuffer=pTxData;
-	usart_handle->UASRT_state=USART_BUSY_IT_TX;
+	usart_handle->UASRT_Txstate=USART_BUSY_IT_TX;
 
 	// setting up TXEIE in CR1 to enable interrupt
 	usart_handle->pUSART->USART_CR1&=~ USART_CR1_TXEIE;
@@ -253,8 +253,20 @@ void USART_SendData_IT(USART_handler_t *usart_handle,uint8_t *pTxData,uint32_t L
 
 }
 
+void USART_ReadData_IT(USART_handler_t *usart_handle,uint8_t *pRxData,uint32_t len){
+	if(usart_handle->UASRT_Rxstate!=USART_BUSY_IT_RX){
+		usart_handle->rx_len=len;
+		usart_handle->pRXBuffer=pRxData;
+		usart_handle->UASRT_Rxstate=USART_BUSY_IT_RX;
+		usart_handle->pUSART->USART_CR1|=USART_CR1_RXNEIE;
+
+	}
+
+}
+
+
 void USART_IRQHandler(USART_handler_t *usart_handle){
-	uint32_t flag_1,flag_2;
+	uint32_t flag_1,flag_2,flag_3;
 	uint16_t *pTxBuffer_16;
 
 	USART_RegDef_t *USART_reg=usart_handle->pUSART;
@@ -264,7 +276,7 @@ void USART_IRQHandler(USART_handler_t *usart_handle){
 	flag_2=USART_reg->USART_ISR&(USART_ISR_TXE);
 
 	if(flag_1 && flag_2){
-		if(usart_handle->UASRT_state==USART_BUSY_IT_TX){
+		if(usart_handle->UASRT_Txstate==USART_BUSY_IT_TX){
 			if(usart_handle->tx_len>0){
 				if(usart_handle->USART_config.USART_WordLength==USART_WordLen_9bits){
 					pTxBuffer_16=(uint16_t*)usart_handle->pTXBuffer;
@@ -296,16 +308,74 @@ void USART_IRQHandler(USART_handler_t *usart_handle){
 	flag_1=USART_reg->USART_CR1&(USART_CR1_TCIE);
 	flag_2=USART_reg->USART_ISR&(USART_ISR_TC);
 if(flag_1&&flag_2){
-	if(usart_handle->UASRT_state==USART_BUSY_IT_TX){
+	if(usart_handle->UASRT_Txstate==USART_BUSY_IT_TX){
 		if(usart_handle->tx_len==0){
-			usart_handle->UASRT_state=USART_BUSY_IN_FREE;
+			usart_handle->UASRT_Txstate=USART_FREE;
 			usart_handle->pTXBuffer=NULL;
 			usart_handle->tx_len=0;
             usart_handle->pUSART->USART_CR1 &= ~USART_CR1_TCIE;
 			usart_handle->pUSART->USART_ICR|=USART_ICR_TCCF;
+			USART_ApplicationEventCallback(usart_handle, USART_EVENT_TX_CMPL);
+
 		}
 	}
 }
+
+
+// checking if interrupt is from RXNEIE
+flag_1=USART_reg->USART_CR1&(USART_CR1_RXNEIE);
+flag_2=USART_reg->USART_ISR&(USART_ISR_RXNE);
+flag_3=USART_reg->USART_ISR&(USART_ISR_ORE);
+if(flag_1&&flag_2){
+	if(usart_handle->UASRT_Rxstate==USART_BUSY_IT_RX){
+		if(usart_handle->rx_len>0){
+			if(usart_handle->USART_config.USART_WordLength==USART_WordLen_9bits){
+				if(usart_handle->USART_config.USART_ParityControl==USART_Parity_None){
+					*(uint16_t*)(usart_handle->pRXBuffer)=((USART_reg->USART_RDR)&(uint16_t)0x1ff);
+					usart_handle->pRXBuffer+=2;
+					usart_handle->rx_len-=2;
+				}
+				else{
+					*(usart_handle->pRXBuffer)=((USART_reg->USART_RDR)&0x0ff);
+					usart_handle->pRXBuffer++;
+					usart_handle->rx_len--;
+				}
+			}
+			else{
+				if(usart_handle->USART_config.USART_WordLength==USART_WordLen_8bits){
+					if(usart_handle->USART_config.USART_ParityControl==USART_Parity_None){
+						*(usart_handle->pRXBuffer)=((USART_reg->USART_RDR)&0x0ff);
+						usart_handle->pRXBuffer++;
+						usart_handle->rx_len--;
+					}
+					else{
+						*(usart_handle->pRXBuffer)=((USART_reg->USART_RDR)&0x07f);
+						usart_handle->pRXBuffer++;
+						usart_handle->rx_len--;
+					}
+				}
+			}
+		}
+		if(usart_handle->rx_len==0){
+			USART_reg->USART_CR1&=~USART_CR1_RXNEIE;
+			usart_handle->UASRT_Rxstate=USART_FREE;
+			usart_handle->pRXBuffer=NULL;
+			USART_ApplicationEventCallback(usart_handle, USART_EVENT_RX_CMPL);
+
+		}
+	}
+}
+if(flag_1&&flag_3){
+	USART_reg->USART_ICR |= USART_ICR_ORECF;
+	usart_handle->UASRT_Rxstate = USART_FREE;
+	usart_handle->pRXBuffer=NULL;
+	USART_ApplicationEventCallback(usart_handle, USART_ERR_ORE);
+}
+}
+
+ void USART_ApplicationEventCallback(USART_handler_t *pUSARTHandle,USART_CallBack_t event)
+{
+
 }
 
 

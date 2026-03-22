@@ -196,31 +196,9 @@ void SYSCFG_CLK_Enable(){
 	RCC->APB2ENR|=(1<<14);
 }
 
-void  GPIO_IRQ_IntrruptConfig(uint8_t IRQ_Number,uint8_t status){
-	if(status==ENABLE){
-		NVIC->ISER[IRQ_Number/32]|=(1<<(IRQ_Number%32));
-	}
-	else{
-		NVIC->ICER[IRQ_Number/32]|=(1<<(IRQ_Number%32));
-	}
-}
-
-void GPIO_IRQ_PriorityConfig(uint8_t IRQ_Number, uint8_t IRQ_Priority)
-{
-	uint8_t ipr_index = IRQ_Number / 4;
-	uint8_t ipr_section = IRQ_Number % 4;
-
-	uint8_t shift = (ipr_section * 8) + 4;
-
-	/* Clear previous priority */
-	NVIC->IPR[ipr_index] &= ~(0xF << shift);
-
-	/* Set new priority */
-	NVIC->IPR[ipr_index] |= (IRQ_Priority << shift);
-}
 
 
-void GPIO_IRQ_Handler(uint8_t pinNumber){
+void GPIO_ClearPendingFlag(uint8_t pinNumber){
 	if(pinNumber < 16U){
 		/* EXTI pending bits are cleared by writing 1 to the target line */
 		EXTI->EXTI_PR = (1U << pinNumber);
@@ -228,13 +206,8 @@ void GPIO_IRQ_Handler(uint8_t pinNumber){
 
 }
 
-void GPIO_IntrruptConfig(uint8_t IRQNumber,uint8_t IRQPriority, uint8_t enable){
-	GPIO_IRQ_PriorityConfig(IRQNumber, IRQPriority);
-	GPIO_IRQ_IntrruptConfig(IRQNumber, enable);
-}
-
 void GPIO_IntrruptHandler(uint8_t PinNumber){
-	GPIO_IRQ_Handler(PinNumber);
+	GPIO_ClearPendingFlag(PinNumber);
 }
 
 
