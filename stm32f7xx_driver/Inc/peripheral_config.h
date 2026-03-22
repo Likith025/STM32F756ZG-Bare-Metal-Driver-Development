@@ -10,6 +10,8 @@
 
 #include "stm32f7xx_uart_driver.h"
 #include "stm32f7xx_gpio_driver.h"
+#include "nvic.h"
+
 
 extern USART_handler_t g_usart3;
 extern GPIO_handler_t g_led3;

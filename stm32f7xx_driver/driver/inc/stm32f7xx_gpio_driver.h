@@ -8,7 +8,7 @@
 #ifndef INC_STM32F7XX_GPIO_DRIVER_H_
 #define INC_STM32F7XX_GPIO_DRIVER_H_
 
-#include "stm32f7xx_driver_custom.h"
+#include <stm32f756zg_reg.h>
 
 
 
@@ -39,7 +39,7 @@ typedef enum{
 typedef enum{
 	GPIO_PUPD_NO=0,
 	GPIO_PUPD_PULL_UP,
-	GPIO_PUPD_PUSH_DOWN,
+	GPIO_PUPD_PULL_DOWN,
 	GPIO_PUPD_RESERVED
 
 }GPIO_PUPD_t;
@@ -81,12 +81,12 @@ int8_t GPIO_WritePin(GPIO_RegDef_t* pGPIO_x,uint8_t PinNumber,uint8_t value);
 int8_t GPIO_WritePort(GPIO_RegDef_t* pGPIO_x,uint16_t value);
 int8_t GPIO_TogglePin(GPIO_RegDef_t* pGPIO_x,uint8_t PinNumber);
 
-void GPIO_IntrruptConfig(uint8_t IRQNumber,uint8_t IRQPriority, uint8_t enable);
+void GPIO_IntrruptConfig(uint8_t IRQNumber,uint32_t IRQPriority, uint8_t enable);
 void GPIO_IntrruptHandler(uint8_t PinNumber);
 void GPIO_SYSCFG_SetUp(const GPIO_handler_t* GPIO_xHandler);
 void SYSCFG_CLK_Enable(void);
 void GPIO_IRQ_IntrruptConfig(uint8_t IRQ_Number,uint8_t status);
-void GPIO_IRQ_PriorityConfig(uint8_t IRQ_Number,uint8_t IRQ_Priority);
-void GPIO_IRQ_Handler(uint8_t pinNumber);
+void GPIO_IRQ_PriorityConfig(uint8_t IRQ_Number,uint32_t IRQ_Priority);
+void GPIO_ClearPendingFlag(uint8_t pinNumber);
 
 #endif /* INC_STM32F7XX_GPIO_DRIVER_H_ */

@@ -70,6 +70,8 @@ void usart3_init(USART_handler_t *handler){
     handler->USART_config.USART_ParityControl = USART_Parity_None;
     handler->USART_config.USART_HWflowControl = USART_HW_FlowCtrl_None;
     handler->USART_config.USART_BaudRate=USART_BAUD_9600;
+    handler->UASRT_Txstate=USART_FREE;
+    handler->UASRT_Rxstate=USART_FREE;
 
     USART_init(handler, ENABLE);
 }
@@ -97,7 +99,6 @@ void usart3_rx(GPIO_handler_t *handler){
     handler->pGPIOx = GPIO_D;
     handler->GPIO_pin_config.GPIO_PinMode = GPIO_MODE_ALTERNATE_FUN;
     handler->GPIO_pin_config.GPIO_PinNumber = 9;
-    handler->GPIO_pin_config.GPIO_PinOutType = GPIO_OPTYPE_PUSH_PULL;
     handler->GPIO_pin_config.GPIO_PinOutSpeed = GPIO_OPSPEED_LOW;
     handler->GPIO_pin_config.GPIO_PinPushPullResistor = GPIO_PUPD_NO;
     handler->GPIO_pin_config.GPIO_PinAltFun = 7;

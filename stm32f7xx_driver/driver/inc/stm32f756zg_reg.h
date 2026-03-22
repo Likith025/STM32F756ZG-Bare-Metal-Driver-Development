@@ -5,8 +5,8 @@
  *      Author: likith
  */
 
-#ifndef INC_STM32F7XX_DRIVER_CUSTOM_H_
-#define INC_STM32F7XX_DRIVER_CUSTOM_H_
+#ifndef INC_STM32F756ZG_REG_H_
+#define INC_STM32F756ZG_REG_H_
 #include <stdint.h>
 #include <stddef.h>
 
@@ -23,6 +23,8 @@ typedef struct
     uint32_t RESERVED2[24];
     volatile uint32_t ICPR[8];
     uint32_t RESERVED3[24];
+    volatile uint32_t IABR[8];
+    uint32_t RESERVED4[56];
     volatile uint32_t IPR[60];
 
 } NVIC_RegDef_t;
@@ -136,6 +138,8 @@ typedef struct
 #define	IRQ_NO_EXTI5_9	23
 #define IRQ_NO_EXTI10_15	40
 
+#define IRQ_NO_USART3	39
+
 
 
 
@@ -232,4 +236,4 @@ typedef struct{
 
 
 
-#endif /* INC_STM32F7XX_DRIVER_CUSTOM_H_ */
+#endif /* INC_STM32F756ZG_REG_H_ */

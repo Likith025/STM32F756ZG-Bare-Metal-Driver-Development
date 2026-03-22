@@ -24,18 +24,26 @@
 
 
 
+
 void GPIO_Polling(void);
 void GPIO_Interrupt(void);
 void USART_Polling(void);
 void EXTI15_10_IRQHandler(void);
+void USART3_IRQHandler(void);
+
 
 volatile uint8_t button_pressed = 0;
+
+GPIO_handler_t USART_TX;
+GPIO_handler_t USART_RX;
+USART_handler_t USART;
+
 
 int main(void)
 	{
 		//GPIO_Polling();
-		//USART_Polling();
-		GPIO_Interrupt();
+		USART_Polling();
+		//GPIO_Interrupt();
 		}
 
 
@@ -43,7 +51,6 @@ int main(void)
 void GPIO_Polling(void){
 	GPIO_handler_t LED;
 	GPIO_handler_t BUTTON;
-	led_setup(&LED);
 	button_setup(&BUTTON);
 
 	GPIO_TogglePin(GPIO_B, 14);
@@ -57,18 +64,19 @@ void GPIO_Polling(void){
 
 
 void USART_Polling(void){
-	GPIO_handler_t USART_TX;
-	GPIO_handler_t USART_RX;
-	USART_handler_t USART;
 	usart3_tx(&USART_TX);
 	usart3_rx(&USART_RX);
 	usart3_init(&USART);
-	uint8_t msg = 0;
+	IntrruptConfig(39, 10, ENABLE);
+
+	uint8_t rx_buf[1] = {0};
+
 	while(1){
-		USART_ReadData(&USART, &msg, 1);
-		for(int i = 0; i < 1000000; i++);
-		USART_SendData(&USART, (uint8_t*)"\n\r", 2);
-		USART_SendData(&USART, &msg, 1);
+	    USART_ReadData_IT(&USART, rx_buf, 1);
+	    while(USART.UASRT_Rxstate != USART_FREE);
+
+	    USART_SendData_IT(&USART, rx_buf, 1);
+	    while(USART.UASRT_Txstate != USART_FREE);
 	}
 }
 void GPIO_Interrupt(void)
@@ -103,6 +111,13 @@ void GPIO_Interrupt(void)
 
 void EXTI15_10_IRQHandler(void)
 {
-    GPIO_IRQ_Handler(13);   // clear interrupt pending bit
+	GPIO_ClearPendingFlag(13);   // clear interrupt pending bit
     button_pressed = 1;     // signal event
 }
+
+void USART3_IRQHandler(void){
+	 USART_IRQHandler(&USART);
+
+
+}
+
