@@ -12,7 +12,6 @@
 #include "stm32f7xx_gpio_driver.h"
 #include "nvic.h"
 
-
 extern USART_handler_t g_usart3;
 extern GPIO_handler_t g_led3;
 extern GPIO_handler_t g_button;

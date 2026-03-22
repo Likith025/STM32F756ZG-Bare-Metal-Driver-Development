@@ -54,7 +54,7 @@ void button_interrupt_setup(GPIO_handler_t *BUTTON){
 	GPIO_init(BUTTON);
 
 	/* Clear stale EXTI pending flag before unmasking NVIC */
-	GPIO_IRQ_Handler(13);
+	GPIO_ClearPendingFlag(13);
 	GPIO_IntrruptConfig(IRQ_NO_EXTI10_15,15,ENABLE);
 }
 

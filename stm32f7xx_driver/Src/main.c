@@ -19,105 +19,55 @@
 #include <stdint.h>
 #include <string.h>
 #include "peripheral_config.h"
+#include "ring_buffer.h"
+#include "process.h"
 
 
 
 
 
-
-void GPIO_Polling(void);
-void GPIO_Interrupt(void);
-void USART_Polling(void);
-void EXTI15_10_IRQHandler(void);
-void USART3_IRQHandler(void);
+#define MAX_SIZE 50
 
 
-volatile uint8_t button_pressed = 0;
+uint8_t rx_byte;
 
-GPIO_handler_t USART_TX;
-GPIO_handler_t USART_RX;
-USART_handler_t USART;
-
+r_buffer r1={0};
+char mem[MAX_SIZE];
 
 int main(void)
 	{
-		//GPIO_Polling();
-		USART_Polling();
-		//GPIO_Interrupt();
+	led_setup_red(&g_led3);
+	usart3_tx(&g_usart3_tx);
+	usart3_rx(&g_usart3_rx);
+	usart3_init(&g_usart3);
+	ring_buffer_init(&r1, mem, MAX_SIZE);
+	IntrruptConfig(IRQ_NO_USART3, 5, ENABLE);
+	USART_ReadData_IT(&g_usart3, &rx_byte, 1);
+	USART_SendData_IT(&g_usart3, (uint8_t*)"Parser_Started\n\r", sizeof("Parser_Started\n\r"));
+	while(1){
+
+	}
+
+
 		}
 
-
-
-void GPIO_Polling(void){
-	GPIO_handler_t LED;
-	GPIO_handler_t BUTTON;
-	button_setup(&BUTTON);
-
-	GPIO_TogglePin(GPIO_B, 14);
-	for(int i = 0; i < 1000000; i++);
-	GPIO_TogglePin(GPIO_B, 14);
-
-	while(1){
-		GPIO_WritePin(GPIO_B, 14, GPIO_ReadPin(GPIO_C, 13));
-	}
-}
-
-
-void USART_Polling(void){
-	usart3_tx(&USART_TX);
-	usart3_rx(&USART_RX);
-	usart3_init(&USART);
-	IntrruptConfig(39, 10, ENABLE);
-
-	uint8_t rx_buf[1] = {0};
-
-	while(1){
-	    USART_ReadData_IT(&USART, rx_buf, 1);
-	    while(USART.UASRT_Rxstate != USART_FREE);
-
-	    USART_SendData_IT(&USART, rx_buf, 1);
-	    while(USART.UASRT_Txstate != USART_FREE);
-	}
-}
-void GPIO_Interrupt(void)
+void USART_ApplicationEventCallback(USART_handler_t *pUSARTHandle,USART_CallBack_t event)
 {
-    GPIO_handler_t LED_Blue;
-    GPIO_handler_t LED_Red;
-    GPIO_handler_t BUTTON;
+if (event==USART_EVENT_RX_CMPL){
+	ring_buffer_push(&r1, rx_byte);
+	extract_cmd(&r1);
+	USART_ReadData_IT(&g_usart3, &rx_byte, 1);
 
-    led_setup_blue(&LED_Blue);
-    led_setup_red(&LED_Red);
-    button_interrupt_setup(&BUTTON);
 
-    while(1)
-    {
-        // System alive indicator
-        GPIO_TogglePin(GPIO_B,7);
-        for(volatile int i=0;i<200000;i++);
-
-        if(button_pressed)
-        {
-            for(volatile int i=0;i<200000;i++);   // debounce delay
-
-            if(GPIO_ReadPin(GPIO_C,13) == 0)
-            {
-                GPIO_TogglePin(GPIO_B,14);
-            }
-
-            button_pressed = 0;
-        }
-    }
 }
-
-void EXTI15_10_IRQHandler(void)
-{
-	GPIO_ClearPendingFlag(13);   // clear interrupt pending bit
-    button_pressed = 1;     // signal event
+if(event==USART_EVENT_TX_CMPL){
+	pUSARTHandle->UASRT_Txstate=USART_FREE;
+}
 }
 
 void USART3_IRQHandler(void){
-	 USART_IRQHandler(&USART);
-
-
+    USART_IRQHandler(&g_usart3);
 }
+
+
 
