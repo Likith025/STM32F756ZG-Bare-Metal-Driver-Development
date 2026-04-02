@@ -1,3 +1,0 @@
-[submodule "stm32f7xx_driver/app/parser"]
-	path = stm32f7xx_driver/app/parser
-	url = https://github.com/Likith025/Command_Line_Parser
