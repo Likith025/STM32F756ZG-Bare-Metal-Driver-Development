@@ -18,56 +18,53 @@
 
 #include <stdint.h>
 #include <string.h>
+#include <stdio.h>
 #include "peripheral_config.h"
-#include "ring_buffer.h"
-#include "process.h"
+#include "stm32f7xx_timer_driver.h"
+#include <stm32f756zg_reg.h>
 
 
-
-
-
-#define MAX_SIZE 50
 
 
 uint8_t rx_byte;
 
-r_buffer r1={0};
-char mem[MAX_SIZE];
+GPIO_RegDef_t *led;
+uint8_t button_state;
+TIMER_handler_t timer2;
+uint32_t count=0;
+char buffer[20];
+int len=0;
+uint16_t i=0;
 
 int main(void)
 	{
+	//uint8_t count=0;
 	led_setup_red(&g_led3);
+	button_setup(&g_button);
+	timer2.TimerConfig.PreScaler=16000;
+	timer2.TimerConfig.Period=1000;
+	timer2.TimerConfig.direction=0;
+//	uint8_t button_state;
 	usart3_tx(&g_usart3_tx);
 	usart3_rx(&g_usart3_rx);
 	usart3_init(&g_usart3);
-	ring_buffer_init(&r1, mem, MAX_SIZE);
-	IntrruptConfig(IRQ_NO_USART3, 5, ENABLE);
-	USART_ReadData_IT(&g_usart3, &rx_byte, 1);
-	USART_SendData_IT(&g_usart3, (uint8_t*)"Parser_Started\n\r", sizeof("Parser_Started\n\r"));
-	while(1){
+	TimerInit(&timer2);
 
+	TimerControl(&timer2, ENABLE);
+	USART_SendData(&g_usart3, (uint8_t*)"Getting Started\n\r", sizeof("Getting Started\n\r"));
+	//timer2.pTimer->TIM_SR &= ~(1<<0);
+	while(1)
+	{
+	    timer2.pTimer->TIM_SR &= ~(1<<0);
+	    while(!(timer2.pTimer->TIM_SR & (1<<0))){
+	    	count=TimerGetCount(&timer2);
+	    }
+
+
+	    GPIO_TogglePin(g_led3.pGPIOx, 14);
+	}
 	}
 
-
-		}
-
-void USART_ApplicationEventCallback(USART_handler_t *pUSARTHandle,USART_CallBack_t event)
-{
-if (event==USART_EVENT_RX_CMPL){
-	ring_buffer_push(&r1, rx_byte);
-	extract_cmd(&r1);
-	USART_ReadData_IT(&g_usart3, &rx_byte, 1);
-
-
-}
-if(event==USART_EVENT_TX_CMPL){
-	pUSARTHandle->UASRT_Txstate=USART_FREE;
-}
-}
-
-void USART3_IRQHandler(void){
-    USART_IRQHandler(&g_usart3);
-}
 
 
 
