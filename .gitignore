@@ -10,12 +10,6 @@ Release/
 *.hex
 *.bin
 
-# ===== IDE settings =====
-.settings/
-*.launch
-.cproject
-.project
-
 # ===== OS files =====
 .DS_Store
 Thumbs.db
