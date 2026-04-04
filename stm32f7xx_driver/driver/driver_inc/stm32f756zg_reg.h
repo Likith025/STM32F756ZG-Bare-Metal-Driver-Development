@@ -128,6 +128,8 @@ typedef struct
 
 #define SYSCFG	((SYSCFG_RegDef_t*)SYSCFG_BASE_ADDR)
 
+#define TIMER2 ((TIMER_RegDef_t*)TIMMER_2_BASE_ADDR)
+
 
 //IRQ numbers
 #define	IRQ_NO_EXTI0	6
@@ -231,6 +233,32 @@ typedef struct{
 }SYSCFG_RegDef_t;
 
 
+
+typedef struct{
+	volatile uint32_t TIM_CR1;
+	volatile uint32_t TIM_CR2;
+	volatile uint32_t TIM_SMCR;
+	volatile uint32_t TIM_DIER;
+	volatile uint32_t TIM_SR;
+	volatile uint32_t TIM_EGR;
+	volatile uint32_t TIM_CCMR1;
+	volatile uint32_t TIM_CCMR2;
+	volatile uint32_t TIM_CCER;
+	volatile uint32_t TIM_CNT;
+	volatile uint32_t TIM_PSC;
+	volatile uint32_t TIM_ARR;
+	uint32_t RESERVED_1;
+	volatile uint32_t TIM_CCR1;
+	volatile uint32_t TIM_CCR2;
+	volatile uint32_t TIM_CCR3;
+	volatile uint32_t TIM_CCR4;
+	uint32_t RESERVED_2;
+	volatile uint32_t TIM_DCR;
+	volatile uint32_t TIM_DMR;
+	volatile uint32_t TIM_OR;
+
+
+}TIMER_RegDef_t;
 
 #include "stm32f7xx_gpio_driver.h"
 

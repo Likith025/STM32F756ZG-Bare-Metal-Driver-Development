@@ -1,4 +1,4 @@
-/*
+	/*
  * peripheral_config.c
  *
  *  Created on: Mar 1, 2026
@@ -55,7 +55,7 @@ void button_interrupt_setup(GPIO_handler_t *BUTTON){
 
 	/* Clear stale EXTI pending flag before unmasking NVIC */
 	GPIO_ClearPendingFlag(13);
-	GPIO_IntrruptConfig(IRQ_NO_EXTI10_15,15,ENABLE);
+	IntrruptConfig(IRQ_NO_EXTI10_15,15,ENABLE);
 }
 
 void usart3_init(USART_handler_t *handler){
