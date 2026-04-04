@@ -1,4 +1,4 @@
-/*
+	/*
  * peripheral_config.c
  *
  *  Created on: Mar 1, 2026
