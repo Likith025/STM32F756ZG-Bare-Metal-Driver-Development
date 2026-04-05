@@ -34,7 +34,8 @@ TIMER_handler_t timer2;
 uint32_t count=0;
 char buffer[20];
 int len=0;
-uint16_t i=0;
+
+
 
 int main(void)
 	{
