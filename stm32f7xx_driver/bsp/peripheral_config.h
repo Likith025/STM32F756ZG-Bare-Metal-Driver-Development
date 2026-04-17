@@ -10,6 +10,7 @@
 
 #include "stm32f7xx_uart_driver.h"
 #include "stm32f7xx_gpio_driver.h"
+#include "stm32f7xx_timer_driver.h"
 #include "nvic.h"
 
 extern USART_handler_t g_usart3;
@@ -17,6 +18,8 @@ extern GPIO_handler_t g_led3;
 extern GPIO_handler_t g_button;
 extern GPIO_handler_t g_usart3_tx;
 extern GPIO_handler_t g_usart3_rx;
+extern TIMER_handler_t g_timer2;
+extern GPIO_handler_t g_timer2_ch1;
 
 
 // Initialization functions - accept handler pointers
@@ -27,6 +30,7 @@ void button_interrupt_setup(GPIO_handler_t *BUTTON);
 void usart3_init(USART_handler_t *handler);
 void usart3_tx(GPIO_handler_t *handler);
 void usart3_rx(GPIO_handler_t *handler);
-
+void timer2_setup(TIMER_handler_t* handler, uint16_t prescaler,uint16_t Reload_val, Timer_direction_t direction);
+void timer2ch1(GPIO_handler_t* handler);
 
 #endif /* PERIPHERAL_CONFIG_H_ */

@@ -43,3 +43,14 @@ uint32_t TimerGetCount(TIMER_handler_t* timer_handle){
 	return timer_count;
 }
 
+uint8_t TimerGetFlagStatus(TIMER_handler_t* timer_handle,Timer_flags_t Flag){
+	uint8_t status=0;
+	if(timer_handle->pTimer->TIM_SR&Flag){
+		status=1;
+	}
+	return status;
+}
+
+void TimerResetFlag(TIMER_handler_t* timer_handle,Timer_flags_t Flag){
+	timer_handle->pTimer->TIM_SR&=~(Flag);
+}
