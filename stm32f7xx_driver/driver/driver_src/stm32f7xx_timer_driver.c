@@ -55,15 +55,20 @@ uint8_t TimerGetFlagStatus(TIMER_handler_t* timer_handle,Timer_flags_t Flag){
 void TimerResetFlag(TIMER_handler_t* timer_handle,Timer_flags_t Flag){
 	timer_handle->pTimer->TIM_SR&=~(Flag);
 }
-void TimerSetFrequency(TIMER_handler_t* timer_handle,uint32_t frequency){
-	uint32_t timer_clk_freq=INPUT_CLK_FREQ;
-	uint32_t target_clk_freq=TARGET_CLK_FREQ;
 
-	uint32_t PreScaler=timer_clk_freq/target_clk_freq;
-	uint32_t ARR=target_clk_freq/frequency;
+void TimerSetFrequency(TIMER_handler_t* handler, uint32_t freq)
+{
+    uint32_t timer_clk = INPUT_CLK_FREQ;
+    uint32_t total_counts = timer_clk / freq;
 
-	timer_handle->TimerConfig.PreScaler=PreScaler;
-	timer_handle->TimerConfig.Period=ARR;
+    // Choose ARR first (good resolution)
+    uint32_t arr = 1000;
+
+    // Compute prescaler
+    uint32_t prescaler = total_counts / arr;
+
+    handler->TimerConfig.PreScaler = prescaler;
+    handler->TimerConfig.Period    = arr;
 }
 
 void TimerPWM_init(TIMER_handler_t* timer_handle,Timer_channel_t Channel){
