@@ -6,6 +6,7 @@
  */
 #include "stm32f7xx_gpio_driver.h"
 #include "stm32f7xx_uart_driver.h"
+#include "stm32f7xx_timer_driver.h"
 #include "peripheral_config.h"
 
 
@@ -14,6 +15,8 @@ GPIO_handler_t g_led3 = {0};
 GPIO_handler_t g_button = {0};
 GPIO_handler_t g_usart3_tx = {0};
 GPIO_handler_t g_usart3_rx = {0};
+GPIO_handler_t g_timer2_ch1={0};
+TIMER_handler_t g_timer2={0};
 
 
 
@@ -105,4 +108,22 @@ void usart3_rx(GPIO_handler_t *handler){
 
     GPIO_clk_init(GPIO_D, ENABLE);
     GPIO_init(handler);
+}
+
+void timer2ch1(GPIO_handler_t* handler){
+	handler->pGPIOx=GPIO_A;
+	handler->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_ALTERNATE_FUN;
+	handler->GPIO_pin_config.GPIO_PinNumber=5;
+	handler->GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
+	handler->GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
+	handler->GPIO_pin_config.GPIO_PinAltFun=1;
+
+
+    GPIO_clk_init(GPIO_A, ENABLE);
+    GPIO_init(handler);
+}
+
+void timer2_setup(TIMER_handler_t* handler,Timer_direction_t direction){
+	handler->TimerConfig.direction=direction;
+	TimerInit(handler);
 }

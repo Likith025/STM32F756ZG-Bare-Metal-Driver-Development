@@ -30,41 +30,33 @@ uint8_t rx_byte;
 
 GPIO_RegDef_t *led;
 uint8_t button_state;
-TIMER_handler_t timer2;
 uint32_t count=0;
 char buffer[20];
 int len=0;
-uint16_t i=0;
 
-int main(void)
-	{
-	//uint8_t count=0;
-	led_setup_red(&g_led3);
-	button_setup(&g_button);
-	timer2.TimerConfig.PreScaler=16000;
-	timer2.TimerConfig.Period=1000;
-	timer2.TimerConfig.direction=0;
-//	uint8_t button_state;
-	usart3_tx(&g_usart3_tx);
-	usart3_rx(&g_usart3_rx);
-	usart3_init(&g_usart3);
-	TimerInit(&timer2);
+uint16_t get_cnt(uint8_t dc){
+	return	((1000*dc)/100);
+}
 
-	TimerControl(&timer2, ENABLE);
-	USART_SendData(&g_usart3, (uint8_t*)"Getting Started\n\r", sizeof("Getting Started\n\r"));
-	//timer2.pTimer->TIM_SR &= ~(1<<0);
-	while(1)
+	int main(void)
 	{
-	    timer2.pTimer->TIM_SR &= ~(1<<0);
-	    while(!(timer2.pTimer->TIM_SR & (1<<0))){
-	    	count=TimerGetCount(&timer2);
+
+	    TimerSetFrequency(&g_timer2, 1000);
+	    timer2_setup(&g_timer2, UpCounter);
+	    TimerPWM_init(&g_timer2,CH1);
+
+
+
+	    TimerPWM_DutyCycle(&g_timer2,CH1,70);
+	    timer2ch1(&g_timer2_ch1);
+
+	    TimerControl(&g_timer2, ENABLE);
+
+	    while(1){
+	    	for(volatile int i =0;i<1000000;i++){
+
+	    	}
+		    TimerPWM_DutyCycle(&g_timer2,CH1,30);
 	    }
-
-
-	    GPIO_TogglePin(g_led3.pGPIOx, 14);
 	}
-	}
-
-
-
 
