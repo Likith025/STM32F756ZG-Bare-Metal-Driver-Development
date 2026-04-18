@@ -21,6 +21,7 @@
 #include <stdio.h>
 #include "peripheral_config.h"
 #include "stm32f7xx_timer_driver.h"
+#include "stm32f7xx_uart_driver.h"
 #include <stm32f756zg_reg.h>
 
 
@@ -40,23 +41,42 @@ uint16_t get_cnt(uint8_t dc){
 
 	int main(void)
 	{
-
-	    TimerSetFrequency(&g_timer2, 1000);
+		usart3_tx(&g_usart3_tx);
+		usart3_rx(&g_usart3_rx);
+		usart3_init(&g_usart3);
+		IntrruptConfig(IRQ_NO_USART3, 5, ENABLE);
+		USART_SendData_IT(&g_usart3, (uint8_t*)"Parser_Started\n\r", sizeof("Parser_Started\n\r"));
+	    TimerSetFrequency(&g_timer2, 5000);
 	    timer2_setup(&g_timer2, UpCounter);
 	    TimerPWM_init(&g_timer2,CH1);
-
-
-
-	    TimerPWM_DutyCycle(&g_timer2,CH1,70);
 	    timer2ch1(&g_timer2_ch1);
 
+
+	    TimerPWM_DutyCycle(&g_timer2,CH1,90);
+//	    timer2ch1(&g_timer2_ch1);
+
 	    TimerControl(&g_timer2, ENABLE);
+//	    g_timer2.pTimer->TIM_PSC = 15999;
+//	    g_timer2.pTimer->TIM_ARR = 999;
+//
+//	    // update
+//	    g_timer2.pTimer->TIM_EGR |= (1 << 0);
+//
+//	    // 50% duty
+//	    g_timer2.pTimer->TIM_CCR1 = 500;
+//
+//	    // start
+//	    g_timer2.pTimer->TIM_CR1 |= (1 << 0);
 
 	    while(1){
-	    	for(volatile int i =0;i<1000000;i++){
-
-	    	}
-		    TimerPWM_DutyCycle(&g_timer2,CH1,30);
+//	    	for(volatile int i =0;i<1000000;i++){
+//
+//	    	}
+//		    TimerPWM_DutyCycle(&g_timer2,CH1,90);
 	    }
+	}
+
+	void USART3_IRQHandler(void){
+	    USART_IRQHandler(&g_usart3);
 	}
 
