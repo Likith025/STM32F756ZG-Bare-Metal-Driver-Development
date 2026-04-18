@@ -123,9 +123,7 @@ void timer2ch1(GPIO_handler_t* handler){
     GPIO_init(handler);
 }
 
-void timer2_setup(TIMER_handler_t* handler, uint16_t prescaler,uint16_t Reload_val, Timer_direction_t direction){
-	handler->TimerConfig.Period=Reload_val-1;
-	handler->TimerConfig.PreScaler=prescaler-1;
+void timer2_setup(TIMER_handler_t* handler,Timer_direction_t direction){
 	handler->TimerConfig.direction=direction;
 	TimerInit(handler);
 }

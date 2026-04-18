@@ -30,7 +30,7 @@ void button_interrupt_setup(GPIO_handler_t *BUTTON);
 void usart3_init(USART_handler_t *handler);
 void usart3_tx(GPIO_handler_t *handler);
 void usart3_rx(GPIO_handler_t *handler);
-void timer2_setup(TIMER_handler_t* handler, uint16_t prescaler,uint16_t Reload_val, Timer_direction_t direction);
+void timer2_setup(TIMER_handler_t* handler,Timer_direction_t direction);
 void timer2ch1(GPIO_handler_t* handler);
 
 #endif /* PERIPHERAL_CONFIG_H_ */

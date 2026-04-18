@@ -54,6 +54,13 @@ typedef enum{
 	Timer_Flag_CC4OF=TIMER_SR_CC4OF,
 }Timer_flags_t;
 
+typedef enum{
+	CH1=1,
+	CH2,
+	CH3,
+	CH4,
+}Timer_channel_t;
+
 
 //API prototypes
 void TimerInit(TIMER_handler_t* timer_handle);
@@ -61,5 +68,7 @@ void TimerControl(TIMER_handler_t* timer_handle,uint16_t state);
 uint32_t TimerGetCount(TIMER_handler_t* timer_handle);
 uint8_t TimerGetFlagStatus(TIMER_handler_t* timer_handle,Timer_flags_t Flag);
 void TimerResetFlag(TIMER_handler_t* timer_handle,Timer_flags_t Flag);
-
+void TimerSetFrequency(TIMER_handler_t* timer_handle,uint32_t frequency);
+void TimerPWM_init(TIMER_handler_t* timer_handle,Timer_channel_t Channel);
+void TimerPWM_DutyCycle(TIMER_handler_t* timer_handle,Timer_channel_t Channel,uint8_t DutyCycle);
 #endif /* INC_STM32F7XX_TIMER_DRIVER_H_ */
