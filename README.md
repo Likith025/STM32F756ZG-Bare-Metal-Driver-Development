@@ -41,7 +41,7 @@ This project emphasizes:
 | USART/UART | ✅ Completed | Serial communication |
 | SPI | 📋 Planned | Serial peripheral interface |
 | I2C | 📋 Planned | Inter-integrated circuit |
-| Timers | 📋 Planned | General-purpose and advanced timers |
+| Timers | ✅ Planned | General-purpose and PWM |
 | DMA | 📋 Planned | Direct memory access |
 | NVIC | ✅ Completed | Nested vectored interrupt controller |
 
