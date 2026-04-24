@@ -1,0 +1,164 @@
+\doxysection{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.\+c}
+\hypertarget{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026}{}\label{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026}Configure red LED (GPIO\+\_\+B pin 14).
+
+Configure red LED (GPIO\+\_\+B pin 14)
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em p\+LED} & Pointer to \doxylink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t} for LED configuration \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Initializes GPIO pin 14 on PORT B as an output for the red LED indicator. Sets up push-\/pull output with high speed capability for LED visibility.
+
+{\bfseries{GPIO Configuration:\+}}
+\begin{DoxyItemize}
+\item Port:\+ GPIOB
+\item Pin:\+ 14
+\item Mode:\+ Output (GPIO\+\_\+\+MODE\+\_\+\+OUT)
+\item Speed:\+ High (for LED response visibility)
+\item Pull:\+ None (open output)
+\item Initial State:\+ Low (LED off)
+\item Push-\/\+Pull:\+ Yes (standard LED drive)
+\end{DoxyItemize}
+
+{\bfseries{Register Setup:\+}}
+\begin{DoxyItemize}
+\item GPIOB\+\_\+\+MODER\+[28:\+29]\+ = 01 (Output mode)
+\item GPIOB\+\_\+\+OSPEEDR\+[28:\+29]\+ = 10 (High speed)
+\item GPIOB\+\_\+\+OTYPER\+[14]\+ = 0 (Push-\/pull)
+\item GPIOB\+\_\+\+PUPDR\+[28:\+29]\+ = 00 (No pull)
+\item GPIOB\+\_\+\+ODR\+[14]\+ = 0 (Initial low -\/ LED off)
+\end{DoxyItemize}
+
+{\bfseries{LED Drive Current:\+}}
+\begin{DoxyItemize}
+\item Output HIGH:\+ \texorpdfstring{$\sim$}{\string~}100 mA (GPIO max, limited by external resistor)
+\item Forward Voltage:\+ 2.\+0-\/3.\+0 V typical for red LED
+\item Typical Series Resistor:\+ 100-\/200 Ω
+\item Power Consumption:\+ \texorpdfstring{$\sim$}{\string~}10-\/20 mW per LED
+\end{DoxyItemize}
+
+{\bfseries{Usage:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ \doxymbox{\hyperlink{main_8c_ac048b5ed45a3dfd7d81d65ad900d1787}{led}};}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga149103b303430f06e1bb902c91dfabea}{led\_setup\_red}}(\&\doxymbox{\hyperlink{main_8c_ac048b5ed45a3dfd7d81d65ad900d1787}{led}});\ \ \ \ \ \textcolor{comment}{//\ Initialize}}
+\DoxyCodeLine{\doxymbox{\hyperlink{stm32f7xx__gpio__driver_8h_a27e2dc156571c63c30d824b49a96173c}{GPIO\_WritePin}}(\doxymbox{\hyperlink{main_8c_ac048b5ed45a3dfd7d81d65ad900d1787}{led}}.pGPIOx,\ 14,\ SET);\ \ \ \ \ \textcolor{comment}{//\ Turn\ on}}
+\DoxyCodeLine{\doxymbox{\hyperlink{stm32f7xx__gpio__driver_8h_a27e2dc156571c63c30d824b49a96173c}{GPIO\_WritePin}}(\doxymbox{\hyperlink{main_8c_ac048b5ed45a3dfd7d81d65ad900d1787}{led}}.pGPIOx,\ 14,\ RESET);\ \ \ \textcolor{comment}{//\ Turn\ off}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em p\+LED} & Handler structure to be configured:\+
+\begin{DoxyItemize}
+\item p\+LED-\/\texorpdfstring{$>$}{>}p\+GPIOx:\+ Set to GPIOB
+\item p\+LED-\/\texorpdfstring{$>$}{>}pin:\+ Set to 14
+\item Configuration:\+ Output, high speed, push-\/pull
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item GPIOB clock must be enabled in RCC before calling
+\item Can be called multiple times (idempotent)
+\item LED is off after initialization (pin low)
+\item Fast visibility (no PWM dimming)
+\end{DoxyItemize}
+\end{DoxyNote}
+\doxylink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t} my\+\_\+led; led\+\_\+setup\+\_\+red(\&my\+\_\+led); /\+/\+ LED is now ready to control
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga1d8ed4eda8ef2b3adc80c0de7b8d1897}{led\+\_\+setup\+\_\+blue()}, \doxylink{stm32f7xx__gpio__driver_8h_a27e2dc156571c63c30d824b49a96173c}{GPIO\+\_\+\+Write\+Pin()}
+\end{DoxySeeAlso}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{peripheral__config_8h}{peripheral\_config.h}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga149103b303430f06e1bb902c91dfabea}{led\_setup\_red}}(\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ *pLED)\ \{}
+\DoxyCodeLine{\ \ \ \ pLED-\/>\doxymbox{\hyperlink{struct_g_p_i_o__handler__t_ab2a37417c657d3a8b803a7248fbfc825}{pGPIOx}}\ =\ GPIOB;}
+\DoxyCodeLine{\ \ \ \ pLED-\/>pin\ =\ 14;}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Configure\ as\ output\ with\ high\ speed}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ GPIOB\_MODER[28:29]\ =\ 01\ (Output)}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ GPIOB\_OSPEEDR[28:29]\ =\ 10\ (High\ speed)}}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}{GPIO\_Init}}(pLED-\/>\doxymbox{\hyperlink{struct_g_p_i_o__handler__t_ab2a37417c657d3a8b803a7248fbfc825}{pGPIOx}},\ pLED-\/>pin,\ GPIO\_MODE\_OUT,\ GPIO\_SPEED\_HIGH);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga1d8ed4eda8ef2b3adc80c0de7b8d1897}{led\_setup\_blue}}(\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ *pLED)\ \{}
+\DoxyCodeLine{\ \ \ \ pLED-\/>\doxymbox{\hyperlink{struct_g_p_i_o__handler__t_ab2a37417c657d3a8b803a7248fbfc825}{pGPIOx}}\ =\ GPIOB;}
+\DoxyCodeLine{\ \ \ \ pLED-\/>pin\ =\ 15;}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Configure\ as\ output\ with\ high\ speed}}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}{GPIO\_Init}}(pLED-\/>\doxymbox{\hyperlink{struct_g_p_i_o__handler__t_ab2a37417c657d3a8b803a7248fbfc825}{pGPIOx}},\ pLED-\/>pin,\ GPIO\_MODE\_OUT,\ GPIO\_SPEED\_HIGH);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\ \textcolor{comment}{//\ end\ of\ BSP\_LED\_FUNCTIONS}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___b_s_p___b_u_t_t_o_n___f_u_n_c_t_i_o_n_s_gacdfc58cc10456684450ff03693b2182f}{button\_setup}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Configure\ GPIOA\ pin\ 0\ as\ input\ with\ pull-\/up}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ GPIOA\_MODER[1:0]\ =\ 00\ (Input)}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ GPIOA\_PUPDR[1:0]\ =\ 01\ (Pull-\/up)}}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}{GPIO\_Init}}(GPIOA,\ 0,\ GPIO\_MODE\_IN,\ GPIO\_PULL\_UP);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___b_s_p___b_u_t_t_o_n___f_u_n_c_t_i_o_n_s_gafd89cef713a19170a6f26ed8ebb3e62a}{button\_interrupt\_setup}}(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Configure\ EXTI0\ for\ falling\ edge\ (button\ press)}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ SYSCFG\_EXTICR1[3:0]\ =\ 0000\ (GPIOA)}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ EXTI\_FTSR[0]\ =\ 1\ (Falling\ edge)}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ EXTI\_IMR[0]\ =\ 1\ (Enable\ interrupt\ mask)}}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___g_p_i_o___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gabc4d268da70deb966f5faa2aaa7cbe2a}{GPIO\_EXTI\_Config}}(0);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\ \textcolor{comment}{//\ end\ of\ BSP\_BUTTON\_FUNCTIONS}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_gae862bef71de80c107ecac7ceab728b82}{usart3\_init}}(\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\_handler\_t}}\ *pUSART)\ \{}
+\DoxyCodeLine{\ \ \ \ pUSART-\/>\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_abcb4d83c5307b8932d8d01f0c67cfd59}{pUSART}}\ =\ USART3;}
+\DoxyCodeLine{\ \ \ \ pUSART-\/>\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a8adcc0b0e7debd292b9a284956d18950}{USART\_config}}.\doxymbox{\hyperlink{struct_u_s_a_r_t__config__t_a5867f9f730310abbdd455e60d990b317}{USART\_Mode}}\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a77c027cb8bca5f52dcbeba14f4ad7f89aacbd5fdc9482c7386d5dfeffe925c348}{USART\_MODE\_TXRX}};}
+\DoxyCodeLine{\ \ \ \ pUSART-\/>\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a8adcc0b0e7debd292b9a284956d18950}{USART\_config}}.\doxymbox{\hyperlink{struct_u_s_a_r_t__config__t_a70825968a6b88bcbbfafef664bfcb510}{USART\_BaudRate}}\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478ab8872f766b21a4fb82167eb0f4bba481}{USART\_BAUD\_115200}};}
+\DoxyCodeLine{\ \ \ \ pUSART-\/>\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a8adcc0b0e7debd292b9a284956d18950}{USART\_config}}.\doxymbox{\hyperlink{struct_u_s_a_r_t__config__t_a3974d0ad2c9ec5a891e4c1ad92502618}{USART\_StopBits}}\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00aa341d7512f5171d36b72314ae8977cd54}{USART\_StopBits\_1}};}
+\DoxyCodeLine{\ \ \ \ pUSART-\/>\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a8adcc0b0e7debd292b9a284956d18950}{USART\_config}}.\doxymbox{\hyperlink{struct_u_s_a_r_t__config__t_afb2cdfd0c6a12bd0ee0ef3e7bf899577}{USART\_WordLength}}\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a11b26499f9aeea8d770c493cc65f65fba74c9445d45bf4e8112d2a3616f504991}{USART\_WordLen\_8bits}};}
+\DoxyCodeLine{\ \ \ \ pUSART-\/>\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a8adcc0b0e7debd292b9a284956d18950}{USART\_config}}.\doxymbox{\hyperlink{struct_u_s_a_r_t__config__t_ac00a305d20351fcc8d3fc37e913d0634}{USART\_ParityControl}}\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a0bf5457d1d0c0d8d85fe765331b2ef85a178861cbbab0195a89575ac1993cc2bd}{USART\_Parity\_None}};}
+\DoxyCodeLine{\ \ \ \ pUSART-\/>\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a8adcc0b0e7debd292b9a284956d18950}{USART\_config}}.\doxymbox{\hyperlink{struct_u_s_a_r_t__config__t_a963b4e7b8b141c5c1381d270b3614ddb}{USART\_HWflowControl}}\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cba9ae19224084f8e3b26d9bbb5a95c5e75}{USART\_HW\_FlowCtrl\_None}};}
+\DoxyCodeLine{\ \ \ \ pUSART-\/>\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a8adcc0b0e7debd292b9a284956d18950}{USART\_config}}.USART\_OverSampling\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abafac9366efc163949f648cb90e719a3a46e3bb17f33d7569fbccb3302d46b93b}{USART\_OverSampling\_8}};}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_ga564ffcd2cbac51d721188fd510ff593c}{USART\_init}}(pUSART,\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a}{ENABLE}});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga59d034137a5e59672ddd16be41fb516a}{usart3\_tx}}(\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ *pTX)\ \{}
+\DoxyCodeLine{\ \ \ \ pTX-\/>\doxymbox{\hyperlink{struct_g_p_i_o__handler__t_ab2a37417c657d3a8b803a7248fbfc825}{pGPIOx}}\ =\ GPIOC;}
+\DoxyCodeLine{\ \ \ \ pTX-\/>pin\ =\ 10;}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Configure\ as\ alternate\ function\ AF7\ (USART3\_TX)}}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}{GPIO\_Init}}(pTX-\/>\doxymbox{\hyperlink{struct_g_p_i_o__handler__t_ab2a37417c657d3a8b803a7248fbfc825}{pGPIOx}},\ pTX-\/>pin,\ GPIO\_MODE\_AF,\ GPIO\_SPEED\_HIGH);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga7598dcb2f135070c5fc9ee7298d861fa}{usart3\_rx}}(\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ *pRX)\ \{}
+\DoxyCodeLine{\ \ \ \ pRX-\/>\doxymbox{\hyperlink{struct_g_p_i_o__handler__t_ab2a37417c657d3a8b803a7248fbfc825}{pGPIOx}}\ =\ GPIOC;}
+\DoxyCodeLine{\ \ \ \ pRX-\/>pin\ =\ 11;}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Configure\ as\ alternate\ function\ AF7\ (USART3\_RX)}}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}{GPIO\_Init}}(pRX-\/>\doxymbox{\hyperlink{struct_g_p_i_o__handler__t_ab2a37417c657d3a8b803a7248fbfc825}{pGPIOx}},\ pRX-\/>pin,\ GPIO\_MODE\_AF,\ GPIO\_SPEED\_HIGH);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\ \textcolor{comment}{//\ end\ of\ BSP\_USART\_FUNCTIONS}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gaea49d1d61b33255209ce0f3c1ee1b2b7}{timer2ch1}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}\ *pCH1)\ \{}
+\DoxyCodeLine{\ \ \ \ pCH1-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}\ =\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_aca904d0e4ebb6d643c349f7f05613995}{TIMER2}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Configure\ as\ alternate\ function\ AF1\ (TIM2\_CH1)}}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}{GPIO\_Init}}(GPIOA,\ 0,\ GPIO\_MODE\_AF,\ GPIO\_SPEED\_HIGH);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae8b0f4376afc1cfd12067a9276e84d88}{timer2\_setup}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}\ *pTimer,\ uint8\_t\ direction)\ \{}
+\DoxyCodeLine{\ \ \ \ pTimer-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}\ =\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_aca904d0e4ebb6d643c349f7f05613995}{TIMER2}};}
+\DoxyCodeLine{\ \ \ \ pTimer-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a696b8d9bcd1e51fc8c6f486b0cde5695}{TimerConfig}}.\doxymbox{\hyperlink{struct_t_i_m_e_r__config__t_aa59539d70b5f643739d13a73df5e3b92}{PreScaler}}\ =\ 1;}
+\DoxyCodeLine{\ \ \ \ pTimer-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a696b8d9bcd1e51fc8c6f486b0cde5695}{TimerConfig}}.\doxymbox{\hyperlink{struct_t_i_m_e_r__config__t_a92d09ae84c50e4ede5a45f9f13dfa7ca}{Period}}\ =\ 1000;}
+\DoxyCodeLine{\ \ \ \ pTimer-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a696b8d9bcd1e51fc8c6f486b0cde5695}{TimerConfig}}.\doxymbox{\hyperlink{struct_t_i_m_e_r__config__t_aaad35965f0e77b555cab6b6e4c2db572}{direction}}\ =\ direction;}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gac618b969375cadd9a01aad1c6c937843}{TimerInit}}(pTimer);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\ \textcolor{comment}{//\ end\ of\ BSP\_TIMER\_FUNCTIONS}}
+
+\end{DoxyCodeInclude}
+ 

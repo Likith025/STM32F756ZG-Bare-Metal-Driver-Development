@@ -1,0 +1,388 @@
+\doxysection{USART Core Functions }
+\hypertarget{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s}{}\label{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s}\index{USART Core Functions@{USART Core Functions}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t \doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_ga564ffcd2cbac51d721188fd510ff593c}{USART\+\_\+init}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint8\+\_\+t enable)
+\begin{DoxyCompactList}\small\item\em Initialize USART peripheral with specified configuration. \end{DoxyCompactList}\item 
+int8\+\_\+t \doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gae79f07f623e6bfbc782f0e3ea511b79a}{USART\+\_\+\+Control}} (\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+USART, uint8\+\_\+t CMD)
+\begin{DoxyCompactList}\small\item\em Enable or disable USART peripheral. \end{DoxyCompactList}\item 
+int8\+\_\+t \doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gab9e47ab2d550d52ffe0ef02075cbf552}{USART\+\_\+cl\+K\+\_\+init}} (\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+USART, uint8\+\_\+t CMD)
+\begin{DoxyCompactList}\small\item\em Enable/\+disable USART clock via RCC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\label{doc-func-members}
+\Hypertarget{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gab9e47ab2d550d52ffe0ef02075cbf552}\index{USART Core Functions@{USART Core Functions}!USART\_clK\_init@{USART\_clK\_init}}
+\index{USART\_clK\_init@{USART\_clK\_init}!USART Core Functions@{USART Core Functions}}
+\doxysubsubsection{\texorpdfstring{USART\_clK\_init()}{USART\_clK\_init()}}
+{\footnotesize\ttfamily \label{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gab9e47ab2d550d52ffe0ef02075cbf552} 
+int8\+\_\+t USART\+\_\+cl\+K\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+USART}{, }\item[{uint8\+\_\+t}]{CMD}{}\end{DoxyParamCaption})}
+
+
+
+Enable/\+disable USART clock via RCC. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em p\+USART} & USART register base address \\
+\hline
+\doxymbox{\texttt{in}}  & {\em CMD} & Control command (ENABLE/\+\+DISABLE) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em int8\+\_\+t} & 0 on success, -\/1 if invalid USART address\\
+\hline
+\end{DoxyRetVals}
+Enables or disables the USART peripheral clock via RCC APB1\+ENR register. The clock must be enabled before any USART configuration or operation.
+
+{\bfseries{Clock Mapping (APB1\+ENR):\+}}
+\begin{DoxyItemize}
+\item USART2:\+ Bit 17 (offset from USART2\+\_\+\+BASE:\+ 0×400 → position 0)
+\item USART3:\+ Bit 18 (offset from USART2\+\_\+\+BASE:\+ 0×400 → position 1)
+\item UART4:\+ Bit 19 (offset from USART2\+\_\+\+BASE:\+ 0×800 → position 2)
+\item UART5:\+ Bit 20 (offset from USART2\+\_\+\+BASE:\+ 0x\+C00 → position 3)
+\end{DoxyItemize}
+
+{\bfseries{Address Calculation:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{position\ =\ (pUSART\ address\ -\/\ USART2\_BASE)\ /\ 0x400}
+\DoxyCodeLine{bit\ =\ 17\ +\ position}
+
+\end{DoxyCode}
+
+
+{\bfseries{Clock Frequency:\+}}
+\begin{DoxyItemize}
+\item USART2-\/5:\+ 42 MHz (APB1 clock domain)
+\item USART1, USART6:\+ 84 MHz (APB2 clock domain -\/ not covered here)
+\end{DoxyItemize}
+
+{\bfseries{Validation:\+}}
+\begin{DoxyItemize}
+\item Checks USART address in valid range (USART2\+\_\+\+BASE to UART5\+\_\+\+BASE)
+\item Returns -\/1 for invalid addresses
+\item Prevents writing to arbitrary memory
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em p\+USART} & USART register base address:\+
+\begin{DoxyItemize}
+\item Valid:\+ USART2, USART3, UART4, UART5
+\item Invalid:\+ NULL, out of range, or USART1/\+\+USART6
+\end{DoxyItemize}\\
+\hline
+\doxymbox{\texttt{in}}  & {\em CMD} & Clock control:\+
+\begin{DoxyItemize}
+\item ENABLE (1):\+ Set RCC bit to enable clock
+\item DISABLE (0):\+ Clear RCC bit to disable clock
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Clock control status:\+
+\begin{DoxyItemize}
+\item 0:\+ Clock control successful
+\item -\/1:\+ Invalid USART address
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Must be called before \doxylink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_ga564ffcd2cbac51d721188fd510ff593c}{USART\+\_\+init()}
+\item Typically called automatically by \doxylink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_ga564ffcd2cbac51d721188fd510ff593c}{USART\+\_\+init()}
+\item Can be called independently if needed
+\item Very fast operation (\texorpdfstring{$\sim$}{\string~}1 µs)
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Sequence:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Method\ 1:\ Automatic\ (called\ by\ USART\_init)}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_ga564ffcd2cbac51d721188fd510ff593c}{USART\_init}}(\&uart\_handle,\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a}{ENABLE}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Method\ 2:\ Manual\ (for\ advanced\ usage)}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gab9e47ab2d550d52ffe0ef02075cbf552}{USART\_clK\_init}}(USART3,\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a}{ENABLE}});\ \ \textcolor{comment}{//\ Enable\ clock}}
+\DoxyCodeLine{\textcolor{comment}{//\ ...\ configure\ GPIO\ ...}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_ga564ffcd2cbac51d721188fd510ff593c}{USART\_init}}(\&uart\_handle,\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a}{ENABLE}});}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+
+\begin{DoxyItemize}
+\item Invalid USART address causes function to return -\/1
+\item Check return value in safety-\/critical applications
+\item Disabling clock stops USART immediately
+\item Use \doxylink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gae79f07f623e6bfbc782f0e3ea511b79a}{USART\+\_\+\+Control()} to gracefully stop USART
+\end{DoxyItemize}
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_ga564ffcd2cbac51d721188fd510ff593c}{USART\+\_\+init()} 
+\end{DoxySeeAlso}
+\Hypertarget{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gae79f07f623e6bfbc782f0e3ea511b79a}\index{USART Core Functions@{USART Core Functions}!USART\_Control@{USART\_Control}}
+\index{USART\_Control@{USART\_Control}!USART Core Functions@{USART Core Functions}}
+\doxysubsubsection{\texorpdfstring{USART\_Control()}{USART\_Control()}}
+{\footnotesize\ttfamily \label{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gae79f07f623e6bfbc782f0e3ea511b79a} 
+int8\+\_\+t USART\+\_\+\+Control (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+USART}{, }\item[{uint8\+\_\+t}]{CMD}{}\end{DoxyParamCaption})}
+
+
+
+Enable or disable USART peripheral. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em p\+USART} & Pointer to USART register definition \\
+\hline
+\doxymbox{\texttt{in}}  & {\em CMD} & Control command (ENABLE/\+\+DISABLE) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em int8\+\_\+t} & 0 on success\\
+\hline
+\end{DoxyRetVals}
+Controls the USART enable state via CR1 bit 0 (UE -\/ USART Enable). When enabled, USART can transmit and receive data. When disabled, USART stops all operations but preserves configuration.
+
+{\bfseries{Register Operation:\+}}
+\begin{DoxyItemize}
+\item CR1\+[0]\+ = 1:\+ USART enabled (can transmit/\+receive)
+\item CR1\+[0]\+ = 0:\+ USART disabled (low power, no I/\+O)
+\end{DoxyItemize}
+
+{\bfseries{State Transitions:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{stm32f756zg__reg_8h_a99496f7308834e8b220f7894efa0b6ab}{DISABLE}}\ →\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a}{ENABLE}}:\ USART\ powers\ up,\ ready\ \textcolor{keywordflow}{for}\ I/O\ (1-\/2\ cycles)}
+\DoxyCodeLine{\doxymbox{\hyperlink{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a}{ENABLE}}\ →\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a99496f7308834e8b220f7894efa0b6ab}{DISABLE}}:\ USART\ stops,\ current\ operations\ complete}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em p\+USART} & USART register base address \\
+\hline
+\doxymbox{\texttt{in}}  & {\em CMD} & Control state:\+
+\begin{DoxyItemize}
+\item ENABLE (1):\+ Start USART peripheral
+\item DISABLE (0):\+ Stop USART peripheral
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status:\+ Always returns 0 (no error checking)
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Very fast operation (single bit write)
+\item Can be called multiple times
+\item Configuration preserved during disable
+\item Idempotent (enabling already-\/enabled is safe)
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Usage:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gae79f07f623e6bfbc782f0e3ea511b79a}{USART\_Control}}(USART3,\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a}{ENABLE}});\ \ \ \textcolor{comment}{//\ Start}}
+\DoxyCodeLine{\textcolor{comment}{//\ ...\ use\ USART3\ for\ I/O\ ...}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gae79f07f623e6bfbc782f0e3ea511b79a}{USART\_Control}}(USART3,\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a99496f7308834e8b220f7894efa0b6ab}{DISABLE}});\ \ \textcolor{comment}{//\ Stop\ for\ reconfiguration}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_ga564ffcd2cbac51d721188fd510ff593c}{USART\+\_\+init()}, \doxylink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_gad2a5403207b97e55c86282068344bbe4}{USART\+\_\+\+Send\+Data()}, \doxylink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga140e51ab79b5ce95c8a457a26a701a60}{USART\+\_\+\+Read\+Data()} 
+\end{DoxySeeAlso}
+\Hypertarget{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_ga564ffcd2cbac51d721188fd510ff593c}\index{USART Core Functions@{USART Core Functions}!USART\_init@{USART\_init}}
+\index{USART\_init@{USART\_init}!USART Core Functions@{USART Core Functions}}
+\doxysubsubsection{\texorpdfstring{USART\_init()}{USART\_init()}}
+{\footnotesize\ttfamily \label{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_ga564ffcd2cbac51d721188fd510ff593c} 
+int8\+\_\+t USART\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{usart\+\_\+handle}{, }\item[{uint8\+\_\+t}]{enable}{}\end{DoxyParamCaption})}
+
+
+
+Initialize USART peripheral with specified configuration. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em usart\+\_\+handle} & Pointer to \doxylink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t} structure \\
+\hline
+\doxymbox{\texttt{in}}  & {\em enable} & Enable/\+disable USART after configuration (ENABLE/\+\+DISABLE) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em int8\+\_\+t} & 0 on success, -\/1 if configuration error\\
+\hline
+\end{DoxyRetVals}
+Initializes USART peripheral with complete configuration including:\+
+\begin{DoxyItemize}
+\item Baud rate calculation and setup
+\item TX/\+\+RX mode configuration
+\item Word length (8-\/bit or 9-\/bit)
+\item Parity settings
+\item Stop bits configuration
+\item Oversampling mode
+\item Hardware flow control
+\item USART enable/\+disable
+\end{DoxyItemize}
+
+{\bfseries{Initialization Sequence:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1.\ Enable\ USART\ clock\ via\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a74944438a086975793d26ae48d5882d4}{RCC}}}
+\DoxyCodeLine{2.\ Disable\ USART\ (\textcolor{keywordflow}{for}\ safe\ configuration)}
+\DoxyCodeLine{3.\ Set\ baud\ rate}
+\DoxyCodeLine{4.\ Configure\ TX/RX\ mode\ (CR1\ bits\ 2-\/3)}
+\DoxyCodeLine{5.\ Set\ word\ length\ (CR1\ bits\ 12,\ 28)}
+\DoxyCodeLine{6.\ Configure\ parity\ (CR1\ bits\ 9-\/10)}
+\DoxyCodeLine{7.\ Set\ oversampling\ (CR1\ bit\ 15)}
+\DoxyCodeLine{8.\ Configure\ hardware\ flow\ control\ (CR3\ bits\ 8-\/9)}
+\DoxyCodeLine{9.\ Set\ stop\ bits\ (CR2\ bits\ 12-\/13)}
+\DoxyCodeLine{10.\ Enable\ USART\ (\textcolor{keywordflow}{if}\ enable\ parameter\ set)}
+
+\end{DoxyCode}
+
+
+{\bfseries{Configuration Structure (\doxylink{struct_u_s_a_r_t__config__t}{USART\+\_\+config\+\_\+t}):\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{USART\_Mode:\ \ \ \ \ \ \ \ \ \ \ TX,\ RX,\ or\ TX+RX}
+\DoxyCodeLine{USART\_BaudRate:\ \ \ \ \ \ \ 300-\/4,500,000\ bps}
+\DoxyCodeLine{USART\_WordLength:\ \ \ \ \ 8-\/bit\ or\ 9-\/bit}
+\DoxyCodeLine{USART\_StopBits:\ \ \ \ \ \ \ 1,\ 1.5,\ or\ 2}
+\DoxyCodeLine{USART\_ParityControl:\ \ None,\ Even,\ or\ Odd}
+\DoxyCodeLine{USART\_OverSampling:\ \ \ 8x\ or\ 16x}
+\DoxyCodeLine{USART\_HWflowControl:\ \ None,\ CTS,\ RTS,\ or\ CTS+RTS}
+
+\end{DoxyCode}
+
+
+{\bfseries{Word Length Details:\+}} 
+\begin{DoxyTable}{4}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Mode  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Data Bits  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Parity Bit  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Total  \\
+8-\/bit, No parity  &8  &-\/  &8  \\
+8-\/bit, Even parity  &7  &1  &8  \\
+8-\/bit, Odd parity  &7  &1  &8  \\
+9-\/bit, No parity  &9  &-\/  &9  \\
+9-\/bit, With parity  &8  &1  &9  \\
+\end{DoxyTable}
+
+
+{\bfseries{Parity Calculation:\+}}
+\begin{DoxyItemize}
+\item Even:\+ Bit count (including parity) is even
+\item Odd:\+ Bit count (including parity) is odd
+\item Used for error detection only (1-\/bit errors)
+\end{DoxyItemize}
+
+{\bfseries{Baud Rate Accuracy:\+}}
+\begin{DoxyItemize}
+\item 16x oversampling:\+ Better accuracy, supported down to lower rates
+\item 8x oversampling:\+ Higher maximum baud rate, slightly less accurate
+\item Error calculation:\+ \texorpdfstring{$\vert$}{|}\+Actual -\/ Desired\texorpdfstring{$\vert$}{|} /\+ Desired × 100\%
+\item Acceptable error:\+ \texorpdfstring{$<$}{<} 3\% for reliable reception
+\end{DoxyItemize}
+
+{\bfseries{Register Bit Mapping:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CR1[1:0]\ =\ UE\ (0=disable,\ 1=enable)}
+\DoxyCodeLine{CR1[3:2]\ =\ TE/RE\ (00=none,\ 01=RX,\ 10=TX,\ 11=TX+RX)}
+\DoxyCodeLine{CR1[9]\ =\ PS\ (0=even,\ 1=odd\ parity)}
+\DoxyCodeLine{CR1[10]\ =\ PCE\ (0=no\ parity,\ 1=enable\ parity)}
+\DoxyCodeLine{CR1[12]\ =\ M0\ (word\ length\ bit\ 0)}
+\DoxyCodeLine{CR1[15]\ =\ OVER8\ (0=16x,\ 1=8x\ oversampling)}
+\DoxyCodeLine{CR1[28]\ =\ M1\ (word\ length\ bit\ 1)}
+\DoxyCodeLine{CR2[13:12]\ =\ STOP\ (00=1\ bit,\ 01=0.5,\ 10=2,\ 11=1.5)}
+\DoxyCodeLine{CR3[8]\ =\ RTSE\ (RTS\ enable)}
+\DoxyCodeLine{CR3[9]\ =\ CTSE\ (CTS\ enable)}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em usart\+\_\+handle} & USART handler structure:\+
+\begin{DoxyItemize}
+\item p\+USART:\+ USART base address (USART2, USART3, etc.)
+\item USART\+\_\+config:\+ Configuration structure with all parameters
+\end{DoxyItemize}\\
+\hline
+\doxymbox{\texttt{in}}  & {\em enable} & Initial USART state:\+
+\begin{DoxyItemize}
+\item ENABLE (1):\+ Start USART after configuration
+\item DISABLE (0):\+ Leave USART disabled (must call USART\+\_\+\+Control later)
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Initialization status:\+
+\begin{DoxyItemize}
+\item 0:\+ Initialization successful
+\item -\/1:\+ Configuration error (invalid parameter)
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item USART clock must be enabled before calling (via USART\+\_\+cl\+K\+\_\+init)
+\item GPIO pins must be configured as alternate functions
+\item Can be called multiple times to reconfigure
+\item Does not handle interrupt setup (separate from init)
+\item Blocking I/\+O functions can be used immediately after init
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Usage:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\_handler\_t}}\ uart3;}
+\DoxyCodeLine{uart3.\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_abcb4d83c5307b8932d8d01f0c67cfd59}{pUSART}}\ =\ USART3;}
+\DoxyCodeLine{uart3.\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a8adcc0b0e7debd292b9a284956d18950}{USART\_config}}.\doxymbox{\hyperlink{struct_u_s_a_r_t__config__t_a5867f9f730310abbdd455e60d990b317}{USART\_Mode}}\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a77c027cb8bca5f52dcbeba14f4ad7f89aacbd5fdc9482c7386d5dfeffe925c348}{USART\_MODE\_TXRX}};}
+\DoxyCodeLine{uart3.\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a8adcc0b0e7debd292b9a284956d18950}{USART\_config}}.\doxymbox{\hyperlink{struct_u_s_a_r_t__config__t_a70825968a6b88bcbbfafef664bfcb510}{USART\_BaudRate}}\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478ab8872f766b21a4fb82167eb0f4bba481}{USART\_BAUD\_115200}};}
+\DoxyCodeLine{uart3.\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a8adcc0b0e7debd292b9a284956d18950}{USART\_config}}.\doxymbox{\hyperlink{struct_u_s_a_r_t__config__t_afb2cdfd0c6a12bd0ee0ef3e7bf899577}{USART\_WordLength}}\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a11b26499f9aeea8d770c493cc65f65fba74c9445d45bf4e8112d2a3616f504991}{USART\_WordLen\_8bits}};}
+\DoxyCodeLine{uart3.\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a8adcc0b0e7debd292b9a284956d18950}{USART\_config}}.\doxymbox{\hyperlink{struct_u_s_a_r_t__config__t_a3974d0ad2c9ec5a891e4c1ad92502618}{USART\_StopBits}}\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00aa341d7512f5171d36b72314ae8977cd54}{USART\_StopBits\_1}};}
+\DoxyCodeLine{uart3.\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a8adcc0b0e7debd292b9a284956d18950}{USART\_config}}.\doxymbox{\hyperlink{struct_u_s_a_r_t__config__t_ac00a305d20351fcc8d3fc37e913d0634}{USART\_ParityControl}}\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a0bf5457d1d0c0d8d85fe765331b2ef85a178861cbbab0195a89575ac1993cc2bd}{USART\_Parity\_None}};}
+\DoxyCodeLine{uart3.\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a8adcc0b0e7debd292b9a284956d18950}{USART\_config}}.USART\_OverSampling\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abafac9366efc163949f648cb90e719a3a5019accda30e1565914f9ec9b847517d}{USART\_OverSampling\_16}};}
+\DoxyCodeLine{uart3.\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a8adcc0b0e7debd292b9a284956d18950}{USART\_config}}.\doxymbox{\hyperlink{struct_u_s_a_r_t__config__t_a963b4e7b8b141c5c1381d270b3614ddb}{USART\_HWflowControl}}\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cba9ae19224084f8e3b26d9bbb5a95c5e75}{USART\_HW\_FlowCtrl\_None}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_ga564ffcd2cbac51d721188fd510ff593c}{USART\_init}}(\&uart3,\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a}{ENABLE}})\ ==\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ USART\ ready\ to\ use}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\bfseries{Error Handling:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_ga564ffcd2cbac51d721188fd510ff593c}{USART\_init}}(\&uart3,\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a}{ENABLE}})\ !=\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Invalid\ configuration\ detected}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Check\ word\ length,\ stop\ bits,\ parity,\ flow\ control}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}(1);\ \ \textcolor{comment}{//\ Halt\ or\ retry\ with\ new\ config}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+
+\begin{DoxyItemize}
+\item Do not call before GPIO alternate function configuration
+\item Do not call before RCC clock enable
+\item Invalid parameters may corrupt USART state
+\item Some combinations invalid (e.\+g., 9-\/bit + parity)
+\end{DoxyItemize}
+\end{DoxyWarning}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item Calling init disables USART briefly (safe but visible on bus)
+\item TX and RX clocks derived from same oscillator (synchronized)
+\item Initialization resets all USART flags
+\end{DoxyItemize}
+\end{DoxyAttention}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gab9e47ab2d550d52ffe0ef02075cbf552}{USART\+\_\+cl\+K\+\_\+init()}, \doxylink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga9cbfb1902e1ecdb99951f75364797ac7}{USART\+\_\+\+Set\+Baud\+Rate()}, \doxylink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gae79f07f623e6bfbc782f0e3ea511b79a}{USART\+\_\+\+Control()} 
+\end{DoxySeeAlso}

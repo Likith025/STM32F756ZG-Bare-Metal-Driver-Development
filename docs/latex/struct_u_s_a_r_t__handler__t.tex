@@ -1,0 +1,99 @@
+\doxysection{USART\+\_\+handler\+\_\+t Struct Reference}
+\hypertarget{struct_u_s_a_r_t__handler__t}{}\label{struct_u_s_a_r_t__handler__t}\index{USART\_handler\_t@{USART\_handler\_t}}
+
+
+{\ttfamily \+\#include $<$stm32f7xx\+\_\+uart\+\_\+driver.\+h$>$}
+
+
+
+Collaboration diagram for USART\+\_\+handler\+\_\+t:\+
+% FIG 0
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_abcb4d83c5307b8932d8d01f0c67cfd59}{p\+USART}}
+\item 
+\doxymbox{\hyperlink{struct_u_s_a_r_t__config__t}{USART\+\_\+config\+\_\+t}} \doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a8adcc0b0e7debd292b9a284956d18950}{USART\+\_\+config}}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a53c78696c87c660d11dfa37ed5827dcc}{tx\+\_\+len}}
+\item 
+uint8\+\_\+t \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a55a0afbfda2f5a02c877430f36bdf81d}{p\+TXBuffer}}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a7c4a5e5d6237b662e592d3579aaf31ba}{rx\+\_\+len}}
+\item 
+uint8\+\_\+t \texorpdfstring{$\ast$}{*} \doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_aff0f75cef71e5106efb1689e1cb2dab1}{p\+RXBuffer}}
+\item 
+\doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a4bcc63cb807b3f3647695c462b10be0b}{USART\+\_\+\+State\+\_\+t}} \doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_a427982c118aba8663d994dc97064142e}{UASRT\+\_\+\+Txstate}}
+\item 
+\doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a4bcc63cb807b3f3647695c462b10be0b}{USART\+\_\+\+State\+\_\+t}} \doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t_aaa34248f69508b562b3ca6c0f3d98fb6}{UASRT\+\_\+\+Rxstate}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.\+c}}.\end{Desc}
+
+
+\label{doc-variable-members}
+\Hypertarget{struct_u_s_a_r_t__handler__t_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_u_s_a_r_t__handler__t_aff0f75cef71e5106efb1689e1cb2dab1}\index{USART\_handler\_t@{USART\_handler\_t}!pRXBuffer@{pRXBuffer}}
+\index{pRXBuffer@{pRXBuffer}!USART\_handler\_t@{USART\_handler\_t}}
+\doxysubsubsection{\texorpdfstring{pRXBuffer}{pRXBuffer}}
+{\footnotesize\ttfamily \label{struct_u_s_a_r_t__handler__t_aff0f75cef71e5106efb1689e1cb2dab1} 
+uint8\+\_\+t\texorpdfstring{$\ast$}{*} USART\+\_\+handler\+\_\+t::\+p\+RXBuffer}
+
+\Hypertarget{struct_u_s_a_r_t__handler__t_a55a0afbfda2f5a02c877430f36bdf81d}\index{USART\_handler\_t@{USART\_handler\_t}!pTXBuffer@{pTXBuffer}}
+\index{pTXBuffer@{pTXBuffer}!USART\_handler\_t@{USART\_handler\_t}}
+\doxysubsubsection{\texorpdfstring{pTXBuffer}{pTXBuffer}}
+{\footnotesize\ttfamily \label{struct_u_s_a_r_t__handler__t_a55a0afbfda2f5a02c877430f36bdf81d} 
+uint8\+\_\+t\texorpdfstring{$\ast$}{*} USART\+\_\+handler\+\_\+t::\+p\+TXBuffer}
+
+\Hypertarget{struct_u_s_a_r_t__handler__t_abcb4d83c5307b8932d8d01f0c67cfd59}\index{USART\_handler\_t@{USART\_handler\_t}!pUSART@{pUSART}}
+\index{pUSART@{pUSART}!USART\_handler\_t@{USART\_handler\_t}}
+\doxysubsubsection{\texorpdfstring{pUSART}{pUSART}}
+{\footnotesize\ttfamily \label{struct_u_s_a_r_t__handler__t_abcb4d83c5307b8932d8d01f0c67cfd59} 
+\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*} USART\+\_\+handler\+\_\+t::\+p\+USART}
+
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.\+c}}.\end{Desc}
+\Hypertarget{struct_u_s_a_r_t__handler__t_a7c4a5e5d6237b662e592d3579aaf31ba}\index{USART\_handler\_t@{USART\_handler\_t}!rx\_len@{rx\_len}}
+\index{rx\_len@{rx\_len}!USART\_handler\_t@{USART\_handler\_t}}
+\doxysubsubsection{\texorpdfstring{rx\_len}{rx\_len}}
+{\footnotesize\ttfamily \label{struct_u_s_a_r_t__handler__t_a7c4a5e5d6237b662e592d3579aaf31ba} 
+uint32\+\_\+t USART\+\_\+handler\+\_\+t::\+rx\+\_\+len}
+
+\Hypertarget{struct_u_s_a_r_t__handler__t_a53c78696c87c660d11dfa37ed5827dcc}\index{USART\_handler\_t@{USART\_handler\_t}!tx\_len@{tx\_len}}
+\index{tx\_len@{tx\_len}!USART\_handler\_t@{USART\_handler\_t}}
+\doxysubsubsection{\texorpdfstring{tx\_len}{tx\_len}}
+{\footnotesize\ttfamily \label{struct_u_s_a_r_t__handler__t_a53c78696c87c660d11dfa37ed5827dcc} 
+uint32\+\_\+t USART\+\_\+handler\+\_\+t::\+tx\+\_\+len}
+
+\Hypertarget{struct_u_s_a_r_t__handler__t_aaa34248f69508b562b3ca6c0f3d98fb6}\index{USART\_handler\_t@{USART\_handler\_t}!UASRT\_Rxstate@{UASRT\_Rxstate}}
+\index{UASRT\_Rxstate@{UASRT\_Rxstate}!USART\_handler\_t@{USART\_handler\_t}}
+\doxysubsubsection{\texorpdfstring{UASRT\_Rxstate}{UASRT\_Rxstate}}
+{\footnotesize\ttfamily \label{struct_u_s_a_r_t__handler__t_aaa34248f69508b562b3ca6c0f3d98fb6} 
+\doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a4bcc63cb807b3f3647695c462b10be0b}{USART\+\_\+\+State\+\_\+t}} USART\+\_\+handler\+\_\+t::\+\+UASRT\+\_\+\+Rxstate}
+
+\Hypertarget{struct_u_s_a_r_t__handler__t_a427982c118aba8663d994dc97064142e}\index{USART\_handler\_t@{USART\_handler\_t}!UASRT\_Txstate@{UASRT\_Txstate}}
+\index{UASRT\_Txstate@{UASRT\_Txstate}!USART\_handler\_t@{USART\_handler\_t}}
+\doxysubsubsection{\texorpdfstring{UASRT\_Txstate}{UASRT\_Txstate}}
+{\footnotesize\ttfamily \label{struct_u_s_a_r_t__handler__t_a427982c118aba8663d994dc97064142e} 
+\doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a4bcc63cb807b3f3647695c462b10be0b}{USART\+\_\+\+State\+\_\+t}} USART\+\_\+handler\+\_\+t::\+\+UASRT\+\_\+\+Txstate}
+
+\Hypertarget{struct_u_s_a_r_t__handler__t_a8adcc0b0e7debd292b9a284956d18950}\index{USART\_handler\_t@{USART\_handler\_t}!USART\_config@{USART\_config}}
+\index{USART\_config@{USART\_config}!USART\_handler\_t@{USART\_handler\_t}}
+\doxysubsubsection{\texorpdfstring{USART\_config}{USART\_config}}
+{\footnotesize\ttfamily \label{struct_u_s_a_r_t__handler__t_a8adcc0b0e7debd292b9a284956d18950} 
+\doxymbox{\hyperlink{struct_u_s_a_r_t__config__t}{USART\+\_\+config\+\_\+t}} USART\+\_\+handler\+\_\+t::\+\+USART\+\_\+config}
+
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.\+c}}.\end{Desc}
+
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+inc/\+\doxymbox{\hyperlink{stm32f7xx__uart__driver_8h}{stm32f7xx\+\_\+uart\+\_\+driver.\+h}}\end{DoxyCompactItemize}

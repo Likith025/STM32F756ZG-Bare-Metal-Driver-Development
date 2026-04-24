@@ -1,0 +1,590 @@
+\doxysection{USART Interrupt-\/\+Driven Functions }
+\hypertarget{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s}{}\label{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s}\index{USART Interrupt-\/Driven Functions@{USART Interrupt-\/Driven Functions}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga1bff58303b67689f9a22226582de10bd}{USART\+\_\+\+Send\+Data\+\_\+\+IT}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Tx\+Data, uint32\+\_\+t Len)
+\begin{DoxyCompactList}\small\item\em Send data via USART (interrupt-\/driven mode). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gae0a6622ad6716e73ac03e5c0a690adb9}{USART\+\_\+\+Read\+Data\+\_\+\+IT}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Rx\+Data, uint32\+\_\+t \doxymbox{\hyperlink{main_8c_afed088663f8704004425cdae2120b9b3}{len}})
+\begin{DoxyCompactList}\small\item\em Read data from USART (interrupt-\/driven mode). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}{USART\+\_\+\+IRQHandler}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle)
+\begin{DoxyCompactList}\small\item\em USART interrupt handler dispatcher. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gaf9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((weak))
+\begin{DoxyCompactList}\small\item\em Weak USART application event callback (overrideable). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\label{doc-func-members}
+\Hypertarget{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gaf9aace1b44b73111e15aa39f06f43456}\index{USART Interrupt-\/Driven Functions@{USART Interrupt-\/Driven Functions}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!USART Interrupt-\/Driven Functions@{USART Interrupt-\/Driven Functions}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily \label{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gaf9aace1b44b73111e15aa39f06f43456} 
+\+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(weak)}]{}{}\end{DoxyParamCaption})}
+
+
+
+Weak USART application event callback (overrideable). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em p\+USARTHandle} & Pointer to USART handler \\
+\hline
+\doxymbox{\texttt{in}}  & {\em event} & Event type (TX\+\_\+\+CMPL, RX\+\_\+\+CMPL, ORE, etc.) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Weak callback function called by interrupt handler when events occur. Application must override this function to handle events like:\+
+\begin{DoxyItemize}
+\item USART\+\_\+\+EVENT\+\_\+\+TX\+\_\+\+CMPL:\+ Transmission complete
+\item USART\+\_\+\+EVENT\+\_\+\+RX\+\_\+\+CMPL:\+ Reception complete
+\item USART\+\_\+\+ERR\+\_\+\+ORE:\+ Overrun error
+\end{DoxyItemize}
+
+{\bfseries{Function Attributes:\+}}
+\begin{DoxyItemize}
+\item {\bfseries{attribute}}((weak)):\+ Weak linkage, can be overridden
+\item Default implementation:\+ Empty (does nothing)
+\item Application provides strong implementation
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em p\+USARTHandle} & USART handler associated with event \\
+\hline
+\doxymbox{\texttt{in}}  & {\em event} & Event enumeration:\+
+\begin{DoxyItemize}
+\item USART\+\_\+\+EVENT\+\_\+\+TX\+\_\+\+CMPL:\+ TX finished, ready for next send
+\item USART\+\_\+\+EVENT\+\_\+\+RX\+\_\+\+CMPL:\+ RX finished, data in buffer
+\item USART\+\_\+\+ERR\+\_\+\+ORE:\+ Overrun error (data lost)
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Called from interrupt context (ISR)
+\item Keep callback function short (minimize ISR time)
+\item No blocking operations in callback
+\item Can set flags that main loop checks
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Application Implementation:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Override\ weak\ function\ with\ strong\ implementation}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_aa4732538a8f3f2d83fc5da935f36eb50}{USART\_ApplicationEventCallback}}(\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\_handler\_t}}\ *pUSARTHandle,\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0}{USART\_CallBack\_t}}\ event)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (event\ ==\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0ac4d055b8c58dd5305db2836b0ff6f956}{USART\_EVENT\_TX\_CMPL}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ tx\_complete\ =\ 1;\ \ \textcolor{comment}{//\ Signal\ main\ loop}}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (event\ ==\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0a16f7afb92a03fa68d470785374cce203}{USART\_EVENT\_RX\_CMPL}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ process\_received\_data();\ \ \textcolor{comment}{//\ Handle\ received\ data}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ up\ next\ reception}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gae0a6622ad6716e73ac03e5c0a690adb9}{USART\_ReadData\_IT}}(pUSARTHandle,\ next\_buffer,\ 64);}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (event\ ==\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0aa3a17da41df76ec0f01eaafe6c9add88}{USART\_ERR\_ORE}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ error\_count++;\ \ \textcolor{comment}{//\ Track\ errors}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\bfseries{ISR Callback Sequence:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1.\ Interrupt\ fires}
+\DoxyCodeLine{2.\ \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}{USART\_IRQHandler}}\ called}
+\DoxyCodeLine{3.\ Event\ detected\ and\ processed}
+\DoxyCodeLine{4.\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_aa4732538a8f3f2d83fc5da935f36eb50}{USART\_ApplicationEventCallback}}\ called}
+\DoxyCodeLine{5.\ ISR\ returns}
+\DoxyCodeLine{6.\ Main\ code\ resumes}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+
+\begin{DoxyItemize}
+\item Default (weak) implementation is empty
+\item Must implement application version
+\item ISR context:\+ no long operations
+\item Be careful with global variable access
+\item Ensure thread-\/safety if using RTOS
+\end{DoxyItemize}
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}{USART\+\_\+\+IRQHandler()} 
+\end{DoxySeeAlso}
+\Hypertarget{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}\index{USART Interrupt-\/Driven Functions@{USART Interrupt-\/Driven Functions}!USART\_IRQHandler@{USART\_IRQHandler}}
+\index{USART\_IRQHandler@{USART\_IRQHandler}!USART Interrupt-\/Driven Functions@{USART Interrupt-\/Driven Functions}}
+\doxysubsubsection{\texorpdfstring{USART\_IRQHandler()}{USART\_IRQHandler()}}
+{\footnotesize\ttfamily \label{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000} 
+void USART\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{usart\+\_\+handle}{}\end{DoxyParamCaption})}
+
+
+
+USART interrupt handler dispatcher. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em usart\+\_\+handle} & Pointer to \doxylink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t} structure \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Main interrupt handler that processes all USART interrupt sources:\+
+\begin{DoxyItemize}
+\item TXEIE:\+ Transmit register empty → send next byte
+\item TCIE:\+ Transmission complete → signal application
+\item RXNEIE:\+ Receive register not empty → read byte
+\item ORE:\+ Overrun error → signal error
+\end{DoxyItemize}
+
+{\bfseries{Interrupt Priority (Order of Checking):\+}}
+\begin{DoxyEnumerate}
+\item TXEIE + TXE:\+ Send next byte if available
+\item TCIE + TC:\+ Signal TX complete, disable interrupts
+\item RXNEIE + RXNE:\+ Receive next byte
+\item RXNEIE + ORE:\+ Handle overrun error
+\end{DoxyEnumerate}
+
+{\bfseries{Word Length and Parity Handling:\+}}
+\begin{DoxyItemize}
+\item 8-\/bit no parity:\+ Full 8 bits data
+\item 8-\/bit with parity:\+ 7 bits data + parity
+\item 9-\/bit no parity:\+ Full 9 bits data
+\item 9-\/bit with parity:\+ 8 bits data + parity
+\end{DoxyItemize}
+
+{\bfseries{TX Handler Logic:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{If\ TXEIE\ enabled\ and\ TXE\ flag\ set:}
+\DoxyCodeLine{\ \ If\ tx\_len\ >\ 0:}
+\DoxyCodeLine{\ \ \ \ Send\ next\ \textcolor{keywordtype}{byte}\ to\ TDR}
+\DoxyCodeLine{\ \ \ \ Decrement\ tx\_len}
+\DoxyCodeLine{\ \ If\ tx\_len\ ==\ 0:}
+\DoxyCodeLine{\ \ \ \ Disable\ TXEIE\ (wait\ \textcolor{keywordflow}{for}\ TC)}
+
+\end{DoxyCode}
+
+
+{\bfseries{RX Handler Logic:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{If\ RXNEIE\ enabled\ and\ RXNE\ flag\ set:}
+\DoxyCodeLine{\ \ If\ rx\_len\ >\ 0:}
+\DoxyCodeLine{\ \ \ \ Read\ \textcolor{keywordtype}{byte}\ from\ RDR}
+\DoxyCodeLine{\ \ \ \ Store\ in\ \doxymbox{\hyperlink{main_8c_a5819dbc2d305e99e930c734a0d28bc3b}{buffer}}}
+\DoxyCodeLine{\ \ \ \ Decrement\ rx\_len}
+\DoxyCodeLine{\ \ If\ rx\_len\ ==\ 0:}
+\DoxyCodeLine{\ \ \ \ Disable\ RXNEIE}
+\DoxyCodeLine{\ \ \ \ Signal\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0a16f7afb92a03fa68d470785374cce203}{USART\_EVENT\_RX\_CMPL}}}
+
+\end{DoxyCode}
+
+
+{\bfseries{Error Handler Logic:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{If\ RXNEIE\ enabled\ and\ ORE\ flag\ set:}
+\DoxyCodeLine{\ \ Clear\ ORE\ flag}
+\DoxyCodeLine{\ \ Set\ Rxstate\ to\ FREE}
+\DoxyCodeLine{\ \ Signal\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0aa3a17da41df76ec0f01eaafe6c9add88}{USART\_ERR\_ORE}}}
+
+\end{DoxyCode}
+
+
+{\bfseries{TX Complete Logic:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{If\ TCIE\ enabled\ and\ TC\ flag\ set:}
+\DoxyCodeLine{\ \ If\ tx\_len\ ==\ 0:}
+\DoxyCodeLine{\ \ \ \ Set\ Txstate\ to\ FREE}
+\DoxyCodeLine{\ \ \ \ Clear\ TX\ \doxymbox{\hyperlink{main_8c_a5819dbc2d305e99e930c734a0d28bc3b}{buffer}}\ pointer}
+\DoxyCodeLine{\ \ \ \ Clear\ TC\ flag}
+\DoxyCodeLine{\ \ \ \ Signal\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0ac4d055b8c58dd5305db2836b0ff6f956}{USART\_EVENT\_TX\_CMPL}}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em usart\+\_\+handle} & USART handler:\+
+\begin{DoxyItemize}
+\item All state variables updated
+\item Callbacks triggered
+\item Flags cleared
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Called from USART peripheral interrupt handler
+\item Dispatcher for multiple interrupt sources
+\item Handles TX and RX concurrently
+\item Automatically manages state transitions
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical ISR Dispatcher:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ USART3\_IRQHandler(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}{USART\_IRQHandler}}(\&uart3\_handle);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\bfseries{Interrupt Nesting:\+}}
+\begin{DoxyItemize}
+\item Safe for interrupt nesting (if configured)
+\item Updates are atomic (single byte operations)
+\item No mutual exclusion needed (single ISR)
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga1bff58303b67689f9a22226582de10bd}{USART\+\_\+\+Send\+Data\+\_\+\+IT()}, \doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gae0a6622ad6716e73ac03e5c0a690adb9}{USART\+\_\+\+Read\+Data\+\_\+\+IT()}, \doxylink{stm32f7xx__uart__driver_8h_aa4732538a8f3f2d83fc5da935f36eb50}{USART\+\_\+\+Application\+Event\+Callback()} 
+\end{DoxySeeAlso}
+\Hypertarget{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gae0a6622ad6716e73ac03e5c0a690adb9}\index{USART Interrupt-\/Driven Functions@{USART Interrupt-\/Driven Functions}!USART\_ReadData\_IT@{USART\_ReadData\_IT}}
+\index{USART\_ReadData\_IT@{USART\_ReadData\_IT}!USART Interrupt-\/Driven Functions@{USART Interrupt-\/Driven Functions}}
+\doxysubsubsection{\texorpdfstring{USART\_ReadData\_IT()}{USART\_ReadData\_IT()}}
+{\footnotesize\ttfamily \label{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gae0a6622ad6716e73ac03e5c0a690adb9} 
+void USART\+\_\+\+Read\+Data\+\_\+\+IT (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{usart\+\_\+handle}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+Rx\+Data}{, }\item[{uint32\+\_\+t}]{len}{}\end{DoxyParamCaption})}
+
+
+
+Read data from USART (interrupt-\/driven mode). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em usart\+\_\+handle} & Pointer to \doxylink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t} structure \\
+\hline
+\doxymbox{\texttt{out}}  & {\em p\+Rx\+Data} & Pointer to buffer for received data \\
+\hline
+\doxymbox{\texttt{in}}  & {\em \doxylink{main_8c_afed088663f8704004425cdae2120b9b3}{len}} & Number of bytes to receive \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Initiates non-\/blocking interrupt-\/driven reception. Function sets up the receive buffer, enables RXNEIE (RX not empty) interrupt, then returns. \doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}{USART\+\_\+\+IRQHandler()} receives data in background, calling \doxylink{stm32f7xx__uart__driver_8h_aa4732538a8f3f2d83fc5da935f36eb50}{USART\+\_\+\+Application\+Event\+Callback()} when complete.
+
+{\bfseries{Operation:\+}}
+\begin{DoxyEnumerate}
+\item Check if RX not already busy (USART\+\_\+\+BUSY\+\_\+\+IT\+\_\+\+RX)
+\item Store RX buffer pointer and length
+\item Set RX state to busy
+\item Enable RXNEIE interrupt (RX register not empty)
+\item Return immediately
+\end{DoxyEnumerate}
+
+{\bfseries{Interrupt Flow:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{RXNEIE:\ Fire\ when\ RDR\ has\ data\ →\ ISR\ reads\ \textcolor{keywordtype}{byte}\ →\ decrease\ counter}
+\DoxyCodeLine{When\ counter\ ==\ 0\ →\ Disable\ RXNEIE,\ signal\ application}
+\DoxyCodeLine{ORE:\ \ \ \ Fire\ on\ overrun\ →\ Signal\ error\ to\ application}
+
+\end{DoxyCode}
+
+
+{\bfseries{State Management:\+}}
+\begin{DoxyItemize}
+\item usart\+\_\+handle-\/\texorpdfstring{$>$}{>}rx\+\_\+len:\+ Remaining bytes to receive
+\item usart\+\_\+handle-\/\texorpdfstring{$>$}{>}p\+RXBuffer:\+ Current position in buffer
+\item usart\+\_\+handle-\/\texorpdfstring{$>$}{>}UASRT\+\_\+\+Rxstate:\+ RX state (USART\+\_\+\+BUSY\+\_\+\+IT\+\_\+\+RX or USART\+\_\+\+FREE)
+\end{DoxyItemize}
+
+{\bfseries{Non-\/\+Blocking Behavior:\+}}
+\begin{DoxyItemize}
+\item Application continues executing while receiving
+\item \doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}{USART\+\_\+\+IRQHandler()} handles reception automatically
+\item Automatic buffer management
+\item Suitable for background data collection
+\end{DoxyItemize}
+
+{\bfseries{Interrupt Handler Pattern:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ USART3\_IRQHandler(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}{USART\_IRQHandler}}(\&uart3\_handle);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\bfseries{Application Callback:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_aa4732538a8f3f2d83fc5da935f36eb50}{USART\_ApplicationEventCallback}}(\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\_handler\_t}}\ *handle,\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0}{USART\_CallBack\_t}}\ event)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (event\ ==\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0a16f7afb92a03fa68d470785374cce203}{USART\_EVENT\_RX\_CMPL}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reception\ complete,\ buffer\ has\ data}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ process\_received\_data();}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (event\ ==\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0aa3a17da41df76ec0f01eaafe6c9add88}{USART\_ERR\_ORE}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Overrun\ error:\ data\ lost}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ handle\_overrun();}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em usart\+\_\+handle} & USART handler:\+
+\begin{DoxyItemize}
+\item p\+USART:\+ USART base address
+\item Rxstate:\+ Must be USART\+\_\+\+FREE
+\item Will be set to USART\+\_\+\+BUSY\+\_\+\+IT\+\_\+\+RX until complete
+\end{DoxyItemize}\\
+\hline
+\doxymbox{\texttt{out}}  & {\em p\+Rx\+Data} & Pointer to receive buffer:\+
+\begin{DoxyItemize}
+\item Must point to writable memory
+\item Size must be \texorpdfstring{$>$}{>}= len bytes
+\item Valid until USART\+\_\+\+EVENT\+\_\+\+RX\+\_\+\+CMPL callback
+\item Can be on stack or heap
+\end{DoxyItemize}\\
+\hline
+\doxymbox{\texttt{in}}  & {\em \doxylink{main_8c_afed088663f8704004425cdae2120b9b3}{len}} & Number of bytes to receive:\+
+\begin{DoxyItemize}
+\item Must be \texorpdfstring{$>$}{>} 0
+\item Stored in rx\+\_\+len for ISR
+\item No bounds checking
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Non-\/blocking:\+ returns immediately
+\item Background reception via interrupts
+\item Efficient for streaming data
+\item Can receive during application processing
+\item Automatic overrun detection and reporting
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Usage:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Set\ up\ to\ receive\ line\ of\ data}}
+\DoxyCodeLine{uint8\_t\ command\_buffer[64];}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gae0a6622ad6716e73ac03e5c0a690adb9}{USART\_ReadData\_IT}}(\&uart\_handle,\ command\_buffer,\ 64);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Main\ loop\ continues...}}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\ \ \ \ do\_other\_work();}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Callback\ will\ signal\ when\ 64\ bytes\ received}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\bfseries{Ring Buffer Pattern (Continuous Reception):\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Receive\ single\ byte\ repeatedly}}
+\DoxyCodeLine{uint8\_t\ \doxymbox{\hyperlink{main_8c_abecb9f7f424287335a67817a45e061a0}{rx\_byte}};}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gae0a6622ad6716e73ac03e5c0a690adb9}{USART\_ReadData\_IT}}(\&uart\_handle,\ \&\doxymbox{\hyperlink{main_8c_abecb9f7f424287335a67817a45e061a0}{rx\_byte}},\ 1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ In\ callback:}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_aa4732538a8f3f2d83fc5da935f36eb50}{USART\_ApplicationEventCallback}}(\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\_handler\_t}}\ *handle,\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0}{USART\_CallBack\_t}}\ event)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (event\ ==\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0a16f7afb92a03fa68d470785374cce203}{USART\_EVENT\_RX\_CMPL}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Process\ rx\_byte}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ring\_buffer\_push(\&cmd\_buffer,\ \doxymbox{\hyperlink{main_8c_abecb9f7f424287335a67817a45e061a0}{rx\_byte}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Read\ next\ byte}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gae0a6622ad6716e73ac03e5c0a690adb9}{USART\_ReadData\_IT}}(handle,\ \&\doxymbox{\hyperlink{main_8c_abecb9f7f424287335a67817a45e061a0}{rx\_byte}},\ 1);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+
+\begin{DoxyItemize}
+\item Do not call if RX already in progress
+\item Buffer must remain valid until USART\+\_\+\+EVENT\+\_\+\+RX\+\_\+\+CMPL
+\item Overrun errors can silently drop data
+\item No queue:\+ only one reception at a time
+\item Must check for USART\+\_\+\+ERR\+\_\+\+ORE to catch errors
+\end{DoxyItemize}
+\end{DoxyWarning}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item USART interrupt must be enabled in NVIC
+\item Interrupt handler must call \doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}{USART\+\_\+\+IRQHandler()}
+\item RX interrupts must not be masked
+\item Application must implement \doxylink{stm32f7xx__uart__driver_8h_aa4732538a8f3f2d83fc5da935f36eb50}{USART\+\_\+\+Application\+Event\+Callback()}
+\end{DoxyItemize}
+\end{DoxyAttention}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}{USART\+\_\+\+IRQHandler()}, \doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga1bff58303b67689f9a22226582de10bd}{USART\+\_\+\+Send\+Data\+\_\+\+IT()}, \doxylink{stm32f7xx__uart__driver_8h_aa4732538a8f3f2d83fc5da935f36eb50}{USART\+\_\+\+Application\+Event\+Callback()} 
+\end{DoxySeeAlso}
+\Hypertarget{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga1bff58303b67689f9a22226582de10bd}\index{USART Interrupt-\/Driven Functions@{USART Interrupt-\/Driven Functions}!USART\_SendData\_IT@{USART\_SendData\_IT}}
+\index{USART\_SendData\_IT@{USART\_SendData\_IT}!USART Interrupt-\/Driven Functions@{USART Interrupt-\/Driven Functions}}
+\doxysubsubsection{\texorpdfstring{USART\_SendData\_IT()}{USART\_SendData\_IT()}}
+{\footnotesize\ttfamily \label{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga1bff58303b67689f9a22226582de10bd} 
+void USART\+\_\+\+Send\+Data\+\_\+\+IT (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{usart\+\_\+handle}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+Tx\+Data}{, }\item[{uint32\+\_\+t}]{Len}{}\end{DoxyParamCaption})}
+
+
+
+Send data via USART (interrupt-\/driven mode). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em usart\+\_\+handle} & Pointer to \doxylink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t} structure \\
+\hline
+\doxymbox{\texttt{in}}  & {\em p\+Tx\+Data} & Pointer to data buffer to transmit \\
+\hline
+\doxymbox{\texttt{in}}  & {\em Len} & Number of bytes to send \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Initiates non-\/blocking interrupt-\/driven transmission. Function sets up the transmit buffer, enables TXEIE and TCIE interrupts, then returns immediately. \doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}{USART\+\_\+\+IRQHandler()} automatically sends data in the background, calling \doxylink{stm32f7xx__uart__driver_8h_aa4732538a8f3f2d83fc5da935f36eb50}{USART\+\_\+\+Application\+Event\+Callback()} when transmission is complete.
+
+{\bfseries{Operation:\+}}
+\begin{DoxyEnumerate}
+\item Check if TX not already busy (USART\+\_\+\+BUSY\+\_\+\+IT\+\_\+\+TX)
+\item Store TX buffer pointer and length
+\item Set TX state to busy
+\item Enable TXEIE interrupt (transmit register empty)
+\item Enable TCIE interrupt (transmission complete)
+\item Return immediately
+\end{DoxyEnumerate}
+
+{\bfseries{Interrupt Flow:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{TXEIE:\ \ \ \ Fire\ when\ TDR\ empty\ →\ ISR\ sends\ next\ \textcolor{keywordtype}{byte}\ →\ decrease\ counter}
+\DoxyCodeLine{TCIE:\ \ \ \ \ Fire\ when\ transmission\ complete\ →\ Signal\ application}
+
+\end{DoxyCode}
+
+
+{\bfseries{State Management:\+}}
+\begin{DoxyItemize}
+\item usart\+\_\+handle-\/\texorpdfstring{$>$}{>}tx\+\_\+len:\+ Remaining bytes to send
+\item usart\+\_\+handle-\/\texorpdfstring{$>$}{>}p\+TXBuffer:\+ Current position in buffer
+\item usart\+\_\+handle-\/\texorpdfstring{$>$}{>}UASRT\+\_\+\+Txstate:\+ TX state (USART\+\_\+\+BUSY\+\_\+\+IT\+\_\+\+TX or USART\+\_\+\+FREE)
+\end{DoxyItemize}
+
+{\bfseries{Non-\/\+Blocking Behavior:\+}}
+\begin{DoxyItemize}
+\item Application continues executing while data transmits
+\item \doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}{USART\+\_\+\+IRQHandler()} handles transmission automatically
+\item No blocking or busy-\/waiting
+\item Suitable for real-\/time applications
+\end{DoxyItemize}
+
+{\bfseries{Example Callback:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_aa4732538a8f3f2d83fc5da935f36eb50}{USART\_ApplicationEventCallback}}(\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\_handler\_t}}\ *handle,\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0}{USART\_CallBack\_t}}\ event)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (event\ ==\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0ac4d055b8c58dd5305db2836b0ff6f956}{USART\_EVENT\_TX\_CMPL}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Transmission\ complete}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ tx\_complete\_flag\ =\ 1;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\bfseries{Interrupt Handler Linkage:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ USART3\_IRQHandler(\textcolor{keywordtype}{void})\ \{}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}{USART\_IRQHandler}}(\&uart3\_handle);\ \ \textcolor{comment}{//\ Dispatcher}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em usart\+\_\+handle} & USART handler:\+
+\begin{DoxyItemize}
+\item p\+USART:\+ USART base address
+\item Txstate:\+ Must be USART\+\_\+\+FREE (not already transmitting)
+\item Will be set to USART\+\_\+\+BUSY\+\_\+\+IT\+\_\+\+TX
+\end{DoxyItemize}\\
+\hline
+\doxymbox{\texttt{in}}  & {\em p\+Tx\+Data} & Pointer to transmit data:\+
+\begin{DoxyItemize}
+\item Must point to valid buffer
+\item Buffer lifetime must be until transmission complete
+\item Data not modified
+\item Can be on stack or heap
+\end{DoxyItemize}\\
+\hline
+\doxymbox{\texttt{in}}  & {\em Len} & Number of bytes to send:\+
+\begin{DoxyItemize}
+\item Must be \texorpdfstring{$>$}{>} 0
+\item Stored in tx\+\_\+len for ISR
+\item No bounds checking
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Non-\/blocking:\+ returns immediately
+\item Background transmission via interrupts
+\item Much more efficient than blocking for multiple operations
+\item Data must remain valid until transmission complete
+\item Application must not modify TX buffer during transmission
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Usage (Main Loop):\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Main\ loop}}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (1)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (data\_ready)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga1bff58303b67689f9a22226582de10bd}{USART\_SendData\_IT}}(\&uart\_handle,\ data\_buf,\ data\_len);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ data\_ready\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Can\ do\ other\ work\ while\ transmission\ happens}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\bfseries{Multiple Sends in Sequence:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Send\ multiple\ messages}}
+\DoxyCodeLine{uint8\_t\ msg1[]\ =\ \textcolor{stringliteral}{"{}Hello\ "{}};}
+\DoxyCodeLine{uint8\_t\ msg2[]\ =\ \textcolor{stringliteral}{"{}World\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ First\ send}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga1bff58303b67689f9a22226582de10bd}{USART\_SendData\_IT}}(\&uart\_handle,\ msg1,\ \textcolor{keyword}{sizeof}(msg1)-\/1);}
+\DoxyCodeLine{\textcolor{comment}{//\ Wait\ for\ callback...}}
+\DoxyCodeLine{\textcolor{comment}{//\ Second\ send\ (in\ callback\ or\ when\ notified)}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga1bff58303b67689f9a22226582de10bd}{USART\_SendData\_IT}}(\&uart\_handle,\ msg2,\ \textcolor{keyword}{sizeof}(msg2)-\/1);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+
+\begin{DoxyItemize}
+\item Do not call if TX already in progress (check UASRT\+\_\+\+Txstate)
+\item Buffer must remain valid until USART\+\_\+\+EVENT\+\_\+\+TX\+\_\+\+CMPL callback
+\item Stack-\/allocated buffers OK only if callback in same scope
+\item No queue:\+ only one transmission at a time
+\end{DoxyItemize}
+\end{DoxyWarning}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item USART interrupt must be enabled in NVIC
+\item Interrupt handler must call \doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}{USART\+\_\+\+IRQHandler()}
+\item Application must implement \doxylink{stm32f7xx__uart__driver_8h_aa4732538a8f3f2d83fc5da935f36eb50}{USART\+\_\+\+Application\+Event\+Callback()}
+\item Ensure TX interrupts not masked
+\end{DoxyItemize}
+\end{DoxyAttention}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}{USART\+\_\+\+IRQHandler()}, \doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gae0a6622ad6716e73ac03e5c0a690adb9}{USART\+\_\+\+Read\+Data\+\_\+\+IT()}, \doxylink{stm32f7xx__uart__driver_8h_aa4732538a8f3f2d83fc5da935f36eb50}{USART\+\_\+\+Application\+Event\+Callback()} 
+\end{DoxySeeAlso}

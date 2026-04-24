@@ -1,0 +1,192 @@
+\doxysection{TIMER2 Configuration Functions }
+\hypertarget{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s}{}\label{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s}\index{TIMER2 Configuration Functions@{TIMER2 Configuration Functions}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gaea49d1d61b33255209ce0f3c1ee1b2b7}{timer2ch1}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+CH1)
+\begin{DoxyCompactList}\small\item\em Configure TIMER2 Channel 1 PWM output (GPIO\+\_\+A pin 0). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae8b0f4376afc1cfd12067a9276e84d88}{timer2\+\_\+setup}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Timer, uint8\+\_\+t direction)
+\begin{DoxyCompactList}\small\item\em Initialize TIMER2 with default settings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\label{doc-func-members}
+\Hypertarget{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae8b0f4376afc1cfd12067a9276e84d88}\index{TIMER2 Configuration Functions@{TIMER2 Configuration Functions}!timer2\_setup@{timer2\_setup}}
+\index{timer2\_setup@{timer2\_setup}!TIMER2 Configuration Functions@{TIMER2 Configuration Functions}}
+\doxysubsubsection{\texorpdfstring{timer2\_setup()}{timer2\_setup()}}
+{\footnotesize\ttfamily \label{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae8b0f4376afc1cfd12067a9276e84d88} 
+void timer2\+\_\+setup (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+Timer}{, }\item[{uint8\+\_\+t}]{direction}{}\end{DoxyParamCaption})}
+
+
+
+Initialize TIMER2 with default settings. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em p\+Timer} & Pointer to \doxylink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t} to configure \\
+\hline
+\doxymbox{\texttt{in}}  & {\em direction} & Timer direction (Up\+Counter or Down\+Counter) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Configures TIMER2 for basic operation. Sets up default prescaler and period values. Actual PWM frequency is configured via \doxylink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae1f2c21be6c10594144a9665d427913a}{Timer\+Set\+Frequency()}.
+
+{\bfseries{TIMER2 Hardware:\+}}
+\begin{DoxyItemize}
+\item Type:\+ 32-\/bit general-\/purpose timer
+\item Clock:\+ APB1 (42 MHz after RCC prescaler)
+\item Channels:\+ 4 PWM outputs (CH1-\/\+CH4)
+\item Prescaler Range:\+ 1-\/65536
+\item Period Range:\+ 1-\/0x\+FFFFFFFF (32-\/bit)
+\end{DoxyItemize}
+
+{\bfseries{Register Configuration:\+}}
+\begin{DoxyItemize}
+\item TIM\+\_\+\+PSC:\+ Prescaler value
+\item TIM\+\_\+\+ARR:\+ Auto-\/reload register (period)
+\item TIM\+\_\+\+CR1:\+ Control register (enable, direction)
+\item TIM\+\_\+\+CCMRx:\+ Capture/\+compare mode (PWM mode 1)
+\item TIM\+\_\+\+CCER:\+ Capture/\+compare enable
+\item TIM\+\_\+\+CCRx:\+ Capture/\+compare register (duty cycle)
+\end{DoxyItemize}
+
+{\bfseries{Timer Modes:\+}}
+\begin{DoxyItemize}
+\item Up-\/\+Counter:\+ Counts 0 → ARR → 0 (edge-\/aligned PWM)
+\item Down-\/\+Counter:\+ Counts ARR → 0 → ARR (alternative timing)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em p\+Timer} & Handler to configure:\+
+\begin{DoxyItemize}
+\item p\+Timer-\/\texorpdfstring{$>$}{>}p\+Timer:\+ Set to TIMER2\+\_\+\+BASE
+\item p\+Timer-\/\texorpdfstring{$>$}{>}Timer\+Config:\+ Timer configuration
+\end{DoxyItemize}\\
+\hline
+\doxymbox{\texttt{in}}  & {\em direction} & Counting mode:\+
+\begin{DoxyItemize}
+\item Up\+Counter (0):\+ 0 → ARR → 0 (standard PWM)
+\item Down\+Counter (1):\+ ARR → 0 → ARR (alternative)
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item TIMER2 clock must be enabled in RCC
+\item Default prescaler and period are minimal
+\item PWM frequency set via \doxylink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae1f2c21be6c10594144a9665d427913a}{Timer\+Set\+Frequency()}
+\item Can call after system initialization
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Usage:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}\ timer2;}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae8b0f4376afc1cfd12067a9276e84d88}{timer2\_setup}}(\&timer2,\ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995abae40331b9e2578d64361241394e10c52e}{UpCounter}});\ \ \textcolor{comment}{//\ Initialize}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae1f2c21be6c10594144a9665d427913a}{TimerSetFrequency}}(\&timer2,\ 1000);\ \ \textcolor{comment}{//\ 1\ kHz}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga0b08f6fe8b7f71e4b008f71708340d7e}{TimerPWM\_init}}(\&timer2,\ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26a703cf81b7a9530ba8650e0ee2f29d68e}{CH1}});\ \ \ \ \ \ \textcolor{comment}{//\ Enable\ PWM}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga39c741de08b18d032760b29b0763ec46}{TimerControl}}(\&timer2,\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a}{ENABLE}});\ \ \ \ \ \textcolor{comment}{//\ Start}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gaea49d1d61b33255209ce0f3c1ee1b2b7}{timer2ch1()}, \doxylink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gac618b969375cadd9a01aad1c6c937843}{Timer\+Init()}, \doxylink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae1f2c21be6c10594144a9665d427913a}{Timer\+Set\+Frequency()} 
+\end{DoxySeeAlso}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.\+c}}.\end{Desc}
+\Hypertarget{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gaea49d1d61b33255209ce0f3c1ee1b2b7}\index{TIMER2 Configuration Functions@{TIMER2 Configuration Functions}!timer2ch1@{timer2ch1}}
+\index{timer2ch1@{timer2ch1}!TIMER2 Configuration Functions@{TIMER2 Configuration Functions}}
+\doxysubsubsection{\texorpdfstring{timer2ch1()}{timer2ch1()}}
+{\footnotesize\ttfamily \label{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gaea49d1d61b33255209ce0f3c1ee1b2b7} 
+void timer2ch1 (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+CH1}{}\end{DoxyParamCaption})}
+
+
+
+Configure TIMER2 Channel 1 PWM output (GPIO\+\_\+A pin 0). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em p\+CH1} & Pointer to \doxylink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t} for channel configuration \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Initializes GPIO pin 0 on PORT A as TIMER2 Channel 1 PWM output. Configures as alternate function 1 (TIM2\+\_\+\+CH1).
+
+{\bfseries{GPIO Configuration:\+}}
+\begin{DoxyItemize}
+\item Port:\+ GPIOA
+\item Pin:\+ 0
+\item Mode:\+ Alternate Function (TIMER2)
+\item Alternate Function:\+ AF1
+\item Speed:\+ High (for PWM switching frequency)
+\item Output Type:\+ Push-\/pull
+\end{DoxyItemize}
+
+{\bfseries{PWM Output Characteristics:\+}}
+\begin{DoxyItemize}
+\item Frequency:\+ Programmable (typically 1-\/100 k\+Hz)
+\item Duty Cycle:\+ Programmable (0-\/100\%)
+\item Voltage:\+ LVCMOS 3.\+3V
+\item Output Current:\+ Up to 100 mA (with external buffer)
+\end{DoxyItemize}
+
+{\bfseries{PWM Applications:\+}}
+\begin{DoxyItemize}
+\item LED brightness control
+\item Motor speed control
+\item Servo control
+\item Switch-\/mode power supply
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em p\+CH1} & Handler structure:\+
+\begin{DoxyItemize}
+\item p\+CH1-\/\texorpdfstring{$>$}{>}p\+Timer:\+ Set to TIMER2\+\_\+\+BASE
+\item p\+CH1-\/\texorpdfstring{$>$}{>}Timer\+Config:\+ PWM configuration
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item GPIOA clock must be enabled
+\item \doxylink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae8b0f4376afc1cfd12067a9276e84d88}{timer2\+\_\+setup()} should be called first
+\item GPIO configured for PWM output
+\item PWM starts at 0\% duty cycle
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{PWM Configuration Sequence:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}\ timer;}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae8b0f4376afc1cfd12067a9276e84d88}{timer2\_setup}}(\&timer);\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialize\ timer}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gaea49d1d61b33255209ce0f3c1ee1b2b7}{timer2ch1}}(\&timer);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configure\ PWM\ output}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae1f2c21be6c10594144a9665d427913a}{TimerSetFrequency}}(\&timer,\ 1000);\textcolor{comment}{//\ Set\ 1\ kHz\ frequency}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga0b08f6fe8b7f71e4b008f71708340d7e}{TimerPWM\_init}}(\&timer,\ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26a703cf81b7a9530ba8650e0ee2f29d68e}{CH1}});\ \ \ \ \textcolor{comment}{//\ Enable\ PWM}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga39c741de08b18d032760b29b0763ec46}{TimerControl}}(\&timer,\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a}{ENABLE}});\ \ \ \textcolor{comment}{//\ Start\ timer}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga222542f8ca62ee0071c754f8008949c4}{TimerPWM\_DutyCycle}}(\&timer,\ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26a703cf81b7a9530ba8650e0ee2f29d68e}{CH1}},\ 50);\ \textcolor{comment}{//\ Set\ 50\%\ duty}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae8b0f4376afc1cfd12067a9276e84d88}{timer2\+\_\+setup()}, \doxylink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga0b08f6fe8b7f71e4b008f71708340d7e}{Timer\+PWM\+\_\+init()}, \doxylink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga222542f8ca62ee0071c754f8008949c4}{Timer\+PWM\+\_\+\+Duty\+Cycle()} 
+\end{DoxySeeAlso}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.\+c}}.\end{Desc}

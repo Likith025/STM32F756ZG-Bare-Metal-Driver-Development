@@ -1,0 +1,88 @@
+\doxysection{stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+src/\+stm32f7xx\+\_\+gpio\+\_\+driver.c File Reference}
+\hypertarget{stm32f7xx__gpio__driver_8c}{}\label{stm32f7xx__gpio__driver_8c}\index{stm32f7xx\_driver/driver/driver\_src/stm32f7xx\_gpio\_driver.c@{stm32f7xx\_driver/driver/driver\_src/stm32f7xx\_gpio\_driver.c}}
+
+
+GPIO (General Purpose Input/\+\+Output) Driver for STM32\+F756\+ZG.  
+
+
+{\ttfamily \+\#include "{}stm32f7xx\+\_\+gpio\+\_\+driver.\+h"{}}\newline
+Include dependency graph for stm32f7xx\+\_\+gpio\+\_\+driver.\+c:\+
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}{GPIO\+\_\+\+Init}} (GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}GPIOx, uint16\+\_\+t pin, uint32\+\_\+t mode, uint32\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Initialize GPIO pin with mode and speed configuration. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_ga2c35a3f1fdc64d247ba3b7b64c712a23}{GPIO\+\_\+\+Clock\+\_\+\+Enable}} (GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}GPIOx)
+\begin{DoxyCompactList}\small\item\em Enable GPIO port clock via RCC. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___g_p_i_o___i_o___f_u_n_c_t_i_o_n_s_ga5183f3317e81fe885836d8000ff089aa}{GPIO\+\_\+\+Write\+Pin}} (GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}GPIOx, uint16\+\_\+t pin, uint32\+\_\+t state)
+\begin{DoxyCompactList}\small\item\em Write value to GPIO pin. \end{DoxyCompactList}\item 
+uint32\+\_\+t \doxymbox{\hyperlink{group___g_p_i_o___i_o___f_u_n_c_t_i_o_n_s_ga65a7dfe6e696f81215be138a38a7b2f6}{GPIO\+\_\+\+Read\+Pin}} (GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}GPIOx, uint16\+\_\+t pin)
+\begin{DoxyCompactList}\small\item\em Read GPIO pin state. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___g_p_i_o___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gabc4d268da70deb966f5faa2aaa7cbe2a}{GPIO\+\_\+\+EXTI\+\_\+\+Config}} (uint16\+\_\+t pin)
+\begin{DoxyCompactList}\small\item\em Configure external interrupt on GPIO pin. \end{DoxyCompactList}\item 
+uint32\+\_\+t \doxymbox{\hyperlink{group___g_p_i_o___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gaa3ed25a000787615f0cb39483c604297}{GPIO\+\_\+\+EXTI\+\_\+\+Pending\+\_\+\+Flag\+\_\+\+Check}} (uint16\+\_\+t pin)
+\begin{DoxyCompactList}\small\item\em Check if EXTI pending flag is set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+GPIO (General Purpose Input/\+\+Output) Driver for STM32\+F756\+ZG. 
+
+\begin{DoxyAuthor}{Author}
+Likith025 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+April 2026 
+\end{DoxyDate}
+This module provides GPIO port and pin management functions for the STM32\+F756\+ZG microcontroller. It includes functions for:\+
+\begin{DoxyItemize}
+\item GPIO port clock enable/\+disable
+\item GPIO pin mode configuration (input, output, alternate function)
+\item GPIO output operations (set/\+clear/\+toggle pins)
+\item GPIO input operations (read pin state)
+\item External interrupt (EXTI) configuration
+\item GPIO interrupt flag management
+\end{DoxyItemize}
+
+{\bfseries{GPIO Features:\+}}
+\begin{DoxyItemize}
+\item 16 pins per port (Port A-\/I available)
+\item Configurable I/\+O modes (input, output, analog, alternate function)
+\item Flexible speed settings (low, medium, high, very high)
+\item Optional internal pull-\/up/\+pull-\/down resistors
+\item Open drain or push-\/pull output
+\item External interrupt capability on all pins
+\end{DoxyItemize}
+
+{\bfseries{Port Mapping:\+}}
+\begin{DoxyItemize}
+\item GPIOA:\+ Base address 0x40020000, used for buttons, timers
+\item GPIOB:\+ Base address 0x40020400, used for LEDs
+\item GPIOC:\+ Base address 0x40020800, used for UART
+\item GPIOD-\/I:\+ Additional ports for expansion
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item GPIO clocks must be enabled in RCC before calling these functions
+\item EXTI configuration requires SYSCFG clock enable
+\item Some pins have limited alternate function options
+\item Pin state changes are immediate (no queuing)
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item Invalid port addresses cause system hang or hard fault
+\item Do not access pins before GPIO clock enable
+\item EXTI handlers must be implemented by application
+\item Interrupt flags must be cleared in handler
+\end{DoxyItemize}
+\end{DoxyAttention}
+\begin{DoxyCopyright}{Copyright}
+2026 Likith025 -\/ MIT License 
+\end{DoxyCopyright}
+\begin{DoxySeeAlso}{See also}
+\doxylink{stm32f756zg__reg_8h}{stm32f756zg\+\_\+reg.\+h} -\/ GPIO register definitions 
+\end{DoxySeeAlso}

@@ -1,0 +1,273 @@
+\doxysection{stm32f756zg\+\_\+reg.\+h}
+\hypertarget{stm32f756zg__reg_8h_source}{}\label{stm32f756zg__reg_8h_source}\index{stm32f7xx\_driver/driver/driver\_inc/stm32f756zg\_reg.h@{stm32f7xx\_driver/driver/driver\_inc/stm32f756zg\_reg.h}}
+\doxymbox{\hyperlink{stm32f756zg__reg_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ stm32f7xx\_driver\_custom.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ Feb\ 17,\ 2026}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ likith}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ INC\_STM32F756ZG\_REG\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ INC\_STM32F756ZG\_REG\_H\_}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \textcolor{comment}{//Processor\ related\ macros\ and\ structs}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ NVIC\_BASE\_ADDR\ \ \ ((volatile\ uint32\_t*)(0xE000E100))}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_n_v_i_c___reg_def__t_ac00a34631cedcc431ca68e634410bac3}{ISER}}[8];}
+\DoxyCodeLine{00019\ \ \ \ \ uint32\_t\ \doxymbox{\hyperlink{struct_n_v_i_c___reg_def__t_ac1caa7c9648d47f5a8fc13179351fca1}{RESERVED0}}[24];}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_n_v_i_c___reg_def__t_a9277c2bfdae8353c09f1f696e7f00462}{ICER}}[8];}
+\DoxyCodeLine{00021\ \ \ \ \ uint32\_t\ \doxymbox{\hyperlink{struct_n_v_i_c___reg_def__t_af958e5470fafa63acddf63f9508a6486}{RESERVED1}}[24];}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_n_v_i_c___reg_def__t_add8b1c3105369c0842f5f9923740b632}{ISPR}}[8];}
+\DoxyCodeLine{00023\ \ \ \ \ uint32\_t\ \doxymbox{\hyperlink{struct_n_v_i_c___reg_def__t_a56caadf015e5252ca01e53698ed23344}{RESERVED2}}[24];}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_n_v_i_c___reg_def__t_add0d559fb755dc4375545ff3f5919f10}{ICPR}}[8];}
+\DoxyCodeLine{00025\ \ \ \ \ uint32\_t\ \doxymbox{\hyperlink{struct_n_v_i_c___reg_def__t_a993d178091021c0e2c090c9b9a36d5f8}{RESERVED3}}[24];}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_n_v_i_c___reg_def__t_ae0350e505f697df1c5d5516f9dc434c3}{IABR}}[8];}
+\DoxyCodeLine{00027\ \ \ \ \ uint32\_t\ \doxymbox{\hyperlink{struct_n_v_i_c___reg_def__t_a025a2be6d339a6f45f786de590144365}{RESERVED4}}[56];}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_n_v_i_c___reg_def__t_a57ba3a0dfe22a59876fb6b15390a5b40}{IPR}}[60];}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \}\ \doxymbox{\hyperlink{struct_n_v_i_c___reg_def__t}{NVIC\_RegDef\_t}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ NVIC\ ((NVIC\_RegDef\_t*)(NVIC\_BASE\_ADDR))}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{//Defining\ BASE\ address\ of\ memory\ regions}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ FLASH\_BASE\_ADDR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x08000000UL\ \ }\textcolor{comment}{//Base\ Address\ of\ flash\ memory}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ DTCM\_BASE\_ADDR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x20000000UL\ \ \ \ }\textcolor{comment}{//Base\ Address\ of\ DTCM}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ SRAM1\_BASE\_ADDR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x20010000UL\ }\textcolor{comment}{//Base\ Address\ of\ SRAM1\ memory}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ SRAM2\_BASE\_ADDR\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x2004C000UL\ }\textcolor{comment}{//Base\ Address\ of\ SRAM2\ memory}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ SRAM\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SRAM1\_BASE\_ADDR}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{//Defining\ BASE\ address\ of\ BUS\ regions}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ APB1\_PERIPH\_BASE\_ADDR\ \ \ \ \ \ \ \ \ \ \ 0x40000000UL\ \ \ \ }\textcolor{comment}{//Base\ address\ of\ APB1\ bus\ peripherals}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ APB2\_PERIPH\_BASE\_ADDR\ \ \ \ \ \ \ \ \ \ \ 0x40010000UL\ \ \ \ }\textcolor{comment}{//Base\ address\ of\ APB2\ bus\ peripherals}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ AHB1\_PERIPH\_BASE\_ADDR\ \ \ \ \ \ \ \ \ \ \ 0x40020000UL\ \ \ \ }\textcolor{comment}{//Base\ address\ of\ AHB1\ bus\ peripherals}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ AHB2\_PERIPH\_BASE\_ADDR\ \ \ \ \ \ \ \ \ \ \ 0x50000000UL\ \ \ \ }\textcolor{comment}{//Base\ address\ of\ AHB2\ bus\ peripherals}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ AHB3\_PERIPH\_BASE\_ADDR\ \ \ \ \ \ \ \ \ \ \ 0x60000000UL\ \ \ \ }\textcolor{comment}{//Base\ address\ of\ AHB3\ bus\ peripherals}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{//generic\ macros}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ ENABLE\ \ 0x1UL}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ DISABLE\ 0x0UL}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{comment}{//Defining\ BASE\ address\ of\ peripherals\ of\ APB1\ BUS\ regions}}
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ TIM2,3,\ RTC,\ \ I2C1,I2C2,I2C3,\ \ SPI2,SPI3,\ \ USART2,3\ \ \ UART4,5}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ TIMMER\_2\_BASE\_ADDR\ \ \ \ \ \ (APB1\_PERIPH\_BASE\_ADDR+0x0)}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ TIMMER\_3\_BASE\_ADDR\ \ \ \ \ \ (APB1\_PERIPH\_BASE\_ADDR+0x400)}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ I2C1\_BASE\_ADDR\ \ \ \ \ \ \ \ \ \ (APB1\_PERIPH\_BASE\_ADDR+0x5400)}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ I2C2\_BASE\_ADDR\ \ \ \ \ \ \ \ \ \ (APB1\_PERIPH\_BASE\_ADDR+0x5800)}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ I2C3\_BASE\_ADDR\ \ \ \ \ \ \ \ \ \ (APB1\_PERIPH\_BASE\_ADDR+0x5C00)}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ SPI2\_BASE\_ADDR\ \ \ \ \ \ \ \ \ \ (APB1\_PERIPH\_BASE\_ADDR+0x3800)}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ SPI3\_BASE\_ADDR\ \ \ \ \ \ \ \ \ \ (APB1\_PERIPH\_BASE\_ADDR+0x3C00)}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ USART2\_BASE\_ADDR\ \ \ \ \ \ \ \ (APB1\_PERIPH\_BASE\_ADDR+0x4400)}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ USART3\_BASE\_ADDR\ \ \ \ \ \ \ \ (APB1\_PERIPH\_BASE\_ADDR+0x4800)}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ UART4\_BASE\_ADDR\ \ \ \ \ \ \ \ \ (APB1\_PERIPH\_BASE\_ADDR+0x4C00)}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ UART5\_BASE\_ADDR\ \ \ \ \ \ \ \ \ (APB1\_PERIPH\_BASE\_ADDR+0x5000)}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ RTC\_BASE\_ADDR\ \ \ \ \ \ \ \ \ \ \ (APB1\_PERIPH\_BASE\_ADDR+0x2800)}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ CAN1\_BASE\_ADDR\ \ \ \ \ \ \ \ \ \ (APB1\_PERIPH\_BASE\_ADDR+0x6400)}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{comment}{//Defining\ BASE\ address\ of\ peripherals\ of\ APB2\ BUS\ regions}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ EXTI\_BASE\_ADDR\ \ \ \ \ \ (APB2\_PERIPH\_BASE\_ADDR+0x3C00)}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ SYSCFG\_BASE\_ADDR\ \ \ \ (APB2\_PERIPH\_BASE\_ADDR+0x3800)}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{comment}{//defining\ base\ address\ of\ peripherals\ of\ AHB1\ bus}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ GPIOA\_BASE\_ADDR\ \ \ \ \ (AHB1\_PERIPH\_BASE\_ADDR+0x0)}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ GPIOB\_BASE\_ADDR\ \ \ \ \ (AHB1\_PERIPH\_BASE\_ADDR+0x400)}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ GPIOC\_BASE\_ADDR\ \ \ \ \ (AHB1\_PERIPH\_BASE\_ADDR+0x800)}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ GPIOD\_BASE\_ADDR\ \ \ \ \ (AHB1\_PERIPH\_BASE\_ADDR+0xC00)}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ GPIOE\_BASE\_ADDR\ \ \ \ \ (AHB1\_PERIPH\_BASE\_ADDR+0x1000)}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ GPIOF\_BASE\_ADDR\ \ \ \ \ (AHB1\_PERIPH\_BASE\_ADDR+0x1400)}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ GPIOG\_BASE\_ADDR\ \ \ \ \ (AHB1\_PERIPH\_BASE\_ADDR+0x1800)}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ GPIOH\_BASE\_ADDR\ \ \ \ \ (AHB1\_PERIPH\_BASE\_ADDR+0x1C00)}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ GPIOI\_BASE\_ADDR\ \ \ \ \ (AHB1\_PERIPH\_BASE\_ADDR+0x2000)}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ GPIOJ\_BASE\_ADDR\ \ \ \ \ (AHB1\_PERIPH\_BASE\_ADDR+0x2400)}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ GPIOK\_BASE\_ADDR\ \ \ \ \ (AHB1\_PERIPH\_BASE\_ADDR+0x2800)}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ RCC\_BASE\_ADDR\ \ \ \ \ \ \ (AHB1\_PERIPH\_BASE\_ADDR+0x3800)}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{comment}{//Defining\ Base\ address\ of\ GPIO\ peripherals}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ GPIO\_A\ \ ((GPIO\_RegDef\_t*)GPIOA\_BASE\_ADDR)}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ GPIO\_B\ \ ((GPIO\_RegDef\_t*)GPIOB\_BASE\_ADDR)}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ GPIO\_C\ \ ((GPIO\_RegDef\_t*)GPIOC\_BASE\_ADDR)}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ GPIO\_D\ \ ((GPIO\_RegDef\_t*)GPIOD\_BASE\_ADDR)}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ GPIO\_E\ \ ((GPIO\_RegDef\_t*)GPIOE\_BASE\_ADDR)}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ GPIO\_F\ \ ((GPIO\_RegDef\_t*)GPIOF\_BASE\_ADDR)}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ GPIO\_G\ \ ((GPIO\_RegDef\_t*)GPIOG\_BASE\_ADDR)}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ GPIO\_H\ \ ((GPIO\_RegDef\_t*)GPIOH\_BASE\_ADDR)}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ GPIO\_I\ \ ((GPIO\_RegDef\_t*)GPIOI\_BASE\_ADDR)}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ GPIO\_J\ \ ((GPIO\_RegDef\_t*)GPIOJ\_BASE\_ADDR)}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ GPIO\_K\ \ ((GPIO\_RegDef\_t*)GPIOK\_BASE\_ADDR)}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ RCC\ \ \ \ \ ((RCC\_RegDef\_t*)RCC\_BASE\_ADDR)}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#define\ USART\_2\ ((USART\_RegDef\_t*)USART2\_BASE\_ADDR)}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ USART\_3\ ((USART\_RegDef\_t*)USART3\_BASE\_ADDR)}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ UART\_4\ \ ((USART\_RegDef\_t*)UART4\_BASE\_ADDR)}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#define\ UART\_5\ \ ((USART\_RegDef\_t*)UART5\_BASE\_ADDR)}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ EXTI\ \ \ \ ((EXTI\_RegDef\_t*)EXTI\_BASE\_ADDR)}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#define\ SYSCFG\ \ ((SYSCFG\_RegDef\_t*)SYSCFG\_BASE\_ADDR)}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#define\ TIMER2\ ((TIMER\_RegDef\_t*)TIMMER\_2\_BASE\_ADDR)}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{comment}{//IRQ\ numbers}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#define\ IRQ\_NO\_EXTI0\ \ \ \ 6}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ IRQ\_NO\_EXTI1\ \ \ \ 7}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ IRQ\_NO\_EXTI2\ \ \ \ 8}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ IRQ\_NO\_EXTI3\ \ \ \ 9}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#define\ IRQ\_NO\_EXTI4\ \ \ \ 10}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#define\ IRQ\_NO\_EXTI5\_9\ \ 23}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ IRQ\_NO\_EXTI10\_15\ \ \ \ 40}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#define\ IRQ\_NO\_USART3\ \ \ 39}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{comment}{//Creating\ structures\ for\ peripheral\ registers}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t_a9d100e1b1fe1b0d2f91b488817d9e1a5}{MODER}};\ \textcolor{comment}{//\ GPIO\ port\ mode\ register}}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t_aa471261728af9a721a51bcabf0e0b34c}{OTYPER}};\ \textcolor{comment}{//\ GPIO\ port\ o/p\ type\ register}}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t_a843111062e817f4b76bf4a6620a8211c}{OSPEEDR}};\ \textcolor{comment}{//\ GPIO\ port\ o/p\ speed\ register}}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t_a0dc9b1a6a525390f94820db77b0787f0}{PUPDR}};\ \textcolor{comment}{//GPIO\ port\ pull-\/up/push-\/down\ register}}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t_a7f0cb67e59bc22975d05240fbb8b2f09}{IDR}};\ \ \textcolor{comment}{//\ GPIO\ port\ i/p\ data\ register}}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t_a9f092d8c4bd7b65c85d1fc014871e60e}{ODR}};\ \ \textcolor{comment}{//GPIO\ port\ o/p\ data\ register}}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t_a658159047b205584e73e811bdba63e88}{BSRR}};\ \textcolor{comment}{//GPIO\ port\ set/reset\ register}}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t_a02f67c5d38d16b425793a182bd2ec6c8}{LCKR}};\ \textcolor{comment}{//GPIO\ port\ config\ lock\ register}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t_ae37eecfca54ba11628d85d11119673f9}{AFR}}[2];\ \textcolor{comment}{//\ GPIO\ alternate\ function\ register}}
+\DoxyCodeLine{00161\ \ \ \ \ \}\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\_RegDef\_t}};}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a42e75571aeb42e0c2796c460a06e2e2a}{CR}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//RCC\ clock\ control\ register}}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a0ac141565a18dadd2c131adae95f4314}{PLLCFGR}};\ \ \ \ \ \ \textcolor{comment}{//\ RCC\ PLL\ config\ register}}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a79bc9c39e426da5615b0fb2cd72cf9a9}{CFGR}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ RCC\ clk\ config\ register}}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a6dd6326b8e6e3aaa6dd9e76745a4ca36}{CIR}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//RCC\ clk\ interrupt\ register}}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a42bb18f1c2aadd637775946da38fea41}{AHB1RSTR}};\ \ \ \ \ \textcolor{comment}{//RCC\ AHB1\ peripheral\ reset\ register}}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a4d9417933c32a335cd3a37bdfb808ebf}{AHB2RSTR}};\ \ \ \ \ \textcolor{comment}{//RCC\ AHB2\ peripheral\ reset\ register}}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a1615f7058bdbf041034f173b95f48932}{AHB3RSTR}};\ \ \ \ \ \textcolor{comment}{//RCC\ AHB3\ peripheral\ reset\ register}}
+\DoxyCodeLine{00172\ \ \ \ \ uint32\_t\ \ \ \ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_afd419e55e5cd8f36187c7c679de0a2b2}{RESERVED\_1}};}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_acfa79aca8487958412be8f32e4632b47}{APB1RSTR}};\ \ \ \ \ \textcolor{comment}{//RCC\ APB1\ peripheral\ reset\ register}}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a6c1588013b885c32b78b912e8249a26c}{APB2RSTR}};\ \ \ \ \ \textcolor{comment}{//RCC\ APB2\ peripheral\ reset\ register}}
+\DoxyCodeLine{00175\ \ \ \ \ uint32\_t\ \ \ \ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a719fa1c49d0f21c44cb02d7769ae4728}{RESERVED\_2}}[2];}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_aea53adc2e7c545775fa04ad34f5f9ff9}{AHB1ENR}};\ \ \ \ \ \ \textcolor{comment}{//RCC\ AHB1\ peripheral\ clock\ register}}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_abaf4c083bc159c5148cc9db38ac7388a}{AHB2ENR}};\ \ \ \ \ \ \textcolor{comment}{//RCC\ AHB2\ peripheral\ clock\ register}}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a169af9918bc0814f05c418f3415dc076}{AHB3ENR}};\ \ \ \ \ \ \textcolor{comment}{//RCC\ AHB3\ peripheral\ clock\ register}}
+\DoxyCodeLine{00179\ \ \ \ \ uint32\_t\ \ \ \ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_ad69589976fc9369783b72c982e88b113}{RESERVED\_3}};}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a389643cd117089ebb8dd10ec060488d8}{APB1ENR}};\ \ \ \ \ \ \textcolor{comment}{//RCC\ APB1\ peripheral\ clock\ enable\ register}}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_aa5211a53246098ec97c0e360759c5ad8}{APB2ENR}};\ \ \ \ \ \ \textcolor{comment}{//RCC\ APB1\ peripheral\ clock\ enable\ register}}
+\DoxyCodeLine{00182\ \ \ \ \ uint32\_t\ \ \ \ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a186556ddb9375223e3fb0515a0782116}{RESERVED\_4}}[2];}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a0f1e1666ec1c7f05d30ba69d4cdb2357}{AHB1LPENR}};\ \ \ \ \textcolor{comment}{//RCC\ AHB1\ peripheral\ clock\ enable\ in\ low\ power\ mode\ register}}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a8c6a99540a64f563956bef7dfc501a51}{AHB2LPENR}};\ \ \ \ \textcolor{comment}{//RCC\ AHB2\ peripheral\ clock\ enable\ in\ low\ power\ mode\ register}}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a969f867be521a744da3424fca2bbc135}{AHB3LPENR}};\ \ \ \ \textcolor{comment}{//RCC\ AHB3\ peripheral\ clock\ enable\ in\ low\ power\ mode\ register}}
+\DoxyCodeLine{00186\ \ \ \ \ uint32\_t\ \ \ \ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_ae69abbef9284bd60818bf8e045c060fd}{RESERVED\_5}};}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_af3e9349611ac0807a4b8ad3b9092490a}{APB1LPENR}};\ \ \ \ \textcolor{comment}{//RCC\ APB1\ peripheral\ clock\ enable\ in\ low\ power\ mode\ register}}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_ab7a6c876d40b24bc87fa77108508271d}{APB2LPENR}};\ \ \ \ \textcolor{comment}{//RCC\ APB1\ peripheral\ clock\ enable\ in\ low\ power\ mode\ register}}
+\DoxyCodeLine{00189\ \ \ \ \ uint32\_t\ \ \ \ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a03bfaaa2e3c43f9f4d082b021b1954da}{RESERVED\_6}}[2];}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a59a53b5462384295a8fb8ac51a2d77e2}{BDCR}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//RCC\ Backup\ domain\ control\ register}}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_ad5c31d6b10eeff0d74d1a4213327af09}{CSR}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//RCC\ clock\ control\ \&\ status\ register}}
+\DoxyCodeLine{00192\ \ \ \ \ uint32\_t\ \ \ \ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_abfe4cafc7b618cacce4c9400fdc0f1a8}{RESERVED\_7}}[2];}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a0addf6bf7447e8de71be463cbaa317f9}{SSCGR}};\ \ \ \ \ \ \ \ \textcolor{comment}{//RCC\ spread\ spectrum\ clock\ generation\ register}}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a8eec149ac5b3db9c512a93e44184804e}{PLLI2SCFGR}};\ \ \ \textcolor{comment}{//RCC\ PLLI2S\ configuration\ register}}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a8b6203f7b877506d6632c3686bd17b16}{PLLSAICFGR}};\ \ \ \textcolor{comment}{//RCC\ PLLSAI\ configuration\ register}}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a00096c2921811ef1ad3463e9330f1ef6}{DCKCFGR1}};\ \ \ \ \ \textcolor{comment}{//RCC\ Dedicated\ Clocks\ configuration\ register1}}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_r_c_c___reg_def__t_a1490721db8e5f3e308229327917abe5d}{DCKCFGR2}};\ \ \ \ \ \textcolor{comment}{//RCC\ Dedicated\ Clocks\ configuration\ register2}}
+\DoxyCodeLine{00198\ \}\doxymbox{\hyperlink{struct_r_c_c___reg_def__t}{RCC\_RegDef\_t}};}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \ \doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t_a5d2c91a730763124c61adca4438af70d}{USART\_CR1}};}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t_a23d581435ad07651ca058071d5b4de28}{USART\_CR2}};}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t_a8769bdd05df6a09cc7749cc2c3b0b642}{USART\_CR3}};}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \ \ \doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t_a43b21add2501acca3fff709a141be68c}{USART\_BRR}};}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t_a47d9c7bfa6a68cb2cce6cb6c402deece}{USART\_GTPR}};}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t_a6355a7a4f96ea199dc2aa133aa3130c1}{USART\_RTOR}};}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t_ac51609fd23c68b6e2f7cf3ca3bac4fa6}{USART\_RQR}};}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t_aeb4f260380fb229a25ccd17c9d50fcfc}{USART\_ISR}};}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t_a1c69eb9740ac7bda277b903554514db0}{USART\_ICR}};}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t_a84da5948e7304bb553b2eb3a93ad9a2a}{USART\_RDR}};}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t_a513d022ef8f450836ec2518e24809fe1}{USART\_TDR}};}
+\DoxyCodeLine{00213\ \}\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\_RegDef\_t}};}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_e_x_t_i___reg_def__t_ae06be5a28c47ae5c3cb4343b3e1a4d0c}{EXTI\_IMR}};}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_e_x_t_i___reg_def__t_ad8d6def7b60e709a939e39cb503c6f17}{EXTI\_EMR}};}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_e_x_t_i___reg_def__t_ae1811c5cda7562ab8e2e02dce13df4c1}{EXTI\_RTSR}};}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_e_x_t_i___reg_def__t_a80c66f6748b706ae9882422888cf8271}{EXTI\_FTSR}};}
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_e_x_t_i___reg_def__t_a2ecd8923d9f3c1058e7e7a63bebb2768}{EXTI\_SWIER}};}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_e_x_t_i___reg_def__t_a66b0cf1d9f07d029d4538973b32c8399}{EXTI\_PR}};}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \}\doxymbox{\hyperlink{struct_e_x_t_i___reg_def__t}{EXTI\_RegDef\_t}};}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_s_y_s_c_f_g___reg_def__t_a85968b8178667ab6670d187481866b71}{SYSCFG\_MEMRMP}};}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_s_y_s_c_f_g___reg_def__t_a649f2aa6fb14b052c2b2d2e34156d89e}{SYSCFG\_PMC}};}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_s_y_s_c_f_g___reg_def__t_ad5c121e5eb0827f8d8e2062a11f1f0ee}{SYSCFG\_EXTICR}}[4];}
+\DoxyCodeLine{00231\ \ \ \ \ uint32\_t\ \doxymbox{\hyperlink{struct_s_y_s_c_f_g___reg_def__t_a429fa9468053302980a66c0173a0464d}{reserved}}[2];}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_s_y_s_c_f_g___reg_def__t_a7f72dcdc3c72ff373ed11c633aeed392}{SYSCFG\_CMPCR}};}
+\DoxyCodeLine{00233\ \}\doxymbox{\hyperlink{struct_s_y_s_c_f_g___reg_def__t}{SYSCFG\_RegDef\_t}};}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_ae8be263c030be47af453c1d77960b0c7}{TIM\_CR1}};}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a3f07c5a99008c4c10dabc921187cf3f6}{TIM\_CR2}};}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a2a62998a3fccc3549ed3b0c6dd7f8246}{TIM\_SMCR}};}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a3d7b408d3e189904847c60f7c2e003cc}{TIM\_DIER}};}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a66ef3a78d2530959b43c766179a81895}{TIM\_SR}};}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a0e33df1c17e00e7be9177183c13197f2}{TIM\_EGR}};}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a26f79f20a0727743b4679570996494aa}{TIM\_CCMR1}};}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_aacddb9b6cb4599219b54b2ae6da72c1f}{TIM\_CCMR2}};}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_ae382617dc2d75327259f2831ab45cf86}{TIM\_CCER}};}
+\DoxyCodeLine{00247\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_ab1d21520b362e4db802606617bc19c84}{TIM\_CNT}};}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a8fcbe5806efacf71a8754cb3c00c7f56}{TIM\_PSC}};}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a8f4c0512f1e6e47551a224fd2110c4da}{TIM\_ARR}};}
+\DoxyCodeLine{00250\ \ \ \ \ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a79bc8a8a9dbcae3b4a0965c641153b77}{RESERVED\_1}};}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_aeb1373fe8bf578cf811478d8a058e761}{TIM\_CCR1}};}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a2f0a86722a5b854bdaf0e07ff136f2e8}{TIM\_CCR2}};}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a3df844df9c97a7f311f75120e172f3f1}{TIM\_CCR3}};}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_aa088083d88192eecc6de8c8e453ffe89}{TIM\_CCR4}};}
+\DoxyCodeLine{00255\ \ \ \ \ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_ae99fadc4aca78e18cffa26ca6229ee5b}{RESERVED\_2}};}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a79ec60c54b52e81844af40e5c122bfe9}{TIM\_DCR}};}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_af4ff492cb9c9a80b28de9947bd27bca3}{TIM\_DMR}};}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a1351e7a3192f9362f1cc8f34535ca81c}{TIM\_OR}};}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \}\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t}{TIMER\_RegDef\_t}};}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{stm32f7xx__gpio__driver_8h}{stm32f7xx\_gpio\_driver.h}}"{}}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_STM32F756ZG\_REG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

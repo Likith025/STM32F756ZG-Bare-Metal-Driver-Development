@@ -1,0 +1,643 @@
+\doxysection{stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+inc/\+stm32f7xx\+\_\+uart\+\_\+driver.h File Reference}
+\hypertarget{stm32f7xx__uart__driver_8h}{}\label{stm32f7xx__uart__driver_8h}\index{stm32f7xx\_driver/driver/driver\_inc/stm32f7xx\_uart\_driver.h@{stm32f7xx\_driver/driver/driver\_inc/stm32f7xx\_uart\_driver.h}}
+{\ttfamily \+\#include $<$stm32f756zg\+\_\+reg.\+h$>$}\newline
+Include dependency graph for stm32f7xx\+\_\+uart\+\_\+driver.\+h:\+
+% FIG 0
+This graph shows which files directly or indirectly include this file:\+
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_u_s_a_r_t__config__t}{USART\+\_\+config\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_aa10e69d231b67d698ab59db3d338baa6}{USART\+\_\+\+ISR\+\_\+\+PE}}~(1U $<$$<$ 0)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a27cc4dfb6d5e817a69c80471b87deb4b}{USART\+\_\+\+ISR\+\_\+\+FE}}~(1U $<$$<$ 1)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ae2a9c609127d1a49af9f517423a064e3}{USART\+\_\+\+ISR\+\_\+\+NF}}~(1U $<$$<$ 2)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a9e5b4a08e3655bed8ec3022947cfc542}{USART\+\_\+\+ISR\+\_\+\+ORE}}~(1U $<$$<$ 3)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_acee745b19e0a6073280d234fdc96e627}{USART\+\_\+\+ISR\+\_\+\+IDLE}}~(1U $<$$<$ 4)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a39da7549976e5a5c91deff40e6044f03}{USART\+\_\+\+ISR\+\_\+\+RXNE}}~(1U $<$$<$ 5)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_aa41e8667b30453a6b966aded9f5e8cbb}{USART\+\_\+\+ISR\+\_\+\+TC}}~(1U $<$$<$ 6)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ab59be9f02a6e304a82da3e298c6a72ab}{USART\+\_\+\+ISR\+\_\+\+TXE}}~(1U $<$$<$ 7)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a70422871d15f974b464365e7fe1877e9}{USART\+\_\+\+CR1\+\_\+\+TXEIE}}~(1U $<$$<$ 7)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_aa17130690a1ca95b972429eb64d4254e}{USART\+\_\+\+CR1\+\_\+\+TCIE}}~(1U $<$$<$ 6)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a91118f867adfdb2e805beea86666de04}{USART\+\_\+\+CR1\+\_\+\+RXNEIE}}~(1U $<$$<$ 5)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a404185136eb68f679e82e0187d66e411}{USART\+\_\+\+ICR\+\_\+\+PECF}}~(1U $<$$<$ 0)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a8400b4500c41800e5f18fc7291a64c9f}{USART\+\_\+\+ICR\+\_\+\+FECF}}~(1U $<$$<$ 1)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ad50b0d2460df1cbddd9576c2f4637312}{USART\+\_\+\+ICR\+\_\+\+NCF}}~(1U $<$$<$ 2)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a375f76b0670ffeb5d2691592d9e7c422}{USART\+\_\+\+ICR\+\_\+\+ORECF}}~(1U $<$$<$ 3)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a9d4d7675c0d36ce4347c3509d27c0760}{USART\+\_\+\+ICR\+\_\+\+IDLECF}}~(1U $<$$<$ 4)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_acf92ea54425a962dde662b10b61d0250}{USART\+\_\+\+ICR\+\_\+\+TCCF}}~(1U $<$$<$ 6)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a61b47b3e6cb481230d5cf1c671744d74}{USART\+\_\+\+CLK}}~16000000U
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9}{USART\+\_\+\+Clear\+Flags\+\_\+t}} \{ \newline
+\doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9abd99b09c865d4398800e34116526369c}{USART\+\_\+\+FLAG\+\_\+\+PECF}} = USART\+\_\+\+ICR\+\_\+\+PECF
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9a98bbcaa03ef2df03ecf90f1c9b9153ff}{USART\+\_\+\+FLAG\+\_\+\+FECF}} = USART\+\_\+\+ICR\+\_\+\+FECF
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9a11b11900e09846f696e4b8a959399a4c}{USART\+\_\+\+FLAG\+\_\+\+NCF}} = USART\+\_\+\+ICR\+\_\+\+NCF
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9a2c8b5af2097d47758fa04b06d016c5ce}{USART\+\_\+\+FLAG\+\_\+\+ORECF}} = USART\+\_\+\+ICR\+\_\+\+ORECF
+, \newline
+\doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9a41a64c39a61ce6ee1a5ef1647bfd95db}{USART\+\_\+\+FLAG\+\_\+\+IDLECF}} = USART\+\_\+\+ICR\+\_\+\+IDLECF
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9a7a869480c79db00a5de79f076b8ef866}{USART\+\_\+\+FLAG\+\_\+\+TCCF}} = USART\+\_\+\+ICR\+\_\+\+TCCF
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357}{USART\+\_\+\+Flags\+\_\+t}} \{ \newline
+\doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357aa80e3edb43079cd5d06afbf9c9d6607e}{USART\+\_\+\+FLAG\+\_\+\+PE}} = USART\+\_\+\+ISR\+\_\+\+PE
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357a69275e8ac855841f041478f56cc8a674}{USART\+\_\+\+FLAG\+\_\+\+FE}} = USART\+\_\+\+ISR\+\_\+\+FE
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357acd5b05c894ad594f94c3eb8e5e239f57}{USART\+\_\+\+FLAG\+\_\+\+NF}} = USART\+\_\+\+ISR\+\_\+\+NF
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357afa5c29314b5d909c72cb4beb9e85f825}{USART\+\_\+\+FLAG\+\_\+\+ORE}} = USART\+\_\+\+ISR\+\_\+\+ORE
+, \newline
+\doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357a126bef3af7e9325f41fbc9f1cf98c264}{USART\+\_\+\+FLAG\+\_\+\+IDLE}} = USART\+\_\+\+ISR\+\_\+\+IDLE
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357a36ed4c9943d55548049b65fefa661a20}{USART\+\_\+\+FLAG\+\_\+\+RXNE}} = USART\+\_\+\+ISR\+\_\+\+RXNE
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357ab40da6db1a8b35354d7ea956d0f433eb}{USART\+\_\+\+FLAG\+\_\+\+TC}} = USART\+\_\+\+ISR\+\_\+\+TC
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357ac3216b8ab39a8fbe2c3ad03a849c0c2f}{USART\+\_\+\+FLAG\+\_\+\+TXE}} = USART\+\_\+\+ISR\+\_\+\+TXE
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478}{USART\+\_\+\+Baud\+Rate\+\_\+t}} \{ \newline
+\doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478aeea227a48bed24662a314a5b5341f41b}{USART\+\_\+\+BAUD\+\_\+1200}} = 1200
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478adf806e2f991a080139ca06b00f4a3dfc}{USART\+\_\+\+BAUD\+\_\+2400}} = 2400
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478a57647ebce8b2c3977d84f3ff3f0ae359}{USART\+\_\+\+BAUD\+\_\+9600}} = 9600
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478a6350492bdeb790087f9abf20186cfb5f}{USART\+\_\+\+BAUD\+\_\+19200}} = 19200
+, \newline
+\doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478a8dc83636eb480cd21b7838305c94b43d}{USART\+\_\+\+BAUD\+\_\+38400}} = 38400
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478a5f6d0859ebecd3facbff0a2dfda86eab}{USART\+\_\+\+BAUD\+\_\+57600}} = 57600
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478ab8872f766b21a4fb82167eb0f4bba481}{USART\+\_\+\+BAUD\+\_\+115200}} = 115200
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a77c027cb8bca5f52dcbeba14f4ad7f89}{USART\+\_\+\+MODE\+\_\+t}} \{ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a77c027cb8bca5f52dcbeba14f4ad7f89ad5e3d2e29fa3f05889723d0aff5285c0}{USART\+\_\+\+MODE\+\_\+\+RX}} =(1\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}2)
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a77c027cb8bca5f52dcbeba14f4ad7f89af50f1777647d119d6b7d0c5f80e0b9d4}{USART\+\_\+\+MODE\+\_\+\+TX}} =(1\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}3)
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a77c027cb8bca5f52dcbeba14f4ad7f89aacbd5fdc9482c7386d5dfeffe925c348}{USART\+\_\+\+MODE\+\_\+\+TXRX}} =((1\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}2)\texorpdfstring{$\vert$}{|}(1\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}3))
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a0bf5457d1d0c0d8d85fe765331b2ef85}{USART\+\_\+\+Parity\+\_\+t}} \{ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a0bf5457d1d0c0d8d85fe765331b2ef85a178861cbbab0195a89575ac1993cc2bd}{USART\+\_\+\+Parity\+\_\+\+None}} =0
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a0bf5457d1d0c0d8d85fe765331b2ef85ac72eee3e77c2ff9c6a09399938890845}{USART\+\_\+\+Parity\+\_\+\+Odd}}
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a0bf5457d1d0c0d8d85fe765331b2ef85a085e8a9f6589df2981d52310e3a1f2da}{USART\+\_\+\+Parity\+\_\+\+Even}}
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00a}{USART\+\_\+\+Stop\+Bits\+\_\+t}} \{ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00aa341d7512f5171d36b72314ae8977cd54}{USART\+\_\+\+Stop\+Bits\+\_\+1}} =0
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00aaf08121374279bd9fbb29deb2ba1bdadf}{USART\+\_\+\+Stop\+Bits\+\_\+0\+\_\+5}}
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00aa59b519bb36e999cd3c49e1b7f545109e}{USART\+\_\+\+Stop\+Bits\+\_\+2}}
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00aa96216c6d1fb8e074ffe62f4833243789}{USART\+\_\+\+Stop\+Bits\+\_\+1\+\_\+5}}
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a11b26499f9aeea8d770c493cc65f65fb}{USART\+\_\+\+Word\+Len\+\_\+t}} \{ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a11b26499f9aeea8d770c493cc65f65fba74c9445d45bf4e8112d2a3616f504991}{USART\+\_\+\+Word\+Len\+\_\+8bits}} =0
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a11b26499f9aeea8d770c493cc65f65fbaf313c8b8784d88a8069b891c2a5a5c09}{USART\+\_\+\+Word\+Len\+\_\+9bits}}
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cb}{USART\+\_\+\+HW\+\_\+\+Flow\+Ctrl\+\_\+t}} \{ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cba9ae19224084f8e3b26d9bbb5a95c5e75}{USART\+\_\+\+HW\+\_\+\+Flow\+Ctrl\+\_\+\+None}} =0
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cbaeb28dfbc9f4ef18496f88f3a189aa5ac}{USART\+\_\+\+HW\+\_\+\+Flow\+Ctrl\+\_\+\+CTS}}
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cba906783266e7bed06d131bfc37a881420}{USART\+\_\+\+HW\+\_\+\+Flow\+Ctrl\+\_\+\+RTS}}
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cbaea9a14ad6ef0bc8898a0f800c9d1942d}{USART\+\_\+\+HW\+\_\+\+Flow\+Ctrl\+\_\+\+CTS\+\_\+\+RTS}}
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abafac9366efc163949f648cb90e719a3}{USART\+\_\+\+Over\+Sampling\+\_\+t}} \{ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abafac9366efc163949f648cb90e719a3a5019accda30e1565914f9ec9b847517d}{USART\+\_\+\+Over\+Sampling\+\_\+16}} =0
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abafac9366efc163949f648cb90e719a3a46e3bb17f33d7569fbccb3302d46b93b}{USART\+\_\+\+Over\+Sampling\+\_\+8}}
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a4bcc63cb807b3f3647695c462b10be0b}{USART\+\_\+\+State\+\_\+t}} \{ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a4bcc63cb807b3f3647695c462b10be0baea1535eb4f81297a20fba74e67ac9f8c}{USART\+\_\+\+FREE}} =0
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a4bcc63cb807b3f3647695c462b10be0ba15c2e527874b4cb225ae73a45bb3bda7}{USART\+\_\+\+BUSY\+\_\+\+IT\+\_\+\+TX}}
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a4bcc63cb807b3f3647695c462b10be0ba4372f8b57342e01bddfbbb1d6d411437}{USART\+\_\+\+BUSY\+\_\+\+IT\+\_\+\+RX}}
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0}{USART\+\_\+\+Call\+Back\+\_\+t}} \{ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0ac4d055b8c58dd5305db2836b0ff6f956}{USART\+\_\+\+EVENT\+\_\+\+TX\+\_\+\+CMPL}} =0
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0a16f7afb92a03fa68d470785374cce203}{USART\+\_\+\+EVENT\+\_\+\+RX\+\_\+\+CMPL}}
+, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0aa3a17da41df76ec0f01eaafe6c9add88}{USART\+\_\+\+ERR\+\_\+\+ORE}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t \doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_ga564ffcd2cbac51d721188fd510ff593c}{USART\+\_\+init}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint8\+\_\+t enable)
+\begin{DoxyCompactList}\small\item\em Initialize USART peripheral with specified configuration. \end{DoxyCompactList}\item 
+int8\+\_\+t \doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gae79f07f623e6bfbc782f0e3ea511b79a}{USART\+\_\+\+Control}} (\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+USART, uint8\+\_\+t CMD)
+\begin{DoxyCompactList}\small\item\em Enable or disable USART peripheral. \end{DoxyCompactList}\item 
+int8\+\_\+t \doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gab9e47ab2d550d52ffe0ef02075cbf552}{USART\+\_\+cl\+K\+\_\+init}} (\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+USART, uint8\+\_\+t CMD)
+\begin{DoxyCompactList}\small\item\em Enable/\+disable USART clock via RCC. \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_gaa896cd8eb0716bf9a060ab674d0ceb4b}{USART\+\_\+\+Get\+Flag\+Status}} (\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+USART, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357}{USART\+\_\+\+Flags\+\_\+t}} Flag\+Name)
+\begin{DoxyCompactList}\small\item\em Check if a USART flag is set in the ISR register. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_ga1ab95815c6b477c691981703c1339a0f}{USART\+\_\+\+CLear\+Flag}} (\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+USART, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9}{USART\+\_\+\+Clear\+Flags\+\_\+t}} Flag\+Name)
+\begin{DoxyCompactList}\small\item\em Clear a USART flag via ICR (Interrupt Clear Register). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_gad2a5403207b97e55c86282068344bbe4}{USART\+\_\+\+Send\+Data}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Tx\+Data, uint16\+\_\+t \doxymbox{\hyperlink{main_8c_afed088663f8704004425cdae2120b9b3}{len}})
+\begin{DoxyCompactList}\small\item\em Send data via USART (blocking mode). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga9cbfb1902e1ecdb99951f75364797ac7}{USART\+\_\+\+Set\+Baud\+Rate}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint16\+\_\+t Baud\+Rate)
+\begin{DoxyCompactList}\small\item\em Set USART baud rate via BRR calculation. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga140e51ab79b5ce95c8a457a26a701a60}{USART\+\_\+\+Read\+Data}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Rx\+Data, uint16\+\_\+t \doxymbox{\hyperlink{main_8c_afed088663f8704004425cdae2120b9b3}{len}})
+\begin{DoxyCompactList}\small\item\em Read data from USART (blocking mode). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gae0a6622ad6716e73ac03e5c0a690adb9}{USART\+\_\+\+Read\+Data\+\_\+\+IT}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Rx\+Data, uint32\+\_\+t \doxymbox{\hyperlink{main_8c_afed088663f8704004425cdae2120b9b3}{len}})
+\begin{DoxyCompactList}\small\item\em Read data from USART (interrupt-\/driven mode). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga1bff58303b67689f9a22226582de10bd}{USART\+\_\+\+Send\+Data\+\_\+\+IT}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Tx\+Data, uint32\+\_\+t Len)
+\begin{DoxyCompactList}\small\item\em Send data via USART (interrupt-\/driven mode). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}{USART\+\_\+\+IRQHandler}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle)
+\begin{DoxyCompactList}\small\item\em USART interrupt handler dispatcher. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_aa4732538a8f3f2d83fc5da935f36eb50}{USART\+\_\+\+Application\+Event\+Callback}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0}{USART\+\_\+\+Call\+Back\+\_\+t}})
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{stm32f7xx__uart__driver_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{stm32f7xx__uart__driver_8h_a61b47b3e6cb481230d5cf1c671744d74}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_CLK@{USART\_CLK}}
+\index{USART\_CLK@{USART\_CLK}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_CLK}{USART\_CLK}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_a61b47b3e6cb481230d5cf1c671744d74} 
+\+\#define USART\+\_\+\+CLK~16000000U}
+
+\Hypertarget{stm32f7xx__uart__driver_8h_a91118f867adfdb2e805beea86666de04}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_CR1\_RXNEIE@{USART\_CR1\_RXNEIE}}
+\index{USART\_CR1\_RXNEIE@{USART\_CR1\_RXNEIE}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_CR1\_RXNEIE}{USART\_CR1\_RXNEIE}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_a91118f867adfdb2e805beea86666de04} 
+\+\#define USART\+\_\+\+CR1\+\_\+\+RXNEIE~(1U $<$$<$ 5)}
+
+\Hypertarget{stm32f7xx__uart__driver_8h_aa17130690a1ca95b972429eb64d4254e}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_CR1\_TCIE@{USART\_CR1\_TCIE}}
+\index{USART\_CR1\_TCIE@{USART\_CR1\_TCIE}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_CR1\_TCIE}{USART\_CR1\_TCIE}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_aa17130690a1ca95b972429eb64d4254e} 
+\+\#define USART\+\_\+\+CR1\+\_\+\+TCIE~(1U $<$$<$ 6)}
+
+\Hypertarget{stm32f7xx__uart__driver_8h_a70422871d15f974b464365e7fe1877e9}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_CR1\_TXEIE@{USART\_CR1\_TXEIE}}
+\index{USART\_CR1\_TXEIE@{USART\_CR1\_TXEIE}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_CR1\_TXEIE}{USART\_CR1\_TXEIE}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_a70422871d15f974b464365e7fe1877e9} 
+\+\#define USART\+\_\+\+CR1\+\_\+\+TXEIE~(1U $<$$<$ 7)}
+
+\Hypertarget{stm32f7xx__uart__driver_8h_a8400b4500c41800e5f18fc7291a64c9f}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_ICR\_FECF@{USART\_ICR\_FECF}}
+\index{USART\_ICR\_FECF@{USART\_ICR\_FECF}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_ICR\_FECF}{USART\_ICR\_FECF}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_a8400b4500c41800e5f18fc7291a64c9f} 
+\+\#define USART\+\_\+\+ICR\+\_\+\+FECF~(1U $<$$<$ 1)}
+
+\Hypertarget{stm32f7xx__uart__driver_8h_a9d4d7675c0d36ce4347c3509d27c0760}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_ICR\_IDLECF@{USART\_ICR\_IDLECF}}
+\index{USART\_ICR\_IDLECF@{USART\_ICR\_IDLECF}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_ICR\_IDLECF}{USART\_ICR\_IDLECF}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_a9d4d7675c0d36ce4347c3509d27c0760} 
+\+\#define USART\+\_\+\+ICR\+\_\+\+IDLECF~(1U $<$$<$ 4)}
+
+\Hypertarget{stm32f7xx__uart__driver_8h_ad50b0d2460df1cbddd9576c2f4637312}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_ICR\_NCF@{USART\_ICR\_NCF}}
+\index{USART\_ICR\_NCF@{USART\_ICR\_NCF}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_ICR\_NCF}{USART\_ICR\_NCF}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_ad50b0d2460df1cbddd9576c2f4637312} 
+\+\#define USART\+\_\+\+ICR\+\_\+\+NCF~(1U $<$$<$ 2)}
+
+\Hypertarget{stm32f7xx__uart__driver_8h_a375f76b0670ffeb5d2691592d9e7c422}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_ICR\_ORECF@{USART\_ICR\_ORECF}}
+\index{USART\_ICR\_ORECF@{USART\_ICR\_ORECF}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_ICR\_ORECF}{USART\_ICR\_ORECF}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_a375f76b0670ffeb5d2691592d9e7c422} 
+\+\#define USART\+\_\+\+ICR\+\_\+\+ORECF~(1U $<$$<$ 3)}
+
+\Hypertarget{stm32f7xx__uart__driver_8h_a404185136eb68f679e82e0187d66e411}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_ICR\_PECF@{USART\_ICR\_PECF}}
+\index{USART\_ICR\_PECF@{USART\_ICR\_PECF}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_ICR\_PECF}{USART\_ICR\_PECF}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_a404185136eb68f679e82e0187d66e411} 
+\+\#define USART\+\_\+\+ICR\+\_\+\+PECF~(1U $<$$<$ 0)}
+
+\Hypertarget{stm32f7xx__uart__driver_8h_acf92ea54425a962dde662b10b61d0250}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_ICR\_TCCF@{USART\_ICR\_TCCF}}
+\index{USART\_ICR\_TCCF@{USART\_ICR\_TCCF}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_ICR\_TCCF}{USART\_ICR\_TCCF}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_acf92ea54425a962dde662b10b61d0250} 
+\+\#define USART\+\_\+\+ICR\+\_\+\+TCCF~(1U $<$$<$ 6)}
+
+\Hypertarget{stm32f7xx__uart__driver_8h_a27cc4dfb6d5e817a69c80471b87deb4b}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_ISR\_FE@{USART\_ISR\_FE}}
+\index{USART\_ISR\_FE@{USART\_ISR\_FE}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_ISR\_FE}{USART\_ISR\_FE}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_a27cc4dfb6d5e817a69c80471b87deb4b} 
+\+\#define USART\+\_\+\+ISR\+\_\+\+FE~(1U $<$$<$ 1)}
+
+\Hypertarget{stm32f7xx__uart__driver_8h_acee745b19e0a6073280d234fdc96e627}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_ISR\_IDLE@{USART\_ISR\_IDLE}}
+\index{USART\_ISR\_IDLE@{USART\_ISR\_IDLE}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_ISR\_IDLE}{USART\_ISR\_IDLE}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_acee745b19e0a6073280d234fdc96e627} 
+\+\#define USART\+\_\+\+ISR\+\_\+\+IDLE~(1U $<$$<$ 4)}
+
+\Hypertarget{stm32f7xx__uart__driver_8h_ae2a9c609127d1a49af9f517423a064e3}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_ISR\_NF@{USART\_ISR\_NF}}
+\index{USART\_ISR\_NF@{USART\_ISR\_NF}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_ISR\_NF}{USART\_ISR\_NF}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_ae2a9c609127d1a49af9f517423a064e3} 
+\+\#define USART\+\_\+\+ISR\+\_\+\+NF~(1U $<$$<$ 2)}
+
+\Hypertarget{stm32f7xx__uart__driver_8h_a9e5b4a08e3655bed8ec3022947cfc542}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_ISR\_ORE@{USART\_ISR\_ORE}}
+\index{USART\_ISR\_ORE@{USART\_ISR\_ORE}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_ISR\_ORE}{USART\_ISR\_ORE}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_a9e5b4a08e3655bed8ec3022947cfc542} 
+\+\#define USART\+\_\+\+ISR\+\_\+\+ORE~(1U $<$$<$ 3)}
+
+\Hypertarget{stm32f7xx__uart__driver_8h_aa10e69d231b67d698ab59db3d338baa6}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_ISR\_PE@{USART\_ISR\_PE}}
+\index{USART\_ISR\_PE@{USART\_ISR\_PE}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_ISR\_PE}{USART\_ISR\_PE}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_aa10e69d231b67d698ab59db3d338baa6} 
+\+\#define USART\+\_\+\+ISR\+\_\+\+PE~(1U $<$$<$ 0)}
+
+\Hypertarget{stm32f7xx__uart__driver_8h_a39da7549976e5a5c91deff40e6044f03}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_ISR\_RXNE@{USART\_ISR\_RXNE}}
+\index{USART\_ISR\_RXNE@{USART\_ISR\_RXNE}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_ISR\_RXNE}{USART\_ISR\_RXNE}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_a39da7549976e5a5c91deff40e6044f03} 
+\+\#define USART\+\_\+\+ISR\+\_\+\+RXNE~(1U $<$$<$ 5)}
+
+\Hypertarget{stm32f7xx__uart__driver_8h_aa41e8667b30453a6b966aded9f5e8cbb}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_ISR\_TC@{USART\_ISR\_TC}}
+\index{USART\_ISR\_TC@{USART\_ISR\_TC}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_ISR\_TC}{USART\_ISR\_TC}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_aa41e8667b30453a6b966aded9f5e8cbb} 
+\+\#define USART\+\_\+\+ISR\+\_\+\+TC~(1U $<$$<$ 6)}
+
+\Hypertarget{stm32f7xx__uart__driver_8h_ab59be9f02a6e304a82da3e298c6a72ab}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_ISR\_TXE@{USART\_ISR\_TXE}}
+\index{USART\_ISR\_TXE@{USART\_ISR\_TXE}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_ISR\_TXE}{USART\_ISR\_TXE}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_ab59be9f02a6e304a82da3e298c6a72ab} 
+\+\#define USART\+\_\+\+ISR\+\_\+\+TXE~(1U $<$$<$ 7)}
+
+
+
+\label{doc-enum-members}
+\Hypertarget{stm32f7xx__uart__driver_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_BaudRate\_t@{USART\_BaudRate\_t}}
+\index{USART\_BaudRate\_t@{USART\_BaudRate\_t}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_BaudRate\_t}{USART\_BaudRate\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478} 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478}{USART\+\_\+\+Baud\+Rate\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_BAUD\_1200@{USART\_BAUD\_1200}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_BAUD\_1200@{USART\_BAUD\_1200}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478aeea227a48bed24662a314a5b5341f41b}\label{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478aeea227a48bed24662a314a5b5341f41b} 
+USART\+\_\+\+BAUD\+\_\+1200&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_BAUD\_2400@{USART\_BAUD\_2400}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_BAUD\_2400@{USART\_BAUD\_2400}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478adf806e2f991a080139ca06b00f4a3dfc}\label{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478adf806e2f991a080139ca06b00f4a3dfc} 
+USART\+\_\+\+BAUD\+\_\+2400&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_BAUD\_9600@{USART\_BAUD\_9600}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_BAUD\_9600@{USART\_BAUD\_9600}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478a57647ebce8b2c3977d84f3ff3f0ae359}\label{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478a57647ebce8b2c3977d84f3ff3f0ae359} 
+USART\+\_\+\+BAUD\+\_\+9600&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_BAUD\_19200@{USART\_BAUD\_19200}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_BAUD\_19200@{USART\_BAUD\_19200}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478a6350492bdeb790087f9abf20186cfb5f}\label{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478a6350492bdeb790087f9abf20186cfb5f} 
+USART\+\_\+\+BAUD\+\_\+19200&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_BAUD\_38400@{USART\_BAUD\_38400}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_BAUD\_38400@{USART\_BAUD\_38400}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478a8dc83636eb480cd21b7838305c94b43d}\label{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478a8dc83636eb480cd21b7838305c94b43d} 
+USART\+\_\+\+BAUD\+\_\+38400&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_BAUD\_57600@{USART\_BAUD\_57600}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_BAUD\_57600@{USART\_BAUD\_57600}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478a5f6d0859ebecd3facbff0a2dfda86eab}\label{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478a5f6d0859ebecd3facbff0a2dfda86eab} 
+USART\+\_\+\+BAUD\+\_\+57600&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_BAUD\_115200@{USART\_BAUD\_115200}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_BAUD\_115200@{USART\_BAUD\_115200}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478ab8872f766b21a4fb82167eb0f4bba481}\label{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478ab8872f766b21a4fb82167eb0f4bba481} 
+USART\+\_\+\+BAUD\+\_\+115200&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_CallBack\_t@{USART\_CallBack\_t}}
+\index{USART\_CallBack\_t@{USART\_CallBack\_t}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_CallBack\_t}{USART\_CallBack\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0} 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0}{USART\+\_\+\+Call\+Back\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_EVENT\_TX\_CMPL@{USART\_EVENT\_TX\_CMPL}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_EVENT\_TX\_CMPL@{USART\_EVENT\_TX\_CMPL}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0ac4d055b8c58dd5305db2836b0ff6f956}\label{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0ac4d055b8c58dd5305db2836b0ff6f956} 
+USART\+\_\+\+EVENT\+\_\+\+TX\+\_\+\+CMPL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_EVENT\_RX\_CMPL@{USART\_EVENT\_RX\_CMPL}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_EVENT\_RX\_CMPL@{USART\_EVENT\_RX\_CMPL}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0a16f7afb92a03fa68d470785374cce203}\label{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0a16f7afb92a03fa68d470785374cce203} 
+USART\+\_\+\+EVENT\+\_\+\+RX\+\_\+\+CMPL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_ERR\_ORE@{USART\_ERR\_ORE}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_ERR\_ORE@{USART\_ERR\_ORE}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0aa3a17da41df76ec0f01eaafe6c9add88}\label{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0aa3a17da41df76ec0f01eaafe6c9add88} 
+USART\+\_\+\+ERR\+\_\+\+ORE&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_ClearFlags\_t@{USART\_ClearFlags\_t}}
+\index{USART\_ClearFlags\_t@{USART\_ClearFlags\_t}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_ClearFlags\_t}{USART\_ClearFlags\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9} 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9}{USART\+\_\+\+Clear\+Flags\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_FLAG\_PECF@{USART\_FLAG\_PECF}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_FLAG\_PECF@{USART\_FLAG\_PECF}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9abd99b09c865d4398800e34116526369c}\label{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9abd99b09c865d4398800e34116526369c} 
+USART\+\_\+\+FLAG\+\_\+\+PECF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_FLAG\_FECF@{USART\_FLAG\_FECF}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_FLAG\_FECF@{USART\_FLAG\_FECF}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9a98bbcaa03ef2df03ecf90f1c9b9153ff}\label{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9a98bbcaa03ef2df03ecf90f1c9b9153ff} 
+USART\+\_\+\+FLAG\+\_\+\+FECF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_FLAG\_NCF@{USART\_FLAG\_NCF}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_FLAG\_NCF@{USART\_FLAG\_NCF}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9a11b11900e09846f696e4b8a959399a4c}\label{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9a11b11900e09846f696e4b8a959399a4c} 
+USART\+\_\+\+FLAG\+\_\+\+NCF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_FLAG\_ORECF@{USART\_FLAG\_ORECF}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_FLAG\_ORECF@{USART\_FLAG\_ORECF}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9a2c8b5af2097d47758fa04b06d016c5ce}\label{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9a2c8b5af2097d47758fa04b06d016c5ce} 
+USART\+\_\+\+FLAG\+\_\+\+ORECF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_FLAG\_IDLECF@{USART\_FLAG\_IDLECF}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_FLAG\_IDLECF@{USART\_FLAG\_IDLECF}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9a41a64c39a61ce6ee1a5ef1647bfd95db}\label{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9a41a64c39a61ce6ee1a5ef1647bfd95db} 
+USART\+\_\+\+FLAG\+\_\+\+IDLECF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_FLAG\_TCCF@{USART\_FLAG\_TCCF}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_FLAG\_TCCF@{USART\_FLAG\_TCCF}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9a7a869480c79db00a5de79f076b8ef866}\label{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9a7a869480c79db00a5de79f076b8ef866} 
+USART\+\_\+\+FLAG\+\_\+\+TCCF&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_Flags\_t@{USART\_Flags\_t}}
+\index{USART\_Flags\_t@{USART\_Flags\_t}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_Flags\_t}{USART\_Flags\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357} 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357}{USART\+\_\+\+Flags\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_FLAG\_PE@{USART\_FLAG\_PE}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_FLAG\_PE@{USART\_FLAG\_PE}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357aa80e3edb43079cd5d06afbf9c9d6607e}\label{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357aa80e3edb43079cd5d06afbf9c9d6607e} 
+USART\+\_\+\+FLAG\+\_\+\+PE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_FLAG\_FE@{USART\_FLAG\_FE}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_FLAG\_FE@{USART\_FLAG\_FE}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357a69275e8ac855841f041478f56cc8a674}\label{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357a69275e8ac855841f041478f56cc8a674} 
+USART\+\_\+\+FLAG\+\_\+\+FE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_FLAG\_NF@{USART\_FLAG\_NF}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_FLAG\_NF@{USART\_FLAG\_NF}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357acd5b05c894ad594f94c3eb8e5e239f57}\label{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357acd5b05c894ad594f94c3eb8e5e239f57} 
+USART\+\_\+\+FLAG\+\_\+\+NF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_FLAG\_ORE@{USART\_FLAG\_ORE}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_FLAG\_ORE@{USART\_FLAG\_ORE}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357afa5c29314b5d909c72cb4beb9e85f825}\label{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357afa5c29314b5d909c72cb4beb9e85f825} 
+USART\+\_\+\+FLAG\+\_\+\+ORE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_FLAG\_IDLE@{USART\_FLAG\_IDLE}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_FLAG\_IDLE@{USART\_FLAG\_IDLE}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357a126bef3af7e9325f41fbc9f1cf98c264}\label{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357a126bef3af7e9325f41fbc9f1cf98c264} 
+USART\+\_\+\+FLAG\+\_\+\+IDLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_FLAG\_RXNE@{USART\_FLAG\_RXNE}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_FLAG\_RXNE@{USART\_FLAG\_RXNE}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357a36ed4c9943d55548049b65fefa661a20}\label{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357a36ed4c9943d55548049b65fefa661a20} 
+USART\+\_\+\+FLAG\+\_\+\+RXNE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_FLAG\_TC@{USART\_FLAG\_TC}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_FLAG\_TC@{USART\_FLAG\_TC}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357ab40da6db1a8b35354d7ea956d0f433eb}\label{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357ab40da6db1a8b35354d7ea956d0f433eb} 
+USART\+\_\+\+FLAG\+\_\+\+TC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_FLAG\_TXE@{USART\_FLAG\_TXE}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_FLAG\_TXE@{USART\_FLAG\_TXE}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357ac3216b8ab39a8fbe2c3ad03a849c0c2f}\label{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357ac3216b8ab39a8fbe2c3ad03a849c0c2f} 
+USART\+\_\+\+FLAG\+\_\+\+TXE&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cb}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_HW\_FlowCtrl\_t@{USART\_HW\_FlowCtrl\_t}}
+\index{USART\_HW\_FlowCtrl\_t@{USART\_HW\_FlowCtrl\_t}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_HW\_FlowCtrl\_t}{USART\_HW\_FlowCtrl\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cb} 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cb}{USART\+\_\+\+HW\+\_\+\+Flow\+Ctrl\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_HW\_FlowCtrl\_None@{USART\_HW\_FlowCtrl\_None}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_HW\_FlowCtrl\_None@{USART\_HW\_FlowCtrl\_None}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cba9ae19224084f8e3b26d9bbb5a95c5e75}\label{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cba9ae19224084f8e3b26d9bbb5a95c5e75} 
+USART\+\_\+\+HW\+\_\+\+Flow\+Ctrl\+\_\+\+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_HW\_FlowCtrl\_CTS@{USART\_HW\_FlowCtrl\_CTS}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_HW\_FlowCtrl\_CTS@{USART\_HW\_FlowCtrl\_CTS}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cbaeb28dfbc9f4ef18496f88f3a189aa5ac}\label{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cbaeb28dfbc9f4ef18496f88f3a189aa5ac} 
+USART\+\_\+\+HW\+\_\+\+Flow\+Ctrl\+\_\+\+CTS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_HW\_FlowCtrl\_RTS@{USART\_HW\_FlowCtrl\_RTS}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_HW\_FlowCtrl\_RTS@{USART\_HW\_FlowCtrl\_RTS}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cba906783266e7bed06d131bfc37a881420}\label{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cba906783266e7bed06d131bfc37a881420} 
+USART\+\_\+\+HW\+\_\+\+Flow\+Ctrl\+\_\+\+RTS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_HW\_FlowCtrl\_CTS\_RTS@{USART\_HW\_FlowCtrl\_CTS\_RTS}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_HW\_FlowCtrl\_CTS\_RTS@{USART\_HW\_FlowCtrl\_CTS\_RTS}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cbaea9a14ad6ef0bc8898a0f800c9d1942d}\label{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cbaea9a14ad6ef0bc8898a0f800c9d1942d} 
+USART\+\_\+\+HW\+\_\+\+Flow\+Ctrl\+\_\+\+CTS\+\_\+\+RTS&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{stm32f7xx__uart__driver_8h_a77c027cb8bca5f52dcbeba14f4ad7f89}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_MODE\_t@{USART\_MODE\_t}}
+\index{USART\_MODE\_t@{USART\_MODE\_t}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_MODE\_t}{USART\_MODE\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_a77c027cb8bca5f52dcbeba14f4ad7f89} 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a77c027cb8bca5f52dcbeba14f4ad7f89}{USART\+\_\+\+MODE\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_MODE\_RX@{USART\_MODE\_RX}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_MODE\_RX@{USART\_MODE\_RX}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a77c027cb8bca5f52dcbeba14f4ad7f89ad5e3d2e29fa3f05889723d0aff5285c0}\label{stm32f7xx__uart__driver_8h_a77c027cb8bca5f52dcbeba14f4ad7f89ad5e3d2e29fa3f05889723d0aff5285c0} 
+USART\+\_\+\+MODE\+\_\+\+RX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_MODE\_TX@{USART\_MODE\_TX}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_MODE\_TX@{USART\_MODE\_TX}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a77c027cb8bca5f52dcbeba14f4ad7f89af50f1777647d119d6b7d0c5f80e0b9d4}\label{stm32f7xx__uart__driver_8h_a77c027cb8bca5f52dcbeba14f4ad7f89af50f1777647d119d6b7d0c5f80e0b9d4} 
+USART\+\_\+\+MODE\+\_\+\+TX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_MODE\_TXRX@{USART\_MODE\_TXRX}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_MODE\_TXRX@{USART\_MODE\_TXRX}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a77c027cb8bca5f52dcbeba14f4ad7f89aacbd5fdc9482c7386d5dfeffe925c348}\label{stm32f7xx__uart__driver_8h_a77c027cb8bca5f52dcbeba14f4ad7f89aacbd5fdc9482c7386d5dfeffe925c348} 
+USART\+\_\+\+MODE\+\_\+\+TXRX&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{stm32f7xx__uart__driver_8h_abafac9366efc163949f648cb90e719a3}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_OverSampling\_t@{USART\_OverSampling\_t}}
+\index{USART\_OverSampling\_t@{USART\_OverSampling\_t}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_OverSampling\_t}{USART\_OverSampling\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_abafac9366efc163949f648cb90e719a3} 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abafac9366efc163949f648cb90e719a3}{USART\+\_\+\+Over\+Sampling\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_OverSampling\_16@{USART\_OverSampling\_16}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_OverSampling\_16@{USART\_OverSampling\_16}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_abafac9366efc163949f648cb90e719a3a5019accda30e1565914f9ec9b847517d}\label{stm32f7xx__uart__driver_8h_abafac9366efc163949f648cb90e719a3a5019accda30e1565914f9ec9b847517d} 
+USART\+\_\+\+Over\+Sampling\+\_\+16&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_OverSampling\_8@{USART\_OverSampling\_8}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_OverSampling\_8@{USART\_OverSampling\_8}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_abafac9366efc163949f648cb90e719a3a46e3bb17f33d7569fbccb3302d46b93b}\label{stm32f7xx__uart__driver_8h_abafac9366efc163949f648cb90e719a3a46e3bb17f33d7569fbccb3302d46b93b} 
+USART\+\_\+\+Over\+Sampling\+\_\+8&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{stm32f7xx__uart__driver_8h_a0bf5457d1d0c0d8d85fe765331b2ef85}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_Parity\_t@{USART\_Parity\_t}}
+\index{USART\_Parity\_t@{USART\_Parity\_t}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_Parity\_t}{USART\_Parity\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_a0bf5457d1d0c0d8d85fe765331b2ef85} 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a0bf5457d1d0c0d8d85fe765331b2ef85}{USART\+\_\+\+Parity\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_Parity\_None@{USART\_Parity\_None}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_Parity\_None@{USART\_Parity\_None}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a0bf5457d1d0c0d8d85fe765331b2ef85a178861cbbab0195a89575ac1993cc2bd}\label{stm32f7xx__uart__driver_8h_a0bf5457d1d0c0d8d85fe765331b2ef85a178861cbbab0195a89575ac1993cc2bd} 
+USART\+\_\+\+Parity\+\_\+\+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_Parity\_Odd@{USART\_Parity\_Odd}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_Parity\_Odd@{USART\_Parity\_Odd}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a0bf5457d1d0c0d8d85fe765331b2ef85ac72eee3e77c2ff9c6a09399938890845}\label{stm32f7xx__uart__driver_8h_a0bf5457d1d0c0d8d85fe765331b2ef85ac72eee3e77c2ff9c6a09399938890845} 
+USART\+\_\+\+Parity\+\_\+\+Odd&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_Parity\_Even@{USART\_Parity\_Even}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_Parity\_Even@{USART\_Parity\_Even}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a0bf5457d1d0c0d8d85fe765331b2ef85a085e8a9f6589df2981d52310e3a1f2da}\label{stm32f7xx__uart__driver_8h_a0bf5457d1d0c0d8d85fe765331b2ef85a085e8a9f6589df2981d52310e3a1f2da} 
+USART\+\_\+\+Parity\+\_\+\+Even&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{stm32f7xx__uart__driver_8h_a4bcc63cb807b3f3647695c462b10be0b}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_State\_t@{USART\_State\_t}}
+\index{USART\_State\_t@{USART\_State\_t}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_State\_t}{USART\_State\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_a4bcc63cb807b3f3647695c462b10be0b} 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a4bcc63cb807b3f3647695c462b10be0b}{USART\+\_\+\+State\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_FREE@{USART\_FREE}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_FREE@{USART\_FREE}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a4bcc63cb807b3f3647695c462b10be0baea1535eb4f81297a20fba74e67ac9f8c}\label{stm32f7xx__uart__driver_8h_a4bcc63cb807b3f3647695c462b10be0baea1535eb4f81297a20fba74e67ac9f8c} 
+USART\+\_\+\+FREE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_BUSY\_IT\_TX@{USART\_BUSY\_IT\_TX}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_BUSY\_IT\_TX@{USART\_BUSY\_IT\_TX}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a4bcc63cb807b3f3647695c462b10be0ba15c2e527874b4cb225ae73a45bb3bda7}\label{stm32f7xx__uart__driver_8h_a4bcc63cb807b3f3647695c462b10be0ba15c2e527874b4cb225ae73a45bb3bda7} 
+USART\+\_\+\+BUSY\+\_\+\+IT\+\_\+\+TX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_BUSY\_IT\_RX@{USART\_BUSY\_IT\_RX}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_BUSY\_IT\_RX@{USART\_BUSY\_IT\_RX}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a4bcc63cb807b3f3647695c462b10be0ba4372f8b57342e01bddfbbb1d6d411437}\label{stm32f7xx__uart__driver_8h_a4bcc63cb807b3f3647695c462b10be0ba4372f8b57342e01bddfbbb1d6d411437} 
+USART\+\_\+\+BUSY\+\_\+\+IT\+\_\+\+RX&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00a}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_StopBits\_t@{USART\_StopBits\_t}}
+\index{USART\_StopBits\_t@{USART\_StopBits\_t}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_StopBits\_t}{USART\_StopBits\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00a} 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00a}{USART\+\_\+\+Stop\+Bits\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_StopBits\_1@{USART\_StopBits\_1}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_StopBits\_1@{USART\_StopBits\_1}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00aa341d7512f5171d36b72314ae8977cd54}\label{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00aa341d7512f5171d36b72314ae8977cd54} 
+USART\+\_\+\+Stop\+Bits\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_StopBits\_0\_5@{USART\_StopBits\_0\_5}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_StopBits\_0\_5@{USART\_StopBits\_0\_5}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00aaf08121374279bd9fbb29deb2ba1bdadf}\label{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00aaf08121374279bd9fbb29deb2ba1bdadf} 
+USART\+\_\+\+Stop\+Bits\+\_\+0\+\_\+5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_StopBits\_2@{USART\_StopBits\_2}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_StopBits\_2@{USART\_StopBits\_2}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00aa59b519bb36e999cd3c49e1b7f545109e}\label{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00aa59b519bb36e999cd3c49e1b7f545109e} 
+USART\+\_\+\+Stop\+Bits\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_StopBits\_1\_5@{USART\_StopBits\_1\_5}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_StopBits\_1\_5@{USART\_StopBits\_1\_5}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00aa96216c6d1fb8e074ffe62f4833243789}\label{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00aa96216c6d1fb8e074ffe62f4833243789} 
+USART\+\_\+\+Stop\+Bits\+\_\+1\+\_\+5&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{stm32f7xx__uart__driver_8h_a11b26499f9aeea8d770c493cc65f65fb}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_WordLen\_t@{USART\_WordLen\_t}}
+\index{USART\_WordLen\_t@{USART\_WordLen\_t}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_WordLen\_t}{USART\_WordLen\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_a11b26499f9aeea8d770c493cc65f65fb} 
+enum \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a11b26499f9aeea8d770c493cc65f65fb}{USART\+\_\+\+Word\+Len\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_WordLen\_8bits@{USART\_WordLen\_8bits}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_WordLen\_8bits@{USART\_WordLen\_8bits}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a11b26499f9aeea8d770c493cc65f65fba74c9445d45bf4e8112d2a3616f504991}\label{stm32f7xx__uart__driver_8h_a11b26499f9aeea8d770c493cc65f65fba74c9445d45bf4e8112d2a3616f504991} 
+USART\+\_\+\+Word\+Len\+\_\+8bits&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USART\_WordLen\_9bits@{USART\_WordLen\_9bits}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_WordLen\_9bits@{USART\_WordLen\_9bits}}
+}\Hypertarget{stm32f7xx__uart__driver_8h_a11b26499f9aeea8d770c493cc65f65fbaf313c8b8784d88a8069b891c2a5a5c09}\label{stm32f7xx__uart__driver_8h_a11b26499f9aeea8d770c493cc65f65fbaf313c8b8784d88a8069b891c2a5a5c09} 
+USART\+\_\+\+Word\+Len\+\_\+9bits&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{stm32f7xx__uart__driver_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{stm32f7xx__uart__driver_8h_aa4732538a8f3f2d83fc5da935f36eb50}\index{stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}!USART\_ApplicationEventCallback@{USART\_ApplicationEventCallback}}
+\index{USART\_ApplicationEventCallback@{USART\_ApplicationEventCallback}!stm32f7xx\_uart\_driver.h@{stm32f7xx\_uart\_driver.h}}
+\doxysubsubsection{\texorpdfstring{USART\_ApplicationEventCallback()}{USART\_ApplicationEventCallback()}}
+{\footnotesize\ttfamily \label{stm32f7xx__uart__driver_8h_aa4732538a8f3f2d83fc5da935f36eb50} 
+void USART\+\_\+\+Application\+Event\+Callback (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{usart\+\_\+handle}{, }\item[{\doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_ac44631e015e771312dc0cf2d7a34f2a0}{USART\+\_\+\+Call\+Back\+\_\+t}}}]{}{}\end{DoxyParamCaption})}
+

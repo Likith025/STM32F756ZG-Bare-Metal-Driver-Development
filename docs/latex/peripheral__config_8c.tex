@@ -1,0 +1,121 @@
+\doxysection{stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.c File Reference}
+\hypertarget{peripheral__config_8c}{}\label{peripheral__config_8c}\index{stm32f7xx\_driver/bsp/peripheral\_config.c@{stm32f7xx\_driver/bsp/peripheral\_config.c}}
+
+
+Board Support Package (BSP) Configuration for STM32\+F756\+ZG.  
+
+
+{\ttfamily \+\#include "{}peripheral\+\_\+config.\+h"{}}\newline
+Include dependency graph for peripheral\+\_\+config.\+c:\+
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga149103b303430f06e1bb902c91dfabea}{led\+\_\+setup\+\_\+red}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+LED)
+\item 
+void \doxymbox{\hyperlink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga1d8ed4eda8ef2b3adc80c0de7b8d1897}{led\+\_\+setup\+\_\+blue}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+LED)
+\begin{DoxyCompactList}\small\item\em Configure blue LED (GPIO\+\_\+B pin 15). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___b_s_p___b_u_t_t_o_n___f_u_n_c_t_i_o_n_s_gacdfc58cc10456684450ff03693b2182f}{button\+\_\+setup}} (void)
+\item 
+void \doxymbox{\hyperlink{group___b_s_p___b_u_t_t_o_n___f_u_n_c_t_i_o_n_s_gafd89cef713a19170a6f26ed8ebb3e62a}{button\+\_\+interrupt\+\_\+setup}} (void)
+\item 
+void \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_gae862bef71de80c107ecac7ceab728b82}{usart3\+\_\+init}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+USART)
+\begin{DoxyCompactList}\small\item\em Initialize USART3 with default settings. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga59d034137a5e59672ddd16be41fb516a}{usart3\+\_\+tx}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+TX)
+\begin{DoxyCompactList}\small\item\em Configure USART3 TX pin (GPIO\+\_\+C pin 10). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga7598dcb2f135070c5fc9ee7298d861fa}{usart3\+\_\+rx}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+RX)
+\begin{DoxyCompactList}\small\item\em Configure USART3 RX pin (GPIO\+\_\+C pin 11). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gaea49d1d61b33255209ce0f3c1ee1b2b7}{timer2ch1}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+CH1)
+\begin{DoxyCompactList}\small\item\em Configure TIMER2 Channel 1 PWM output (GPIO\+\_\+A pin 0). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae8b0f4376afc1cfd12067a9276e84d88}{timer2\+\_\+setup}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Timer, uint8\+\_\+t direction)
+\begin{DoxyCompactList}\small\item\em Initialize TIMER2 with default settings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Board Support Package (BSP) Configuration for STM32\+F756\+ZG. 
+
+\begin{DoxyAuthor}{Author}
+Likith025 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+April 2026 
+\end{DoxyDate}
+This module contains hardware initialization functions for all peripherals used in the embedded CLI application. It provides simple, high-\/level setup functions that configure:\+
+\begin{DoxyItemize}
+\item GPIO for LED indicators (red, blue on PORT B)
+\item GPIO for button input (PORT A)
+\item USART3 for serial communication (TX on C10, RX on C11)
+\item TIMER2 for PWM generation (CH1 on A0)
+\end{DoxyItemize}
+
+{\bfseries{Hardware Mapping:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{LED\ (Red):\ \ \ \ \ \ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a15e8b58ea6382db53cfb4f8de4c8920c}{GPIO\_B}},\ Pin\ 14\ \ (Output,\ Push-\/pull)}
+\DoxyCodeLine{LED\ (Blue):\ \ \ \ \ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a15e8b58ea6382db53cfb4f8de4c8920c}{GPIO\_B}},\ Pin\ 15\ \ (Output,\ Push-\/pull)}
+\DoxyCodeLine{Button:\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{stm32f756zg__reg_8h_aa416d284516ae97d71abeb030ea10625}{GPIO\_A}},\ Pin\ 0\ \ \ (Input,\ Pull-\/up)}
+\DoxyCodeLine{USART3\ TX:\ \ \ \ \ \ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a2f4bc04dde207c6fd5e8caeaa2331f6a}{GPIO\_C}},\ Pin\ 10\ \ (Alternate\ Function)}
+\DoxyCodeLine{USART3\ RX:\ \ \ \ \ \ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a2f4bc04dde207c6fd5e8caeaa2331f6a}{GPIO\_C}},\ Pin\ 11\ \ (Alternate\ Function)}
+\DoxyCodeLine{\doxymbox{\hyperlink{stm32f756zg__reg_8h_aca904d0e4ebb6d643c349f7f05613995}{TIMER2}}\ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26a703cf81b7a9530ba8650e0ee2f29d68e}{CH1}}:\ \ \ \ \ \doxymbox{\hyperlink{stm32f756zg__reg_8h_aa416d284516ae97d71abeb030ea10625}{GPIO\_A}},\ Pin\ 0\ \ \ (Alternate\ Function,\ PWM)}
+
+\end{DoxyCode}
+
+
+{\bfseries{Initialization Sequence:\+}} In \doxylink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main()} after system clock initialization:\+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1.\ \doxymbox{\hyperlink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga149103b303430f06e1bb902c91dfabea}{led\_setup\_red}}(\&\doxymbox{\hyperlink{peripheral__config_8h_a5ebfabcbd0cb54cba4ea3c39bc794a5d}{g\_led3}});\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configure\ red\ LED\ output}}
+\DoxyCodeLine{2.\ \doxymbox{\hyperlink{group___b_s_p___b_u_t_t_o_n___f_u_n_c_t_i_o_n_s_gacdfc58cc10456684450ff03693b2182f}{button\_setup}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configure\ button\ input}}
+\DoxyCodeLine{3.\ \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_gae862bef71de80c107ecac7ceab728b82}{usart3\_init}}(\&\doxymbox{\hyperlink{peripheral__config_8h_a4d477d59aad5b697be7db9678482140f}{g\_usart3}});\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialize\ UART}}
+\DoxyCodeLine{4.\ \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga59d034137a5e59672ddd16be41fb516a}{usart3\_tx}}(\&\doxymbox{\hyperlink{peripheral__config_8h_a31bd06294777e39b760a6b82f6d2b13f}{g\_usart3\_tx}});\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configure\ TX\ pin}}
+\DoxyCodeLine{5.\ \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga7598dcb2f135070c5fc9ee7298d861fa}{usart3\_rx}}(\&\doxymbox{\hyperlink{peripheral__config_8h_a8c4bb0dbdac5c077024e78150213500f}{g\_usart3\_rx}});\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configure\ RX\ pin}}
+\DoxyCodeLine{6.\ \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae8b0f4376afc1cfd12067a9276e84d88}{timer2\_setup}}(\&\doxymbox{\hyperlink{peripheral__config_8h_a24ffbc2efdb5e4fe07ad0e8a1b6eeccf}{g\_timer2}});\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialize\ timer}}
+\DoxyCodeLine{7.\ \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gaea49d1d61b33255209ce0f3c1ee1b2b7}{timer2ch1}}(\&\doxymbox{\hyperlink{peripheral__config_8h_afccf372354e18524c982712ca006cf5e}{g\_timer2\_ch1}});\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configure\ PWM\ output}}
+
+\end{DoxyCode}
+
+
+{\bfseries{Clock Configuration:\+}}
+\begin{DoxyItemize}
+\item System Clock:\+ 216 MHz (via PLL)
+\item APB1:\+ 54 MHz (TIM2, USART2-\/5)
+\item APB2:\+ 108 MHz (USART1, USART6)
+\item GPIO:\+ APB2 clock domain
+\end{DoxyItemize}
+
+{\bfseries{Global Instances:\+}}
+\begin{DoxyItemize}
+\item g\+\_\+led3:\+ GPIO handler for red LED (GPIOB port, pin 14)
+\item g\+\_\+usart3:\+ UART3 handler (TX/\+\+RX on GPIOC)
+\item g\+\_\+usart3\+\_\+tx:\+ TX configuration structure
+\item g\+\_\+usart3\+\_\+rx:\+ RX configuration structure
+\item g\+\_\+timer2:\+ TIMER2 handler for PWM
+\item g\+\_\+timer2\+\_\+ch1:\+ TIMER2 channel 1 configuration
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item All functions are stateless (idempotent)
+\item Can be called multiple times safely
+\item No return values (assume success)
+\item GPIO pins are NOT de-\/initialized (static allocation)
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item Call after system clock initialization
+\item Call before using configured peripherals
+\item Peripheral clocks must be enabled via RCC
+\item Interrupt handlers must be linked separately
+\end{DoxyItemize}
+\end{DoxyAttention}
+\begin{DoxyCopyright}{Copyright}
+2026 Likith025 -\/ MIT License 
+\end{DoxyCopyright}
+\begin{DoxySeeAlso}{See also}
+\doxylink{stm32f7xx__gpio__driver_8h}{stm32f7xx\+\_\+gpio\+\_\+driver.\+h} -\/ GPIO driver 
+
+\doxylink{stm32f7xx__uart__driver_8h}{stm32f7xx\+\_\+uart\+\_\+driver.\+h} -\/ UART driver 
+
+\doxylink{stm32f7xx__timer__driver_8h}{stm32f7xx\+\_\+timer\+\_\+driver.\+h} -\/ TIMER driver 
+\end{DoxySeeAlso}

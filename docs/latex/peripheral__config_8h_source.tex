@@ -1,0 +1,42 @@
+\doxysection{peripheral\+\_\+config.\+h}
+\hypertarget{peripheral__config_8h_source}{}\label{peripheral__config_8h_source}\index{stm32f7xx\_driver/bsp/peripheral\_config.h@{stm32f7xx\_driver/bsp/peripheral\_config.h}}
+\doxymbox{\hyperlink{peripheral__config_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ peripheral\_config.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ Mar\ 1,\ 2026}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ likith}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ PERIPHERAL\_CONFIG\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ PERIPHERAL\_CONFIG\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{stm32f7xx__uart__driver_8h}{stm32f7xx\_uart\_driver.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{stm32f7xx__gpio__driver_8h}{stm32f7xx\_gpio\_driver.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h}{stm32f7xx\_timer\_driver.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{nvic_8h}{nvic.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\_handler\_t}}\ \doxymbox{\hyperlink{peripheral__config_8h_a4d477d59aad5b697be7db9678482140f}{g\_usart3}};}
+\DoxyCodeLine{00017\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ \doxymbox{\hyperlink{peripheral__config_8h_a5ebfabcbd0cb54cba4ea3c39bc794a5d}{g\_led3}};}
+\DoxyCodeLine{00018\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ \doxymbox{\hyperlink{peripheral__config_8h_a3d93d26f01991f8ddb47874f56610170}{g\_button}};}
+\DoxyCodeLine{00019\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ \doxymbox{\hyperlink{peripheral__config_8h_a31bd06294777e39b760a6b82f6d2b13f}{g\_usart3\_tx}};}
+\DoxyCodeLine{00020\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ \doxymbox{\hyperlink{peripheral__config_8h_a8c4bb0dbdac5c077024e78150213500f}{g\_usart3\_rx}};}
+\DoxyCodeLine{00021\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}\ \doxymbox{\hyperlink{peripheral__config_8h_a24ffbc2efdb5e4fe07ad0e8a1b6eeccf}{g\_timer2}};}
+\DoxyCodeLine{00022\ \textcolor{keyword}{extern}\ \doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ \doxymbox{\hyperlink{peripheral__config_8h_afccf372354e18524c982712ca006cf5e}{g\_timer2\_ch1}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ Initialization\ functions\ -\/\ accept\ handler\ pointers}}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga1d8ed4eda8ef2b3adc80c0de7b8d1897}{led\_setup\_blue}}(\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ *LED);}
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga149103b303430f06e1bb902c91dfabea}{led\_setup\_red}}(\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ *LED);}
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___b_s_p___b_u_t_t_o_n___f_u_n_c_t_i_o_n_s_gacdfc58cc10456684450ff03693b2182f}{button\_setup}}(\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ *BUTTON);}
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___b_s_p___b_u_t_t_o_n___f_u_n_c_t_i_o_n_s_gafd89cef713a19170a6f26ed8ebb3e62a}{button\_interrupt\_setup}}(\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ *BUTTON);}
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_gae862bef71de80c107ecac7ceab728b82}{usart3\_init}}(\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\_handler\_t}}\ *handler);}
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga59d034137a5e59672ddd16be41fb516a}{usart3\_tx}}(\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ *handler);}
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga7598dcb2f135070c5fc9ee7298d861fa}{usart3\_rx}}(\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ *handler);}
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{peripheral__config_8h_abe324fe42a678f7bacd271db37bfb36b}{timer2\_setup}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}*\ handler,\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995ab}{Timer\_direction\_t}}\ direction);}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{peripheral__config_8h_a4b456e45cc9e59d402e8872fdbd993b7}{timer2ch1}}(\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}*\ handler);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PERIPHERAL\_CONFIG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,126 @@
+\doxysection{stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+src/\+stm32f7xx\+\_\+uart\+\_\+driver.c File Reference}
+\hypertarget{stm32f7xx__uart__driver_8c}{}\label{stm32f7xx__uart__driver_8c}\index{stm32f7xx\_driver/driver/driver\_src/stm32f7xx\_uart\_driver.c@{stm32f7xx\_driver/driver/driver\_src/stm32f7xx\_uart\_driver.c}}
+
+
+STM32\+F7xx USART Driver -\/ Serial Communication Interface.  
+
+
+{\ttfamily \+\#include "{}stm32f7xx\+\_\+uart\+\_\+driver.\+h"{}}\newline
+Include dependency graph for stm32f7xx\+\_\+uart\+\_\+driver.\+c:\+
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t \doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_ga564ffcd2cbac51d721188fd510ff593c}{USART\+\_\+init}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint8\+\_\+t enable)
+\begin{DoxyCompactList}\small\item\em Initialize USART peripheral with specified configuration. \end{DoxyCompactList}\item 
+int8\+\_\+t \doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gae79f07f623e6bfbc782f0e3ea511b79a}{USART\+\_\+\+Control}} (\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+USART, uint8\+\_\+t CMD)
+\begin{DoxyCompactList}\small\item\em Enable or disable USART peripheral. \end{DoxyCompactList}\item 
+int8\+\_\+t \doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gab9e47ab2d550d52ffe0ef02075cbf552}{USART\+\_\+cl\+K\+\_\+init}} (\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+USART, uint8\+\_\+t CMD)
+\begin{DoxyCompactList}\small\item\em Enable/\+disable USART clock via RCC. \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_gaa896cd8eb0716bf9a060ab674d0ceb4b}{USART\+\_\+\+Get\+Flag\+Status}} (\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+USART, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357}{USART\+\_\+\+Flags\+\_\+t}} Flag\+Name)
+\begin{DoxyCompactList}\small\item\em Check if a USART flag is set in the ISR register. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_ga1ab95815c6b477c691981703c1339a0f}{USART\+\_\+\+CLear\+Flag}} (\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+USART, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9}{USART\+\_\+\+Clear\+Flags\+\_\+t}} Flag\+Name)
+\begin{DoxyCompactList}\small\item\em Clear a USART flag via ICR (Interrupt Clear Register). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_gad2a5403207b97e55c86282068344bbe4}{USART\+\_\+\+Send\+Data}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Tx\+Data, uint16\+\_\+t \doxymbox{\hyperlink{main_8c_afed088663f8704004425cdae2120b9b3}{len}})
+\begin{DoxyCompactList}\small\item\em Send data via USART (blocking mode). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga9cbfb1902e1ecdb99951f75364797ac7}{USART\+\_\+\+Set\+Baud\+Rate}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint16\+\_\+t Baud\+Rate)
+\begin{DoxyCompactList}\small\item\em Set USART baud rate via BRR calculation. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga140e51ab79b5ce95c8a457a26a701a60}{USART\+\_\+\+Read\+Data}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Rx\+Data, uint16\+\_\+t \doxymbox{\hyperlink{main_8c_afed088663f8704004425cdae2120b9b3}{len}})
+\begin{DoxyCompactList}\small\item\em Read data from USART (blocking mode). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga1bff58303b67689f9a22226582de10bd}{USART\+\_\+\+Send\+Data\+\_\+\+IT}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Tx\+Data, uint32\+\_\+t Len)
+\begin{DoxyCompactList}\small\item\em Send data via USART (interrupt-\/driven mode). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gae0a6622ad6716e73ac03e5c0a690adb9}{USART\+\_\+\+Read\+Data\+\_\+\+IT}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Rx\+Data, uint32\+\_\+t \doxymbox{\hyperlink{main_8c_afed088663f8704004425cdae2120b9b3}{len}})
+\begin{DoxyCompactList}\small\item\em Read data from USART (interrupt-\/driven mode). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}{USART\+\_\+\+IRQHandler}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle)
+\begin{DoxyCompactList}\small\item\em USART interrupt handler dispatcher. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gaf9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((weak))
+\begin{DoxyCompactList}\small\item\em Weak USART application event callback (overrideable). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+STM32\+F7xx USART Driver -\/ Serial Communication Interface. 
+
+\begin{DoxyAuthor}{Author}
+Likith025 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+February 28, 2026 
+\end{DoxyDate}
+This module provides comprehensive USART (Universal Synchronous/\+\+Asynchronous Receiver/\+\+Transmitter) driver functionality for STM32\+F756\+ZG microcontroller. It supports both blocking and interrupt-\/driven data transmission and reception with flexible configuration options.
+
+{\bfseries{Supported Features:\+}}
+\begin{DoxyItemize}
+\item Configurable baud rates (300 to 4,500,000 bps)
+\item Word lengths:\+ 8-\/bit or 9-\/bit
+\item Stop bits:\+ 1, 1.\+5, or 2 bits
+\item Parity:\+ None, Even, or Odd
+\item Oversampling:\+ 8x or 16x (affects baud rate precision)
+\item Hardware flow control:\+ None, CTS only, RTS only, CTS+\+RTS
+\item Transmission modes:\+ Blocking, Interrupt-\/driven
+\item Interrupt-\/driven RX with error detection
+\item Automatic overflow error handling
+\end{DoxyItemize}
+
+{\bfseries{USART Instances:\+}}
+\begin{DoxyItemize}
+\item USART2:\+ Base 0x40004400, IRQ 38, APB1 clock (42 MHz)
+\item USART3:\+ Base 0x40004800, IRQ 39, APB1 clock (42 MHz)
+\item UART4:\+ Base 0x40004\+C00, IRQ 52, APB1 clock (42 MHz)
+\item UART5:\+ Base 0x40005000, IRQ 53, APB1 clock (42 MHz)
+\item USART1:\+ Base 0x40011000, IRQ 37, APB2 clock (84 MHz)
+\item USART6:\+ Base 0x40011400, IRQ 71, APB2 clock (84 MHz)
+\end{DoxyItemize}
+
+{\bfseries{Data Flow (Interrupt-\/\+Driven):\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{TX:\ Application\ →\ pTXBuffer\ →\ TXEIE\ ISR\ →\ TDR\ →\ Serial\ Line}
+\DoxyCodeLine{RX:\ Serial\ Line\ →\ RDR\ →\ RXNEIE\ ISR\ →\ pRXBuffer\ →\ Application}
+
+\end{DoxyCode}
+
+
+{\bfseries{Register Architecture:\+}}
+\begin{DoxyItemize}
+\item CR1:\+ Control register 1 (enable, TX/\+\+RX, interrupts, word length, parity)
+\item CR2:\+ Control register 2 (stop bits, line break control)
+\item CR3:\+ Control register 3 (hardware flow control, DMA)
+\item BRR:\+ Baud rate register (mantissa and fraction)
+\item TDR:\+ Transmit data register
+\item RDR:\+ Receive data register
+\item ISR:\+ Interrupt and status register (flags)
+\item ICR:\+ Interrupt clear register (flag clear)
+\end{DoxyItemize}
+
+{\bfseries{Clock Configuration:\+}}
+\begin{DoxyItemize}
+\item APB1:\+ 42 MHz (USART2-\/5, UART4-\/5)
+\item APB2:\+ 84 MHz (USART1, USART6)
+\item Define USART\+\_\+\+CLK in header for calculations
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item GPIO alternate functions must be configured before USART use
+\item Interrupt handlers must be linked in startup code
+\item Application must implement \doxylink{stm32f7xx__uart__driver_8h_aa4732538a8f3f2d83fc5da935f36eb50}{USART\+\_\+\+Application\+Event\+Callback()}
+\item Baud rate error \texorpdfstring{$<$}{<} 3\% for reliable operation
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item Ensure GPIO pins are configured as alternate functions
+\item USART clock must be enabled via RCC before use
+\item Interrupt handler must clear flags to prevent stalling
+\item TX/\+\+RX buffers must remain valid during transfer
+\end{DoxyItemize}
+\end{DoxyAttention}
+\begin{DoxyCopyright}{Copyright}
+2026 Likith025 -\/ MIT License 
+\end{DoxyCopyright}
+\begin{DoxySeeAlso}{See also}
+\doxylink{stm32f7xx__uart__driver_8h}{stm32f7xx\+\_\+uart\+\_\+driver.\+h} -\/ Header definitions 
+
+\doxylink{stm32f756zg__reg_8h}{stm32f756zg\+\_\+reg.\+h} -\/ Register definitions 
+\end{DoxySeeAlso}

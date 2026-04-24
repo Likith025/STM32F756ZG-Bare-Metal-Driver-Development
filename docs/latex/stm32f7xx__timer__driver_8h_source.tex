@@ -1,0 +1,80 @@
+\doxysection{stm32f7xx\+\_\+timer\+\_\+driver.\+h}
+\hypertarget{stm32f7xx__timer__driver_8h_source}{}\label{stm32f7xx__timer__driver_8h_source}\index{stm32f7xx\_driver/driver/driver\_inc/stm32f7xx\_timer\_driver.h@{stm32f7xx\_driver/driver/driver\_inc/stm32f7xx\_timer\_driver.h}}
+\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ stm32f7xx\_timer\_driver.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ \ Created\ on:\ Mar\ 29,\ 2026}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ likith}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ INC\_STM32F7XX\_TIMER\_DRIVER\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ INC\_STM32F7XX\_TIMER\_DRIVER\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <\doxymbox{\hyperlink{stm32f756zg__reg_8h}{stm32f756zg\_reg.h}}>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ \ \ \ \ TIMER\_SR\_UIF\ \ \ \ (1<<0)}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \ \ \ \ TIMER\_SR\_CC1IF\ \ (1<<1)}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ \ \ \ \ TIMER\_SR\_CC2IF\ \ (1<<2)}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ \ \ \ \ TIMER\_SR\_CC3IF\ \ (1<<3)}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ \ \ \ \ TIMER\_SR\_CC4IF\ \ (1<<4)}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ \ \ \ \ TIMER\_SR\_TIF\ \ \ \ (1<<6)}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ \ \ \ \ TIMER\_SR\_CC1OF\ \ (1<<9)}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ \ \ \ \ TIMER\_SR\_CC2OF\ \ (1<<10)}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ \ \ \ \ TIMER\_SR\_CC3OF\ \ (1<<11)}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ \ \ \ \ TIMER\_SR\_CC4OF\ \ (1<<12)}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{//struct\ defines}}
+\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00026\ \ \ \ \ uint16\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r__config__t_aa59539d70b5f643739d13a73df5e3b92}{PreScaler}};}
+\DoxyCodeLine{00027\ \ \ \ \ uint16\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r__config__t_a92d09ae84c50e4ede5a45f9f13dfa7ca}{Period}};}
+\DoxyCodeLine{00028\ \ \ \ \ uint8\_t\ \doxymbox{\hyperlink{struct_t_i_m_e_r__config__t_aaad35965f0e77b555cab6b6e4c2db572}{direction}};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \}\doxymbox{\hyperlink{struct_t_i_m_e_r__config__t}{TIMER\_config\_t}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}\{}
+\DoxyCodeLine{00034\ \ \ \ \ \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t}{TIMER\_RegDef\_t}}\ *\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}};}
+\DoxyCodeLine{00035\ \ \ \ \ \doxymbox{\hyperlink{struct_t_i_m_e_r__config__t}{TIMER\_config\_t}}\ \doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a696b8d9bcd1e51fc8c6f486b0cde5695}{TimerConfig}};}
+\DoxyCodeLine{00036\ \}\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{}
+\DoxyCodeLine{00039\ \ \ \ \ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995abae40331b9e2578d64361241394e10c52e}{UpCounter}}=0,}
+\DoxyCodeLine{00040\ \ \ \ \ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995aba1fe3b9e0656a67d6d5e97a17e83cfa55}{DownCounter}},}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \}\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995ab}{Timer\_direction\_t}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{}
+\DoxyCodeLine{00045\ \ \ \ \ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415cace2c7156691618a2dc591ee80ae4e47a}{Timer\_Flag\_UIF}}=\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ab4b80565a3c00adc50a6b1b3f4f79030}{TIMER\_SR\_UIF}},}
+\DoxyCodeLine{00046\ \ \ \ \ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415cad55e1c3c1427645e358cc8cfab924bdd}{Timer\_Flag\_CC1IF}}=\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a0f8f627c4dd2c6a1d9231eab68e29769}{TIMER\_SR\_CC1IF}},}
+\DoxyCodeLine{00047\ \ \ \ \ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca81c57b01d7f948778fa5d55807254c41}{Timer\_Flag\_CC2IF}}=\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_aff546784e7b876134cfcbb0b90589aba}{TIMER\_SR\_CC2IF}},}
+\DoxyCodeLine{00048\ \ \ \ \ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca1225662cfcbe3986bd421260e69a32a3}{Timer\_Flag\_CC3IF}}=\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a38dbed46b5531fd4ba52bd8f2da38b07}{TIMER\_SR\_CC3IF}},}
+\DoxyCodeLine{00049\ \ \ \ \ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415cafa8d8d14206ffa0bd2f0f22bec0f6ac7}{Timer\_Flag\_CC4IF}}=\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ada61d9f999a6fa5cfd590441cb7f062d}{TIMER\_SR\_CC4IF}},}
+\DoxyCodeLine{00050\ \ \ \ \ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415caa6a0ac2dfec7e52b0315d9f0520aa7f0}{Timer\_Flag\_TIF}}=\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a92597a9a531de065ec40fa97bc26d531}{TIMER\_SR\_TIF}},}
+\DoxyCodeLine{00051\ \ \ \ \ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca48ad9b269bfc8843e0b2ef0eddb4d157}{Timer\_Flag\_CC1OF}}=\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a170278c0be4ace143e17293fc55eb6b8}{TIMER\_SR\_CC1OF}},}
+\DoxyCodeLine{00052\ \ \ \ \ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415cad0df9d92bd6ff996f49687622dcb969a}{Timer\_Flag\_CC2OF}}=\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a8ef635196c95f0189e0b65c95762e23f}{TIMER\_SR\_CC2OF}},}
+\DoxyCodeLine{00053\ \ \ \ \ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca5bcb3bde8654f0a432d94ce8743f2faf}{Timer\_Flag\_CC3OF}}=\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ac75dec53bfee8364a33d0946926206e4}{TIMER\_SR\_CC3OF}},}
+\DoxyCodeLine{00054\ \ \ \ \ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca7656b6564ea91c2a15b34c6909a3a341}{Timer\_Flag\_CC4OF}}=\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ac4a5609a3337ed93b0be000afe8c5da5}{TIMER\_SR\_CC4OF}},}
+\DoxyCodeLine{00055\ \}\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415c}{Timer\_flags\_t}};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\{}
+\DoxyCodeLine{00058\ \ \ \ \ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26a703cf81b7a9530ba8650e0ee2f29d68e}{CH1}}=1,}
+\DoxyCodeLine{00059\ \ \ \ \ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26ae574b39c34bd88c27ea641014831e53a}{CH2}},}
+\DoxyCodeLine{00060\ \ \ \ \ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26aaee6d12bf63ae430250764aa97e9e429}{CH3}},}
+\DoxyCodeLine{00061\ \ \ \ \ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26aad6a6b3e7230ebcbbb5a26385b11ade7}{CH4}},}
+\DoxyCodeLine{00062\ \}\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26}{Timer\_channel\_t}};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{//API\ prototypes}}
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gac618b969375cadd9a01aad1c6c937843}{TimerInit}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}*\ timer\_handle);}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga39c741de08b18d032760b29b0763ec46}{TimerControl}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}*\ timer\_handle,uint16\_t\ state);}
+\DoxyCodeLine{00068\ uint32\_t\ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga957b4db743c38c3da54705a3c57f4cdb}{TimerGetCount}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}*\ timer\_handle);}
+\DoxyCodeLine{00069\ uint8\_t\ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gabe5f8fa6ae1672da6717f16ca393b6d6}{TimerGetFlagStatus}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}*\ timer\_handle,\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415c}{Timer\_flags\_t}}\ Flag);}
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga69ce4a6dc85b92851e31ab4fbe15c698}{TimerResetFlag}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}*\ timer\_handle,\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415c}{Timer\_flags\_t}}\ Flag);}
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae1f2c21be6c10594144a9665d427913a}{TimerSetFrequency}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}*\ timer\_handle,uint32\_t\ frequency);}
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga0b08f6fe8b7f71e4b008f71708340d7e}{TimerPWM\_init}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}*\ timer\_handle,\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26}{Timer\_channel\_t}}\ Channel);}
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga222542f8ca62ee0071c754f8008949c4}{TimerPWM\_DutyCycle}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}*\ timer\_handle,\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26}{Timer\_channel\_t}}\ Channel,uint8\_t\ DutyCycle);}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INC\_STM32F7XX\_TIMER\_DRIVER\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

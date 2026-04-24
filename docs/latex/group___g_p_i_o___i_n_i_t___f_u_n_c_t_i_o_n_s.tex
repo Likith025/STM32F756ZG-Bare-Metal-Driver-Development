@@ -1,0 +1,216 @@
+\doxysection{GPIO Initialization Functions }
+\hypertarget{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s}{}\label{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s}\index{GPIO Initialization Functions@{GPIO Initialization Functions}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}{GPIO\+\_\+\+Init}} (GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}GPIOx, uint16\+\_\+t pin, uint32\+\_\+t mode, uint32\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Initialize GPIO pin with mode and speed configuration. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_ga2c35a3f1fdc64d247ba3b7b64c712a23}{GPIO\+\_\+\+Clock\+\_\+\+Enable}} (GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}GPIOx)
+\begin{DoxyCompactList}\small\item\em Enable GPIO port clock via RCC. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\label{doc-func-members}
+\Hypertarget{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_ga2c35a3f1fdc64d247ba3b7b64c712a23}\index{GPIO Initialization Functions@{GPIO Initialization Functions}!GPIO\_Clock\_Enable@{GPIO\_Clock\_Enable}}
+\index{GPIO\_Clock\_Enable@{GPIO\_Clock\_Enable}!GPIO Initialization Functions@{GPIO Initialization Functions}}
+\doxysubsubsection{\texorpdfstring{GPIO\_Clock\_Enable()}{GPIO\_Clock\_Enable()}}
+{\footnotesize\ttfamily \label{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_ga2c35a3f1fdc64d247ba3b7b64c712a23} 
+void GPIO\+\_\+\+Clock\+\_\+\+Enable (\begin{DoxyParamCaption}\item[{GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{GPIOx}{}\end{DoxyParamCaption})}
+
+
+
+Enable GPIO port clock via RCC. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em GPIOx} & Base address of GPIO port \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Enables the APB2 clock for the specified GPIO port. This must be called before configuring any pins in that port. The function:\+
+\begin{DoxyEnumerate}
+\item Identifies GPIO port
+\item Sets corresponding RCC bit (AHB1\+ENR for GPIOx)
+\item Waits for clock to stabilize
+\end{DoxyEnumerate}
+
+{\bfseries{RCC GPIO Enable Bits:\+}}
+\begin{DoxyItemize}
+\item GPIOA:\+ RCC\+\_\+\+AHB1\+ENR bit 0
+\item GPIOB:\+ RCC\+\_\+\+AHB1\+ENR bit 1
+\item GPIOC:\+ RCC\+\_\+\+AHB1\+ENR bit 2
+\item GPIOD:\+ RCC\+\_\+\+AHB1\+ENR bit 3
+\item etc.
+\end{DoxyItemize}
+
+{\bfseries{Clock Frequency:\+}}
+\begin{DoxyItemize}
+\item AHB1 Clock:\+ 216 MHz (System clock domain)
+\item GPIO operates at full AHB1 frequency
+\item No prescaling on GPIO port clock
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em GPIOx} & GPIO port to enable:\+
+\begin{DoxyItemize}
+\item GPIOA through GPIOI
+\item Any valid GPIO base address
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Idempotent:\+ calling multiple times is safe
+\item Very fast:\+ completes in \texorpdfstring{$<$}{<} 1 µs
+\item Automatically called by \doxylink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}{GPIO\+\_\+\+Init()}
+\item Can be called independently if needed
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Sequence:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_ga2c35a3f1fdc64d247ba3b7b64c712a23}{GPIO\_Clock\_Enable}}(GPIOB);\ \ \textcolor{comment}{//\ Enable\ GPIOB\ clock}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}{GPIO\_Init}}(GPIOB,\ 14,\ ...);\ \textcolor{comment}{//\ Now\ safe\ to\ configure\ pins}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}{GPIO\+\_\+\+Init()} 
+\end{DoxySeeAlso}
+\Hypertarget{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}\index{GPIO Initialization Functions@{GPIO Initialization Functions}!GPIO\_Init@{GPIO\_Init}}
+\index{GPIO\_Init@{GPIO\_Init}!GPIO Initialization Functions@{GPIO Initialization Functions}}
+\doxysubsubsection{\texorpdfstring{GPIO\_Init()}{GPIO\_Init()}}
+{\footnotesize\ttfamily \label{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0} 
+void GPIO\+\_\+\+Init (\begin{DoxyParamCaption}\item[{GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{GPIOx}{, }\item[{uint16\+\_\+t}]{pin}{, }\item[{uint32\+\_\+t}]{mode}{, }\item[{uint32\+\_\+t}]{speed}{}\end{DoxyParamCaption})}
+
+
+
+Initialize GPIO pin with mode and speed configuration. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em GPIOx} & Base address of GPIO port (GPIOA, GPIOB, etc.) \\
+\hline
+\doxymbox{\texttt{in}}  & {\em pin} & Pin number (0-\/15) \\
+\hline
+\doxymbox{\texttt{in}}  & {\em mode} & GPIO mode (input, output, alternate function, analog) \\
+\hline
+\doxymbox{\texttt{in}}  & {\em speed} & GPIO speed (low, medium, high, very high) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Configures a GPIO pin with specified mode and speed. Must be called before using the pin. This function:\+
+\begin{DoxyEnumerate}
+\item Enables GPIO port clock
+\item Sets pin mode (MODER register)
+\item Sets output speed (OSPEEDR register)
+\item Sets pull-\/up/\+pull-\/down (PUPDR register)
+\item Sets output type (OTYPER register)
+\end{DoxyEnumerate}
+
+{\bfseries{GPIO Modes:\+}} 
+\begin{DoxyTable}{3}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Mode  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Value  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Description  \\
+GPIO\+\_\+\+MODE\+\_\+\+IN  &0x00  &Input (no external clock)  \\
+GPIO\+\_\+\+MODE\+\_\+\+OUT  &0x01  &Output (push-\/pull by default)  \\
+GPIO\+\_\+\+MODE\+\_\+\+AF  &0x02  &Alternate function (UART, SPI, etc.)  \\
+GPIO\+\_\+\+MODE\+\_\+\+AN  &0x03  &Analog mode (ADC input)  \\
+\end{DoxyTable}
+
+
+{\bfseries{Speed Settings (OSPEEDR):\+}} 
+\begin{DoxyTable}{3}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Speed  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}MHz  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Use Case  \\
+LOW  &2  &I2C, slow interfaces  \\
+MED  &25  &General purpose  \\
+HIGH  &50  &SPI, UART, standard  \\
+VERYHIGH  &100  &High-\/speed peripherals  \\
+\end{DoxyTable}
+
+
+{\bfseries{Register Operations:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{GPIOX-\/>MODER[pin*2:pin*2+1]\ =\ mode\ \ \ \ \ \ \textcolor{comment}{//\ Set\ mode}}
+\DoxyCodeLine{GPIOX-\/>OSPEEDR[pin*2:pin*2+1]\ =\ speed\ \ \ \textcolor{comment}{//\ Set\ speed}}
+\DoxyCodeLine{GPIOX-\/>PUPDR[pin*2:pin*2+1]\ =\ pull\ \ \ \ \ \ \textcolor{comment}{//\ Set\ pull}}
+\DoxyCodeLine{GPIOX-\/>OTYPER[pin]\ =\ otype\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ output\ type}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em GPIOx} & GPIO port base address:\+
+\begin{DoxyItemize}
+\item GPIOA (0x40020000)
+\item GPIOB (0x40020400)
+\item GPIOC (0x40020800)
+\item etc.
+\end{DoxyItemize}\\
+\hline
+\doxymbox{\texttt{in}}  & {\em pin} & GPIO pin number:\+
+\begin{DoxyItemize}
+\item Valid range:\+ 0-\/15
+\item Each port has 16 pins
+\end{DoxyItemize}\\
+\hline
+\doxymbox{\texttt{in}}  & {\em mode} & GPIO mode configuration:\+
+\begin{DoxyItemize}
+\item INPUT:\+ For reading external signals
+\item OUTPUT:\+ For driving loads
+\item ALTERNATE:\+ For peripheral functions (UART, SPI, PWM)
+\item ANALOG:\+ For ADC, DAC, comparators
+\end{DoxyItemize}\\
+\hline
+\doxymbox{\texttt{in}}  & {\em speed} & Output speed:\+
+\begin{DoxyItemize}
+\item LOW (2 MHz):\+ Low EMI, low power
+\item MEDIUM (25 MHz):\+ Balanced performance
+\item HIGH (50 MHz):\+ Standard I/\+O speed
+\item VERY\+\_\+\+HIGH (100 MHz):\+ High-\/speed interfaces
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item GPIO clock enable handled internally
+\item Very fast configuration (\texorpdfstring{$\sim$}{\string~}1 µs)
+\item Can be called multiple times (re-\/configures pin)
+\item Thread-\/safe if RCC already initialized
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Usage:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Output\ pin\ (LED)}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}{GPIO\_Init}}(GPIOB,\ 14,\ GPIO\_MODE\_OUT,\ GPIO\_SPEED\_HIGH);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Input\ pin\ (button\ with\ pull-\/up)}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}{GPIO\_Init}}(GPIOA,\ 0,\ GPIO\_MODE\_IN,\ GPIO\_SPEED\_LOW);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Alternate\ function\ (UART\ TX)}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}{GPIO\_Init}}(GPIOC,\ 10,\ GPIO\_MODE\_AF,\ GPIO\_SPEED\_HIGH);}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_ga2c35a3f1fdc64d247ba3b7b64c712a23}{GPIO\+\_\+\+Clock\+\_\+\+Enable()}, \doxylink{group___g_p_i_o___i_o___f_u_n_c_t_i_o_n_s_ga5183f3317e81fe885836d8000ff089aa}{GPIO\+\_\+\+Write\+Pin()}, \doxylink{group___g_p_i_o___i_o___f_u_n_c_t_i_o_n_s_ga65a7dfe6e696f81215be138a38a7b2f6}{GPIO\+\_\+\+Read\+Pin()} 
+\end{DoxySeeAlso}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.\+c}}.\end{Desc}

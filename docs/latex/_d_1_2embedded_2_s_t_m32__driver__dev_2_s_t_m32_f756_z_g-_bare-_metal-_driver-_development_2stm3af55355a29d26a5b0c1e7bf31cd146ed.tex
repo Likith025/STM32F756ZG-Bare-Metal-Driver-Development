@@ -1,0 +1,115 @@
+\doxysection{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+src/\+nvic.\+c}
+\hypertarget{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm3af55355a29d26a5b0c1e7bf31cd146ed}{}\label{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm3af55355a29d26a5b0c1e7bf31cd146ed}Configure interrupt priority and enable/\+disable.
+
+Configure interrupt priority and enable/\+disable
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em IRQNumber} & IRQ number (0-\/239 for STM32\+F756\+ZG peripherals) \\
+\hline
+\doxymbox{\texttt{in}}  & {\em IRQPriority} & Priority level (0-\/15, where 0 is highest priority) \\
+\hline
+\doxymbox{\texttt{in}}  & {\em enable} & Enable or disable the interrupt (ENABLE/\+\+DISABLE) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Wrapper function that configures both the priority and enable state of an interrupt. This is the typical entry point for interrupt configuration in applications.
+
+{\bfseries{Priority Values:\+}}
+\begin{DoxyItemize}
+\item 0:\+ Highest priority (executed immediately)
+\item 1-\/14:\+ Intermediate priorities
+\item 15:\+ Lowest priority (executed after higher priority interrupts)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em IRQNumber} & Valid IRQ numbers for STM32\+F756\+ZG:\+
+\begin{DoxyItemize}
+\item 0-\/15:\+ System exceptions (handled by Cortex-\/\+M7)
+\item 16+:\+ Peripheral interrupts (USART, GPIO, TIMER, etc.)
+\item Examples:\+
+\begin{DoxyItemize}
+\item IRQ\+\_\+\+NO\+\_\+\+USART2 = 38
+\item IRQ\+\_\+\+NO\+\_\+\+USART3 = 39
+\item IRQ\+\_\+\+NO\+\_\+\+EXTI10\+\_\+15 = 40
+\end{DoxyItemize}
+\end{DoxyItemize}\\
+\hline
+\doxymbox{\texttt{in}}  & {\em IRQPriority} & Priority level assignment:\+ \begin{DoxyTableNested}{2}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Value  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Priority Level  \\
+0  &Highest (preempts all)  \\
+5  &Mid-\/range (typical for most peripherals)  \\
+15  &Lowest (preempted by all)  \\
+\end{DoxyTableNested}
+\\
+\hline
+\doxymbox{\texttt{in}}  & {\em enable} & Interrupt state:\+
+\begin{DoxyItemize}
+\item ENABLE (1):\+ Enable the interrupt in NVIC
+\item DISABLE (0):\+ Disable the interrupt in NVIC
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item This is the preferred high-\/level interface for interrupt configuration
+\item Both priority and enable state are configured atomically
+\item Typical priority assignments:\+
+\begin{DoxyItemize}
+\item Time-\/critical interrupts:\+ Priority 0-\/5
+\item General peripherals:\+ Priority 5-\/10
+\item Background tasks:\+ Priority 10-\/15
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyNote}
+/\+/\+ Configure USART3 interrupt (priority 5) Intrrupt\+Config(\+IRQ\+\_\+\+NO\+\_\+\+USART3, 5, ENABLE);
+
+/\+/\+ Set high-\/priority GPIO interrupt Intrrupt\+Config(\+IRQ\+\_\+\+NO\+\_\+\+EXTI0, 0, ENABLE); /\+/\+ Highest priority
+
+/\+/\+ Disable EXTI interrupt temporarily Intrrupt\+Config(\+IRQ\+\_\+\+NO\+\_\+\+EXTI10\+\_\+15, 10, DISABLE);
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___n_v_i_c___f_u_n_c_t_i_o_n_s_ga0612965a087a6f9a4e22af466104d18c}{IRQ\+\_\+\+Priority\+Config()}, \doxylink{group___n_v_i_c___f_u_n_c_t_i_o_n_s_ga5dc8baf024ad34bb2821385868e9b126}{IRQ\+\_\+\+Intrrupt\+Config()}
+\end{DoxySeeAlso}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include<stdint.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{nvic_8h}{nvic.h}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___n_v_i_c___f_u_n_c_t_i_o_n_s_ga74a8392488d643fee9f6d2321b11cfe9}{IntrruptConfig}}(uint8\_t\ IRQNumber,\ uint32\_t\ IRQPriority,\ uint8\_t\ enable)\ \{}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___n_v_i_c___f_u_n_c_t_i_o_n_s_ga0612965a087a6f9a4e22af466104d18c}{IRQ\_PriorityConfig}}(IRQNumber,\ IRQPriority);}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___n_v_i_c___f_u_n_c_t_i_o_n_s_ga5dc8baf024ad34bb2821385868e9b126}{IRQ\_IntrruptConfig}}(IRQNumber,\ enable);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___n_v_i_c___f_u_n_c_t_i_o_n_s_ga5dc8baf024ad34bb2821385868e9b126}{IRQ\_IntrruptConfig}}(uint8\_t\ IRQ\_Number,\ uint8\_t\ status)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (status\ ==\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a}{ENABLE}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Enable:\ Write\ 1\ to\ ISER\ register}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{stm32f756zg__reg_8h_ac8e97e8ce56ae9f57da1363a937f8a17}{NVIC}}-\/>ISER[IRQ\_Number\ /\ 32]\ |=\ (1UL\ <<\ (IRQ\_Number\ \%\ 32));}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Disable:\ Write\ 1\ to\ ICER\ register}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \doxymbox{\hyperlink{stm32f756zg__reg_8h_ac8e97e8ce56ae9f57da1363a937f8a17}{NVIC}}-\/>ICER[IRQ\_Number\ /\ 32]\ |=\ (1UL\ <<\ (IRQ\_Number\ \%\ 32));}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___n_v_i_c___f_u_n_c_t_i_o_n_s_ga0612965a087a6f9a4e22af466104d18c}{IRQ\_PriorityConfig}}(uint8\_t\ IRQ\_Number,\ uint32\_t\ IRQ\_Priority)\ \{}
+\DoxyCodeLine{\ \ \ \ uint8\_t\ ipr\_index\ =\ IRQ\_Number\ /\ 4;}
+\DoxyCodeLine{\ \ \ \ uint8\_t\ ipr\_section\ =\ IRQ\_Number\ \%\ 4;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Calculate\ bit\ shift\ position\ (upper\ 4\ bits\ only)}}
+\DoxyCodeLine{\ \ \ \ uint8\_t\ shift\ =\ (ipr\_section\ *\ 8)\ +\ 4;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Clear\ and\ set\ priority\ bits}}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{stm32f756zg__reg_8h_ac8e97e8ce56ae9f57da1363a937f8a17}{NVIC}}-\/>IPR[ipr\_index]\ \&=\ \string~((uint32\_t)0xF\ <<\ shift);}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{stm32f756zg__reg_8h_ac8e97e8ce56ae9f57da1363a937f8a17}{NVIC}}-\/>IPR[ipr\_index]\ |=\ ((uint32\_t)IRQ\_Priority\ <<\ shift);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\ \textcolor{comment}{//\ end\ of\ NVIC\_FUNCTIONS}}
+
+\end{DoxyCodeInclude}
+ 

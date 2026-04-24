@@ -1,0 +1,98 @@
+\doxysection{LED Configuration Functions }
+\hypertarget{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s}{}\label{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s}\index{LED Configuration Functions@{LED Configuration Functions}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga149103b303430f06e1bb902c91dfabea}{led\+\_\+setup\+\_\+red}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+LED)
+\item 
+void \doxymbox{\hyperlink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga1d8ed4eda8ef2b3adc80c0de7b8d1897}{led\+\_\+setup\+\_\+blue}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+LED)
+\begin{DoxyCompactList}\small\item\em Configure blue LED (GPIO\+\_\+B pin 15). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\label{doc-func-members}
+\Hypertarget{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga1d8ed4eda8ef2b3adc80c0de7b8d1897}\index{LED Configuration Functions@{LED Configuration Functions}!led\_setup\_blue@{led\_setup\_blue}}
+\index{led\_setup\_blue@{led\_setup\_blue}!LED Configuration Functions@{LED Configuration Functions}}
+\doxysubsubsection{\texorpdfstring{led\_setup\_blue()}{led\_setup\_blue()}}
+{\footnotesize\ttfamily \label{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga1d8ed4eda8ef2b3adc80c0de7b8d1897} 
+void led\+\_\+setup\+\_\+blue (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+LED}{}\end{DoxyParamCaption})}
+
+
+
+Configure blue LED (GPIO\+\_\+B pin 15). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em p\+LED} & Pointer to \doxylink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t} for LED configuration \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Initializes GPIO pin 15 on PORT B as an output for the blue LED indicator. Configuration identical to red LED but on different pin.
+
+{\bfseries{GPIO Configuration:\+}}
+\begin{DoxyItemize}
+\item Port:\+ GPIOB
+\item Pin:\+ 15
+\item Mode:\+ Output (GPIO\+\_\+\+MODE\+\_\+\+OUT)
+\item Speed:\+ High (for LED response visibility)
+\item Pull:\+ None (open output)
+\item Initial State:\+ Low (LED off)
+\end{DoxyItemize}
+
+{\bfseries{Pin and Port Details:\+}}
+\begin{DoxyItemize}
+\item Pin 15:\+ Adjacent to red LED pin 14
+\item Same port allows simultaneous control
+\item Can be used for status indication
+\item Recommended:\+ Red=Error, Blue=Ready
+\end{DoxyItemize}
+
+{\bfseries{Usage:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ led\_blue;}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga1d8ed4eda8ef2b3adc80c0de7b8d1897}{led\_setup\_blue}}(\&led\_blue);\ \ \ \textcolor{comment}{//\ Initialize}}
+\DoxyCodeLine{\doxymbox{\hyperlink{stm32f7xx__gpio__driver_8h_a27e2dc156571c63c30d824b49a96173c}{GPIO\_WritePin}}(led\_blue.\doxymbox{\hyperlink{struct_g_p_i_o__handler__t_ab2a37417c657d3a8b803a7248fbfc825}{pGPIOx}},\ 15,\ SET);\ \ \ \ \ \textcolor{comment}{//\ Turn\ on}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em p\+LED} & Handler structure to be configured:\+
+\begin{DoxyItemize}
+\item p\+LED-\/\texorpdfstring{$>$}{>}p\+GPIOx:\+ Set to GPIOB
+\item p\+LED-\/\texorpdfstring{$>$}{>}pin:\+ Set to 15
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item GPIOB clock must be enabled in RCC before calling
+\item Can be called multiple times
+\item Independent from red LED
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga149103b303430f06e1bb902c91dfabea}{led\+\_\+setup\+\_\+red()}, \doxylink{stm32f7xx__gpio__driver_8h_a27e2dc156571c63c30d824b49a96173c}{GPIO\+\_\+\+Write\+Pin()} 
+\end{DoxySeeAlso}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.\+c}}.\end{Desc}
+\Hypertarget{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga149103b303430f06e1bb902c91dfabea}\index{LED Configuration Functions@{LED Configuration Functions}!led\_setup\_red@{led\_setup\_red}}
+\index{led\_setup\_red@{led\_setup\_red}!LED Configuration Functions@{LED Configuration Functions}}
+\doxysubsubsection{\texorpdfstring{led\_setup\_red()}{led\_setup\_red()}}
+{\footnotesize\ttfamily \label{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga149103b303430f06e1bb902c91dfabea} 
+void led\+\_\+setup\+\_\+red (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+LED}{}\end{DoxyParamCaption})}
+
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.\+c}}.\end{Desc}

@@ -1,0 +1,44 @@
+\doxysection{stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+src/\+nvic.c File Reference}
+\hypertarget{nvic_8c}{}\label{nvic_8c}\index{stm32f7xx\_driver/driver/driver\_src/nvic.c@{stm32f7xx\_driver/driver/driver\_src/nvic.c}}
+
+
+Nested Vectored Interrupt Controller (NVIC) driver for STM32\+F756\+ZG.  
+
+
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+{\ttfamily \+\#include "{}nvic.\+h"{}}\newline
+Include dependency graph for nvic.\+c:\+
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{group___n_v_i_c___f_u_n_c_t_i_o_n_s_ga74a8392488d643fee9f6d2321b11cfe9}{Intrrupt\+Config}} (uint8\+\_\+t IRQNumber, uint32\+\_\+t IRQPriority, uint8\+\_\+t enable)
+\item 
+void \doxymbox{\hyperlink{group___n_v_i_c___f_u_n_c_t_i_o_n_s_ga5dc8baf024ad34bb2821385868e9b126}{IRQ\+\_\+\+Intrrupt\+Config}} (uint8\+\_\+t IRQ\+\_\+\+Number, uint8\+\_\+t status)
+\item 
+void \doxymbox{\hyperlink{group___n_v_i_c___f_u_n_c_t_i_o_n_s_ga0612965a087a6f9a4e22af466104d18c}{IRQ\+\_\+\+Priority\+Config}} (uint8\+\_\+t IRQ\+\_\+\+Number, uint32\+\_\+t IRQ\+\_\+\+Priority)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Nested Vectored Interrupt Controller (NVIC) driver for STM32\+F756\+ZG. 
+
+\begin{DoxyAuthor}{Author}
+Likith025 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+March 22, 2026 
+\end{DoxyDate}
+This driver provides low-\/level interrupt management functions for the ARM Cortex-\/\+M7 Nested Vectored Interrupt Controller (NVIC). It handles:\+
+\begin{DoxyItemize}
+\item Interrupt enable/\+disable
+\item Priority configuration
+\item IRQ management for all STM32\+F756\+ZG peripherals
+\end{DoxyItemize}
+
+\begin{DoxyCopyright}{Copyright}
+2026 Likith025 -\/ MIT License 
+\end{DoxyCopyright}
+\begin{DoxySeeAlso}{See also}
+\doxylink{stm32f756zg__reg_8h}{stm32f756zg\+\_\+reg.\+h} -\/ \doxylink{stm32f756zg__reg_8h_ac8e97e8ce56ae9f57da1363a937f8a17}{NVIC} register definitions 
+\end{DoxySeeAlso}

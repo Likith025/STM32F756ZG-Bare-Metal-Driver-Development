@@ -1,0 +1,267 @@
+\doxysection{USART Flag Functions }
+\hypertarget{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s}{}\label{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s}\index{USART Flag Functions@{USART Flag Functions}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_gaa896cd8eb0716bf9a060ab674d0ceb4b}{USART\+\_\+\+Get\+Flag\+Status}} (\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+USART, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357}{USART\+\_\+\+Flags\+\_\+t}} Flag\+Name)
+\begin{DoxyCompactList}\small\item\em Check if a USART flag is set in the ISR register. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_ga1ab95815c6b477c691981703c1339a0f}{USART\+\_\+\+CLear\+Flag}} (\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+USART, \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9}{USART\+\_\+\+Clear\+Flags\+\_\+t}} Flag\+Name)
+\begin{DoxyCompactList}\small\item\em Clear a USART flag via ICR (Interrupt Clear Register). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\label{doc-func-members}
+\Hypertarget{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_ga1ab95815c6b477c691981703c1339a0f}\index{USART Flag Functions@{USART Flag Functions}!USART\_CLearFlag@{USART\_CLearFlag}}
+\index{USART\_CLearFlag@{USART\_CLearFlag}!USART Flag Functions@{USART Flag Functions}}
+\doxysubsubsection{\texorpdfstring{USART\_CLearFlag()}{USART\_CLearFlag()}}
+{\footnotesize\ttfamily \label{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_ga1ab95815c6b477c691981703c1339a0f} 
+void USART\+\_\+\+CLear\+Flag (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+USART}{, }\item[{\doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abb6cfe9942391198e8199658e62d2aa9}{USART\+\_\+\+Clear\+Flags\+\_\+t}}}]{Flag\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Clear a USART flag via ICR (Interrupt Clear Register). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em p\+USART} & USART register base address \\
+\hline
+\doxymbox{\texttt{in}}  & {\em Flag\+Name} & Flag to clear \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Clears a USART flag by writing to the Interrupt Clear Register (ICR). Flags must be cleared after processing to allow them to be set again. Only specific flags can be cleared via ICR; others are cleared by reading/\+writing data.
+
+{\bfseries{Clearable Flags (via ICR write):\+}}
+\begin{DoxyItemize}
+\item USART\+\_\+\+ICR\+\_\+\+PECF:\+ Parity error clear flag
+\item USART\+\_\+\+ICR\+\_\+\+FECF:\+ Framing error clear flag
+\item USART\+\_\+\+ICR\+\_\+\+NECF:\+ Noise flag clear flag
+\item USART\+\_\+\+ICR\+\_\+\+ORECF:\+ Overrun error clear flag
+\item USART\+\_\+\+ICR\+\_\+\+IDLECF:\+ IDLE line clear flag
+\item USART\+\_\+\+ICR\+\_\+\+TCCF:\+ Transmission complete clear flag
+\end{DoxyItemize}
+
+{\bfseries{Auto-\/\+Clearing Flags:\+}}
+\begin{DoxyItemize}
+\item TXE:\+ Cleared by writing to TDR
+\item RXNE:\+ Cleared by reading RDR
+\item TC:\+ Can be cleared by writing to ICR or reading ISR+writing TDR
+\end{DoxyItemize}
+
+{\bfseries{ICR Register Operation:\+}} Writing 1 to ICR bit clears corresponding ISR flag. Writing 0 has no effect (safe). Multiple flags can be cleared with single write.
+
+{\bfseries{Example (Clear Multiple Errors):\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Clear\ all\ error\ flags}}
+\DoxyCodeLine{USART\_reg-\/>USART\_ICR\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a404185136eb68f679e82e0187d66e411}{USART\_ICR\_PECF}}\ |\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a8400b4500c41800e5f18fc7291a64c9f}{USART\_ICR\_FECF}}\ |}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ USART\_ICR\_NECF\ |\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a375f76b0670ffeb5d2691592d9e7c422}{USART\_ICR\_ORECF}};}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em p\+USART} & USART register base address \\
+\hline
+\doxymbox{\texttt{in}}  & {\em Flag\+Name} & Flag to clear:\+
+\begin{DoxyItemize}
+\item USART\+\_\+\+ICR\+\_\+\+PECF:\+ Clear parity error
+\item USART\+\_\+\+ICR\+\_\+\+FECF:\+ Clear framing error
+\item USART\+\_\+\+ICR\+\_\+\+ORECF:\+ Clear overrun error
+\item USART\+\_\+\+ICR\+\_\+\+TCCF:\+ Clear transmission complete
+\item etc.
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Must be called in interrupt handlers after flag processing
+\item Safe to clear flags that are not set (no side effects)
+\item Failing to clear flags prevents interrupts from retriggering
+\item Some flags auto-\/clear on data access
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Interrupt Pattern:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_gaa896cd8eb0716bf9a060ab674d0ceb4b}{USART\_GetFlagStatus}}(USART3,\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357afa5c29314b5d909c72cb4beb9e85f825}{USART\_FLAG\_ORE}}))\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Handle\ overrun\ error}}
+\DoxyCodeLine{\ \ \ \ error\_count++;}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Must\ clear\ flag\ to\ prevent\ repeated\ triggering}}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_ga1ab95815c6b477c691981703c1339a0f}{USART\_CLearFlag}}(USART3,\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a375f76b0670ffeb5d2691592d9e7c422}{USART\_ICR\_ORECF}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\bfseries{TX Complete Handler:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_gaa896cd8eb0716bf9a060ab674d0ceb4b}{USART\_GetFlagStatus}}(USART3,\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357ab40da6db1a8b35354d7ea956d0f433eb}{USART\_FLAG\_TC}}))\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Transmission\ complete}}
+\DoxyCodeLine{\ \ \ \ state\ =\ TX\_DONE;}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Clear\ TC\ flag}}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_ga1ab95815c6b477c691981703c1339a0f}{USART\_CLearFlag}}(USART3,\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_acf92ea54425a962dde662b10b61d0250}{USART\_ICR\_TCCF}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+
+\begin{DoxyItemize}
+\item Failing to clear flags in ISR causes infinite interrupt loops
+\item Some flags auto-\/clear; clearing again is safe (no effect)
+\item Order of clearing can matter (check flags before clearing)
+\item Clear at correct time (after processing event)
+\end{DoxyItemize}
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_gaa896cd8eb0716bf9a060ab674d0ceb4b}{USART\+\_\+\+Get\+Flag\+Status()}, \doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga19440941cb2860dc318565918c44e000}{USART\+\_\+\+IRQHandler()} 
+\end{DoxySeeAlso}
+\Hypertarget{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_gaa896cd8eb0716bf9a060ab674d0ceb4b}\index{USART Flag Functions@{USART Flag Functions}!USART\_GetFlagStatus@{USART\_GetFlagStatus}}
+\index{USART\_GetFlagStatus@{USART\_GetFlagStatus}!USART Flag Functions@{USART Flag Functions}}
+\doxysubsubsection{\texorpdfstring{USART\_GetFlagStatus()}{USART\_GetFlagStatus()}}
+{\footnotesize\ttfamily \label{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_gaa896cd8eb0716bf9a060ab674d0ceb4b} 
+uint8\+\_\+t USART\+\_\+\+Get\+Flag\+Status (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+USART}{, }\item[{\doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357}{USART\+\_\+\+Flags\+\_\+t}}}]{Flag\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Check if a USART flag is set in the ISR register. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em p\+USART} & USART register base address \\
+\hline
+\doxymbox{\texttt{in}}  & {\em Flag\+Name} & Flag to check (USART\+\_\+\+FLAG\+\_\+\+TXE, USART\+\_\+\+FLAG\+\_\+\+RXNE, etc.) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em uint8\+\_\+t} & 1 if flag is set, 0 if flag is clear\\
+\hline
+\end{DoxyRetVals}
+Reads the USART Interrupt and Status Register (ISR) to check if a specific flag is set. Used for polling operation status or verifying interrupt sources.
+
+{\bfseries{Common Flags:\+}} 
+\begin{DoxyTable}{3}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Flag  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Meaning  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Use Case  \\
+USART\+\_\+\+FLAG\+\_\+\+TXE  &TX register empty  &Ready to send data  \\
+USART\+\_\+\+FLAG\+\_\+\+TC  &TX complete  &Last bit transmitted  \\
+USART\+\_\+\+FLAG\+\_\+\+RXNE  &RX not empty  &Data ready to read  \\
+USART\+\_\+\+FLAG\+\_\+\+IDLE  &IDLE line detected  &Frame reception complete  \\
+USART\+\_\+\+FLAG\+\_\+\+ORE  &Overrun error  &RX buffer overflow  \\
+USART\+\_\+\+FLAG\+\_\+\+NF  &Noise frame error  &Electrical noise  \\
+USART\+\_\+\+FLAG\+\_\+\+FE  &Frame error  &Stop bit error  \\
+USART\+\_\+\+FLAG\+\_\+\+PE  &Parity error  &Parity check failed  \\
+\end{DoxyTable}
+
+
+{\bfseries{Register Bits (ISR):\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Bit\ 0:\ PE\ (Parity\ error)}
+\DoxyCodeLine{Bit\ 1:\ FE\ (Framing\ error)}
+\DoxyCodeLine{Bit\ 2:\ NF\ (Noise\ flag)}
+\DoxyCodeLine{Bit\ 3:\ ORE\ (Overrun\ error)}
+\DoxyCodeLine{Bit\ 4:\ IDLE\ (Idle\ line\ detected)}
+\DoxyCodeLine{Bit\ 5:\ RXNE\ (Receiver\ not\ empty)}
+\DoxyCodeLine{Bit\ 6:\ TC\ (Transmission\ complete)}
+\DoxyCodeLine{Bit\ 7:\ TXE\ (Transmitter\ empty)}
+
+\end{DoxyCode}
+
+
+{\bfseries{Flag Behavior:\+}}
+\begin{DoxyItemize}
+\item Set automatically when condition occurs
+\item Persist until cleared via ICR register
+\item Reading ISR does NOT clear flags
+\item Multiple flags can be set simultaneously
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em p\+USART} & USART register base address \\
+\hline
+\doxymbox{\texttt{in}}  & {\em Flag\+Name} & Flag to check:\+
+\begin{DoxyItemize}
+\item USART\+\_\+\+FLAG\+\_\+\+TXE:\+ Transmit register empty
+\item USART\+\_\+\+FLAG\+\_\+\+RXNE:\+ Receive register not empty
+\item USART\+\_\+\+FLAG\+\_\+\+TC:\+ Transmission complete
+\item USART\+\_\+\+FLAG\+\_\+\+ORE:\+ Overrun error
+\item etc.
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Flag status:\+
+\begin{DoxyItemize}
+\item 1:\+ Flag is set (condition true)
+\item 0:\+ Flag is clear (condition false)
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Non-\/blocking:\+ returns immediately
+\item Safe for polling in loops
+\item Does not modify any USART state
+\item Multiple calls return consistent results until flag changes
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Usage (Blocking TX):\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Wait\ for\ TX\ register\ to\ be\ empty}}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (!\doxymbox{\hyperlink{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_gaa896cd8eb0716bf9a060ab674d0ceb4b}{USART\_GetFlagStatus}}(USART3,\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357ac3216b8ab39a8fbe2c3ad03a849c0c2f}{USART\_FLAG\_TXE}}))\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Wait...}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{USART3-\/>USART\_TDR\ =\ data\_byte;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Wait\ for\ transmission\ complete}}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (!\doxymbox{\hyperlink{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_gaa896cd8eb0716bf9a060ab674d0ceb4b}{USART\_GetFlagStatus}}(USART3,\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357ab40da6db1a8b35354d7ea956d0f433eb}{USART\_FLAG\_TC}}))\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Wait...}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\bfseries{Typical Usage (Blocking RX):\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Wait\ for\ RX\ register\ to\ have\ data}}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (!\doxymbox{\hyperlink{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_gaa896cd8eb0716bf9a060ab674d0ceb4b}{USART\_GetFlagStatus}}(USART3,\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357a36ed4c9943d55548049b65fefa661a20}{USART\_FLAG\_RXNE}}))\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Wait...}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{uint8\_t\ rx\_data\ =\ USART3-\/>USART\_RDR;}
+
+\end{DoxyCode}
+
+
+{\bfseries{Error Checking:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_gaa896cd8eb0716bf9a060ab674d0ceb4b}{USART\_GetFlagStatus}}(USART3,\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357afa5c29314b5d909c72cb4beb9e85f825}{USART\_FLAG\_ORE}}))\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Handle\ overrun\ error}}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_ga1ab95815c6b477c691981703c1339a0f}{USART\_CLearFlag}}(USART3,\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a44af8b7f88cc8d20bf16b16702a84357afa5c29314b5d909c72cb4beb9e85f825}{USART\_FLAG\_ORE}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+
+\begin{DoxyItemize}
+\item Polling flags in loops can be inefficient
+\item Consider interrupt-\/driven approach for better performance
+\item Some errors (ORE) cause data loss
+\item Must clear error flags or they persist
+\end{DoxyItemize}
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___u_s_a_r_t___f_l_a_g___f_u_n_c_t_i_o_n_s_ga1ab95815c6b477c691981703c1339a0f}{USART\+\_\+\+CLear\+Flag()}, \doxylink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_gad2a5403207b97e55c86282068344bbe4}{USART\+\_\+\+Send\+Data()}, \doxylink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga140e51ab79b5ce95c8a457a26a701a60}{USART\+\_\+\+Read\+Data()} 
+\end{DoxySeeAlso}

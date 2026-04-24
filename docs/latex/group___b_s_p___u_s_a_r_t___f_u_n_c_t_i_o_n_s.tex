@@ -1,0 +1,274 @@
+\doxysection{USART3 Configuration Functions }
+\hypertarget{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s}{}\label{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s}\index{USART3 Configuration Functions@{USART3 Configuration Functions}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_gae862bef71de80c107ecac7ceab728b82}{usart3\+\_\+init}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+USART)
+\begin{DoxyCompactList}\small\item\em Initialize USART3 with default settings. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga59d034137a5e59672ddd16be41fb516a}{usart3\+\_\+tx}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+TX)
+\begin{DoxyCompactList}\small\item\em Configure USART3 TX pin (GPIO\+\_\+C pin 10). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga7598dcb2f135070c5fc9ee7298d861fa}{usart3\+\_\+rx}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+RX)
+\begin{DoxyCompactList}\small\item\em Configure USART3 RX pin (GPIO\+\_\+C pin 11). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\label{doc-func-members}
+\Hypertarget{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_gae862bef71de80c107ecac7ceab728b82}\index{USART3 Configuration Functions@{USART3 Configuration Functions}!usart3\_init@{usart3\_init}}
+\index{usart3\_init@{usart3\_init}!USART3 Configuration Functions@{USART3 Configuration Functions}}
+\doxysubsubsection{\texorpdfstring{usart3\_init()}{usart3\_init()}}
+{\footnotesize\ttfamily \label{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_gae862bef71de80c107ecac7ceab728b82} 
+void usart3\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+USART}{}\end{DoxyParamCaption})}
+
+
+
+Initialize USART3 with default settings. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em p\+USART} & Pointer to \doxylink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t} to configure \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Configures USART3 with standard settings for serial communication:\+
+\begin{DoxyItemize}
+\item Baud Rate:\+ 115200 bps
+\item Data Bits:\+ 8
+\item Stop Bits:\+ 1
+\item Parity:\+ None
+\item Flow Control:\+ None
+\item Mode:\+ TX + RX (full duplex)
+\end{DoxyItemize}
+
+{\bfseries{USART3 Hardware Mapping:\+}}
+\begin{DoxyItemize}
+\item Port:\+ APB1 (42 MHz clock)
+\item TX:\+ GPIO\+\_\+C pin 10 (Alternate Function AF7)
+\item RX:\+ GPIO\+\_\+C pin 11 (Alternate Function AF7)
+\item Interrupt:\+ USART3\+\_\+\+IRQn (39)
+\end{DoxyItemize}
+
+{\bfseries{Configuration Structure:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\_handler\_t}}\ \{}
+\DoxyCodeLine{\ \ \ \ pUSART\ =\ USART3}
+\DoxyCodeLine{\ \ \ \ USART\_config\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ USART\_Mode\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a77c027cb8bca5f52dcbeba14f4ad7f89aacbd5fdc9482c7386d5dfeffe925c348}{USART\_MODE\_TXRX}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ USART\_BaudRate\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a6c055020b021148e9ff13ae72bbb3478ab8872f766b21a4fb82167eb0f4bba481}{USART\_BAUD\_115200}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ USART\_StopBits\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abec0b9e0949c0192d3882c9c5f0cb00aa341d7512f5171d36b72314ae8977cd54}{USART\_StopBits\_1}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ USART\_WordLength\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a11b26499f9aeea8d770c493cc65f65fba74c9445d45bf4e8112d2a3616f504991}{USART\_WordLen\_8bits}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ USART\_ParityControl\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a0bf5457d1d0c0d8d85fe765331b2ef85a178861cbbab0195a89575ac1993cc2bd}{USART\_Parity\_None}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ USART\_HWflowControl\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_af9e9c0d53f0a6a8c1f4f2edc3b81c1cba9ae19224084f8e3b26d9bbb5a95c5e75}{USART\_HW\_FlowCtrl\_None}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ USART\_OverSampling\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_abafac9366efc163949f648cb90e719a3a46e3bb17f33d7569fbccb3302d46b93b}{USART\_OverSampling\_8}}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\bfseries{Baud Rate Calculation:\+}}
+\begin{DoxyItemize}
+\item Clock:\+ 42 MHz (APB1)
+\item Baud:\+ 115200
+\item Divisor:\+ 42,000,000 /\+ 115,200 = 364.\+58 ≈ 365
+\item Actual Baud:\+ 42,000,000 /\+ 365 = 115,068 (0.\+12\% error, acceptable)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em p\+USART} & Handler to configure:\+
+\begin{DoxyItemize}
+\item p\+USART-\/\texorpdfstring{$>$}{>}p\+USART:\+ Set to USART3\+\_\+\+BASE
+\item p\+USART-\/\texorpdfstring{$>$}{>}USART\+\_\+config:\+ Set with above parameters
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item USART3 clock must be enabled in RCC
+\item GPIO pins must be configured as alternate functions first
+\item Interrupt handlers must be linked separately
+\item Non-\/blocking:\+ initialization completes immediately
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Usage:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\_handler\_t}}\ uart3;}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_gae862bef71de80c107ecac7ceab728b82}{usart3\_init}}(\&uart3);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialize}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga59d034137a5e59672ddd16be41fb516a}{usart3\_tx}}(\&uart3\_tx);\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configure\ TX}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga7598dcb2f135070c5fc9ee7298d861fa}{usart3\_rx}}(\&uart3\_rx);\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configure\ RX}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___n_v_i_c___f_u_n_c_t_i_o_n_s_ga74a8392488d643fee9f6d2321b11cfe9}{IntrruptConfig}}(\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab9ba48ca89736017f3863845344882bc}{IRQ\_NO\_USART3}},\ 5,\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a}{ENABLE}});\ \ \textcolor{comment}{//\ Enable\ interrupt}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga59d034137a5e59672ddd16be41fb516a}{usart3\+\_\+tx()}, \doxylink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga7598dcb2f135070c5fc9ee7298d861fa}{usart3\+\_\+rx()}, \doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga1bff58303b67689f9a22226582de10bd}{USART\+\_\+\+Send\+Data\+\_\+\+IT()} 
+\end{DoxySeeAlso}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.\+c}}.\end{Desc}
+\Hypertarget{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga7598dcb2f135070c5fc9ee7298d861fa}\index{USART3 Configuration Functions@{USART3 Configuration Functions}!usart3\_rx@{usart3\_rx}}
+\index{usart3\_rx@{usart3\_rx}!USART3 Configuration Functions@{USART3 Configuration Functions}}
+\doxysubsubsection{\texorpdfstring{usart3\_rx()}{usart3\_rx()}}
+{\footnotesize\ttfamily \label{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga7598dcb2f135070c5fc9ee7298d861fa} 
+void usart3\+\_\+rx (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+RX}{}\end{DoxyParamCaption})}
+
+
+
+Configure USART3 RX pin (GPIO\+\_\+C pin 11). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em p\+RX} & Pointer to \doxylink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t} for RX configuration \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Initializes GPIO pin 11 on PORT C as USART3 RX input. Configures as alternate function 7 (USART3\+\_\+\+RX).
+
+{\bfseries{GPIO Configuration:\+}}
+\begin{DoxyItemize}
+\item Port:\+ GPIOC
+\item Pin:\+ 11
+\item Mode:\+ Alternate Function (USART3)
+\item Alternate Function:\+ AF7
+\item Pull:\+ Pull-\/up (for signal integrity)
+\item Input Type:\+ Digital
+\end{DoxyItemize}
+
+{\bfseries{Serial Input:\+}}
+\begin{DoxyItemize}
+\item Voltage:\+ LVCMOS 3.\+3V compatible
+\item Data Rate:\+ Up to 115200 bps
+\item Idle State:\+ HIGH (mark state)
+\item Start Bit Detection:\+ LOW edge
+\end{DoxyItemize}
+
+{\bfseries{Hardware Flow:\+}}
+\begin{DoxyItemize}
+\item Serial data flows from line → GPIO → USART RX register
+\item USART samples at 16× baud rate (for robust reception)
+\item Parity and framing errors detected automatically
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em p\+RX} & Handler structure:\+
+\begin{DoxyItemize}
+\item p\+RX-\/\texorpdfstring{$>$}{>}p\+GPIOx:\+ Set to GPIOC
+\item p\+RX-\/\texorpdfstring{$>$}{>}pin:\+ Set to 11
+\item p\+RX-\/\texorpdfstring{$>$}{>}alternate\+\_\+function:\+ Set to 7
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item GPIOC clock must be enabled
+\item \doxylink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_gae862bef71de80c107ecac7ceab728b82}{usart3\+\_\+init()} should be called first
+\item GPIO configured for USART operation
+\item RX data flows from serial line → GPIO → CPU
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Usage:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ rx\_config;}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga7598dcb2f135070c5fc9ee7298d861fa}{usart3\_rx}}(\&rx\_config);\ \ \textcolor{comment}{//\ Configure}}
+\DoxyCodeLine{\textcolor{comment}{//\ RX\ is\ now\ ready\ to\ receive\ data}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_gae862bef71de80c107ecac7ceab728b82}{usart3\+\_\+init()}, \doxylink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga59d034137a5e59672ddd16be41fb516a}{usart3\+\_\+tx()}, \doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gae0a6622ad6716e73ac03e5c0a690adb9}{USART\+\_\+\+Read\+Data\+\_\+\+IT()} 
+\end{DoxySeeAlso}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.\+c}}.\end{Desc}
+\Hypertarget{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga59d034137a5e59672ddd16be41fb516a}\index{USART3 Configuration Functions@{USART3 Configuration Functions}!usart3\_tx@{usart3\_tx}}
+\index{usart3\_tx@{usart3\_tx}!USART3 Configuration Functions@{USART3 Configuration Functions}}
+\doxysubsubsection{\texorpdfstring{usart3\_tx()}{usart3\_tx()}}
+{\footnotesize\ttfamily \label{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga59d034137a5e59672ddd16be41fb516a} 
+void usart3\+\_\+tx (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+TX}{}\end{DoxyParamCaption})}
+
+
+
+Configure USART3 TX pin (GPIO\+\_\+C pin 10). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em p\+TX} & Pointer to \doxylink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t} for TX configuration \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Initializes GPIO pin 10 on PORT C as USART3 TX output. Configures as alternate function 7 (USART3\+\_\+\+TX).
+
+{\bfseries{GPIO Configuration:\+}}
+\begin{DoxyItemize}
+\item Port:\+ GPIOC
+\item Pin:\+ 10
+\item Mode:\+ Alternate Function (USART3)
+\item Alternate Function:\+ AF7
+\item Speed:\+ High (for UART timing)
+\item Pull:\+ None (driven by USART peripheral)
+\item Output Type:\+ Push-\/pull
+\end{DoxyItemize}
+
+{\bfseries{Serial Output:\+}}
+\begin{DoxyItemize}
+\item Voltage:\+ LVCMOS 3.\+3V
+\item Data Rate:\+ Up to 115200 bps
+\item Idle State:\+ HIGH (mark state, 0x01 bit)
+\item Start Bit:\+ LOW (0x00)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em p\+TX} & Handler structure:\+
+\begin{DoxyItemize}
+\item p\+TX-\/\texorpdfstring{$>$}{>}p\+GPIOx:\+ Set to GPIOC
+\item p\+TX-\/\texorpdfstring{$>$}{>}pin:\+ Set to 10
+\item p\+TX-\/\texorpdfstring{$>$}{>}alternate\+\_\+function:\+ Set to 7
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item GPIOC clock must be enabled
+\item \doxylink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_gae862bef71de80c107ecac7ceab728b82}{usart3\+\_\+init()} should be called first
+\item GPIO configured for USART operation
+\item TX data flows from CPU → GPIO → serial line
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Usage:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\_handler\_t}}\ tx\_config;}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga59d034137a5e59672ddd16be41fb516a}{usart3\_tx}}(\&tx\_config);\ \ \textcolor{comment}{//\ Configure}}
+\DoxyCodeLine{\textcolor{comment}{//\ TX\ is\ now\ ready,\ can\ send\ data}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_gae862bef71de80c107ecac7ceab728b82}{usart3\+\_\+init()}, \doxylink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga7598dcb2f135070c5fc9ee7298d861fa}{usart3\+\_\+rx()} 
+\end{DoxySeeAlso}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.\+c}}.\end{Desc}

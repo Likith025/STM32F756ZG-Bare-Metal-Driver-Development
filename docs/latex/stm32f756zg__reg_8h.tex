@@ -1,0 +1,590 @@
+\doxysection{stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+inc/\+stm32f756zg\+\_\+reg.h File Reference}
+\hypertarget{stm32f756zg__reg_8h}{}\label{stm32f756zg__reg_8h}\index{stm32f7xx\_driver/driver/driver\_inc/stm32f756zg\_reg.h@{stm32f7xx\_driver/driver/driver\_inc/stm32f756zg\_reg.h}}
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+{\ttfamily \+\#include $<$stddef.\+h$>$}\newline
+{\ttfamily \+\#include "{}stm32f7xx\+\_\+gpio\+\_\+driver.\+h"{}}\newline
+Include dependency graph for stm32f756zg\+\_\+reg.\+h:\+
+% FIG 0
+This graph shows which files directly or indirectly include this file:\+
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_n_v_i_c___reg_def__t}{NVIC\+\_\+\+Reg\+Def\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{struct_r_c_c___reg_def__t}{RCC\+\_\+\+Reg\+Def\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{struct_e_x_t_i___reg_def__t}{EXTI\+\_\+\+Reg\+Def\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{struct_s_y_s_c_f_g___reg_def__t}{SYSCFG\+\_\+\+Reg\+Def\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t}{TIMER\+\_\+\+Reg\+Def\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a425ec323753362f97c4b9ad5d31ad2c9}{NVIC\+\_\+\+BASE\+\_\+\+ADDR}}~((volatile uint32\+\_\+t\texorpdfstring{$\ast$}{*})(0x\+E000\+E100))
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ac8e97e8ce56ae9f57da1363a937f8a17}{NVIC}}~((\doxymbox{\hyperlink{struct_n_v_i_c___reg_def__t}{NVIC\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a425ec323753362f97c4b9ad5d31ad2c9}{NVIC\+\_\+\+BASE\+\_\+\+ADDR}}))
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a0571de796f539e5779da6a9203190645}{FLASH\+\_\+\+BASE\+\_\+\+ADDR}}~0x08000000\+UL
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_afb07edc1d49b507a57cde00259c5083f}{DTCM\+\_\+\+BASE\+\_\+\+ADDR}}~0x20000000\+UL
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_aa34f870516ccaf7129b13c8a5b2fabad}{SRAM1\+\_\+\+BASE\+\_\+\+ADDR}}~0x20010000\+UL
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a887d911cf651e06e35dd9bf876d09115}{SRAM2\+\_\+\+BASE\+\_\+\+ADDR}}~0x2004\+C000\+UL
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ad1c97617b06af2b0d93bae9642145bda}{SRAM}}~\doxymbox{\hyperlink{stm32f756zg__reg_8h_aa34f870516ccaf7129b13c8a5b2fabad}{SRAM1\+\_\+\+BASE\+\_\+\+ADDR}}
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}~0x40000000\+UL
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ab070484b11418209e3763e2bfc87751d}{APB2\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}~0x40010000\+UL
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}~0x40020000\+UL
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a78dc47d0479fa3ba2acbe027ecfa364c}{AHB2\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}~0x50000000\+UL
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a3f7bbd4ad135f4c3bbdb144252bce129}{AHB3\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}~0x60000000\+UL
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a}{ENABLE}}~0x1\+UL
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a99496f7308834e8b220f7894efa0b6ab}{DISABLE}}~0x0\+UL
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ad2cd93e65dc8655afe1f220db52b3a8f}{TIMMER\+\_\+2\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x0)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ab8d6cf2c7368bf92cd3a5a07575a655d}{TIMMER\+\_\+3\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x400)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a1ee2ead8ad06cf308542ac7d8d4be581}{I2\+C1\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x5400)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ac2fed30a475b0e622158afa3f93c4cba}{I2\+C2\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x5800)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a66b25b0d87563f30d6cc1298d1207e13}{I2\+C3\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x5\+C00)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a488cdec69ceceb27f8691e6eeae735a5}{SPI2\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x3800)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a494f0f77208521bb2c8a88a5d26a6b27}{SPI3\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x3\+C00)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a2998f4d322941566f172342dfb53c983}{USART2\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x4400)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_aa4dd93a8c45e5fde587745de4dc5662a}{USART3\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x4800)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a52d460c1850dfcb0870ba6c0fc717023}{UART4\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x4\+C00)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a51967d070bb09965ffa0557a155aa9e0}{UART5\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x5000)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a33283243f681a8ae4a78650b57ae2ca5}{RTC\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x2800)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a3bcddabab65750a963da37f3d6b86c05}{CAN1\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x6400)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_aa34dbd8b8960cf53983854f03af4cb5a}{EXTI\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab070484b11418209e3763e2bfc87751d}{APB2\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x3\+C00)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a178af247859ffadcac6dc6ca09105a19}{SYSCFG\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab070484b11418209e3763e2bfc87751d}{APB2\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x3800)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a312c4a0ecb7f7df814b6dc660acff0e1}{GPIOA\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x0)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a93393583ac13481b25732f754b300efd}{GPIOB\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x400)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a92e9aec75c825d01a0d4c5ebe9a09e38}{GPIOC\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x800)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a5542cfab7e2101bae98b650d19a19e90}{GPIOD\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x\+C00)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a223cb9c5def01f7315fbf6fa5322bc9b}{GPIOE\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x1000)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_abb01bc3f89f2c18834afe4a906f3c570}{GPIOF\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x1400)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_aa7b2c878d62b1c19edf42ba948542ee2}{GPIOG\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x1800)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a03ec8a869ee6f256c882978a71fa5ffa}{GPIOH\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x1\+C00)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ab4585f158ccd4d0cb4412f3ce0a35af3}{GPIOI\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x2000)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a636d7ddfbc1539c8b6111e7b0de5821d}{GPIOJ\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x2400)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ab26cfbf175107e613e006a4eef6c9be9}{GPIOK\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x2800)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_aa918567a93fe95a5e24ba45dcbb89afa}{RCC\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x3800)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_aa416d284516ae97d71abeb030ea10625}{GPIO\+\_\+A}}~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a312c4a0ecb7f7df814b6dc660acff0e1}{GPIOA\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a15e8b58ea6382db53cfb4f8de4c8920c}{GPIO\+\_\+B}}~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a93393583ac13481b25732f754b300efd}{GPIOB\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a2f4bc04dde207c6fd5e8caeaa2331f6a}{GPIO\+\_\+C}}~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a92e9aec75c825d01a0d4c5ebe9a09e38}{GPIOC\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a934cdd70e18bffe0417b3cd938b266a9}{GPIO\+\_\+D}}~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a5542cfab7e2101bae98b650d19a19e90}{GPIOD\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ab00bc002e70bc71dc912479c4b8db95c}{GPIO\+\_\+E}}~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a223cb9c5def01f7315fbf6fa5322bc9b}{GPIOE\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_addb630c65c8c909c54732c306c1297a2}{GPIO\+\_\+F}}~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_abb01bc3f89f2c18834afe4a906f3c570}{GPIOF\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_af895d3c70be50511282ce02f5237769f}{GPIO\+\_\+G}}~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_aa7b2c878d62b1c19edf42ba948542ee2}{GPIOG\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a562c27f3174d15b410290426cec32189}{GPIO\+\_\+H}}~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a03ec8a869ee6f256c882978a71fa5ffa}{GPIOH\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ab965ce9f84bd5b26b893819d0a7d0ec3}{GPIO\+\_\+I}}~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab4585f158ccd4d0cb4412f3ce0a35af3}{GPIOI\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ae53e2a4eba2c154625e71c529a1d2a42}{GPIO\+\_\+J}}~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a636d7ddfbc1539c8b6111e7b0de5821d}{GPIOJ\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a1b7a7e8bc64fce9c7173ba227a7f2ad8}{GPIO\+\_\+K}}~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab26cfbf175107e613e006a4eef6c9be9}{GPIOK\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a74944438a086975793d26ae48d5882d4}{RCC}}~((\doxymbox{\hyperlink{struct_r_c_c___reg_def__t}{RCC\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_aa918567a93fe95a5e24ba45dcbb89afa}{RCC\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a09a72a090e6f05ff1a23ec372f421da6}{USART\+\_\+2}}~((\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a2998f4d322941566f172342dfb53c983}{USART2\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ac5033744578bb55d59c2e56d4ce67cd1}{USART\+\_\+3}}~((\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_aa4dd93a8c45e5fde587745de4dc5662a}{USART3\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ab312b9c996083e126d08c3c806e9de9d}{UART\+\_\+4}}~((\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a52d460c1850dfcb0870ba6c0fc717023}{UART4\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a0d3c77337bf55df923ac23942957ed91}{UART\+\_\+5}}~((\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a51967d070bb09965ffa0557a155aa9e0}{UART5\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a9189e770cd9b63dadd36683eb9843cac}{EXTI}}~((\doxymbox{\hyperlink{struct_e_x_t_i___reg_def__t}{EXTI\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_aa34dbd8b8960cf53983854f03af4cb5a}{EXTI\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a3c833fe1c486cb62250ccbca32899cb8}{SYSCFG}}~((\doxymbox{\hyperlink{struct_s_y_s_c_f_g___reg_def__t}{SYSCFG\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a178af247859ffadcac6dc6ca09105a19}{SYSCFG\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_aca904d0e4ebb6d643c349f7f05613995}{TIMER2}}~((\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t}{TIMER\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_ad2cd93e65dc8655afe1f220db52b3a8f}{TIMMER\+\_\+2\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_abafd764fa6dcf27ebb3405975fe221c7}{IRQ\+\_\+\+NO\+\_\+\+EXTI0}}~6
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a3c28288c2813252972ae24078a87db92}{IRQ\+\_\+\+NO\+\_\+\+EXTI1}}~7
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a5be57dc7d31306fe614b5a742e27545e}{IRQ\+\_\+\+NO\+\_\+\+EXTI2}}~8
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a3e2ff68388529978704dea5edd1a0a95}{IRQ\+\_\+\+NO\+\_\+\+EXTI3}}~9
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a12e4157b684ccff94ec0f6f3ec4fec6e}{IRQ\+\_\+\+NO\+\_\+\+EXTI4}}~10
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a14af1ff1e7718c0baed70e76f67bc21b}{IRQ\+\_\+\+NO\+\_\+\+EXTI5\+\_\+9}}~23
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a441c6f7b1015971562173cd86357b763}{IRQ\+\_\+\+NO\+\_\+\+EXTI10\+\_\+15}}~40
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ab9ba48ca89736017f3863845344882bc}{IRQ\+\_\+\+NO\+\_\+\+USART3}}~39
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{stm32f756zg__reg_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!AHB1\_PERIPH\_BASE\_ADDR@{AHB1\_PERIPH\_BASE\_ADDR}}
+\index{AHB1\_PERIPH\_BASE\_ADDR@{AHB1\_PERIPH\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{AHB1\_PERIPH\_BASE\_ADDR}{AHB1\_PERIPH\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2} 
+\+\#define AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR~0x40020000\+UL}
+
+\Hypertarget{stm32f756zg__reg_8h_a78dc47d0479fa3ba2acbe027ecfa364c}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!AHB2\_PERIPH\_BASE\_ADDR@{AHB2\_PERIPH\_BASE\_ADDR}}
+\index{AHB2\_PERIPH\_BASE\_ADDR@{AHB2\_PERIPH\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{AHB2\_PERIPH\_BASE\_ADDR}{AHB2\_PERIPH\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a78dc47d0479fa3ba2acbe027ecfa364c} 
+\+\#define AHB2\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR~0x50000000\+UL}
+
+\Hypertarget{stm32f756zg__reg_8h_a3f7bbd4ad135f4c3bbdb144252bce129}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!AHB3\_PERIPH\_BASE\_ADDR@{AHB3\_PERIPH\_BASE\_ADDR}}
+\index{AHB3\_PERIPH\_BASE\_ADDR@{AHB3\_PERIPH\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{AHB3\_PERIPH\_BASE\_ADDR}{AHB3\_PERIPH\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a3f7bbd4ad135f4c3bbdb144252bce129} 
+\+\#define AHB3\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR~0x60000000\+UL}
+
+\Hypertarget{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!APB1\_PERIPH\_BASE\_ADDR@{APB1\_PERIPH\_BASE\_ADDR}}
+\index{APB1\_PERIPH\_BASE\_ADDR@{APB1\_PERIPH\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{APB1\_PERIPH\_BASE\_ADDR}{APB1\_PERIPH\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae} 
+\+\#define APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR~0x40000000\+UL}
+
+\Hypertarget{stm32f756zg__reg_8h_ab070484b11418209e3763e2bfc87751d}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!APB2\_PERIPH\_BASE\_ADDR@{APB2\_PERIPH\_BASE\_ADDR}}
+\index{APB2\_PERIPH\_BASE\_ADDR@{APB2\_PERIPH\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{APB2\_PERIPH\_BASE\_ADDR}{APB2\_PERIPH\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ab070484b11418209e3763e2bfc87751d} 
+\+\#define APB2\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR~0x40010000\+UL}
+
+\Hypertarget{stm32f756zg__reg_8h_a3bcddabab65750a963da37f3d6b86c05}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!CAN1\_BASE\_ADDR@{CAN1\_BASE\_ADDR}}
+\index{CAN1\_BASE\_ADDR@{CAN1\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{CAN1\_BASE\_ADDR}{CAN1\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a3bcddabab65750a963da37f3d6b86c05} 
+\+\#define CAN1\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x6400)}
+
+\Hypertarget{stm32f756zg__reg_8h_a99496f7308834e8b220f7894efa0b6ab}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!DISABLE@{DISABLE}}
+\index{DISABLE@{DISABLE}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{DISABLE}{DISABLE}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a99496f7308834e8b220f7894efa0b6ab} 
+\+\#define DISABLE~0x0\+UL}
+
+\Hypertarget{stm32f756zg__reg_8h_afb07edc1d49b507a57cde00259c5083f}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!DTCM\_BASE\_ADDR@{DTCM\_BASE\_ADDR}}
+\index{DTCM\_BASE\_ADDR@{DTCM\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{DTCM\_BASE\_ADDR}{DTCM\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_afb07edc1d49b507a57cde00259c5083f} 
+\+\#define DTCM\+\_\+\+BASE\+\_\+\+ADDR~0x20000000\+UL}
+
+\Hypertarget{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!ENABLE@{ENABLE}}
+\index{ENABLE@{ENABLE}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{ENABLE}{ENABLE}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a} 
+\+\#define ENABLE~0x1\+UL}
+
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.\+c}}, and \doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm3af55355a29d26a5b0c1e7bf31cd146ed}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+src/\+nvic.\+c}}.\end{Desc}
+\Hypertarget{stm32f756zg__reg_8h_a9189e770cd9b63dadd36683eb9843cac}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!EXTI@{EXTI}}
+\index{EXTI@{EXTI}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{EXTI}{EXTI}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a9189e770cd9b63dadd36683eb9843cac} 
+\+\#define EXTI~((\doxymbox{\hyperlink{struct_e_x_t_i___reg_def__t}{EXTI\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_aa34dbd8b8960cf53983854f03af4cb5a}{EXTI\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_aa34dbd8b8960cf53983854f03af4cb5a}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!EXTI\_BASE\_ADDR@{EXTI\_BASE\_ADDR}}
+\index{EXTI\_BASE\_ADDR@{EXTI\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{EXTI\_BASE\_ADDR}{EXTI\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_aa34dbd8b8960cf53983854f03af4cb5a} 
+\+\#define EXTI\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab070484b11418209e3763e2bfc87751d}{APB2\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x3\+C00)}
+
+\Hypertarget{stm32f756zg__reg_8h_a0571de796f539e5779da6a9203190645}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!FLASH\_BASE\_ADDR@{FLASH\_BASE\_ADDR}}
+\index{FLASH\_BASE\_ADDR@{FLASH\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{FLASH\_BASE\_ADDR}{FLASH\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a0571de796f539e5779da6a9203190645} 
+\+\#define FLASH\+\_\+\+BASE\+\_\+\+ADDR~0x08000000\+UL}
+
+\Hypertarget{stm32f756zg__reg_8h_aa416d284516ae97d71abeb030ea10625}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIO\_A@{GPIO\_A}}
+\index{GPIO\_A@{GPIO\_A}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_A}{GPIO\_A}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_aa416d284516ae97d71abeb030ea10625} 
+\+\#define GPIO\+\_\+A~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a312c4a0ecb7f7df814b6dc660acff0e1}{GPIOA\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_a15e8b58ea6382db53cfb4f8de4c8920c}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIO\_B@{GPIO\_B}}
+\index{GPIO\_B@{GPIO\_B}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_B}{GPIO\_B}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a15e8b58ea6382db53cfb4f8de4c8920c} 
+\+\#define GPIO\+\_\+B~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a93393583ac13481b25732f754b300efd}{GPIOB\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_a2f4bc04dde207c6fd5e8caeaa2331f6a}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIO\_C@{GPIO\_C}}
+\index{GPIO\_C@{GPIO\_C}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_C}{GPIO\_C}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a2f4bc04dde207c6fd5e8caeaa2331f6a} 
+\+\#define GPIO\+\_\+C~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a92e9aec75c825d01a0d4c5ebe9a09e38}{GPIOC\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_a934cdd70e18bffe0417b3cd938b266a9}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIO\_D@{GPIO\_D}}
+\index{GPIO\_D@{GPIO\_D}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_D}{GPIO\_D}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a934cdd70e18bffe0417b3cd938b266a9} 
+\+\#define GPIO\+\_\+D~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a5542cfab7e2101bae98b650d19a19e90}{GPIOD\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_ab00bc002e70bc71dc912479c4b8db95c}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIO\_E@{GPIO\_E}}
+\index{GPIO\_E@{GPIO\_E}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_E}{GPIO\_E}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ab00bc002e70bc71dc912479c4b8db95c} 
+\+\#define GPIO\+\_\+E~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a223cb9c5def01f7315fbf6fa5322bc9b}{GPIOE\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_addb630c65c8c909c54732c306c1297a2}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIO\_F@{GPIO\_F}}
+\index{GPIO\_F@{GPIO\_F}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_F}{GPIO\_F}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_addb630c65c8c909c54732c306c1297a2} 
+\+\#define GPIO\+\_\+F~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_abb01bc3f89f2c18834afe4a906f3c570}{GPIOF\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_af895d3c70be50511282ce02f5237769f}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIO\_G@{GPIO\_G}}
+\index{GPIO\_G@{GPIO\_G}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_G}{GPIO\_G}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_af895d3c70be50511282ce02f5237769f} 
+\+\#define GPIO\+\_\+G~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_aa7b2c878d62b1c19edf42ba948542ee2}{GPIOG\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_a562c27f3174d15b410290426cec32189}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIO\_H@{GPIO\_H}}
+\index{GPIO\_H@{GPIO\_H}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_H}{GPIO\_H}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a562c27f3174d15b410290426cec32189} 
+\+\#define GPIO\+\_\+H~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a03ec8a869ee6f256c882978a71fa5ffa}{GPIOH\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_ab965ce9f84bd5b26b893819d0a7d0ec3}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIO\_I@{GPIO\_I}}
+\index{GPIO\_I@{GPIO\_I}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_I}{GPIO\_I}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ab965ce9f84bd5b26b893819d0a7d0ec3} 
+\+\#define GPIO\+\_\+I~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab4585f158ccd4d0cb4412f3ce0a35af3}{GPIOI\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_ae53e2a4eba2c154625e71c529a1d2a42}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIO\_J@{GPIO\_J}}
+\index{GPIO\_J@{GPIO\_J}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_J}{GPIO\_J}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ae53e2a4eba2c154625e71c529a1d2a42} 
+\+\#define GPIO\+\_\+J~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a636d7ddfbc1539c8b6111e7b0de5821d}{GPIOJ\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_a1b7a7e8bc64fce9c7173ba227a7f2ad8}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIO\_K@{GPIO\_K}}
+\index{GPIO\_K@{GPIO\_K}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIO\_K}{GPIO\_K}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a1b7a7e8bc64fce9c7173ba227a7f2ad8} 
+\+\#define GPIO\+\_\+K~((\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab26cfbf175107e613e006a4eef6c9be9}{GPIOK\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_a312c4a0ecb7f7df814b6dc660acff0e1}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIOA\_BASE\_ADDR@{GPIOA\_BASE\_ADDR}}
+\index{GPIOA\_BASE\_ADDR@{GPIOA\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIOA\_BASE\_ADDR}{GPIOA\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a312c4a0ecb7f7df814b6dc660acff0e1} 
+\+\#define GPIOA\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x0)}
+
+\Hypertarget{stm32f756zg__reg_8h_a93393583ac13481b25732f754b300efd}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIOB\_BASE\_ADDR@{GPIOB\_BASE\_ADDR}}
+\index{GPIOB\_BASE\_ADDR@{GPIOB\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIOB\_BASE\_ADDR}{GPIOB\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a93393583ac13481b25732f754b300efd} 
+\+\#define GPIOB\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x400)}
+
+\Hypertarget{stm32f756zg__reg_8h_a92e9aec75c825d01a0d4c5ebe9a09e38}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIOC\_BASE\_ADDR@{GPIOC\_BASE\_ADDR}}
+\index{GPIOC\_BASE\_ADDR@{GPIOC\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIOC\_BASE\_ADDR}{GPIOC\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a92e9aec75c825d01a0d4c5ebe9a09e38} 
+\+\#define GPIOC\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x800)}
+
+\Hypertarget{stm32f756zg__reg_8h_a5542cfab7e2101bae98b650d19a19e90}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIOD\_BASE\_ADDR@{GPIOD\_BASE\_ADDR}}
+\index{GPIOD\_BASE\_ADDR@{GPIOD\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIOD\_BASE\_ADDR}{GPIOD\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a5542cfab7e2101bae98b650d19a19e90} 
+\+\#define GPIOD\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x\+C00)}
+
+\Hypertarget{stm32f756zg__reg_8h_a223cb9c5def01f7315fbf6fa5322bc9b}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIOE\_BASE\_ADDR@{GPIOE\_BASE\_ADDR}}
+\index{GPIOE\_BASE\_ADDR@{GPIOE\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIOE\_BASE\_ADDR}{GPIOE\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a223cb9c5def01f7315fbf6fa5322bc9b} 
+\+\#define GPIOE\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x1000)}
+
+\Hypertarget{stm32f756zg__reg_8h_abb01bc3f89f2c18834afe4a906f3c570}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIOF\_BASE\_ADDR@{GPIOF\_BASE\_ADDR}}
+\index{GPIOF\_BASE\_ADDR@{GPIOF\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIOF\_BASE\_ADDR}{GPIOF\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_abb01bc3f89f2c18834afe4a906f3c570} 
+\+\#define GPIOF\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x1400)}
+
+\Hypertarget{stm32f756zg__reg_8h_aa7b2c878d62b1c19edf42ba948542ee2}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIOG\_BASE\_ADDR@{GPIOG\_BASE\_ADDR}}
+\index{GPIOG\_BASE\_ADDR@{GPIOG\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIOG\_BASE\_ADDR}{GPIOG\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_aa7b2c878d62b1c19edf42ba948542ee2} 
+\+\#define GPIOG\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x1800)}
+
+\Hypertarget{stm32f756zg__reg_8h_a03ec8a869ee6f256c882978a71fa5ffa}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIOH\_BASE\_ADDR@{GPIOH\_BASE\_ADDR}}
+\index{GPIOH\_BASE\_ADDR@{GPIOH\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIOH\_BASE\_ADDR}{GPIOH\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a03ec8a869ee6f256c882978a71fa5ffa} 
+\+\#define GPIOH\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x1\+C00)}
+
+\Hypertarget{stm32f756zg__reg_8h_ab4585f158ccd4d0cb4412f3ce0a35af3}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIOI\_BASE\_ADDR@{GPIOI\_BASE\_ADDR}}
+\index{GPIOI\_BASE\_ADDR@{GPIOI\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIOI\_BASE\_ADDR}{GPIOI\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ab4585f158ccd4d0cb4412f3ce0a35af3} 
+\+\#define GPIOI\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x2000)}
+
+\Hypertarget{stm32f756zg__reg_8h_a636d7ddfbc1539c8b6111e7b0de5821d}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIOJ\_BASE\_ADDR@{GPIOJ\_BASE\_ADDR}}
+\index{GPIOJ\_BASE\_ADDR@{GPIOJ\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIOJ\_BASE\_ADDR}{GPIOJ\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a636d7ddfbc1539c8b6111e7b0de5821d} 
+\+\#define GPIOJ\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x2400)}
+
+\Hypertarget{stm32f756zg__reg_8h_ab26cfbf175107e613e006a4eef6c9be9}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!GPIOK\_BASE\_ADDR@{GPIOK\_BASE\_ADDR}}
+\index{GPIOK\_BASE\_ADDR@{GPIOK\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{GPIOK\_BASE\_ADDR}{GPIOK\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ab26cfbf175107e613e006a4eef6c9be9} 
+\+\#define GPIOK\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x2800)}
+
+\Hypertarget{stm32f756zg__reg_8h_a1ee2ead8ad06cf308542ac7d8d4be581}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!I2C1\_BASE\_ADDR@{I2C1\_BASE\_ADDR}}
+\index{I2C1\_BASE\_ADDR@{I2C1\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{I2C1\_BASE\_ADDR}{I2C1\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a1ee2ead8ad06cf308542ac7d8d4be581} 
+\+\#define I2\+C1\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x5400)}
+
+\Hypertarget{stm32f756zg__reg_8h_ac2fed30a475b0e622158afa3f93c4cba}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!I2C2\_BASE\_ADDR@{I2C2\_BASE\_ADDR}}
+\index{I2C2\_BASE\_ADDR@{I2C2\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{I2C2\_BASE\_ADDR}{I2C2\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ac2fed30a475b0e622158afa3f93c4cba} 
+\+\#define I2\+C2\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x5800)}
+
+\Hypertarget{stm32f756zg__reg_8h_a66b25b0d87563f30d6cc1298d1207e13}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!I2C3\_BASE\_ADDR@{I2C3\_BASE\_ADDR}}
+\index{I2C3\_BASE\_ADDR@{I2C3\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{I2C3\_BASE\_ADDR}{I2C3\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a66b25b0d87563f30d6cc1298d1207e13} 
+\+\#define I2\+C3\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x5\+C00)}
+
+\Hypertarget{stm32f756zg__reg_8h_abafd764fa6dcf27ebb3405975fe221c7}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!IRQ\_NO\_EXTI0@{IRQ\_NO\_EXTI0}}
+\index{IRQ\_NO\_EXTI0@{IRQ\_NO\_EXTI0}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{IRQ\_NO\_EXTI0}{IRQ\_NO\_EXTI0}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_abafd764fa6dcf27ebb3405975fe221c7} 
+\+\#define IRQ\+\_\+\+NO\+\_\+\+EXTI0~6}
+
+\Hypertarget{stm32f756zg__reg_8h_a3c28288c2813252972ae24078a87db92}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!IRQ\_NO\_EXTI1@{IRQ\_NO\_EXTI1}}
+\index{IRQ\_NO\_EXTI1@{IRQ\_NO\_EXTI1}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{IRQ\_NO\_EXTI1}{IRQ\_NO\_EXTI1}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a3c28288c2813252972ae24078a87db92} 
+\+\#define IRQ\+\_\+\+NO\+\_\+\+EXTI1~7}
+
+\Hypertarget{stm32f756zg__reg_8h_a441c6f7b1015971562173cd86357b763}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!IRQ\_NO\_EXTI10\_15@{IRQ\_NO\_EXTI10\_15}}
+\index{IRQ\_NO\_EXTI10\_15@{IRQ\_NO\_EXTI10\_15}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{IRQ\_NO\_EXTI10\_15}{IRQ\_NO\_EXTI10\_15}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a441c6f7b1015971562173cd86357b763} 
+\+\#define IRQ\+\_\+\+NO\+\_\+\+EXTI10\+\_\+15~40}
+
+\Hypertarget{stm32f756zg__reg_8h_a5be57dc7d31306fe614b5a742e27545e}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!IRQ\_NO\_EXTI2@{IRQ\_NO\_EXTI2}}
+\index{IRQ\_NO\_EXTI2@{IRQ\_NO\_EXTI2}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{IRQ\_NO\_EXTI2}{IRQ\_NO\_EXTI2}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a5be57dc7d31306fe614b5a742e27545e} 
+\+\#define IRQ\+\_\+\+NO\+\_\+\+EXTI2~8}
+
+\Hypertarget{stm32f756zg__reg_8h_a3e2ff68388529978704dea5edd1a0a95}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!IRQ\_NO\_EXTI3@{IRQ\_NO\_EXTI3}}
+\index{IRQ\_NO\_EXTI3@{IRQ\_NO\_EXTI3}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{IRQ\_NO\_EXTI3}{IRQ\_NO\_EXTI3}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a3e2ff68388529978704dea5edd1a0a95} 
+\+\#define IRQ\+\_\+\+NO\+\_\+\+EXTI3~9}
+
+\Hypertarget{stm32f756zg__reg_8h_a12e4157b684ccff94ec0f6f3ec4fec6e}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!IRQ\_NO\_EXTI4@{IRQ\_NO\_EXTI4}}
+\index{IRQ\_NO\_EXTI4@{IRQ\_NO\_EXTI4}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{IRQ\_NO\_EXTI4}{IRQ\_NO\_EXTI4}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a12e4157b684ccff94ec0f6f3ec4fec6e} 
+\+\#define IRQ\+\_\+\+NO\+\_\+\+EXTI4~10}
+
+\Hypertarget{stm32f756zg__reg_8h_a14af1ff1e7718c0baed70e76f67bc21b}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!IRQ\_NO\_EXTI5\_9@{IRQ\_NO\_EXTI5\_9}}
+\index{IRQ\_NO\_EXTI5\_9@{IRQ\_NO\_EXTI5\_9}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{IRQ\_NO\_EXTI5\_9}{IRQ\_NO\_EXTI5\_9}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a14af1ff1e7718c0baed70e76f67bc21b} 
+\+\#define IRQ\+\_\+\+NO\+\_\+\+EXTI5\+\_\+9~23}
+
+\Hypertarget{stm32f756zg__reg_8h_ab9ba48ca89736017f3863845344882bc}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!IRQ\_NO\_USART3@{IRQ\_NO\_USART3}}
+\index{IRQ\_NO\_USART3@{IRQ\_NO\_USART3}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{IRQ\_NO\_USART3}{IRQ\_NO\_USART3}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ab9ba48ca89736017f3863845344882bc} 
+\+\#define IRQ\+\_\+\+NO\+\_\+\+USART3~39}
+
+\Hypertarget{stm32f756zg__reg_8h_ac8e97e8ce56ae9f57da1363a937f8a17}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!NVIC@{NVIC}}
+\index{NVIC@{NVIC}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{NVIC}{NVIC}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ac8e97e8ce56ae9f57da1363a937f8a17} 
+\+\#define NVIC~((\doxymbox{\hyperlink{struct_n_v_i_c___reg_def__t}{NVIC\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a425ec323753362f97c4b9ad5d31ad2c9}{NVIC\+\_\+\+BASE\+\_\+\+ADDR}}))}
+
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm3af55355a29d26a5b0c1e7bf31cd146ed}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+src/\+nvic.\+c}}.\end{Desc}
+\Hypertarget{stm32f756zg__reg_8h_a425ec323753362f97c4b9ad5d31ad2c9}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!NVIC\_BASE\_ADDR@{NVIC\_BASE\_ADDR}}
+\index{NVIC\_BASE\_ADDR@{NVIC\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{NVIC\_BASE\_ADDR}{NVIC\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a425ec323753362f97c4b9ad5d31ad2c9} 
+\+\#define NVIC\+\_\+\+BASE\+\_\+\+ADDR~((volatile uint32\+\_\+t\texorpdfstring{$\ast$}{*})(0x\+E000\+E100))}
+
+\Hypertarget{stm32f756zg__reg_8h_a74944438a086975793d26ae48d5882d4}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!RCC@{RCC}}
+\index{RCC@{RCC}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{RCC}{RCC}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a74944438a086975793d26ae48d5882d4} 
+\+\#define RCC~((\doxymbox{\hyperlink{struct_r_c_c___reg_def__t}{RCC\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_aa918567a93fe95a5e24ba45dcbb89afa}{RCC\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm3d5261a4aa95132b8263076c1e5eec627}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+src/\+stm32f7xx\+\_\+timer\+\_\+driver.\+c}}.\end{Desc}
+\Hypertarget{stm32f756zg__reg_8h_aa918567a93fe95a5e24ba45dcbb89afa}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!RCC\_BASE\_ADDR@{RCC\_BASE\_ADDR}}
+\index{RCC\_BASE\_ADDR@{RCC\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{RCC\_BASE\_ADDR}{RCC\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_aa918567a93fe95a5e24ba45dcbb89afa} 
+\+\#define RCC\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a0ff8cd718ba1586a922cd54c9afeeeb2}{AHB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x3800)}
+
+\Hypertarget{stm32f756zg__reg_8h_a33283243f681a8ae4a78650b57ae2ca5}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!RTC\_BASE\_ADDR@{RTC\_BASE\_ADDR}}
+\index{RTC\_BASE\_ADDR@{RTC\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{RTC\_BASE\_ADDR}{RTC\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a33283243f681a8ae4a78650b57ae2ca5} 
+\+\#define RTC\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x2800)}
+
+\Hypertarget{stm32f756zg__reg_8h_a488cdec69ceceb27f8691e6eeae735a5}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SPI2\_BASE\_ADDR@{SPI2\_BASE\_ADDR}}
+\index{SPI2\_BASE\_ADDR@{SPI2\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{SPI2\_BASE\_ADDR}{SPI2\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a488cdec69ceceb27f8691e6eeae735a5} 
+\+\#define SPI2\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x3800)}
+
+\Hypertarget{stm32f756zg__reg_8h_a494f0f77208521bb2c8a88a5d26a6b27}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SPI3\_BASE\_ADDR@{SPI3\_BASE\_ADDR}}
+\index{SPI3\_BASE\_ADDR@{SPI3\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{SPI3\_BASE\_ADDR}{SPI3\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a494f0f77208521bb2c8a88a5d26a6b27} 
+\+\#define SPI3\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x3\+C00)}
+
+\Hypertarget{stm32f756zg__reg_8h_ad1c97617b06af2b0d93bae9642145bda}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SRAM@{SRAM}}
+\index{SRAM@{SRAM}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{SRAM}{SRAM}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ad1c97617b06af2b0d93bae9642145bda} 
+\+\#define SRAM~\doxymbox{\hyperlink{stm32f756zg__reg_8h_aa34f870516ccaf7129b13c8a5b2fabad}{SRAM1\+\_\+\+BASE\+\_\+\+ADDR}}}
+
+\Hypertarget{stm32f756zg__reg_8h_aa34f870516ccaf7129b13c8a5b2fabad}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SRAM1\_BASE\_ADDR@{SRAM1\_BASE\_ADDR}}
+\index{SRAM1\_BASE\_ADDR@{SRAM1\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{SRAM1\_BASE\_ADDR}{SRAM1\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_aa34f870516ccaf7129b13c8a5b2fabad} 
+\+\#define SRAM1\+\_\+\+BASE\+\_\+\+ADDR~0x20010000\+UL}
+
+\Hypertarget{stm32f756zg__reg_8h_a887d911cf651e06e35dd9bf876d09115}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SRAM2\_BASE\_ADDR@{SRAM2\_BASE\_ADDR}}
+\index{SRAM2\_BASE\_ADDR@{SRAM2\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{SRAM2\_BASE\_ADDR}{SRAM2\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a887d911cf651e06e35dd9bf876d09115} 
+\+\#define SRAM2\+\_\+\+BASE\+\_\+\+ADDR~0x2004\+C000\+UL}
+
+\Hypertarget{stm32f756zg__reg_8h_a3c833fe1c486cb62250ccbca32899cb8}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SYSCFG@{SYSCFG}}
+\index{SYSCFG@{SYSCFG}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{SYSCFG}{SYSCFG}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a3c833fe1c486cb62250ccbca32899cb8} 
+\+\#define SYSCFG~((\doxymbox{\hyperlink{struct_s_y_s_c_f_g___reg_def__t}{SYSCFG\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a178af247859ffadcac6dc6ca09105a19}{SYSCFG\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_a178af247859ffadcac6dc6ca09105a19}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SYSCFG\_BASE\_ADDR@{SYSCFG\_BASE\_ADDR}}
+\index{SYSCFG\_BASE\_ADDR@{SYSCFG\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{SYSCFG\_BASE\_ADDR}{SYSCFG\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a178af247859ffadcac6dc6ca09105a19} 
+\+\#define SYSCFG\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab070484b11418209e3763e2bfc87751d}{APB2\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x3800)}
+
+\Hypertarget{stm32f756zg__reg_8h_aca904d0e4ebb6d643c349f7f05613995}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!TIMER2@{TIMER2}}
+\index{TIMER2@{TIMER2}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{TIMER2}{TIMER2}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_aca904d0e4ebb6d643c349f7f05613995} 
+\+\#define TIMER2~((\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t}{TIMER\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_ad2cd93e65dc8655afe1f220db52b3a8f}{TIMMER\+\_\+2\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.\+c}}, and \doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm3d5261a4aa95132b8263076c1e5eec627}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+src/\+stm32f7xx\+\_\+timer\+\_\+driver.\+c}}.\end{Desc}
+\Hypertarget{stm32f756zg__reg_8h_ad2cd93e65dc8655afe1f220db52b3a8f}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!TIMMER\_2\_BASE\_ADDR@{TIMMER\_2\_BASE\_ADDR}}
+\index{TIMMER\_2\_BASE\_ADDR@{TIMMER\_2\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{TIMMER\_2\_BASE\_ADDR}{TIMMER\_2\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ad2cd93e65dc8655afe1f220db52b3a8f} 
+\+\#define TIMMER\+\_\+2\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x0)}
+
+\Hypertarget{stm32f756zg__reg_8h_ab8d6cf2c7368bf92cd3a5a07575a655d}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!TIMMER\_3\_BASE\_ADDR@{TIMMER\_3\_BASE\_ADDR}}
+\index{TIMMER\_3\_BASE\_ADDR@{TIMMER\_3\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{TIMMER\_3\_BASE\_ADDR}{TIMMER\_3\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ab8d6cf2c7368bf92cd3a5a07575a655d} 
+\+\#define TIMMER\+\_\+3\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x400)}
+
+\Hypertarget{stm32f756zg__reg_8h_a52d460c1850dfcb0870ba6c0fc717023}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!UART4\_BASE\_ADDR@{UART4\_BASE\_ADDR}}
+\index{UART4\_BASE\_ADDR@{UART4\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{UART4\_BASE\_ADDR}{UART4\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a52d460c1850dfcb0870ba6c0fc717023} 
+\+\#define UART4\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x4\+C00)}
+
+\Hypertarget{stm32f756zg__reg_8h_a51967d070bb09965ffa0557a155aa9e0}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!UART5\_BASE\_ADDR@{UART5\_BASE\_ADDR}}
+\index{UART5\_BASE\_ADDR@{UART5\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{UART5\_BASE\_ADDR}{UART5\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a51967d070bb09965ffa0557a155aa9e0} 
+\+\#define UART5\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x5000)}
+
+\Hypertarget{stm32f756zg__reg_8h_ab312b9c996083e126d08c3c806e9de9d}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!UART\_4@{UART\_4}}
+\index{UART\_4@{UART\_4}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{UART\_4}{UART\_4}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ab312b9c996083e126d08c3c806e9de9d} 
+\+\#define UART\+\_\+4~((\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a52d460c1850dfcb0870ba6c0fc717023}{UART4\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_a0d3c77337bf55df923ac23942957ed91}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!UART\_5@{UART\_5}}
+\index{UART\_5@{UART\_5}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{UART\_5}{UART\_5}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a0d3c77337bf55df923ac23942957ed91} 
+\+\#define UART\+\_\+5~((\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a51967d070bb09965ffa0557a155aa9e0}{UART5\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_a2998f4d322941566f172342dfb53c983}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!USART2\_BASE\_ADDR@{USART2\_BASE\_ADDR}}
+\index{USART2\_BASE\_ADDR@{USART2\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{USART2\_BASE\_ADDR}{USART2\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a2998f4d322941566f172342dfb53c983} 
+\+\#define USART2\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x4400)}
+
+\Hypertarget{stm32f756zg__reg_8h_aa4dd93a8c45e5fde587745de4dc5662a}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!USART3\_BASE\_ADDR@{USART3\_BASE\_ADDR}}
+\index{USART3\_BASE\_ADDR@{USART3\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{USART3\_BASE\_ADDR}{USART3\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_aa4dd93a8c45e5fde587745de4dc5662a} 
+\+\#define USART3\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x4800)}
+
+\Hypertarget{stm32f756zg__reg_8h_a09a72a090e6f05ff1a23ec372f421da6}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!USART\_2@{USART\_2}}
+\index{USART\_2@{USART\_2}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{USART\_2}{USART\_2}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a09a72a090e6f05ff1a23ec372f421da6} 
+\+\#define USART\+\_\+2~((\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a2998f4d322941566f172342dfb53c983}{USART2\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_ac5033744578bb55d59c2e56d4ce67cd1}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!USART\_3@{USART\_3}}
+\index{USART\_3@{USART\_3}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{USART\_3}{USART\_3}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ac5033744578bb55d59c2e56d4ce67cd1} 
+\+\#define USART\+\_\+3~((\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_aa4dd93a8c45e5fde587745de4dc5662a}{USART3\+\_\+\+BASE\+\_\+\+ADDR}})}
+

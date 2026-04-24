@@ -1,0 +1,77 @@
+\doxysection{Timer Driver Functions }
+\hypertarget{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s}{}\label{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s}\index{Timer Driver Functions@{Timer Driver Functions}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gac618b969375cadd9a01aad1c6c937843}{Timer\+Init}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+handle)
+\item 
+void \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga39c741de08b18d032760b29b0763ec46}{Timer\+Control}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+handle, uint16\+\_\+t state)
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga957b4db743c38c3da54705a3c57f4cdb}{Timer\+Get\+Count}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+handle)
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gabe5f8fa6ae1672da6717f16ca393b6d6}{Timer\+Get\+Flag\+Status}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+handle, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415c}{Timer\+\_\+flags\+\_\+t}} Flag)
+\item 
+void \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga69ce4a6dc85b92851e31ab4fbe15c698}{Timer\+Reset\+Flag}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+handle, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415c}{Timer\+\_\+flags\+\_\+t}} Flag)
+\item 
+void \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae1f2c21be6c10594144a9665d427913a}{Timer\+Set\+Frequency}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}handler, uint32\+\_\+t freq)
+\item 
+void \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga0b08f6fe8b7f71e4b008f71708340d7e}{Timer\+PWM\+\_\+init}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+handle, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26}{Timer\+\_\+channel\+\_\+t}} Channel)
+\item 
+void \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga222542f8ca62ee0071c754f8008949c4}{Timer\+PWM\+\_\+\+Duty\+Cycle}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+handle, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26}{Timer\+\_\+channel\+\_\+t}} Channel, uint8\+\_\+t Duty\+Cycle)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\label{doc-func-members}
+\Hypertarget{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga39c741de08b18d032760b29b0763ec46}\index{Timer Driver Functions@{Timer Driver Functions}!TimerControl@{TimerControl}}
+\index{TimerControl@{TimerControl}!Timer Driver Functions@{Timer Driver Functions}}
+\doxysubsubsection{\texorpdfstring{TimerControl()}{TimerControl()}}
+{\footnotesize\ttfamily \label{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga39c741de08b18d032760b29b0763ec46} 
+void Timer\+Control (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{timer\+\_\+handle}{, }\item[{uint16\+\_\+t}]{state}{}\end{DoxyParamCaption})}
+
+\Hypertarget{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga957b4db743c38c3da54705a3c57f4cdb}\index{Timer Driver Functions@{Timer Driver Functions}!TimerGetCount@{TimerGetCount}}
+\index{TimerGetCount@{TimerGetCount}!Timer Driver Functions@{Timer Driver Functions}}
+\doxysubsubsection{\texorpdfstring{TimerGetCount()}{TimerGetCount()}}
+{\footnotesize\ttfamily \label{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga957b4db743c38c3da54705a3c57f4cdb} 
+uint32\+\_\+t Timer\+Get\+Count (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{timer\+\_\+handle}{}\end{DoxyParamCaption})}
+
+\Hypertarget{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gabe5f8fa6ae1672da6717f16ca393b6d6}\index{Timer Driver Functions@{Timer Driver Functions}!TimerGetFlagStatus@{TimerGetFlagStatus}}
+\index{TimerGetFlagStatus@{TimerGetFlagStatus}!Timer Driver Functions@{Timer Driver Functions}}
+\doxysubsubsection{\texorpdfstring{TimerGetFlagStatus()}{TimerGetFlagStatus()}}
+{\footnotesize\ttfamily \label{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gabe5f8fa6ae1672da6717f16ca393b6d6} 
+uint8\+\_\+t Timer\+Get\+Flag\+Status (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{timer\+\_\+handle}{, }\item[{\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415c}{Timer\+\_\+flags\+\_\+t}}}]{Flag}{}\end{DoxyParamCaption})}
+
+\Hypertarget{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gac618b969375cadd9a01aad1c6c937843}\index{Timer Driver Functions@{Timer Driver Functions}!TimerInit@{TimerInit}}
+\index{TimerInit@{TimerInit}!Timer Driver Functions@{Timer Driver Functions}}
+\doxysubsubsection{\texorpdfstring{TimerInit()}{TimerInit()}}
+{\footnotesize\ttfamily \label{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gac618b969375cadd9a01aad1c6c937843} 
+void Timer\+Init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{timer\+\_\+handle}{}\end{DoxyParamCaption})}
+
+\Hypertarget{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga222542f8ca62ee0071c754f8008949c4}\index{Timer Driver Functions@{Timer Driver Functions}!TimerPWM\_DutyCycle@{TimerPWM\_DutyCycle}}
+\index{TimerPWM\_DutyCycle@{TimerPWM\_DutyCycle}!Timer Driver Functions@{Timer Driver Functions}}
+\doxysubsubsection{\texorpdfstring{TimerPWM\_DutyCycle()}{TimerPWM\_DutyCycle()}}
+{\footnotesize\ttfamily \label{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga222542f8ca62ee0071c754f8008949c4} 
+void Timer\+PWM\+\_\+\+Duty\+Cycle (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{timer\+\_\+handle}{, }\item[{\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26}{Timer\+\_\+channel\+\_\+t}}}]{Channel}{, }\item[{uint8\+\_\+t}]{Duty\+Cycle}{}\end{DoxyParamCaption})}
+
+\Hypertarget{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga0b08f6fe8b7f71e4b008f71708340d7e}\index{Timer Driver Functions@{Timer Driver Functions}!TimerPWM\_init@{TimerPWM\_init}}
+\index{TimerPWM\_init@{TimerPWM\_init}!Timer Driver Functions@{Timer Driver Functions}}
+\doxysubsubsection{\texorpdfstring{TimerPWM\_init()}{TimerPWM\_init()}}
+{\footnotesize\ttfamily \label{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga0b08f6fe8b7f71e4b008f71708340d7e} 
+void Timer\+PWM\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{timer\+\_\+handle}{, }\item[{\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26}{Timer\+\_\+channel\+\_\+t}}}]{Channel}{}\end{DoxyParamCaption})}
+
+\Hypertarget{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga69ce4a6dc85b92851e31ab4fbe15c698}\index{Timer Driver Functions@{Timer Driver Functions}!TimerResetFlag@{TimerResetFlag}}
+\index{TimerResetFlag@{TimerResetFlag}!Timer Driver Functions@{Timer Driver Functions}}
+\doxysubsubsection{\texorpdfstring{TimerResetFlag()}{TimerResetFlag()}}
+{\footnotesize\ttfamily \label{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga69ce4a6dc85b92851e31ab4fbe15c698} 
+void Timer\+Reset\+Flag (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{timer\+\_\+handle}{, }\item[{\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415c}{Timer\+\_\+flags\+\_\+t}}}]{Flag}{}\end{DoxyParamCaption})}
+
+\Hypertarget{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae1f2c21be6c10594144a9665d427913a}\index{Timer Driver Functions@{Timer Driver Functions}!TimerSetFrequency@{TimerSetFrequency}}
+\index{TimerSetFrequency@{TimerSetFrequency}!Timer Driver Functions@{Timer Driver Functions}}
+\doxysubsubsection{\texorpdfstring{TimerSetFrequency()}{TimerSetFrequency()}}
+{\footnotesize\ttfamily \label{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae1f2c21be6c10594144a9665d427913a} 
+void Timer\+Set\+Frequency (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handler}{, }\item[{uint32\+\_\+t}]{freq}{}\end{DoxyParamCaption})}
+

@@ -1,0 +1,155 @@
+\doxysection{GPIO Input/\+\+Output Functions }
+\hypertarget{group___g_p_i_o___i_o___f_u_n_c_t_i_o_n_s}{}\label{group___g_p_i_o___i_o___f_u_n_c_t_i_o_n_s}\index{GPIO Input/Output Functions@{GPIO Input/Output Functions}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{group___g_p_i_o___i_o___f_u_n_c_t_i_o_n_s_ga5183f3317e81fe885836d8000ff089aa}{GPIO\+\_\+\+Write\+Pin}} (GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}GPIOx, uint16\+\_\+t pin, uint32\+\_\+t state)
+\begin{DoxyCompactList}\small\item\em Write value to GPIO pin. \end{DoxyCompactList}\item 
+uint32\+\_\+t \doxymbox{\hyperlink{group___g_p_i_o___i_o___f_u_n_c_t_i_o_n_s_ga65a7dfe6e696f81215be138a38a7b2f6}{GPIO\+\_\+\+Read\+Pin}} (GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}GPIOx, uint16\+\_\+t pin)
+\begin{DoxyCompactList}\small\item\em Read GPIO pin state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\label{doc-func-members}
+\Hypertarget{group___g_p_i_o___i_o___f_u_n_c_t_i_o_n_s_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group___g_p_i_o___i_o___f_u_n_c_t_i_o_n_s_ga65a7dfe6e696f81215be138a38a7b2f6}\index{GPIO Input/Output Functions@{GPIO Input/Output Functions}!GPIO\_ReadPin@{GPIO\_ReadPin}}
+\index{GPIO\_ReadPin@{GPIO\_ReadPin}!GPIO Input/Output Functions@{GPIO Input/Output Functions}}
+\doxysubsubsection{\texorpdfstring{GPIO\_ReadPin()}{GPIO\_ReadPin()}}
+{\footnotesize\ttfamily \label{group___g_p_i_o___i_o___f_u_n_c_t_i_o_n_s_ga65a7dfe6e696f81215be138a38a7b2f6} 
+uint32\+\_\+t GPIO\+\_\+\+Read\+Pin (\begin{DoxyParamCaption}\item[{GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{GPIOx}{, }\item[{uint16\+\_\+t}]{pin}{}\end{DoxyParamCaption})}
+
+
+
+Read GPIO pin state. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em GPIOx} & Base address of GPIO port \\
+\hline
+\doxymbox{\texttt{in}}  & {\em pin} & Pin number (0-\/15) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em uint32\+\_\+t} & Pin state (GPIO\+\_\+\+PIN\+\_\+\+SET or GPIO\+\_\+\+PIN\+\_\+\+RESET)\\
+\hline
+\end{DoxyRetVals}
+Reads the current state of a GPIO pin. Pin should be configured as input or in a state where reading is desired (can read output pins too).
+
+{\bfseries{Read Operations:\+}}
+\begin{DoxyItemize}
+\item Reads IDR (Input Data Register)
+\item Returns bit value for specified pin
+\item For output pins:\+ returns ODR value (what was written)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em GPIOx} & GPIO port \\
+\hline
+\doxymbox{\texttt{in}}  & {\em pin} & Pin number (0-\/15)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pin state:\+
+\begin{DoxyItemize}
+\item GPIO\+\_\+\+PIN\+\_\+\+SET (non-\/zero):\+ Pin is HIGH
+\item GPIO\+\_\+\+PIN\+\_\+\+RESET (0):\+ Pin is LOW
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Very fast:\+ \texorpdfstring{$<$}{<} 1 µs read time
+\item Non-\/blocking:\+ returns immediately
+\item Safe for polling
+\item Can read both input and output pins
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Usage:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uint32\_t\ \doxymbox{\hyperlink{main_8c_a0faae15c6eacfa159d2c7c144b2cd788}{button\_state}}\ =\ \doxymbox{\hyperlink{stm32f7xx__gpio__driver_8h_af6edf50e6a92fb65dda39d61fd222a91}{GPIO\_ReadPin}}(GPIOA,\ 0);}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{main_8c_a0faae15c6eacfa159d2c7c144b2cd788}{button\_state}}\ ==\ GPIO\_PIN\_RESET)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Button\ pressed}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___g_p_i_o___i_o___f_u_n_c_t_i_o_n_s_ga5183f3317e81fe885836d8000ff089aa}{GPIO\+\_\+\+Write\+Pin()}, \doxylink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}{GPIO\+\_\+\+Init()} 
+\end{DoxySeeAlso}
+\Hypertarget{group___g_p_i_o___i_o___f_u_n_c_t_i_o_n_s_ga5183f3317e81fe885836d8000ff089aa}\index{GPIO Input/Output Functions@{GPIO Input/Output Functions}!GPIO\_WritePin@{GPIO\_WritePin}}
+\index{GPIO\_WritePin@{GPIO\_WritePin}!GPIO Input/Output Functions@{GPIO Input/Output Functions}}
+\doxysubsubsection{\texorpdfstring{GPIO\_WritePin()}{GPIO\_WritePin()}}
+{\footnotesize\ttfamily \label{group___g_p_i_o___i_o___f_u_n_c_t_i_o_n_s_ga5183f3317e81fe885836d8000ff089aa} 
+void GPIO\+\_\+\+Write\+Pin (\begin{DoxyParamCaption}\item[{GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{GPIOx}{, }\item[{uint16\+\_\+t}]{pin}{, }\item[{uint32\+\_\+t}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Write value to GPIO pin. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em GPIOx} & Base address of GPIO port \\
+\hline
+\doxymbox{\texttt{in}}  & {\em pin} & Pin number (0-\/15) \\
+\hline
+\doxymbox{\texttt{in}}  & {\em state} & Pin state (GPIO\+\_\+\+PIN\+\_\+\+SET or GPIO\+\_\+\+PIN\+\_\+\+RESET) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Sets or clears a GPIO output pin. Very fast operation (\texorpdfstring{$<$}{<} 1 µs). Pin must be configured as output before calling this function.
+
+{\bfseries{Pin State Control:\+}}
+\begin{DoxyItemize}
+\item GPIO\+\_\+\+PIN\+\_\+\+SET (1):\+ Output HIGH (3.\+3V for STM32\+F756\+ZG)
+\item GPIO\+\_\+\+PIN\+\_\+\+RESET (0):\+ Output LOW (0V)
+\end{DoxyItemize}
+
+{\bfseries{Register Operations:\+}}
+\begin{DoxyItemize}
+\item SET:\+ Write to BSRR (Bit Set/\+\+Reset Register) lower 16 bits
+\item RESET:\+ Write to BSRR upper 16 bits (acts as clear)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em GPIOx} & GPIO port \\
+\hline
+\doxymbox{\texttt{in}}  & {\em pin} & Pin number (0-\/15) \\
+\hline
+\doxymbox{\texttt{in}}  & {\em state} & Pin state:\+
+\begin{DoxyItemize}
+\item GPIO\+\_\+\+PIN\+\_\+\+SET (1):\+ Set pin HIGH
+\item GPIO\+\_\+\+PIN\+\_\+\+RESET (0):\+ Set pin LOW
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Very fast:\+ atomic operation
+\item Non-\/blocking:\+ returns immediately
+\item Safe for concurrent access (BSRR is atomic)
+\item Typical use:\+ LED control, GPIO signaling
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Usage:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\doxymbox{\hyperlink{stm32f7xx__gpio__driver_8h_a27e2dc156571c63c30d824b49a96173c}{GPIO\_WritePin}}(GPIOB,\ 14,\ GPIO\_PIN\_SET);\ \ \ \textcolor{comment}{//\ LED\ on}}
+\DoxyCodeLine{\doxymbox{\hyperlink{stm32f7xx__gpio__driver_8h_a27e2dc156571c63c30d824b49a96173c}{GPIO\_WritePin}}(GPIOB,\ 14,\ GPIO\_PIN\_RESET);\ \textcolor{comment}{//\ LED\ off}}
+
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___g_p_i_o___i_o___f_u_n_c_t_i_o_n_s_ga65a7dfe6e696f81215be138a38a7b2f6}{GPIO\+\_\+\+Read\+Pin()}, \doxylink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}{GPIO\+\_\+\+Init()} 
+\end{DoxySeeAlso}

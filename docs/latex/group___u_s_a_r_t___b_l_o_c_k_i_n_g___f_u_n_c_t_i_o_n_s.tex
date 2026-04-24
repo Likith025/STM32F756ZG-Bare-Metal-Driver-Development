@@ -1,0 +1,466 @@
+\doxysection{USART Blocking I/\+O Functions }
+\hypertarget{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s}{}\label{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s}\index{USART Blocking I/O Functions@{USART Blocking I/O Functions}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_gad2a5403207b97e55c86282068344bbe4}{USART\+\_\+\+Send\+Data}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Tx\+Data, uint16\+\_\+t \doxymbox{\hyperlink{main_8c_afed088663f8704004425cdae2120b9b3}{len}})
+\begin{DoxyCompactList}\small\item\em Send data via USART (blocking mode). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga9cbfb1902e1ecdb99951f75364797ac7}{USART\+\_\+\+Set\+Baud\+Rate}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint16\+\_\+t Baud\+Rate)
+\begin{DoxyCompactList}\small\item\em Set USART baud rate via BRR calculation. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga140e51ab79b5ce95c8a457a26a701a60}{USART\+\_\+\+Read\+Data}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}usart\+\_\+handle, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Rx\+Data, uint16\+\_\+t \doxymbox{\hyperlink{main_8c_afed088663f8704004425cdae2120b9b3}{len}})
+\begin{DoxyCompactList}\small\item\em Read data from USART (blocking mode). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\label{doc-func-members}
+\Hypertarget{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga140e51ab79b5ce95c8a457a26a701a60}\index{USART Blocking I/O Functions@{USART Blocking I/O Functions}!USART\_ReadData@{USART\_ReadData}}
+\index{USART\_ReadData@{USART\_ReadData}!USART Blocking I/O Functions@{USART Blocking I/O Functions}}
+\doxysubsubsection{\texorpdfstring{USART\_ReadData()}{USART\_ReadData()}}
+{\footnotesize\ttfamily \label{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga140e51ab79b5ce95c8a457a26a701a60} 
+void USART\+\_\+\+Read\+Data (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{usart\+\_\+handle}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+Rx\+Data}{, }\item[{uint16\+\_\+t}]{len}{}\end{DoxyParamCaption})}
+
+
+
+Read data from USART (blocking mode). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em usart\+\_\+handle} & Pointer to \doxylink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t} structure \\
+\hline
+\doxymbox{\texttt{out}}  & {\em p\+Rx\+Data} & Pointer to buffer for received data \\
+\hline
+\doxymbox{\texttt{in}}  & {\em \doxylink{main_8c_afed088663f8704004425cdae2120b9b3}{len}} & Number of bytes/\+words to receive \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Receives data through USART with blocking mode. Function waits for receive register to have data (RXNE flag) before reading each byte. Blocks until all requested data is received.
+
+{\bfseries{Reception Sequence:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{For\ each\ \textcolor{keywordtype}{byte}\ to\ receive:}
+\DoxyCodeLine{\ \ 1.\ Wait\ \textcolor{keywordflow}{for}\ RXNE\ flag\ (RX\ \textcolor{keyword}{register}\ has\ data)}
+\DoxyCodeLine{\ \ 2.\ Read\ \textcolor{keywordtype}{byte}\ from\ RDR}
+\DoxyCodeLine{\ \ 3.\ Process\ based\ on\ word\ length\ and\ parity}
+\DoxyCodeLine{\ \ 4.\ Store\ in\ \doxymbox{\hyperlink{main_8c_a5819dbc2d305e99e930c734a0d28bc3b}{buffer}}}
+\DoxyCodeLine{\ \ 5.\ Advance\ \doxymbox{\hyperlink{main_8c_a5819dbc2d305e99e930c734a0d28bc3b}{buffer}}\ pointer}
+\DoxyCodeLine{\ \ 6.\ Repeat}
+
+\end{DoxyCode}
+
+
+{\bfseries{Word Length and Parity Handling:\+}}
+\begin{DoxyItemize}
+\item 8-\/bit, no parity:\+ Read full 8 bits, store 1 byte
+\item 8-\/bit, with parity:\+ Read 7 data bits + parity, store 1 byte (0x7F mask)
+\item 9-\/bit, no parity:\+ Read full 9 bits, store 2 bytes (0x1\+FF mask)
+\item 9-\/bit, with parity:\+ Read 8 data bits + parity, store 1 byte (0x\+FF mask)
+\end{DoxyItemize}
+
+{\bfseries{Masking Details:\+}}
+\begin{DoxyItemize}
+\item Masks remove unused bits from RDR (hardware may set extra bits)
+\item 8-\/bit no parity:\+ mask 0x\+FF (all 8 bits)
+\item 8-\/bit with parity:\+ mask 0x7F (7 data bits, drop parity bit)
+\item 9-\/bit no parity:\+ mask 0x1\+FF (all 9 bits)
+\item 9-\/bit with parity:\+ mask 0x\+FF (8 data bits, drop parity bit)
+\end{DoxyItemize}
+
+{\bfseries{Timing (at 115200 baud, 8-\/bit + 1 stop):\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Reception\ wait\ time:\ 87\ µs\ per\ \textcolor{keywordtype}{byte}}
+\DoxyCodeLine{Receiving\ 100\ bytes:\ \string~8.7\ ms}
+
+\end{DoxyCode}
+
+
+{\bfseries{Buffer Types:\+}}
+\begin{DoxyItemize}
+\item 8-\/bit mode:\+ {\ttfamily uint8\+\_\+t \doxylink{main_8c_a5819dbc2d305e99e930c734a0d28bc3b}{buffer}\+[64]\+}
+\item 9-\/bit no parity:\+ {\ttfamily uint16\+\_\+t \doxylink{main_8c_a5819dbc2d305e99e930c734a0d28bc3b}{buffer}\+[32]\+} (takes 64 bytes)
+\item 9-\/bit with parity:\+ {\ttfamily uint8\+\_\+t \doxylink{main_8c_a5819dbc2d305e99e930c734a0d28bc3b}{buffer}\+[64]\+}
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em usart\+\_\+handle} & USART handler:\+
+\begin{DoxyItemize}
+\item p\+USART:\+ USART base address
+\item USART\+\_\+config:\+ Configuration (word length, parity)
+\end{DoxyItemize}\\
+\hline
+\doxymbox{\texttt{out}}  & {\em p\+Rx\+Data} & Pointer to receive buffer:\+
+\begin{DoxyItemize}
+\item Must point to writable memory
+\item Size must be sufficient for len elements
+\item For 9-\/bit no parity:\+ size must be len × 2 bytes
+\item For 8-\/bit:\+ size must be \texorpdfstring{$>$}{>}= len bytes
+\end{DoxyItemize}\\
+\hline
+\doxymbox{\texttt{in}}  & {\em \doxylink{main_8c_afed088663f8704004425cdae2120b9b3}{len}} & Number of elements to receive:\+
+\begin{DoxyItemize}
+\item 8-\/bit mode:\+ bytes to receive
+\item 9-\/bit no parity:\+ 16-\/bit words to receive (takes 2× bytes)
+\item 9-\/bit with parity:\+ bytes to receive
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Blocks CPU until all data received
+\item Not suitable for real-\/time applications
+\item No timeout:\+ function blocks indefinitely if data never arrives
+\item Parity errors not detected (silent)
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Usage:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uint8\_t\ \doxymbox{\hyperlink{main_8c_a5819dbc2d305e99e930c734a0d28bc3b}{buffer}}[32];}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga140e51ab79b5ce95c8a457a26a701a60}{USART\_ReadData}}(\&uart\_handle,\ \doxymbox{\hyperlink{main_8c_a5819dbc2d305e99e930c734a0d28bc3b}{buffer}},\ 32);\ \ \textcolor{comment}{//\ Receive\ 32\ bytes}}
+
+\end{DoxyCode}
+
+
+{\bfseries{9-\/bit Data Reception:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uint16\_t\ data\_buffer[16];}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga140e51ab79b5ce95c8a457a26a701a60}{USART\_ReadData}}(\&uart\_handle,\ (uint8\_t*)data\_buffer,\ 16);}
+\DoxyCodeLine{\textcolor{comment}{//\ data\_buffer[0]\ contains\ first\ 9-\/bit\ word}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+
+\begin{DoxyItemize}
+\item Blocks indefinitely if RXNE flag never set (no data)
+\item Parity errors not reported (silent data loss)
+\item CPU cannot do other work while waiting
+\item len parameter unchecked (could overflow buffer)
+\item Interrupt-\/driven approach recommended
+\end{DoxyItemize}
+\end{DoxyWarning}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item USART must be enabled before calling
+\item RX must be configured in USART mode
+\item Buffer must be pre-\/allocated
+\item Consider timeout mechanism
+\end{DoxyItemize}
+\end{DoxyAttention}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gae0a6622ad6716e73ac03e5c0a690adb9}{USART\+\_\+\+Read\+Data\+\_\+\+IT()}, \doxylink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_gad2a5403207b97e55c86282068344bbe4}{USART\+\_\+\+Send\+Data()} 
+\end{DoxySeeAlso}
+\Hypertarget{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_gad2a5403207b97e55c86282068344bbe4}\index{USART Blocking I/O Functions@{USART Blocking I/O Functions}!USART\_SendData@{USART\_SendData}}
+\index{USART\_SendData@{USART\_SendData}!USART Blocking I/O Functions@{USART Blocking I/O Functions}}
+\doxysubsubsection{\texorpdfstring{USART\_SendData()}{USART\_SendData()}}
+{\footnotesize\ttfamily \label{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_gad2a5403207b97e55c86282068344bbe4} 
+void USART\+\_\+\+Send\+Data (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{usart\+\_\+handle}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+Tx\+Data}{, }\item[{uint16\+\_\+t}]{len}{}\end{DoxyParamCaption})}
+
+
+
+Send data via USART (blocking mode). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em usart\+\_\+handle} & Pointer to \doxylink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t} structure \\
+\hline
+\doxymbox{\texttt{in}}  & {\em p\+Tx\+Data} & Pointer to data buffer to transmit \\
+\hline
+\doxymbox{\texttt{in}}  & {\em \doxylink{main_8c_afed088663f8704004425cdae2120b9b3}{len}} & Number of bytes/\+words to send \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Sends data through USART with blocking mode. Function waits for transmit register to be empty (TXE flag) before writing each byte, and waits for transmission complete (TC flag) before returning. This ensures all data is transmitted before function exits.
+
+{\bfseries{Transmission Sequence:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{For\ each\ \textcolor{keywordtype}{byte}\ in\ \doxymbox{\hyperlink{main_8c_a5819dbc2d305e99e930c734a0d28bc3b}{buffer}}:}
+\DoxyCodeLine{\ \ 1.\ Wait\ \textcolor{keywordflow}{for}\ TXE\ flag\ (TX\ \textcolor{keyword}{register}\ empty)}
+\DoxyCodeLine{\ \ 2.\ Write\ \textcolor{keywordtype}{byte}\ to\ TDR}
+\DoxyCodeLine{\ \ 3.\ Repeat}
+\DoxyCodeLine{4.\ Wait\ \textcolor{keywordflow}{for}\ TC\ flag\ (all\ bits\ transmitted)}
+\DoxyCodeLine{5.\ Return}
+
+\end{DoxyCode}
+
+
+{\bfseries{Word Length Handling:\+}}
+\begin{DoxyItemize}
+\item 8-\/bit data:\+ 1 byte per element, masked with 0x\+FF
+\item 9-\/bit data (no parity):\+ 2 bytes per element (uint16\+\_\+t), masked with 0x1\+FF
+\item 9-\/bit data (with parity):\+ 1 byte per element, masked with 0x\+FF
+\end{DoxyItemize}
+
+{\bfseries{Timing (at 115200 baud, 8-\/bit + 1 stop):\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Bits\ per\ frame:\ 10\ (1\ start\ +\ 8\ data\ +\ 1\ stop)}
+\DoxyCodeLine{Baud\ rate:\ 115200\ bps}
+\DoxyCodeLine{Time\ per\ byte:\ 10\ /\ 115200\ =\ 87\ µs}
+\DoxyCodeLine{Time\ for\ 100\ bytes:\ 8.7\ ms}
+
+\end{DoxyCode}
+
+
+{\bfseries{Data Types:\+}}
+\begin{DoxyItemize}
+\item 8-\/bit mode:\+ {\ttfamily uint8\+\_\+t data\+[10]\+}
+\item 9-\/bit no parity:\+ {\ttfamily uint16\+\_\+t data\+[10]\+} (takes 20 byte positions)
+\item 9-\/bit with parity:\+ {\ttfamily uint8\+\_\+t data\+[10]\+}
+\end{DoxyItemize}
+
+{\bfseries{Byte Order:\+}}
+\begin{DoxyItemize}
+\item LSB first (standard for UART)
+\item Start bit (LOW) → D0 → D1 → ... → D7/\+\+D8 → Parity → Stop bit(s) (HIGH)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em usart\+\_\+handle} & USART handler:\+
+\begin{DoxyItemize}
+\item p\+USART:\+ USART base address
+\item USART\+\_\+config:\+ Configuration (word length, parity)
+\end{DoxyItemize}\\
+\hline
+\doxymbox{\texttt{in}}  & {\em p\+Tx\+Data} & Pointer to transmit buffer:\+
+\begin{DoxyItemize}
+\item Must point to valid data
+\item 8-\/bit mode:\+ array of uint8\+\_\+t
+\item 9-\/bit no parity:\+ array of uint16\+\_\+t
+\item Data not modified
+\end{DoxyItemize}\\
+\hline
+\doxymbox{\texttt{in}}  & {\em \doxylink{main_8c_afed088663f8704004425cdae2120b9b3}{len}} & Number of elements to send:\+
+\begin{DoxyItemize}
+\item 8-\/bit mode:\+ bytes to send
+\item 9-\/bit no parity:\+ 16-\/bit words to send (takes 2× bytes)
+\item 9-\/bit with parity:\+ bytes to send
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Blocks CPU until all data sent (busy-\/wait)
+\item Not suitable for real-\/time applications
+\item No timeout:\+ function blocks indefinitely if USART fails
+\item Very simple but inefficient for large data
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Usage:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{uint8\_t\ message[]\ =\ \textcolor{stringliteral}{"{}Hello\ USART\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_gad2a5403207b97e55c86282068344bbe4}{USART\_SendData}}(\&uart\_handle,\ message,\ \textcolor{keyword}{sizeof}(message)\ -\/\ 1);}
+
+\end{DoxyCode}
+
+
+{\bfseries{9-\/bit Data Example:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ 9-\/bit\ no\ parity\ mode}}
+\DoxyCodeLine{uint16\_t\ data\_16bit[5]\ =\ \{0x1FF,\ 0x100,\ 0x001,\ 0x1AA,\ 0x055\};}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_gad2a5403207b97e55c86282068344bbe4}{USART\_SendData}}(\&uart\_handle,\ (uint8\_t*)data\_16bit,\ 5);}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+
+\begin{DoxyItemize}
+\item Blocks indefinitely if TXE or TC flags never set (USART hung)
+\item No error detection (parity errors not checked)
+\item CPU cannot do other work while waiting
+\item Interrupt-\/driven approach recommended for better performance
+\item len parameter must be accurate (no bounds checking)
+\end{DoxyItemize}
+\end{DoxyWarning}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item USART must be enabled before calling
+\item TX must be configured in USART mode
+\item Consider timeout mechanism for safety
+\item Not suitable for high-\/speed or time-\/critical applications
+\end{DoxyItemize}
+\end{DoxyAttention}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___u_s_a_r_t___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_ga1bff58303b67689f9a22226582de10bd}{USART\+\_\+\+Send\+Data\+\_\+\+IT()}, \doxylink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga140e51ab79b5ce95c8a457a26a701a60}{USART\+\_\+\+Read\+Data()} 
+\end{DoxySeeAlso}
+\Hypertarget{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga9cbfb1902e1ecdb99951f75364797ac7}\index{USART Blocking I/O Functions@{USART Blocking I/O Functions}!USART\_SetBaudRate@{USART\_SetBaudRate}}
+\index{USART\_SetBaudRate@{USART\_SetBaudRate}!USART Blocking I/O Functions@{USART Blocking I/O Functions}}
+\doxysubsubsection{\texorpdfstring{USART\_SetBaudRate()}{USART\_SetBaudRate()}}
+{\footnotesize\ttfamily \label{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga9cbfb1902e1ecdb99951f75364797ac7} 
+void USART\+\_\+\+Set\+Baud\+Rate (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{usart\+\_\+handle}{, }\item[{uint16\+\_\+t}]{Baud\+Rate}{}\end{DoxyParamCaption})}
+
+
+
+Set USART baud rate via BRR calculation. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em usart\+\_\+handle} & Pointer to \doxylink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t} structure \\
+\hline
+\doxymbox{\texttt{in}}  & {\em Baud\+Rate} & Desired baud rate in bps \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Calculates and configures the USART Baud Rate Register (BRR) to achieve the desired baud rate. Formula accounts for clock frequency, oversampling mode, and uses mantissa + fraction representation.
+
+{\bfseries{Baud Rate Formula:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{For\ 16x\ oversampling:}
+\DoxyCodeLine{\ \ BRR\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a61b47b3e6cb481230d5cf1c671744d74}{USART\_CLK}}\ /\ (16\ ×\ BaudRate)}
+\DoxyCodeLine{}
+\DoxyCodeLine{For\ 8x\ oversampling:}
+\DoxyCodeLine{\ \ BRR\ =\ \doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a61b47b3e6cb481230d5cf1c671744d74}{USART\_CLK}}\ /\ (8\ ×\ BaudRate)}
+\DoxyCodeLine{}
+\DoxyCodeLine{BRR\ =\ Mantissa\ (upper\ 12\ bits)\ +\ Fraction\ (lower\ 4\ bits,\ 8x)\ or\ (lower\ 3\ bits,\ 16x)}
+
+\end{DoxyCode}
+
+
+{\bfseries{Calculation Process:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1.\ Calculate\ temp\_div\ =\ (\doxymbox{\hyperlink{stm32f7xx__uart__driver_8h_a61b47b3e6cb481230d5cf1c671744d74}{USART\_CLK}}\ ×\ 100)\ /\ (sampling\ ×\ BaudRate)}
+\DoxyCodeLine{\ \ \ (×100\ \textcolor{keywordflow}{for}\ better\ precision)}
+\DoxyCodeLine{2.\ Extract\ mantissa:\ div\_mantisa\ =\ temp\_div\ /\ 100}
+\DoxyCodeLine{3.\ Calculate\ fraction\ remainder:\ div\_frac\ =\ temp\_div\ \%\ 100}
+\DoxyCodeLine{4.\ Scale\ fraction:\ div\_frac\ =\ ((div\_frac\ ×\ sampling\ ±\ 50)\ /\ 100)\ \&\ mask}
+\DoxyCodeLine{\ \ \ (±50\ for\ rounding)}
+\DoxyCodeLine{5.\ Combine:\ BRR\ =\ (mantissa\ <<\ 4)\ |\ fraction}
+
+\end{DoxyCode}
+
+
+{\bfseries{BRR Register Format:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Bits\ 15-\/4:\ Mantissa\ (12-\/bit\ divisor)}
+\DoxyCodeLine{Bits\ 3-\/0:\ Fraction\ (4-\/bit\ \textcolor{keywordflow}{for}\ 16x,\ 3-\/bit\ \textcolor{keywordflow}{for}\ 8x\ oversampling)}
+\DoxyCodeLine{}
+\DoxyCodeLine{16x\ Oversampling:}
+\DoxyCodeLine{\ \ BRR\ =\ ((Mantissa\ <<\ 4)\ |\ (Fraction\ \&\ 0xF))}
+\DoxyCodeLine{}
+\DoxyCodeLine{8x\ Oversampling:}
+\DoxyCodeLine{\ \ BRR\ =\ ((Mantissa\ <<\ 4)\ |\ (Fraction\ \&\ 0x7))}
+
+\end{DoxyCode}
+
+
+{\bfseries{Typical Clock and Baud Combinations:\+}} 
+\begin{DoxyTable}{5}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}USART\+\_\+\+CLK  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Baud  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}16x Divisor  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Mantissa  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Fraction  \\
+42 MHz  &9600  &4375  &273  &6  \\
+42 MHz  &115200  &365  &22  &11  \\
+42 MHz  &230400  &182  &11  &6  \\
+84 MHz  &115200  &730  &45  &10  \\
+\end{DoxyTable}
+
+
+{\bfseries{Baud Rate Accuracy:\+}}
+\begin{DoxyItemize}
+\item Fractional bits provide \texorpdfstring{$\sim$}{\string~}0.1\% resolution improvement
+\item Acceptable error:\+ \texorpdfstring{$<$}{<} 3\% for reliable reception
+\item High baud rates (\texorpdfstring{$>$}{>} 1Mbps) may have larger errors
+\item 8x oversampling allows higher baud rates but less accurate
+\end{DoxyItemize}
+
+{\bfseries{Calculation Example (115200 baud, 42 MHz, 16x):\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{temp\_div\ =\ (42000000\ ×\ 100)\ /\ (16\ ×\ 115200)\ =\ 22786}
+\DoxyCodeLine{mantissa\ =\ 22786\ /\ 100\ =\ 227}
+\DoxyCodeLine{remainder\ =\ 22786\ \%\ 100\ =\ 86}
+\DoxyCodeLine{fraction\ =\ ((86\ ×\ 16\ +\ 50)\ /\ 100)\ \&\ 0xF\ =\ (1426\ /\ 100)\ \&\ 0xF\ =\ 14\ \&\ 0xF\ =\ 14}
+\DoxyCodeLine{BRR\ =\ (227\ <<\ 4)\ |\ 14\ =\ 0x0E2E}
+\DoxyCodeLine{Actual\ Baud\ =\ 42000000\ /\ (16\ ×\ (227\ +\ 14/16))\ =\ 115143.29\ (0.05\%\ error)}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em usart\+\_\+handle} & USART handler:\+
+\begin{DoxyItemize}
+\item p\+USART:\+ USART base address
+\item USART\+\_\+config.\+USART\+\_\+\+Over\+Smapling:\+ 8x or 16x
+\end{DoxyItemize}\\
+\hline
+\doxymbox{\texttt{in}}  & {\em Baud\+Rate} & Desired baud rate:\+
+\begin{DoxyItemize}
+\item Common:\+ 9600, 19200, 38400, 57600, 115200, 230400
+\item Range:\+ 300 to 4,500,000 bps (depending on clock and oversampling)
+\item Must match terminal/\+host configuration
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Automatically called by \doxylink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_ga564ffcd2cbac51d721188fd510ff593c}{USART\+\_\+init()}
+\item Can be called independently to change baud rate
+\item USART\+\_\+\+CLK must be defined in header (typical 42 MHz for APB1)
+\item Fractional bits improve accuracy but add complexity
+\end{DoxyItemize}
+\end{DoxyNote}
+{\bfseries{Typical Usage:\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Set\ to\ 115200\ baud}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga9cbfb1902e1ecdb99951f75364797ac7}{USART\_SetBaudRate}}(\&uart\_handle,\ 115200);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Change\ baud\ rate\ on\ the\ fly}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gae79f07f623e6bfbc782f0e3ea511b79a}{USART\_Control}}(USART3,\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a99496f7308834e8b220f7894efa0b6ab}{DISABLE}});\ \ \textcolor{comment}{//\ Disable\ first}}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___u_s_a_r_t___b_l_o_c_k_i_n_g___f_u_n_c_t_i_o_n_s_ga9cbfb1902e1ecdb99951f75364797ac7}{USART\_SetBaudRate}}(\&uart\_handle,\ 9600);}
+\DoxyCodeLine{\doxymbox{\hyperlink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_gae79f07f623e6bfbc782f0e3ea511b79a}{USART\_Control}}(USART3,\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a}{ENABLE}});\ \ \ \textcolor{comment}{//\ Re-\/enable}}
+
+\end{DoxyCode}
+
+
+{\bfseries{Error Checking (Manual):\+}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Calculate\ actual\ baud\ from\ BRR}}
+\DoxyCodeLine{uint32\_t\ brr\_value\ =\ USART3-\/>USART\_BRR;}
+\DoxyCodeLine{uint32\_t\ mantissa\ =\ brr\_value\ >>\ 4;}
+\DoxyCodeLine{uint32\_t\ fraction\ =\ brr\_value\ \&\ 0x0F;}
+\DoxyCodeLine{uint32\_t\ actual\_baud\ =\ 42000000\ /\ (16\ *\ (mantissa\ +\ fraction/16.0f));}
+\DoxyCodeLine{\textcolor{keywordtype}{float}\ error\ =\ abs(actual\_baud\ -\/\ 115200)\ /\ 115200.0f\ *\ 100;}
+
+\end{DoxyCode}
+
+
+\begin{DoxyWarning}{Warning}
+
+\begin{DoxyItemize}
+\item BRR value of 0 or 1 causes USART to malfunction
+\item Very high baud rates (\texorpdfstring{$>$}{>} 1Mbps) may need different clock source
+\item Clock frequency changes require recalculation
+\item Terminal must match baud rate exactly
+\end{DoxyItemize}
+\end{DoxyWarning}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyItemize}
+\item USART\+\_\+\+CLK must be defined correctly in header
+\item Baud rate errors \texorpdfstring{$>$}{>} 5\% may cause reception failures
+\item Some baud rates impossible with given clock (check error \%)
+\end{DoxyItemize}
+\end{DoxyAttention}
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___u_s_a_r_t___c_o_r_e___f_u_n_c_t_i_o_n_s_ga564ffcd2cbac51d721188fd510ff593c}{USART\+\_\+init()} 
+\end{DoxySeeAlso}

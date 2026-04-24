@@ -1,0 +1,280 @@
+\doxysection{stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+inc/\+stm32f7xx\+\_\+timer\+\_\+driver.h File Reference}
+\hypertarget{stm32f7xx__timer__driver_8h}{}\label{stm32f7xx__timer__driver_8h}\index{stm32f7xx\_driver/driver/driver\_inc/stm32f7xx\_timer\_driver.h@{stm32f7xx\_driver/driver/driver\_inc/stm32f7xx\_timer\_driver.h}}
+{\ttfamily \+\#include $<$stm32f756zg\+\_\+reg.\+h$>$}\newline
+Include dependency graph for stm32f7xx\+\_\+timer\+\_\+driver.\+h:\+
+% FIG 0
+This graph shows which files directly or indirectly include this file:\+
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_t_i_m_e_r__config__t}{TIMER\+\_\+config\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ab4b80565a3c00adc50a6b1b3f4f79030}{TIMER\+\_\+\+SR\+\_\+\+UIF}}~(1$<$$<$0)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a0f8f627c4dd2c6a1d9231eab68e29769}{TIMER\+\_\+\+SR\+\_\+\+CC1\+IF}}~(1$<$$<$1)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_aff546784e7b876134cfcbb0b90589aba}{TIMER\+\_\+\+SR\+\_\+\+CC2\+IF}}~(1$<$$<$2)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a38dbed46b5531fd4ba52bd8f2da38b07}{TIMER\+\_\+\+SR\+\_\+\+CC3\+IF}}~(1$<$$<$3)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ada61d9f999a6fa5cfd590441cb7f062d}{TIMER\+\_\+\+SR\+\_\+\+CC4\+IF}}~(1$<$$<$4)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a92597a9a531de065ec40fa97bc26d531}{TIMER\+\_\+\+SR\+\_\+\+TIF}}~(1$<$$<$6)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a170278c0be4ace143e17293fc55eb6b8}{TIMER\+\_\+\+SR\+\_\+\+CC1\+OF}}~(1$<$$<$9)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a8ef635196c95f0189e0b65c95762e23f}{TIMER\+\_\+\+SR\+\_\+\+CC2\+OF}}~(1$<$$<$10)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ac75dec53bfee8364a33d0946926206e4}{TIMER\+\_\+\+SR\+\_\+\+CC3\+OF}}~(1$<$$<$11)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ac4a5609a3337ed93b0be000afe8c5da5}{TIMER\+\_\+\+SR\+\_\+\+CC4\+OF}}~(1$<$$<$12)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995ab}{Timer\+\_\+direction\+\_\+t}} \{ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995abae40331b9e2578d64361241394e10c52e}{Up\+Counter}} =0
+, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995aba1fe3b9e0656a67d6d5e97a17e83cfa55}{Down\+Counter}}
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415c}{Timer\+\_\+flags\+\_\+t}} \{ \newline
+\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415cace2c7156691618a2dc591ee80ae4e47a}{Timer\+\_\+\+Flag\+\_\+\+UIF}} =TIMER\+\_\+\+SR\+\_\+\+UIF
+, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415cad55e1c3c1427645e358cc8cfab924bdd}{Timer\+\_\+\+Flag\+\_\+\+CC1\+IF}} =TIMER\+\_\+\+SR\+\_\+\+CC1\+IF
+, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca81c57b01d7f948778fa5d55807254c41}{Timer\+\_\+\+Flag\+\_\+\+CC2\+IF}} =TIMER\+\_\+\+SR\+\_\+\+CC2\+IF
+, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca1225662cfcbe3986bd421260e69a32a3}{Timer\+\_\+\+Flag\+\_\+\+CC3\+IF}} =TIMER\+\_\+\+SR\+\_\+\+CC3\+IF
+, \newline
+\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415cafa8d8d14206ffa0bd2f0f22bec0f6ac7}{Timer\+\_\+\+Flag\+\_\+\+CC4\+IF}} =TIMER\+\_\+\+SR\+\_\+\+CC4\+IF
+, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415caa6a0ac2dfec7e52b0315d9f0520aa7f0}{Timer\+\_\+\+Flag\+\_\+\+TIF}} =TIMER\+\_\+\+SR\+\_\+\+TIF
+, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca48ad9b269bfc8843e0b2ef0eddb4d157}{Timer\+\_\+\+Flag\+\_\+\+CC1\+OF}} =TIMER\+\_\+\+SR\+\_\+\+CC1\+OF
+, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415cad0df9d92bd6ff996f49687622dcb969a}{Timer\+\_\+\+Flag\+\_\+\+CC2\+OF}} =TIMER\+\_\+\+SR\+\_\+\+CC2\+OF
+, \newline
+\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca5bcb3bde8654f0a432d94ce8743f2faf}{Timer\+\_\+\+Flag\+\_\+\+CC3\+OF}} =TIMER\+\_\+\+SR\+\_\+\+CC3\+OF
+, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca7656b6564ea91c2a15b34c6909a3a341}{Timer\+\_\+\+Flag\+\_\+\+CC4\+OF}} =TIMER\+\_\+\+SR\+\_\+\+CC4\+OF
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26}{Timer\+\_\+channel\+\_\+t}} \{ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26a703cf81b7a9530ba8650e0ee2f29d68e}{CH1}} =1
+, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26ae574b39c34bd88c27ea641014831e53a}{CH2}}
+, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26aaee6d12bf63ae430250764aa97e9e429}{CH3}}
+, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26aad6a6b3e7230ebcbbb5a26385b11ade7}{CH4}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gac618b969375cadd9a01aad1c6c937843}{Timer\+Init}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+handle)
+\item 
+void \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga39c741de08b18d032760b29b0763ec46}{Timer\+Control}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+handle, uint16\+\_\+t state)
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga957b4db743c38c3da54705a3c57f4cdb}{Timer\+Get\+Count}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+handle)
+\item 
+uint8\+\_\+t \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gabe5f8fa6ae1672da6717f16ca393b6d6}{Timer\+Get\+Flag\+Status}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+handle, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415c}{Timer\+\_\+flags\+\_\+t}} Flag)
+\item 
+void \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga69ce4a6dc85b92851e31ab4fbe15c698}{Timer\+Reset\+Flag}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+handle, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415c}{Timer\+\_\+flags\+\_\+t}} Flag)
+\item 
+void \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae1f2c21be6c10594144a9665d427913a}{Timer\+Set\+Frequency}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+handle, uint32\+\_\+t frequency)
+\item 
+void \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga0b08f6fe8b7f71e4b008f71708340d7e}{Timer\+PWM\+\_\+init}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+handle, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26}{Timer\+\_\+channel\+\_\+t}} Channel)
+\item 
+void \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga222542f8ca62ee0071c754f8008949c4}{Timer\+PWM\+\_\+\+Duty\+Cycle}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}timer\+\_\+handle, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26}{Timer\+\_\+channel\+\_\+t}} Channel, uint8\+\_\+t Duty\+Cycle)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{stm32f7xx__timer__driver_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{stm32f7xx__timer__driver_8h_a0f8f627c4dd2c6a1d9231eab68e29769}\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!TIMER\_SR\_CC1IF@{TIMER\_SR\_CC1IF}}
+\index{TIMER\_SR\_CC1IF@{TIMER\_SR\_CC1IF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_SR\_CC1IF}{TIMER\_SR\_CC1IF}}
+{\footnotesize\ttfamily \label{stm32f7xx__timer__driver_8h_a0f8f627c4dd2c6a1d9231eab68e29769} 
+\+\#define TIMER\+\_\+\+SR\+\_\+\+CC1\+IF~(1$<$$<$1)}
+
+\Hypertarget{stm32f7xx__timer__driver_8h_a170278c0be4ace143e17293fc55eb6b8}\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!TIMER\_SR\_CC1OF@{TIMER\_SR\_CC1OF}}
+\index{TIMER\_SR\_CC1OF@{TIMER\_SR\_CC1OF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_SR\_CC1OF}{TIMER\_SR\_CC1OF}}
+{\footnotesize\ttfamily \label{stm32f7xx__timer__driver_8h_a170278c0be4ace143e17293fc55eb6b8} 
+\+\#define TIMER\+\_\+\+SR\+\_\+\+CC1\+OF~(1$<$$<$9)}
+
+\Hypertarget{stm32f7xx__timer__driver_8h_aff546784e7b876134cfcbb0b90589aba}\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!TIMER\_SR\_CC2IF@{TIMER\_SR\_CC2IF}}
+\index{TIMER\_SR\_CC2IF@{TIMER\_SR\_CC2IF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_SR\_CC2IF}{TIMER\_SR\_CC2IF}}
+{\footnotesize\ttfamily \label{stm32f7xx__timer__driver_8h_aff546784e7b876134cfcbb0b90589aba} 
+\+\#define TIMER\+\_\+\+SR\+\_\+\+CC2\+IF~(1$<$$<$2)}
+
+\Hypertarget{stm32f7xx__timer__driver_8h_a8ef635196c95f0189e0b65c95762e23f}\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!TIMER\_SR\_CC2OF@{TIMER\_SR\_CC2OF}}
+\index{TIMER\_SR\_CC2OF@{TIMER\_SR\_CC2OF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_SR\_CC2OF}{TIMER\_SR\_CC2OF}}
+{\footnotesize\ttfamily \label{stm32f7xx__timer__driver_8h_a8ef635196c95f0189e0b65c95762e23f} 
+\+\#define TIMER\+\_\+\+SR\+\_\+\+CC2\+OF~(1$<$$<$10)}
+
+\Hypertarget{stm32f7xx__timer__driver_8h_a38dbed46b5531fd4ba52bd8f2da38b07}\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!TIMER\_SR\_CC3IF@{TIMER\_SR\_CC3IF}}
+\index{TIMER\_SR\_CC3IF@{TIMER\_SR\_CC3IF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_SR\_CC3IF}{TIMER\_SR\_CC3IF}}
+{\footnotesize\ttfamily \label{stm32f7xx__timer__driver_8h_a38dbed46b5531fd4ba52bd8f2da38b07} 
+\+\#define TIMER\+\_\+\+SR\+\_\+\+CC3\+IF~(1$<$$<$3)}
+
+\Hypertarget{stm32f7xx__timer__driver_8h_ac75dec53bfee8364a33d0946926206e4}\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!TIMER\_SR\_CC3OF@{TIMER\_SR\_CC3OF}}
+\index{TIMER\_SR\_CC3OF@{TIMER\_SR\_CC3OF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_SR\_CC3OF}{TIMER\_SR\_CC3OF}}
+{\footnotesize\ttfamily \label{stm32f7xx__timer__driver_8h_ac75dec53bfee8364a33d0946926206e4} 
+\+\#define TIMER\+\_\+\+SR\+\_\+\+CC3\+OF~(1$<$$<$11)}
+
+\Hypertarget{stm32f7xx__timer__driver_8h_ada61d9f999a6fa5cfd590441cb7f062d}\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!TIMER\_SR\_CC4IF@{TIMER\_SR\_CC4IF}}
+\index{TIMER\_SR\_CC4IF@{TIMER\_SR\_CC4IF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_SR\_CC4IF}{TIMER\_SR\_CC4IF}}
+{\footnotesize\ttfamily \label{stm32f7xx__timer__driver_8h_ada61d9f999a6fa5cfd590441cb7f062d} 
+\+\#define TIMER\+\_\+\+SR\+\_\+\+CC4\+IF~(1$<$$<$4)}
+
+\Hypertarget{stm32f7xx__timer__driver_8h_ac4a5609a3337ed93b0be000afe8c5da5}\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!TIMER\_SR\_CC4OF@{TIMER\_SR\_CC4OF}}
+\index{TIMER\_SR\_CC4OF@{TIMER\_SR\_CC4OF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_SR\_CC4OF}{TIMER\_SR\_CC4OF}}
+{\footnotesize\ttfamily \label{stm32f7xx__timer__driver_8h_ac4a5609a3337ed93b0be000afe8c5da5} 
+\+\#define TIMER\+\_\+\+SR\+\_\+\+CC4\+OF~(1$<$$<$12)}
+
+\Hypertarget{stm32f7xx__timer__driver_8h_a92597a9a531de065ec40fa97bc26d531}\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!TIMER\_SR\_TIF@{TIMER\_SR\_TIF}}
+\index{TIMER\_SR\_TIF@{TIMER\_SR\_TIF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_SR\_TIF}{TIMER\_SR\_TIF}}
+{\footnotesize\ttfamily \label{stm32f7xx__timer__driver_8h_a92597a9a531de065ec40fa97bc26d531} 
+\+\#define TIMER\+\_\+\+SR\+\_\+\+TIF~(1$<$$<$6)}
+
+\Hypertarget{stm32f7xx__timer__driver_8h_ab4b80565a3c00adc50a6b1b3f4f79030}\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!TIMER\_SR\_UIF@{TIMER\_SR\_UIF}}
+\index{TIMER\_SR\_UIF@{TIMER\_SR\_UIF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_SR\_UIF}{TIMER\_SR\_UIF}}
+{\footnotesize\ttfamily \label{stm32f7xx__timer__driver_8h_ab4b80565a3c00adc50a6b1b3f4f79030} 
+\+\#define TIMER\+\_\+\+SR\+\_\+\+UIF~(1$<$$<$0)}
+
+
+
+\label{doc-enum-members}
+\Hypertarget{stm32f7xx__timer__driver_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26}\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!Timer\_channel\_t@{Timer\_channel\_t}}
+\index{Timer\_channel\_t@{Timer\_channel\_t}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\doxysubsubsection{\texorpdfstring{Timer\_channel\_t}{Timer\_channel\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26} 
+enum \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26}{Timer\+\_\+channel\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CH1@{CH1}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!CH1@{CH1}}
+}\Hypertarget{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26a703cf81b7a9530ba8650e0ee2f29d68e}\label{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26a703cf81b7a9530ba8650e0ee2f29d68e} 
+CH1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CH2@{CH2}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!CH2@{CH2}}
+}\Hypertarget{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26ae574b39c34bd88c27ea641014831e53a}\label{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26ae574b39c34bd88c27ea641014831e53a} 
+CH2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CH3@{CH3}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!CH3@{CH3}}
+}\Hypertarget{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26aaee6d12bf63ae430250764aa97e9e429}\label{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26aaee6d12bf63ae430250764aa97e9e429} 
+CH3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CH4@{CH4}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!CH4@{CH4}}
+}\Hypertarget{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26aad6a6b3e7230ebcbbb5a26385b11ade7}\label{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26aad6a6b3e7230ebcbbb5a26385b11ade7} 
+CH4&\\
+\hline
+
+\end{DoxyEnumFields}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm3d5261a4aa95132b8263076c1e5eec627}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+src/\+stm32f7xx\+\_\+timer\+\_\+driver.\+c}}.\end{Desc}
+\Hypertarget{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995ab}\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!Timer\_direction\_t@{Timer\_direction\_t}}
+\index{Timer\_direction\_t@{Timer\_direction\_t}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\doxysubsubsection{\texorpdfstring{Timer\_direction\_t}{Timer\_direction\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995ab} 
+enum \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995ab}{Timer\+\_\+direction\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UpCounter@{UpCounter}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!UpCounter@{UpCounter}}
+}\Hypertarget{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995abae40331b9e2578d64361241394e10c52e}\label{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995abae40331b9e2578d64361241394e10c52e} 
+Up\+Counter&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DownCounter@{DownCounter}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!DownCounter@{DownCounter}}
+}\Hypertarget{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995aba1fe3b9e0656a67d6d5e97a17e83cfa55}\label{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995aba1fe3b9e0656a67d6d5e97a17e83cfa55} 
+Down\+Counter&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415c}\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!Timer\_flags\_t@{Timer\_flags\_t}}
+\index{Timer\_flags\_t@{Timer\_flags\_t}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\doxysubsubsection{\texorpdfstring{Timer\_flags\_t}{Timer\_flags\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415c} 
+enum \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415c}{Timer\+\_\+flags\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Timer\_Flag\_UIF@{Timer\_Flag\_UIF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!Timer\_Flag\_UIF@{Timer\_Flag\_UIF}}
+}\Hypertarget{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415cace2c7156691618a2dc591ee80ae4e47a}\label{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415cace2c7156691618a2dc591ee80ae4e47a} 
+Timer\+\_\+\+Flag\+\_\+\+UIF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Timer\_Flag\_CC1IF@{Timer\_Flag\_CC1IF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!Timer\_Flag\_CC1IF@{Timer\_Flag\_CC1IF}}
+}\Hypertarget{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415cad55e1c3c1427645e358cc8cfab924bdd}\label{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415cad55e1c3c1427645e358cc8cfab924bdd} 
+Timer\+\_\+\+Flag\+\_\+\+CC1\+IF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Timer\_Flag\_CC2IF@{Timer\_Flag\_CC2IF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!Timer\_Flag\_CC2IF@{Timer\_Flag\_CC2IF}}
+}\Hypertarget{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca81c57b01d7f948778fa5d55807254c41}\label{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca81c57b01d7f948778fa5d55807254c41} 
+Timer\+\_\+\+Flag\+\_\+\+CC2\+IF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Timer\_Flag\_CC3IF@{Timer\_Flag\_CC3IF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!Timer\_Flag\_CC3IF@{Timer\_Flag\_CC3IF}}
+}\Hypertarget{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca1225662cfcbe3986bd421260e69a32a3}\label{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca1225662cfcbe3986bd421260e69a32a3} 
+Timer\+\_\+\+Flag\+\_\+\+CC3\+IF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Timer\_Flag\_CC4IF@{Timer\_Flag\_CC4IF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!Timer\_Flag\_CC4IF@{Timer\_Flag\_CC4IF}}
+}\Hypertarget{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415cafa8d8d14206ffa0bd2f0f22bec0f6ac7}\label{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415cafa8d8d14206ffa0bd2f0f22bec0f6ac7} 
+Timer\+\_\+\+Flag\+\_\+\+CC4\+IF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Timer\_Flag\_TIF@{Timer\_Flag\_TIF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!Timer\_Flag\_TIF@{Timer\_Flag\_TIF}}
+}\Hypertarget{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415caa6a0ac2dfec7e52b0315d9f0520aa7f0}\label{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415caa6a0ac2dfec7e52b0315d9f0520aa7f0} 
+Timer\+\_\+\+Flag\+\_\+\+TIF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Timer\_Flag\_CC1OF@{Timer\_Flag\_CC1OF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!Timer\_Flag\_CC1OF@{Timer\_Flag\_CC1OF}}
+}\Hypertarget{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca48ad9b269bfc8843e0b2ef0eddb4d157}\label{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca48ad9b269bfc8843e0b2ef0eddb4d157} 
+Timer\+\_\+\+Flag\+\_\+\+CC1\+OF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Timer\_Flag\_CC2OF@{Timer\_Flag\_CC2OF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!Timer\_Flag\_CC2OF@{Timer\_Flag\_CC2OF}}
+}\Hypertarget{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415cad0df9d92bd6ff996f49687622dcb969a}\label{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415cad0df9d92bd6ff996f49687622dcb969a} 
+Timer\+\_\+\+Flag\+\_\+\+CC2\+OF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Timer\_Flag\_CC3OF@{Timer\_Flag\_CC3OF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!Timer\_Flag\_CC3OF@{Timer\_Flag\_CC3OF}}
+}\Hypertarget{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca5bcb3bde8654f0a432d94ce8743f2faf}\label{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca5bcb3bde8654f0a432d94ce8743f2faf} 
+Timer\+\_\+\+Flag\+\_\+\+CC3\+OF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Timer\_Flag\_CC4OF@{Timer\_Flag\_CC4OF}!stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}}
+\index{stm32f7xx\_timer\_driver.h@{stm32f7xx\_timer\_driver.h}!Timer\_Flag\_CC4OF@{Timer\_Flag\_CC4OF}}
+}\Hypertarget{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca7656b6564ea91c2a15b34c6909a3a341}\label{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415ca7656b6564ea91c2a15b34c6909a3a341} 
+Timer\+\_\+\+Flag\+\_\+\+CC4\+OF&\\
+\hline
+
+\end{DoxyEnumFields}
+\begin{Desc}
+\item[Examples]\par
+\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm3d5261a4aa95132b8263076c1e5eec627}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+src/\+stm32f7xx\+\_\+timer\+\_\+driver.\+c}}.\end{Desc}

@@ -1,0 +1,124 @@
+\doxysection{stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.h File Reference}
+\hypertarget{peripheral__config_8h}{}\label{peripheral__config_8h}\index{stm32f7xx\_driver/bsp/peripheral\_config.h@{stm32f7xx\_driver/bsp/peripheral\_config.h}}
+{\ttfamily \+\#include "{}stm32f7xx\+\_\+uart\+\_\+driver.\+h"{}}\newline
+{\ttfamily \+\#include "{}stm32f7xx\+\_\+gpio\+\_\+driver.\+h"{}}\newline
+{\ttfamily \+\#include "{}stm32f7xx\+\_\+timer\+\_\+driver.\+h"{}}\newline
+{\ttfamily \+\#include "{}nvic.\+h"{}}\newline
+Include dependency graph for peripheral\+\_\+config.\+h:\+
+% FIG 0
+This graph shows which files directly or indirectly include this file:\+
+% FIG 1
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga1d8ed4eda8ef2b3adc80c0de7b8d1897}{led\+\_\+setup\+\_\+blue}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}LED)
+\begin{DoxyCompactList}\small\item\em Configure blue LED (GPIO\+\_\+B pin 15). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga149103b303430f06e1bb902c91dfabea}{led\+\_\+setup\+\_\+red}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}LED)
+\item 
+void \doxymbox{\hyperlink{peripheral__config_8h_a732b9fd5baa226cd12b01d8159016a68}{button\+\_\+setup}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}BUTTON)
+\item 
+void \doxymbox{\hyperlink{peripheral__config_8h_ae7d9acb96739a1d81784b69563127982}{button\+\_\+interrupt\+\_\+setup}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}BUTTON)
+\item 
+void \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_gae862bef71de80c107ecac7ceab728b82}{usart3\+\_\+init}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}handler)
+\begin{DoxyCompactList}\small\item\em Initialize USART3 with default settings. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga59d034137a5e59672ddd16be41fb516a}{usart3\+\_\+tx}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}handler)
+\begin{DoxyCompactList}\small\item\em Configure USART3 TX pin (GPIO\+\_\+C pin 10). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga7598dcb2f135070c5fc9ee7298d861fa}{usart3\+\_\+rx}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}handler)
+\begin{DoxyCompactList}\small\item\em Configure USART3 RX pin (GPIO\+\_\+C pin 11). \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{peripheral__config_8h_abe324fe42a678f7bacd271db37bfb36b}{timer2\+\_\+setup}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}handler, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995ab}{Timer\+\_\+direction\+\_\+t}} direction)
+\item 
+void \doxymbox{\hyperlink{peripheral__config_8h_a4b456e45cc9e59d402e8872fdbd993b7}{timer2ch1}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}handler)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \doxymbox{\hyperlink{peripheral__config_8h_a4d477d59aad5b697be7db9678482140f}{g\+\_\+usart3}}
+\item 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \doxymbox{\hyperlink{peripheral__config_8h_a5ebfabcbd0cb54cba4ea3c39bc794a5d}{g\+\_\+led3}}
+\item 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \doxymbox{\hyperlink{peripheral__config_8h_a3d93d26f01991f8ddb47874f56610170}{g\+\_\+button}}
+\item 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \doxymbox{\hyperlink{peripheral__config_8h_a31bd06294777e39b760a6b82f6d2b13f}{g\+\_\+usart3\+\_\+tx}}
+\item 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \doxymbox{\hyperlink{peripheral__config_8h_a8c4bb0dbdac5c077024e78150213500f}{g\+\_\+usart3\+\_\+rx}}
+\item 
+\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \doxymbox{\hyperlink{peripheral__config_8h_a24ffbc2efdb5e4fe07ad0e8a1b6eeccf}{g\+\_\+timer2}}
+\item 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \doxymbox{\hyperlink{peripheral__config_8h_afccf372354e18524c982712ca006cf5e}{g\+\_\+timer2\+\_\+ch1}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{peripheral__config_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{peripheral__config_8h_ae7d9acb96739a1d81784b69563127982}\index{peripheral\_config.h@{peripheral\_config.h}!button\_interrupt\_setup@{button\_interrupt\_setup}}
+\index{button\_interrupt\_setup@{button\_interrupt\_setup}!peripheral\_config.h@{peripheral\_config.h}}
+\doxysubsubsection{\texorpdfstring{button\_interrupt\_setup()}{button\_interrupt\_setup()}}
+{\footnotesize\ttfamily \label{peripheral__config_8h_ae7d9acb96739a1d81784b69563127982} 
+void button\+\_\+interrupt\+\_\+setup (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{BUTTON}{}\end{DoxyParamCaption})}
+
+\Hypertarget{peripheral__config_8h_a732b9fd5baa226cd12b01d8159016a68}\index{peripheral\_config.h@{peripheral\_config.h}!button\_setup@{button\_setup}}
+\index{button\_setup@{button\_setup}!peripheral\_config.h@{peripheral\_config.h}}
+\doxysubsubsection{\texorpdfstring{button\_setup()}{button\_setup()}}
+{\footnotesize\ttfamily \label{peripheral__config_8h_a732b9fd5baa226cd12b01d8159016a68} 
+void button\+\_\+setup (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{BUTTON}{}\end{DoxyParamCaption})}
+
+\Hypertarget{peripheral__config_8h_abe324fe42a678f7bacd271db37bfb36b}\index{peripheral\_config.h@{peripheral\_config.h}!timer2\_setup@{timer2\_setup}}
+\index{timer2\_setup@{timer2\_setup}!peripheral\_config.h@{peripheral\_config.h}}
+\doxysubsubsection{\texorpdfstring{timer2\_setup()}{timer2\_setup()}}
+{\footnotesize\ttfamily \label{peripheral__config_8h_abe324fe42a678f7bacd271db37bfb36b} 
+void timer2\+\_\+setup (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handler}{, }\item[{\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995ab}{Timer\+\_\+direction\+\_\+t}}}]{direction}{}\end{DoxyParamCaption})}
+
+\Hypertarget{peripheral__config_8h_a4b456e45cc9e59d402e8872fdbd993b7}\index{peripheral\_config.h@{peripheral\_config.h}!timer2ch1@{timer2ch1}}
+\index{timer2ch1@{timer2ch1}!peripheral\_config.h@{peripheral\_config.h}}
+\doxysubsubsection{\texorpdfstring{timer2ch1()}{timer2ch1()}}
+{\footnotesize\ttfamily \label{peripheral__config_8h_a4b456e45cc9e59d402e8872fdbd993b7} 
+void timer2ch1 (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handler}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{peripheral__config_8h_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{peripheral__config_8h_a3d93d26f01991f8ddb47874f56610170}\index{peripheral\_config.h@{peripheral\_config.h}!g\_button@{g\_button}}
+\index{g\_button@{g\_button}!peripheral\_config.h@{peripheral\_config.h}}
+\doxysubsubsection{\texorpdfstring{g\_button}{g\_button}}
+{\footnotesize\ttfamily \label{peripheral__config_8h_a3d93d26f01991f8ddb47874f56610170} 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} g\+\_\+button\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{peripheral__config_8h_a5ebfabcbd0cb54cba4ea3c39bc794a5d}\index{peripheral\_config.h@{peripheral\_config.h}!g\_led3@{g\_led3}}
+\index{g\_led3@{g\_led3}!peripheral\_config.h@{peripheral\_config.h}}
+\doxysubsubsection{\texorpdfstring{g\_led3}{g\_led3}}
+{\footnotesize\ttfamily \label{peripheral__config_8h_a5ebfabcbd0cb54cba4ea3c39bc794a5d} 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} g\+\_\+led3\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{peripheral__config_8h_a24ffbc2efdb5e4fe07ad0e8a1b6eeccf}\index{peripheral\_config.h@{peripheral\_config.h}!g\_timer2@{g\_timer2}}
+\index{g\_timer2@{g\_timer2}!peripheral\_config.h@{peripheral\_config.h}}
+\doxysubsubsection{\texorpdfstring{g\_timer2}{g\_timer2}}
+{\footnotesize\ttfamily \label{peripheral__config_8h_a24ffbc2efdb5e4fe07ad0e8a1b6eeccf} 
+\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} g\+\_\+timer2\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{peripheral__config_8h_afccf372354e18524c982712ca006cf5e}\index{peripheral\_config.h@{peripheral\_config.h}!g\_timer2\_ch1@{g\_timer2\_ch1}}
+\index{g\_timer2\_ch1@{g\_timer2\_ch1}!peripheral\_config.h@{peripheral\_config.h}}
+\doxysubsubsection{\texorpdfstring{g\_timer2\_ch1}{g\_timer2\_ch1}}
+{\footnotesize\ttfamily \label{peripheral__config_8h_afccf372354e18524c982712ca006cf5e} 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} g\+\_\+timer2\+\_\+ch1\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{peripheral__config_8h_a4d477d59aad5b697be7db9678482140f}\index{peripheral\_config.h@{peripheral\_config.h}!g\_usart3@{g\_usart3}}
+\index{g\_usart3@{g\_usart3}!peripheral\_config.h@{peripheral\_config.h}}
+\doxysubsubsection{\texorpdfstring{g\_usart3}{g\_usart3}}
+{\footnotesize\ttfamily \label{peripheral__config_8h_a4d477d59aad5b697be7db9678482140f} 
+\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} g\+\_\+usart3\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{peripheral__config_8h_a8c4bb0dbdac5c077024e78150213500f}\index{peripheral\_config.h@{peripheral\_config.h}!g\_usart3\_rx@{g\_usart3\_rx}}
+\index{g\_usart3\_rx@{g\_usart3\_rx}!peripheral\_config.h@{peripheral\_config.h}}
+\doxysubsubsection{\texorpdfstring{g\_usart3\_rx}{g\_usart3\_rx}}
+{\footnotesize\ttfamily \label{peripheral__config_8h_a8c4bb0dbdac5c077024e78150213500f} 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} g\+\_\+usart3\+\_\+rx\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{peripheral__config_8h_a31bd06294777e39b760a6b82f6d2b13f}\index{peripheral\_config.h@{peripheral\_config.h}!g\_usart3\_tx@{g\_usart3\_tx}}
+\index{g\_usart3\_tx@{g\_usart3\_tx}!peripheral\_config.h@{peripheral\_config.h}}
+\doxysubsubsection{\texorpdfstring{g\_usart3\_tx}{g\_usart3\_tx}}
+{\footnotesize\ttfamily \label{peripheral__config_8h_a31bd06294777e39b760a6b82f6d2b13f} 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} g\+\_\+usart3\+\_\+tx\hspace{0.3cm}{\ttfamily [extern]}}
+

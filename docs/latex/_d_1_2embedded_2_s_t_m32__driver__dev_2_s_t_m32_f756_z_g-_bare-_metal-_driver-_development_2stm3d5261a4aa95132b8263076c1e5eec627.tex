@@ -1,0 +1,170 @@
+\doxysection{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+src/\+stm32f7xx\+\_\+timer\+\_\+driver.\+c}
+\hypertarget{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm3d5261a4aa95132b8263076c1e5eec627}{}\label{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm3d5261a4aa95132b8263076c1e5eec627}Initialize timer with specified configuration.
+
+Initialize timer with specified configuration
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in,out}}  & {\em timer\+\_\+handle} & Pointer to \doxylink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t} structure \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em void} & \\
+\hline
+\end{DoxyRetVals}
+Initializes a timer peripheral with the configuration stored in the handler structure. Sets up prescaler, period, and counting direction. Enables the timer clock automatically.
+
+{\bfseries{Initialization Steps:\+}}
+\begin{DoxyEnumerate}
+\item Enable timer clock via RCC
+\item Set prescaler value (TIM\+\_\+\+PSC)
+\item Set auto-\/reload value /\+ period (TIM\+\_\+\+ARR)
+\item Configure counting direction (up/\+down)
+\item Clear counter and flags
+\item Timer is disabled; use \doxylink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga39c741de08b18d032760b29b0763ec46}{Timer\+Control()} to start
+\end{DoxyEnumerate}
+
+{\bfseries{Register Mapping:\+}}
+\begin{DoxyItemize}
+\item TIM\+\_\+\+PSC:\+ Prescaler value (divides input clock)
+\item TIM\+\_\+\+ARR:\+ Auto-\/reload register (period -\/ 1)
+\item TIM\+\_\+\+CR1:\+ Control register (direction, enable bits)
+\item TIM\+\_\+\+CNT:\+ Counter value (current count)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em timer\+\_\+handle} & Handler with configuration:\+
+\begin{DoxyItemize}
+\item p\+Timer:\+ Base address of timer (TIMER2, TIMER3, etc.)
+\item Timer\+Config.\+Pre\+Scaler:\+ Clock divider value (1-\/65536)
+\item Timer\+Config.\+Period:\+ Reload value (1-\/65535)
+\item Timer\+Config.\+direction:\+ Up\+Counter (0) or Down\+Counter (1)
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Timer clock must be enabled in RCC before calling this function
+\item Handler must be properly initialized with configuration values
+\item After initialization, timer is stopped; call Timer\+Control(handle, ENABLE) to start
+\item Prescaler acts as (PSC + 1) divisor
+\item Period acts as (ARR + 1) reload count
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+
+\begin{DoxyItemize}
+\item Zero prescaler/\+period causes undefined behavior
+\item Invalid timer address causes register corruption
+\item Do not call while timer is running
+\end{DoxyItemize}
+\end{DoxyWarning}
+/\+/\+ Initialize TIMER2 for 1k\+Hz with 50\% PWM \doxylink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t} timer; timer.\+p\+Timer = TIMER2; timer.\+Timer\+Config.\+Pre\+Scaler = 16; /\+/\+ 1MHz after prescale timer.\+Timer\+Config.\+Period = 1000; /\+/\+ 1k\+Hz frequency timer.\+Timer\+Config.\+direction = Up\+Counter; Timer\+Init(\&timer); Timer\+Control(\&timer, ENABLE);
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga39c741de08b18d032760b29b0763ec46}{Timer\+Control()}, \doxylink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae1f2c21be6c10594144a9665d427913a}{Timer\+Set\+Frequency()}
+\end{DoxySeeAlso}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h}{stm32f7xx\_timer\_driver.h}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ INPUT\_CLK\_FREQ\ \ \ \ \ \ (16000000)}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ TARGET\_CLK\_FREQ\ \ \ \ \ (100000)}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gac618b969375cadd9a01aad1c6c937843}{TimerInit}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}*\ timer\_handle)\ \{}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a74944438a086975793d26ae48d5882d4}{RCC}}-\/>APB1ENR\ |=\ (1\ <<\ 0);}
+\DoxyCodeLine{\ \ \ \ timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}\ =\ \doxymbox{\hyperlink{stm32f756zg__reg_8h_aca904d0e4ebb6d643c349f7f05613995}{TIMER2}};}
+\DoxyCodeLine{\ \ \ \ timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a8fcbe5806efacf71a8754cb3c00c7f56}{TIM\_PSC}}\ =\ timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a696b8d9bcd1e51fc8c6f486b0cde5695}{TimerConfig}}.\doxymbox{\hyperlink{struct_t_i_m_e_r__config__t_aa59539d70b5f643739d13a73df5e3b92}{PreScaler}}\ -\/\ 1;}
+\DoxyCodeLine{\ \ \ \ timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a8f4c0512f1e6e47551a224fd2110c4da}{TIM\_ARR}}\ =\ timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a696b8d9bcd1e51fc8c6f486b0cde5695}{TimerConfig}}.\doxymbox{\hyperlink{struct_t_i_m_e_r__config__t_a92d09ae84c50e4ede5a45f9f13dfa7ca}{Period}}\ -\/\ 1;}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a696b8d9bcd1e51fc8c6f486b0cde5695}{TimerConfig}}.\doxymbox{\hyperlink{struct_t_i_m_e_r__config__t_aaad35965f0e77b555cab6b6e4c2db572}{direction}}\ ==\ 1)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_ae8be263c030be47af453c1d77960b0c7}{TIM\_CR1}}\ |=\ (1\ <<\ 4);}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_ae8be263c030be47af453c1d77960b0c7}{TIM\_CR1}}\ \&=\ \string~(1\ <<\ 4);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_ab1d21520b362e4db802606617bc19c84}{TIM\_CNT}}\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga69ce4a6dc85b92851e31ab4fbe15c698}{TimerResetFlag}}(timer\_handle,\ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415cace2c7156691618a2dc591ee80ae4e47a}{Timer\_Flag\_UIF}});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga39c741de08b18d032760b29b0763ec46}{TimerControl}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}*\ timer\_handle,\ uint16\_t\ state)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (state)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_ae8be263c030be47af453c1d77960b0c7}{TIM\_CR1}}\ |=\ (1\ <<\ 0);}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_ae8be263c030be47af453c1d77960b0c7}{TIM\_CR1}}\ \&=\ \string~(1\ <<\ 0);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{uint32\_t\ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga957b4db743c38c3da54705a3c57f4cdb}{TimerGetCount}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}*\ timer\_handle)\ \{}
+\DoxyCodeLine{\ \ \ \ uint32\_t\ timer\_count\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ timer\_count\ =\ timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_ab1d21520b362e4db802606617bc19c84}{TIM\_CNT}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ timer\_count;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{uint8\_t\ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gabe5f8fa6ae1672da6717f16ca393b6d6}{TimerGetFlagStatus}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}*\ timer\_handle,\ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415c}{Timer\_flags\_t}}\ Flag)\ \{}
+\DoxyCodeLine{\ \ \ \ uint8\_t\ status\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a66ef3a78d2530959b43c766179a81895}{TIM\_SR}}\ \&\ Flag)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ status\ =\ 1;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ status;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga69ce4a6dc85b92851e31ab4fbe15c698}{TimerResetFlag}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}*\ timer\_handle,\ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a6bbb71143324cd30ae20014c74bf415c}{Timer\_flags\_t}}\ Flag)\ \{}
+\DoxyCodeLine{\ \ \ \ timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a66ef3a78d2530959b43c766179a81895}{TIM\_SR}}\ \&=\ \string~(Flag);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae1f2c21be6c10594144a9665d427913a}{TimerSetFrequency}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}*\ handler,\ uint32\_t\ freq)\ \{}
+\DoxyCodeLine{\ \ \ \ uint32\_t\ timer\_clk\ =\ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8c_a7d33d45e1b61bbb4301133e4e20c34dc}{INPUT\_CLK\_FREQ}};}
+\DoxyCodeLine{\ \ \ \ uint32\_t\ total\_counts\ =\ timer\_clk\ /\ freq;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Choose\ ARR\ first\ (good\ resolution)}}
+\DoxyCodeLine{\ \ \ \ uint32\_t\ arr\ =\ 1000;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Compute\ prescaler}}
+\DoxyCodeLine{\ \ \ \ uint32\_t\ prescaler\ =\ total\_counts\ /\ arr;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ handler-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a696b8d9bcd1e51fc8c6f486b0cde5695}{TimerConfig}}.\doxymbox{\hyperlink{struct_t_i_m_e_r__config__t_aa59539d70b5f643739d13a73df5e3b92}{PreScaler}}\ =\ prescaler;}
+\DoxyCodeLine{\ \ \ \ handler-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a696b8d9bcd1e51fc8c6f486b0cde5695}{TimerConfig}}.\doxymbox{\hyperlink{struct_t_i_m_e_r__config__t_a92d09ae84c50e4ede5a45f9f13dfa7ca}{Period}}\ =\ arr;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga0b08f6fe8b7f71e4b008f71708340d7e}{TimerPWM\_init}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}*\ timer\_handle,\ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26}{Timer\_channel\_t}}\ Channel)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ *ccmr;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ ccmr\ =\ (Channel\ <=\ 2)\ ?\ \&timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a26f79f20a0727743b4679570996494aa}{TIM\_CCMR1}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ \&timer\_handle-\/>pTimer-\/>TIM\_CCMR2;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ uint8\_t\ shift\ =\ ((Channel\ -\/\ 1)\ \%\ 2)\ *\ 8;}
+\DoxyCodeLine{\ \ \ \ *ccmr\ \&=\ \string~(3\ <<\ shift);}
+\DoxyCodeLine{\ \ \ \ *ccmr\ \&=\ \string~(7\ <<\ (shift\ +\ 4));}
+\DoxyCodeLine{\ \ \ \ *ccmr\ |=\ (6\ <<\ (shift\ +\ 4));}
+\DoxyCodeLine{\ \ \ \ *ccmr\ |=\ (1\ <<\ (shift\ +\ 3));}
+\DoxyCodeLine{\ \ \ \ timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_ae8be263c030be47af453c1d77960b0c7}{TIM\_CR1}}\ |=\ (1\ <<\ 7);}
+\DoxyCodeLine{\ \ \ \ timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_ae382617dc2d75327259f2831ab45cf86}{TIM\_CCER}}\ |=\ (1\ <<\ (4\ *\ (Channel\ -\/\ 1)));}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ *ccr\ =\ \&timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_aeb1373fe8bf578cf811478d8a058e761}{TIM\_CCR1}}\ +\ (Channel\ -\/\ 1);}
+\DoxyCodeLine{\ \ \ \ *ccr\ =\ 0;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___t_i_m_e_r___f_u_n_c_t_i_o_n_s_ga222542f8ca62ee0071c754f8008949c4}{TimerPWM\_DutyCycle}}(\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\_handler\_t}}*\ timer\_handle,\ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26}{Timer\_channel\_t}}\ Channel,\ uint8\_t\ DutyCycle)\ \{}
+\DoxyCodeLine{\ \ \ \ uint32\_t\ arr;}
+\DoxyCodeLine{\ \ \ \ uint32\_t\ ccr;}
+\DoxyCodeLine{\ \ \ \ arr\ =\ timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_a8f4c0512f1e6e47551a224fd2110c4da}{TIM\_ARR}};}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (DutyCycle\ ==\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ccr\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (DutyCycle\ >=\ 100)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ccr\ =\ arr;}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ccr\ =\ ((arr\ +\ 1)\ *\ DutyCycle)\ /\ 100;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ *ccr\_reg\ =\ \&timer\_handle-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t_a5766c5b9f607b3a2f879228f9d94cedc}{pTimer}}-\/>\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t_aeb1373fe8bf578cf811478d8a058e761}{TIM\_CCR1}}\ +\ (Channel\ -\/\ 1);}
+\DoxyCodeLine{\ \ \ \ *ccr\_reg\ =\ ccr;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\ \textcolor{comment}{//\ end\ of\ TIMER\_FUNCTIONS}}
+
+\end{DoxyCodeInclude}
+ 
