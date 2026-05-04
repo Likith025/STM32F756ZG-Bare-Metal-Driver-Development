@@ -8,6 +8,7 @@
 #include "stm32f7xx_uart_driver.h"
 #include "stm32f7xx_timer_driver.h"
 #include "peripheral_config.h"
+#include "stm32f7xx_spi.h"
 
 
 USART_handler_t g_usart3 = {0};
@@ -19,6 +20,9 @@ GPIO_handler_t g_timer2_ch1={0};
 TIMER_handler_t g_timer2={0};
 
 
+
+static void usart3_rx(GPIO_handler_t *handler);
+static void usart3_tx(GPIO_handler_t *handler);
 
 
 void led_setup_blue(GPIO_handler_t *LED){
@@ -77,9 +81,11 @@ void usart3_init(USART_handler_t *handler){
     handler->UASRT_Rxstate=USART_FREE;
 
     USART_init(handler, ENABLE);
+    usart3_tx(&g_usart3_tx);
+    usart3_rx(&g_usart3_rx);
 }
 
-void usart3_tx(GPIO_handler_t *handler){
+static void usart3_tx(GPIO_handler_t *handler){
     if(handler == NULL) return;
     
     // Configure TX pin on PD8
@@ -95,7 +101,7 @@ void usart3_tx(GPIO_handler_t *handler){
     GPIO_init(handler);
 }
 
-void usart3_rx(GPIO_handler_t *handler){
+static void usart3_rx(GPIO_handler_t *handler){
     if(handler == NULL) return;
     
     // Configure RX pin on PD9
@@ -126,4 +132,60 @@ void timer2ch1(GPIO_handler_t* handler){
 void timer2_setup(TIMER_handler_t* handler,Timer_direction_t direction){
 	handler->TimerConfig.direction=direction;
 	TimerInit(handler);
+}
+
+//
+//void spi2_CS_pin(GPIO_handler_t* handler){
+//	handler->pGPIOx=GPIO_B;
+//	handler->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_ALTERNATE_FUN;
+//	handler->GPIO_pin_config.GPIO_PinNumber=12;
+//	handler->GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
+//	handler->GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
+//	handler->GPIO_pin_config.GPIO_PinAltFun=5;
+//
+//
+//    GPIO_clk_init(GPIO_B, ENABLE);
+//    GPIO_init(handler);
+//}
+//void spi2_Clk_pin(GPIO_handler_t* handler){
+//	handler->pGPIOx=GPIO_B;
+//	handler->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_ALTERNATE_FUN;
+//	handler->GPIO_pin_config.GPIO_PinNumber=13;
+//	handler->GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
+//	handler->GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
+//	handler->GPIO_pin_config.GPIO_PinAltFun=5;
+//
+//
+//    GPIO_clk_init(GPIO_B, ENABLE);
+//    GPIO_init(handler);
+//}
+//void spi2_MISO_pin(GPIO_handler_t* handler){
+//	handler->pGPIOx=GPIO_B;
+//	handler->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_ALTERNATE_FUN;
+//	handler->GPIO_pin_config.GPIO_PinNumber=14;
+//	handler->GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
+//	handler->GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
+//	handler->GPIO_pin_config.GPIO_PinAltFun=5;
+//
+//
+//    GPIO_clk_init(GPIO_B, ENABLE);
+//    GPIO_init(handler);
+//}
+//void spi2_MOSI_pin(GPIO_handler_t* handler){
+//	handler->pGPIOx=GPIO_B;
+//	handler->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_ALTERNATE_FUN;
+//	handler->GPIO_pin_config.GPIO_PinNumber=15;
+//	handler->GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
+//	handler->GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
+//	handler->GPIO_pin_config.GPIO_PinAltFun=5;
+//
+//
+//    GPIO_clk_init(GPIO_B, ENABLE);
+//    GPIO_init(handler);
+//}
+void spi2_init(spi_handler_t SPI_Handle){
+	SPI_Handle.SPIConfig.SPI_BusConfig=1;
+	SPI_Handle.SPIConfig.SPI_CPHA=1;
+	SPI_Handle.SPIConfig.SPI_CPOL=1;
+
 }

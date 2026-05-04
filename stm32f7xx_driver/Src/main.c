@@ -18,65 +18,115 @@
 
 #include <stdint.h>
 #include <string.h>
-#include <stdio.h>
 #include "peripheral_config.h"
-#include "stm32f7xx_timer_driver.h"
-#include "stm32f7xx_uart_driver.h"
 #include <stm32f756zg_reg.h>
+#include "stm32f7xx_spi.h"
+#include "stm32f7xx_gpio_driver.h"
 
 
+spi_handler_t spi_demo;
+Status_t state;
+
+GPIO_handler_t cs,clk,miso,mosi;
+
+void spi2_CS_pin(GPIO_handler_t* handler){
+    handler->pGPIOx = GPIO_B;
+    handler->GPIO_pin_config.GPIO_PinMode = GPIO_MODE_OUTPUT;  // not AF
+    handler->GPIO_pin_config.GPIO_PinNumber = 12;
+    handler->GPIO_pin_config.GPIO_PinOutSpeed = GPIO_OPSPEED_LOW;
+    handler->GPIO_pin_config.GPIO_PinPushPullResistor = GPIO_PUPD_NO;
+    // no AltFun needed
+
+    GPIO_clk_init(GPIO_B, ENABLE);
+    GPIO_init(handler);
+}
+void spi2_Clk_pin(GPIO_handler_t* handler){
+	handler->pGPIOx=GPIO_B;
+	handler->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_ALTERNATE_FUN;
+	handler->GPIO_pin_config.GPIO_PinNumber=13;
+	handler->GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
+	handler->GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
+	handler->GPIO_pin_config.GPIO_PinAltFun=5;
 
 
-uint8_t rx_byte;
+    GPIO_clk_init(GPIO_B, ENABLE);
+    GPIO_init(handler);
+}
+void spi2_MISO_pin(GPIO_handler_t* handler){
+	handler->pGPIOx=GPIO_B;
+	handler->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_ALTERNATE_FUN;
+	handler->GPIO_pin_config.GPIO_PinNumber=14;
+	handler->GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
+	handler->GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
+	handler->GPIO_pin_config.GPIO_PinAltFun=5;
 
-GPIO_RegDef_t *led;
-uint8_t button_state;
-uint32_t count=0;
-char buffer[20];
-int len=0;
 
-uint16_t get_cnt(uint8_t dc){
-	return	((1000*dc)/100);
+    GPIO_clk_init(GPIO_B, ENABLE);
+    GPIO_init(handler);
+}
+void spi2_MOSI_pin(GPIO_handler_t* handler){
+	handler->pGPIOx=GPIO_B;
+	handler->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_ALTERNATE_FUN;
+	handler->GPIO_pin_config.GPIO_PinNumber=15;
+	handler->GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
+	handler->GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
+	handler->GPIO_pin_config.GPIO_PinAltFun=5;
+
+
+    GPIO_clk_init(GPIO_B, ENABLE);
+    GPIO_init(handler);
 }
 
+uint8_t  buffer[6]={'l','i','k','i','t','h'};
 	int main(void)
 	{
-		usart3_tx(&g_usart3_tx);
-		usart3_rx(&g_usart3_rx);
-		usart3_init(&g_usart3);
-		IntrruptConfig(IRQ_NO_USART3, 5, ENABLE);
-		USART_SendData_IT(&g_usart3, (uint8_t*)"Parser_Started\n\r", sizeof("Parser_Started\n\r"));
-	    TimerSetFrequency(&g_timer2, 5000);
-	    timer2_setup(&g_timer2, UpCounter);
-	    TimerPWM_init(&g_timer2,CH1);
-	    timer2ch1(&g_timer2_ch1);
+		spi2_CS_pin(&cs);
+		spi2_Clk_pin(&clk);
+		spi2_MISO_pin(&miso);
+		spi2_MOSI_pin(&mosi);
 
+		// 2. Configure SPI
+		spi_handler_t spi2;
+		spi2.pspi = SPI2;
+		spi2.SPIConfig.SPI_DeviceMode = Master_Mode;
+		spi2.SPIConfig.SPI_BusConfig  = SPI_BUS_Full_Duplex;
+		spi2.SPIConfig.SPI_CPHA       = 1;
+		spi2.SPIConfig.SPI_CPOL       = 0;
+		spi2.SPIConfig.SPI_ClkSpeed   = SPI_CLK_DIV256;
+		spi2.SPIConfig.SPI_SSM        = SPI_Software_SlaveSelect;
+		spi2.SPIConfig.SPI_ByteOrder  = SPI_MSB_First;
+		spi2.SPIConfig.SPI_FrameSize  = 7; // 8-bit = DS[3:0] = 0111
 
-	    TimerPWM_DutyCycle(&g_timer2,CH1,90);
-//	    timer2ch1(&g_timer2_ch1);
+		GPIO_WritePin(GPIO_B, 12, 1);
+		SPI_init(&spi2);
+		SPI_Start(SPI2, ENABLE);
 
-	    TimerControl(&g_timer2, ENABLE);
-//	    g_timer2.pTimer->TIM_PSC = 15999;
-//	    g_timer2.pTimer->TIM_ARR = 999;
-//
-//	    // update
-//	    g_timer2.pTimer->TIM_EGR |= (1 << 0);
-//
-//	    // 50% duty
-//	    g_timer2.pTimer->TIM_CCR1 = 500;
-//
-//	    // start
-//	    g_timer2.pTimer->TIM_CR1 |= (1 << 0);
+		// 3. Hardcoded send in while loop
+		while(1){
+		    // Pull CS low FIRST
+		    GPIO_WritePin(GPIO_B, 12, 0);
 
-	    while(1){
-//	    	for(volatile int i =0;i<1000000;i++){
-//
-//	    	}
-//		    TimerPWM_DutyCycle(&g_timer2,CH1,90);
-	    }
-	}
+		    // Small setup time
+		    for(volatile int i = 0; i < 50; i++);
 
-	void USART3_IRQHandler(void){
-	    USART_IRQHandler(&g_usart3);
-	}
+		    // Now check TXE and send
+		    while(!(SPI2->SPI_SR & (1<<1)));
+		    for(int i=0;i<(6);i++)
+		    {
+		    	  while(!(SPI2->SPI_SR & (1<<1)));
+		    *((volatile uint8_t*)&SPI2->SPI_DR) = *(buffer+i);
+		    }
+		    // Wait for transmission complete
 
+		    while(SPI2->SPI_SR & (1<<7));     // wait BSY clear
+
+		    // Small hold time
+		    for(volatile int i = 0; i < 50; i++);
+
+		    // Pull CS high
+		    GPIO_WritePin(GPIO_B, 12, 1);
+
+		    // Delay between transactions
+		    for(volatile int i = 0; i < 100000; i++);
+		}
+}

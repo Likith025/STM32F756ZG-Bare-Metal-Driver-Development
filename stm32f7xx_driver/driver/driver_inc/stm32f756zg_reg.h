@@ -83,8 +83,14 @@ typedef struct
 
 
 //Defining BASE address of peripherals of APB2 BUS regions
+#define SPI1_BASE_ADDR		(APB2_PERIPH_BASE_ADDR+0x3000)
+#define SPI4_BASE_ADDR		(APB2_PERIPH_BASE_ADDR+0X3400)
+#define SPI5_BASE_ADDR		(APB2_PERIPH_BASE_ADDR+0X5000)
+#define SPI6_BASE_ADDR		(APB2_PERIPH_BASE_ADDR+0X5400)
+
 #define	EXTI_BASE_ADDR		(APB2_PERIPH_BASE_ADDR+0x3C00)
 #define SYSCFG_BASE_ADDR	(APB2_PERIPH_BASE_ADDR+0x3800)
+
 
 //defining base address of peripherals of AHB1 bus
 #define GPIOA_BASE_ADDR		(AHB1_PERIPH_BASE_ADDR+0x0)
@@ -129,6 +135,13 @@ typedef struct
 #define SYSCFG	((SYSCFG_RegDef_t*)SYSCFG_BASE_ADDR)
 
 #define TIMER2 ((TIMER_RegDef_t*)TIMMER_2_BASE_ADDR)
+
+#define SPI1	((SPI_RegDef_t*)SPI1_BASE_ADDR)
+#define SPI2	((SPI_RegDef_t*)SPI2_BASE_ADDR)
+#define SPI3	((SPI_RegDef_t*)SPI3_BASE_ADDR)
+#define SPI4	((SPI_RegDef_t*)SPI4_BASE_ADDR)
+#define SPI5	((SPI_RegDef_t*)SPI5_BASE_ADDR)
+#define SPI6	((SPI_RegDef_t*)SPI6_BASE_ADDR)
 
 
 //IRQ numbers
@@ -259,6 +272,29 @@ typedef struct{
 
 
 }TIMER_RegDef_t;
+
+typedef struct{
+	volatile uint32_t SPI_CR1;
+	volatile uint32_t SPI_CR2;
+	volatile uint32_t SPI_SR;
+	volatile uint32_t SPI_DR;
+	volatile uint32_t SPI_CRCPR;
+	volatile uint32_t SPI_RXCRCR;
+	volatile uint32_t SPI_TXCRCR;
+	volatile uint32_t SPI_I2SCFGR;
+	volatile uint32_t SPI_I2SPR;
+
+}SPI_RegDef_t;
+
+
+typedef enum
+{
+    STATUS_OK = 0,
+    STATUS_ERROR,
+    STATUS_BUSY,
+    STATUS_TIMEOUT,
+    STATUS_INVALID_PARAM
+} Status_t;
 
 #include "stm32f7xx_gpio_driver.h"
 

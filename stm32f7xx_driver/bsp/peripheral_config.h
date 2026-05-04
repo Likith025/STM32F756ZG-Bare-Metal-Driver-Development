@@ -12,6 +12,7 @@
 #include "stm32f7xx_gpio_driver.h"
 #include "stm32f7xx_timer_driver.h"
 #include "nvic.h"
+#include "stm32f7xx_spi.h"
 
 extern USART_handler_t g_usart3;
 extern GPIO_handler_t g_led3;
@@ -28,8 +29,6 @@ void led_setup_red(GPIO_handler_t *LED);
 void button_setup(GPIO_handler_t *BUTTON);
 void button_interrupt_setup(GPIO_handler_t *BUTTON);
 void usart3_init(USART_handler_t *handler);
-void usart3_tx(GPIO_handler_t *handler);
-void usart3_rx(GPIO_handler_t *handler);
 void timer2_setup(TIMER_handler_t* handler,Timer_direction_t direction);
 void timer2ch1(GPIO_handler_t* handler);
 
