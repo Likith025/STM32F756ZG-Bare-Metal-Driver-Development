@@ -190,4 +190,73 @@ void SPI_Start(SPI_RegDef_t* pSPI,uint8_t enable){
 
 	}
 }
+Status_t SPI_SendData(
+        spi_handler_t *pSPIHandle,
+        void *pTxBuffer,
+        uint32_t FrameCount)
+{
+    /* Parameter validation */
+    if(pSPIHandle == NULL || pTxBuffer == NULL || FrameCount == 0)
+    {
+        return STATUS_INVALID_PARAM;
+    }
+
+    /* Check if SPI busy */
+    if(pSPIHandle->pspi->SPI_SR & (1 << SPI_SR_BSY_Pos))
+    {
+        return STATUS_BUSY;
+    }
+
+    /* =================================
+       DATASIZE > 8 BITS
+       ================================= */
+    if(pSPIHandle->SPIConfig.SPI_FrameSize > 7)
+    {
+        uint16_t *pData = (uint16_t*)pTxBuffer;
+
+        while(FrameCount > 0)
+        {
+            /* Wait TXE */
+            while(!(pSPIHandle->pspi->SPI_SR &
+                   (1 << SPI_SR_TXE_Pos)));
+
+            /* 16-bit write */
+            *((volatile uint16_t*)
+                &pSPIHandle->pspi->SPI_DR) = *pData;
+
+            pData++;
+            FrameCount--;
+        }
+    }
+
+
+    else
+    {
+        uint8_t *pData = (uint8_t*)pTxBuffer;
+
+        while(FrameCount > 0)
+        {
+            /* Wait TXE */
+            while(!(pSPIHandle->pspi->SPI_SR &
+                   (1 << SPI_SR_TXE_Pos)));
+
+            /* 8-bit write */
+            *((volatile uint8_t*)
+                &pSPIHandle->pspi->SPI_DR) = *pData;
+
+            pData++;
+            FrameCount--;
+        }
+    }
+
+    /* Wait TXE */
+    while(!(pSPIHandle->pspi->SPI_SR &
+           (1 << SPI_SR_TXE_Pos)));
+
+    /* Wait BSY clear */
+    while(pSPIHandle->pspi->SPI_SR &
+         (1 << SPI_SR_BSY_Pos));
+
+    return STATUS_OK;
+}
 //Status_t SPI_SendData()

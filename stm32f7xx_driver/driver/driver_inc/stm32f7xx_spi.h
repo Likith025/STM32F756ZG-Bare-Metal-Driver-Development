@@ -23,6 +23,9 @@
 
 #define SPI_CR2_DS_Pos       8U
 
+#define SPI_SR_RXNE_Pos		0U
+#define SPI_SR_TXE_Pos		1U
+#define SPI_SR_BSY_Pos		7U
 
 
 typedef enum{
@@ -91,4 +94,5 @@ typedef struct{
 Status_t SPI_init(spi_handler_t* spi_handle);
 Status_t SPI_clk_init(const SPI_RegDef_t* spi_ptr,const uint8_t enable);
 void SPI_Start(SPI_RegDef_t* pSPI,uint8_t enable);
+Status_t SPI_SendData(spi_handler_t *pSPIHandle,void *pTxBuffer,uint32_t FrameCount);
 #endif /* DRIVER_INC_STM32F7XX_SPI_H_ */
