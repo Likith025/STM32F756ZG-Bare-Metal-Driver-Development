@@ -10,6 +10,6 @@
 
 void button_led(void);
 void led_blink(void);
-void button_led_inttrupt(void);
+void button_led_interrupt(void);
 
 #endif /* INC_GPIO_H_ */
