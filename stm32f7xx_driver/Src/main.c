@@ -16,117 +16,117 @@
  ******************************************************************************
  */
 
-#include <stdint.h>
-#include <string.h>
-#include "peripheral_config.h"
-#include <stm32f756zg_reg.h>
-#include "stm32f7xx_spi.h"
-#include "stm32f7xx_gpio_driver.h"
+
+#include "GPIO.h"
 
 
-spi_handler_t spi_demo;
-Status_t state;
+int main()
+{
+	//button_led_inttrupt();
+	button_led_inttrupt();
 
-GPIO_handler_t cs,clk,miso,mosi;
-
-void spi2_CS_pin(GPIO_handler_t* handler){
-    handler->pGPIOx = GPIO_B;
-    handler->GPIO_pin_config.GPIO_PinMode = GPIO_MODE_OUTPUT;  // not AF
-    handler->GPIO_pin_config.GPIO_PinNumber = 12;
-    handler->GPIO_pin_config.GPIO_PinOutSpeed = GPIO_OPSPEED_LOW;
-    handler->GPIO_pin_config.GPIO_PinPushPullResistor = GPIO_PUPD_NO;
-    // no AltFun needed
-
-    GPIO_clk_init(GPIO_B, ENABLE);
-    GPIO_init(handler);
-}
-void spi2_Clk_pin(GPIO_handler_t* handler){
-	handler->pGPIOx=GPIO_B;
-	handler->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_ALTERNATE_FUN;
-	handler->GPIO_pin_config.GPIO_PinNumber=13;
-	handler->GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
-	handler->GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
-	handler->GPIO_pin_config.GPIO_PinAltFun=5;
-
-
-    GPIO_clk_init(GPIO_B, ENABLE);
-    GPIO_init(handler);
-}
-void spi2_MISO_pin(GPIO_handler_t* handler){
-	handler->pGPIOx=GPIO_B;
-	handler->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_ALTERNATE_FUN;
-	handler->GPIO_pin_config.GPIO_PinNumber=14;
-	handler->GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
-	handler->GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
-	handler->GPIO_pin_config.GPIO_PinAltFun=5;
-
-
-    GPIO_clk_init(GPIO_B, ENABLE);
-    GPIO_init(handler);
-}
-void spi2_MOSI_pin(GPIO_handler_t* handler){
-	handler->pGPIOx=GPIO_B;
-	handler->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_ALTERNATE_FUN;
-	handler->GPIO_pin_config.GPIO_PinNumber=15;
-	handler->GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
-	handler->GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
-	handler->GPIO_pin_config.GPIO_PinAltFun=5;
-
-
-    GPIO_clk_init(GPIO_B, ENABLE);
-    GPIO_init(handler);
+	return 0;
 }
 
-uint8_t  buffer[6]={'l','i','k','i','t','h'};
-	int main(void)
-	{
-		spi2_CS_pin(&cs);
-		spi2_Clk_pin(&clk);
-		spi2_MISO_pin(&miso);
-		spi2_MOSI_pin(&mosi);
-
-		// 2. Configure SPI
-		spi_handler_t spi2;
-		spi2.pspi = SPI2;
-		spi2.SPIConfig.SPI_DeviceMode = Master_Mode;
-		spi2.SPIConfig.SPI_BusConfig  = SPI_BUS_Full_Duplex;
-		spi2.SPIConfig.SPI_CPHA       = 1;
-		spi2.SPIConfig.SPI_CPOL       = 0;
-		spi2.SPIConfig.SPI_ClkSpeed   = SPI_CLK_DIV256;
-		spi2.SPIConfig.SPI_SSM        = SPI_Software_SlaveSelect;
-		spi2.SPIConfig.SPI_ByteOrder  = SPI_MSB_First;
-		spi2.SPIConfig.SPI_FrameSize  = 7; // 8-bit = DS[3:0] = 0111
-
-		GPIO_WritePin(GPIO_B, 12, 1);
-		SPI_init(&spi2);
-		SPI_Start(SPI2, ENABLE);
-
-		// 3. Hardcoded send in while loop
-		while(1){
-		    // Pull CS low FIRST
-		    GPIO_WritePin(GPIO_B, 12, 0);
-
-		    // Small setup time
-		    for(volatile int i = 0; i < 50; i++);
-
-		    // Now check TXE and send
-		    while(!(SPI2->SPI_SR & (1<<1)));
-		    for(int i=0;i<(6);i++)
-		    {
-		    	  while(!(SPI2->SPI_SR & (1<<1)));
-		    *((volatile uint8_t*)&SPI2->SPI_DR) = *(buffer+i);
-		    }
-		    // Wait for transmission complete
-
-		    while(SPI2->SPI_SR & (1<<7));     // wait BSY clear
-
-		    // Small hold time
-		    for(volatile int i = 0; i < 50; i++);
-
-		    // Pull CS high
-		    GPIO_WritePin(GPIO_B, 12, 1);
-
-		    // Delay between transactions
-		    for(volatile int i = 0; i < 100000; i++);
-		}
-}
+//
+//spi_handler_t spi_demo;
+//Status_t state;
+//
+//GPIO_handler_t cs,clk,miso,mosi;
+//
+//void spi2_CS_pin(GPIO_handler_t* handler){
+//    handler->pGPIOx = GPIO_B;
+//    handler->GPIO_pin_config.GPIO_PinMode = GPIO_MODE_OUTPUT;  // not AF
+//    handler->GPIO_pin_config.GPIO_PinNumber = 12;
+//    handler->GPIO_pin_config.GPIO_PinOutSpeed = GPIO_OPSPEED_LOW;
+//    handler->GPIO_pin_config.GPIO_PinPushPullResistor = GPIO_PUPD_NO;
+//    // no AltFun needed
+//
+//    GPIO_clk_init(GPIO_B, ENABLE);
+//    GPIO_init(handler);
+//}
+//void spi2_Clk_pin(GPIO_handler_t* handler){
+//	handler->pGPIOx=GPIO_B;
+//	handler->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_ALTERNATE_FUN;
+//	handler->GPIO_pin_config.GPIO_PinNumber=13;
+//	handler->GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
+//	handler->GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
+//	handler->GPIO_pin_config.GPIO_PinAltFun=5;
+//
+//
+//    GPIO_clk_init(GPIO_B, ENABLE);
+//    GPIO_init(handler);
+//}
+//void spi2_MISO_pin(GPIO_handler_t* handler){
+//	handler->pGPIOx=GPIO_B;
+//	handler->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_ALTERNATE_FUN;
+//	handler->GPIO_pin_config.GPIO_PinNumber=14;
+//	handler->GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
+//	handler->GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
+//	handler->GPIO_pin_config.GPIO_PinAltFun=5;
+//
+//
+//    GPIO_clk_init(GPIO_B, ENABLE);
+//    GPIO_init(handler);
+//}
+//void spi2_MOSI_pin(GPIO_handler_t* handler){
+//	handler->pGPIOx=GPIO_B;
+//	handler->GPIO_pin_config.GPIO_PinMode=GPIO_MODE_ALTERNATE_FUN;
+//	handler->GPIO_pin_config.GPIO_PinNumber=15;
+//	handler->GPIO_pin_config.GPIO_PinOutSpeed=GPIO_OPSPEED_LOW;
+//	handler->GPIO_pin_config.GPIO_PinPushPullResistor=GPIO_PUPD_NO;
+//	handler->GPIO_pin_config.GPIO_PinAltFun=5;
+//
+//
+//    GPIO_clk_init(GPIO_B, ENABLE);
+//    GPIO_init(handler);
+//}
+//
+//uint8_t  buffer[]={'L','I','K','I'};
+//uint8_t data[] = {0xABCD};
+//	int main(void)
+//	{
+//		spi2_CS_pin(&cs);
+//		spi2_Clk_pin(&clk);
+//		spi2_MISO_pin(&miso);
+//		spi2_MOSI_pin(&mosi);
+//
+//		// 2. Configure SPI
+//		spi_handler_t spi2;
+//		spi2.pspi = SPI2;
+//		spi2.SPIConfig.SPI_DeviceMode = Master_Mode;
+//		spi2.SPIConfig.SPI_BusConfig  = SPI_BUS_Full_Duplex;
+//		spi2.SPIConfig.SPI_CPHA       = 0;
+//		spi2.SPIConfig.SPI_CPOL       = 0;
+//		spi2.SPIConfig.SPI_ClkSpeed   = SPI_CLK_DIV256;
+//		spi2.SPIConfig.SPI_SSM        = SPI_Software_SlaveSelect;
+//		spi2.SPIConfig.SPI_ByteOrder  = SPI_MSB_First;
+//		spi2.SPIConfig.SPI_FrameSize  = 16;
+//
+//		GPIO_WritePin(GPIO_B, 12, 1);
+//		SPI_init(&spi2);
+//		SPI_Start(SPI2, ENABLE);
+//
+//		// 3. Hardcoded send in while loop
+//		while(1)
+//		{
+//		    GPIO_WritePin(GPIO_B, 12, 0);
+//
+//		    Status_t status =
+//		            SPI_SendData(&spi2,buffer, 2);
+//
+//		    GPIO_WritePin(GPIO_B, 12, 1);
+//
+//		    if(status == STATUS_BUSY)
+//		    {
+//		        continue;
+//		    }
+//
+//		    if(status == STATUS_INVALID_PARAM)
+//		    {
+//		        while(1);
+//		    }
+//
+//		    for(volatile int i = 0; i < 100000; i++);
+//		}
+//}
