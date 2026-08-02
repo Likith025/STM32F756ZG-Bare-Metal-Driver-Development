@@ -34,12 +34,12 @@ var stm32f7xx__timer__driver_8h =
       [ "Timer_Flag_CC3OF", "stm32f7xx__timer__driver_8h.html#a6bbb71143324cd30ae20014c74bf415ca5bcb3bde8654f0a432d94ce8743f2faf", null ],
       [ "Timer_Flag_CC4OF", "stm32f7xx__timer__driver_8h.html#a6bbb71143324cd30ae20014c74bf415ca7656b6564ea91c2a15b34c6909a3a341", null ]
     ] ],
-    [ "TimerControl", "group___t_i_m_e_r___f_u_n_c_t_i_o_n_s.html#ga39c741de08b18d032760b29b0763ec46", null ],
-    [ "TimerGetCount", "group___t_i_m_e_r___f_u_n_c_t_i_o_n_s.html#ga957b4db743c38c3da54705a3c57f4cdb", null ],
-    [ "TimerGetFlagStatus", "group___t_i_m_e_r___f_u_n_c_t_i_o_n_s.html#gabe5f8fa6ae1672da6717f16ca393b6d6", null ],
-    [ "TimerInit", "group___t_i_m_e_r___f_u_n_c_t_i_o_n_s.html#gac618b969375cadd9a01aad1c6c937843", null ],
-    [ "TimerPWM_DutyCycle", "group___t_i_m_e_r___f_u_n_c_t_i_o_n_s.html#ga222542f8ca62ee0071c754f8008949c4", null ],
-    [ "TimerPWM_init", "group___t_i_m_e_r___f_u_n_c_t_i_o_n_s.html#ga0b08f6fe8b7f71e4b008f71708340d7e", null ],
-    [ "TimerResetFlag", "group___t_i_m_e_r___f_u_n_c_t_i_o_n_s.html#ga69ce4a6dc85b92851e31ab4fbe15c698", null ],
-    [ "TimerSetFrequency", "group___t_i_m_e_r___f_u_n_c_t_i_o_n_s.html#gae1f2c21be6c10594144a9665d427913a", null ]
+    [ "TimerControl", "stm32f7xx__timer__driver_8h.html#a39c741de08b18d032760b29b0763ec46", null ],
+    [ "TimerGetCount", "stm32f7xx__timer__driver_8h.html#a957b4db743c38c3da54705a3c57f4cdb", null ],
+    [ "TimerGetFlagStatus", "stm32f7xx__timer__driver_8h.html#abe5f8fa6ae1672da6717f16ca393b6d6", null ],
+    [ "TimerInit", "stm32f7xx__timer__driver_8h.html#ac618b969375cadd9a01aad1c6c937843", null ],
+    [ "TimerPWM_DutyCycle", "stm32f7xx__timer__driver_8h.html#a222542f8ca62ee0071c754f8008949c4", null ],
+    [ "TimerPWM_init", "stm32f7xx__timer__driver_8h.html#a0b08f6fe8b7f71e4b008f71708340d7e", null ],
+    [ "TimerResetFlag", "stm32f7xx__timer__driver_8h.html#a69ce4a6dc85b92851e31ab4fbe15c698", null ],
+    [ "TimerSetFrequency", "stm32f7xx__timer__driver_8h.html#aada6b64f0498739bda8e7a56aa6b1199", null ]
 ];

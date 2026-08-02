@@ -7,6 +7,7 @@ var stm32f756zg__reg_8h =
     [ "EXTI_RegDef_t", "struct_e_x_t_i___reg_def__t.html", "struct_e_x_t_i___reg_def__t" ],
     [ "SYSCFG_RegDef_t", "struct_s_y_s_c_f_g___reg_def__t.html", "struct_s_y_s_c_f_g___reg_def__t" ],
     [ "TIMER_RegDef_t", "struct_t_i_m_e_r___reg_def__t.html", "struct_t_i_m_e_r___reg_def__t" ],
+    [ "SPI_RegDef_t", "struct_s_p_i___reg_def__t.html", "struct_s_p_i___reg_def__t" ],
     [ "AHB1_PERIPH_BASE_ADDR", "stm32f756zg__reg_8h.html#a0ff8cd718ba1586a922cd54c9afeeeb2", null ],
     [ "AHB2_PERIPH_BASE_ADDR", "stm32f756zg__reg_8h.html#a78dc47d0479fa3ba2acbe027ecfa364c", null ],
     [ "AHB3_PERIPH_BASE_ADDR", "stm32f756zg__reg_8h.html#a3f7bbd4ad135f4c3bbdb144252bce129", null ],
@@ -57,8 +58,18 @@ var stm32f756zg__reg_8h =
     [ "RCC", "stm32f756zg__reg_8h.html#a74944438a086975793d26ae48d5882d4", null ],
     [ "RCC_BASE_ADDR", "stm32f756zg__reg_8h.html#aa918567a93fe95a5e24ba45dcbb89afa", null ],
     [ "RTC_BASE_ADDR", "stm32f756zg__reg_8h.html#a33283243f681a8ae4a78650b57ae2ca5", null ],
+    [ "SPI1", "stm32f756zg__reg_8h.html#ad483be344a28ac800be8f03654a9612f", null ],
+    [ "SPI1_BASE_ADDR", "stm32f756zg__reg_8h.html#ae8d3966b8f3f2cd9771a8bff397c6794", null ],
+    [ "SPI2", "stm32f756zg__reg_8h.html#af2c3d8ce359dcfbb2261e07ed42af72b", null ],
     [ "SPI2_BASE_ADDR", "stm32f756zg__reg_8h.html#a488cdec69ceceb27f8691e6eeae735a5", null ],
+    [ "SPI3", "stm32f756zg__reg_8h.html#ab2339cbf25502bf562b19208b1b257fc", null ],
     [ "SPI3_BASE_ADDR", "stm32f756zg__reg_8h.html#a494f0f77208521bb2c8a88a5d26a6b27", null ],
+    [ "SPI4", "stm32f756zg__reg_8h.html#a2a2e6edef68cfe1946f39a5033da2301", null ],
+    [ "SPI4_BASE_ADDR", "stm32f756zg__reg_8h.html#aa0eb3ab9c5a3760cd0f1ece1d7bec114", null ],
+    [ "SPI5", "stm32f756zg__reg_8h.html#a5e676c061e19ced149b7c6de6b8985e5", null ],
+    [ "SPI5_BASE_ADDR", "stm32f756zg__reg_8h.html#a7fc5d960fac4d69fb86f85e0cb817d69", null ],
+    [ "SPI6", "stm32f756zg__reg_8h.html#a0f05da7f4b924ab39c1f8afcea225074", null ],
+    [ "SPI6_BASE_ADDR", "stm32f756zg__reg_8h.html#ac35770bb505dfc4b648b638514970ab5", null ],
     [ "SRAM", "stm32f756zg__reg_8h.html#ad1c97617b06af2b0d93bae9642145bda", null ],
     [ "SRAM1_BASE_ADDR", "stm32f756zg__reg_8h.html#aa34f870516ccaf7129b13c8a5b2fabad", null ],
     [ "SRAM2_BASE_ADDR", "stm32f756zg__reg_8h.html#a887d911cf651e06e35dd9bf876d09115", null ],
@@ -74,5 +85,12 @@ var stm32f756zg__reg_8h =
     [ "USART2_BASE_ADDR", "stm32f756zg__reg_8h.html#a2998f4d322941566f172342dfb53c983", null ],
     [ "USART3_BASE_ADDR", "stm32f756zg__reg_8h.html#aa4dd93a8c45e5fde587745de4dc5662a", null ],
     [ "USART_2", "stm32f756zg__reg_8h.html#a09a72a090e6f05ff1a23ec372f421da6", null ],
-    [ "USART_3", "stm32f756zg__reg_8h.html#ac5033744578bb55d59c2e56d4ce67cd1", null ]
+    [ "USART_3", "stm32f756zg__reg_8h.html#ac5033744578bb55d59c2e56d4ce67cd1", null ],
+    [ "Status_t", "stm32f756zg__reg_8h.html#a952ea32d355af359a672bae581818c9d", [
+      [ "STATUS_OK", "stm32f756zg__reg_8h.html#a952ea32d355af359a672bae581818c9da7e4a42e3b6dd63708c64cf3db6f69566", null ],
+      [ "STATUS_ERROR", "stm32f756zg__reg_8h.html#a952ea32d355af359a672bae581818c9da5bde228d9506a863d51ffbc868ff67f7", null ],
+      [ "STATUS_BUSY", "stm32f756zg__reg_8h.html#a952ea32d355af359a672bae581818c9da27b7b4ca606d6208a2ada6df1af6ab88", null ],
+      [ "STATUS_TIMEOUT", "stm32f756zg__reg_8h.html#a952ea32d355af359a672bae581818c9da1d57e6000a93a7eb812752846715a58c", null ],
+      [ "STATUS_INVALID_PARAM", "stm32f756zg__reg_8h.html#a952ea32d355af359a672bae581818c9da0c947b2b9ee0e7f6aa68426e202e0035", null ]
+    ] ]
 ];

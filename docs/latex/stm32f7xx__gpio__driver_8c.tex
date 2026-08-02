@@ -1,88 +1,372 @@
 \doxysection{stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+src/\+stm32f7xx\+\_\+gpio\+\_\+driver.c File Reference}
 \hypertarget{stm32f7xx__gpio__driver_8c}{}\label{stm32f7xx__gpio__driver_8c}\index{stm32f7xx\_driver/driver/driver\_src/stm32f7xx\_gpio\_driver.c@{stm32f7xx\_driver/driver/driver\_src/stm32f7xx\_gpio\_driver.c}}
-
-
-GPIO (General Purpose Input/\+\+Output) Driver for STM32\+F756\+ZG.  
-
-
 {\ttfamily \+\#include "{}stm32f7xx\+\_\+gpio\+\_\+driver.\+h"{}}\newline
 Include dependency graph for stm32f7xx\+\_\+gpio\+\_\+driver.\+c:\+
 % FIG 0
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \doxymbox{\hyperlink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_gae0b97c0917307b554927fade1d4d17a0}{GPIO\+\_\+\+Init}} (GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}GPIOx, uint16\+\_\+t pin, uint32\+\_\+t mode, uint32\+\_\+t speed)
-\begin{DoxyCompactList}\small\item\em Initialize GPIO pin with mode and speed configuration. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{group___g_p_i_o___i_n_i_t___f_u_n_c_t_i_o_n_s_ga2c35a3f1fdc64d247ba3b7b64c712a23}{GPIO\+\_\+\+Clock\+\_\+\+Enable}} (GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}GPIOx)
-\begin{DoxyCompactList}\small\item\em Enable GPIO port clock via RCC. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{group___g_p_i_o___i_o___f_u_n_c_t_i_o_n_s_ga5183f3317e81fe885836d8000ff089aa}{GPIO\+\_\+\+Write\+Pin}} (GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}GPIOx, uint16\+\_\+t pin, uint32\+\_\+t state)
-\begin{DoxyCompactList}\small\item\em Write value to GPIO pin. \end{DoxyCompactList}\item 
-uint32\+\_\+t \doxymbox{\hyperlink{group___g_p_i_o___i_o___f_u_n_c_t_i_o_n_s_ga65a7dfe6e696f81215be138a38a7b2f6}{GPIO\+\_\+\+Read\+Pin}} (GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}GPIOx, uint16\+\_\+t pin)
-\begin{DoxyCompactList}\small\item\em Read GPIO pin state. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{group___g_p_i_o___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gabc4d268da70deb966f5faa2aaa7cbe2a}{GPIO\+\_\+\+EXTI\+\_\+\+Config}} (uint16\+\_\+t pin)
-\begin{DoxyCompactList}\small\item\em Configure external interrupt on GPIO pin. \end{DoxyCompactList}\item 
-uint32\+\_\+t \doxymbox{\hyperlink{group___g_p_i_o___i_n_t_e_r_r_u_p_t___f_u_n_c_t_i_o_n_s_gaa3ed25a000787615f0cb39483c604297}{GPIO\+\_\+\+EXTI\+\_\+\+Pending\+\_\+\+Flag\+\_\+\+Check}} (uint16\+\_\+t pin)
-\begin{DoxyCompactList}\small\item\em Check if EXTI pending flag is set. \end{DoxyCompactList}\end{DoxyCompactItemize}
+int8\+\_\+t \doxymbox{\hyperlink{stm32f7xx__gpio__driver_8c_a0dd4e1aae12ba05cd9e8fb5d842f64ef}{GPIO\+\_\+clk\+\_\+init}} (const \doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+GPIO\+\_\+x, const uint8\+\_\+t enable)
+\begin{DoxyCompactList}\small\item\em Initialze clk for corresponding GPIO port. \end{DoxyCompactList}\item 
+int8\+\_\+t \doxymbox{\hyperlink{stm32f7xx__gpio__driver_8c_a4f7d5621c39de859eb951ff570c42795}{GPIO\+\_\+init}} (const \doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}GPIO\+\_\+x\+Handler)
+\begin{DoxyCompactList}\small\item\em Initializes and configures a GPIO pin. \end{DoxyCompactList}\item 
+int8\+\_\+t \doxymbox{\hyperlink{stm32f7xx__gpio__driver_8c_a1ee17cc38a655c15310d4b6190fe105e}{GPIO\+\_\+deinit}} (\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+GPIO\+\_\+x)
+\begin{DoxyCompactList}\small\item\em Deinitializes a GPIO peripheral. \end{DoxyCompactList}\item 
+int8\+\_\+t \doxymbox{\hyperlink{stm32f7xx__gpio__driver_8c_a27e2dc156571c63c30d824b49a96173c}{GPIO\+\_\+\+Write\+Pin}} (\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+GPIO\+\_\+x, uint8\+\_\+t Pin\+Number, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Writes a logic level to the specified GPIO pin. \end{DoxyCompactList}\item 
+int8\+\_\+t \doxymbox{\hyperlink{stm32f7xx__gpio__driver_8c_ac1ab15a426fa500a24be249bc63520f7}{GPIO\+\_\+\+Write\+Port}} (\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+GPIO\+\_\+x, uint16\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Writes a 16-\/bit value to the GPIO output port. \end{DoxyCompactList}\item 
+int8\+\_\+t \doxymbox{\hyperlink{stm32f7xx__gpio__driver_8c_a15e391f43335d9937fbcfaad6fc2fd5f}{GPIO\+\_\+\+Toggle\+Pin}} (\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+GPIO\+\_\+x, uint8\+\_\+t Pin\+Number)
+\begin{DoxyCompactList}\small\item\em Toggles the output state of the specified GPIO pin. \end{DoxyCompactList}\item 
+uint8\+\_\+t \doxymbox{\hyperlink{stm32f7xx__gpio__driver_8c_af6edf50e6a92fb65dda39d61fd222a91}{GPIO\+\_\+\+Read\+Pin}} (\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+GPIO\+\_\+x, uint8\+\_\+t Pin\+Number)
+\begin{DoxyCompactList}\small\item\em Reads the logic level of the specified GPIO pin. \end{DoxyCompactList}\item 
+uint16\+\_\+t \doxymbox{\hyperlink{stm32f7xx__gpio__driver_8c_af8ac80e35f3c59aa1e2014656d042937}{GPIO\+\_\+\+Read\+Port}} (\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+GPIO\+\_\+x)
+\begin{DoxyCompactList}\small\item\em Reads the current state of all GPIO pins in a port. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{stm32f7xx__gpio__driver_8c_ab91b403af49caadb0d07f649d5a0ad9f}{GPIO\+\_\+\+SYSCFG\+\_\+\+Set\+Up}} (const \doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}GPIO\+\_\+x\+Handler)
+\begin{DoxyCompactList}\small\item\em Configures the SYSCFG EXTI mapping for a GPIO pin. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{stm32f7xx__gpio__driver_8c_ab84a90a1c2319251768540c388b0168e}{SYSCFG\+\_\+\+CLK\+\_\+\+Enable}} ()
+\begin{DoxyCompactList}\small\item\em Enables the clock for the SYSCFG peripheral. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{stm32f7xx__gpio__driver_8c_a8236454d21ce7955d07f6d4eed33cdfb}{GPIO\+\_\+\+Clear\+Pending\+Flag}} (uint8\+\_\+t pin\+Number)
+\begin{DoxyCompactList}\small\item\em Clears the pending interrupt flag of an EXTI line. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{stm32f7xx__gpio__driver_8c_a7fe383800dce92808971cb7e377633b1}{GPIO\+\_\+\+Intrrupt\+Handler}} (uint8\+\_\+t Pin\+Number)
+\begin{DoxyCompactList}\small\item\em Handles a GPIO interrupt by clearing its EXTI pending flag. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
-GPIO (General Purpose Input/\+\+Output) Driver for STM32\+F756\+ZG. 
+\label{doc-func-members}
+\Hypertarget{stm32f7xx__gpio__driver_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{stm32f7xx__gpio__driver_8c_a8236454d21ce7955d07f6d4eed33cdfb}\index{stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}!GPIO\_ClearPendingFlag@{GPIO\_ClearPendingFlag}}
+\index{GPIO\_ClearPendingFlag@{GPIO\_ClearPendingFlag}!stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_ClearPendingFlag()}{GPIO\_ClearPendingFlag()}}
+{\footnotesize\ttfamily \label{stm32f7xx__gpio__driver_8c_a8236454d21ce7955d07f6d4eed33cdfb} 
+void GPIO\+\_\+\+Clear\+Pending\+Flag (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin\+Number}{}\end{DoxyParamCaption})}
 
-\begin{DoxyAuthor}{Author}
-Likith025 
-\end{DoxyAuthor}
-\begin{DoxyDate}{Date}
-April 2026 
-\end{DoxyDate}
-This module provides GPIO port and pin management functions for the STM32\+F756\+ZG microcontroller. It includes functions for:\+
+
+
+Clears the pending interrupt flag of an EXTI line. 
+
+Clears the pending status of the specified EXTI line by writing a logic \textquotesingle{}1\textquotesingle{} to the corresponding bit in the EXTI Pending Register (PR).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em pin\+Number} & EXTI line number (0–15) whose pending flag is to be cleared.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+EXTI pending bits are cleared by writing a \textquotesingle{}1\textquotesingle{} to the corresponding bit. Writing \textquotesingle{}0\textquotesingle{} has no effect.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+This function only clears the EXTI pending flag. It does not clear any pending interrupt state in the NVIC. 
+\end{DoxyWarning}
+\Hypertarget{stm32f7xx__gpio__driver_8c_a0dd4e1aae12ba05cd9e8fb5d842f64ef}\index{stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}!GPIO\_clk\_init@{GPIO\_clk\_init}}
+\index{GPIO\_clk\_init@{GPIO\_clk\_init}!stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_clk\_init()}{GPIO\_clk\_init()}}
+{\footnotesize\ttfamily \label{stm32f7xx__gpio__driver_8c_a0dd4e1aae12ba05cd9e8fb5d842f64ef} 
+int8\+\_\+t GPIO\+\_\+clk\+\_\+init (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+GPIO\+\_\+x}{, }\item[{const uint8\+\_\+t}]{enable}{}\end{DoxyParamCaption})}
+
+
+
+Initialze clk for corresponding GPIO port. 
+
+Reset and Clock control(\+RCC) has Register to enable or disable clock based on bus to which the peripheral is connected to GPIO\textquotesingle{}s are connected to AHB1 bus, so ENR register of AHB 1 bus is used to enable or disable clock to GPIO Ports
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em p\+GPIO\+\_\+x} & Pointer pointing to the particular GPIO Port \\
+\hline
+\doxymbox{\texttt{in}}  & {\em enable} & denoting whether clock to be enabled or disabled.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on error.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+assumed that ports are continous in memory. 
+\end{DoxyWarning}
+\Hypertarget{stm32f7xx__gpio__driver_8c_a1ee17cc38a655c15310d4b6190fe105e}\index{stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}!GPIO\_deinit@{GPIO\_deinit}}
+\index{GPIO\_deinit@{GPIO\_deinit}!stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_deinit()}{GPIO\_deinit()}}
+{\footnotesize\ttfamily \label{stm32f7xx__gpio__driver_8c_a1ee17cc38a655c15310d4b6190fe105e} 
+int8\+\_\+t GPIO\+\_\+deinit (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+GPIO\+\_\+x}{}\end{DoxyParamCaption})}
+
+
+
+Deinitializes a GPIO peripheral. 
+
+Resets the selected GPIO port by asserting and releasing its reset bit in the RCC AHB1 Peripheral Reset Register (AHB1\+RSTR). This restores all GPIO registers of the selected port to their default reset values.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em p\+GPIO\+\_\+x} & Pointer to the GPIO peripheral to be deinitialized.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
 \begin{DoxyItemize}
-\item GPIO port clock enable/\+disable
-\item GPIO pin mode configuration (input, output, alternate function)
-\item GPIO output operations (set/\+clear/\+toggle pins)
-\item GPIO input operations (read pin state)
-\item External interrupt (EXTI) configuration
-\item GPIO interrupt flag management
+\item 0 :\+ GPIO successfully reset.
+\item -\/1 :\+ Invalid GPIO pointer.
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function uses the RCC peripheral reset mechanism instead of manually clearing individual GPIO configuration registers.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Assumes that GPIO ports are contiguous in memory and separated by 0x400 bytes. 
+\end{DoxyWarning}
+\Hypertarget{stm32f7xx__gpio__driver_8c_a4f7d5621c39de859eb951ff570c42795}\index{stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}!GPIO\_init@{GPIO\_init}}
+\index{GPIO\_init@{GPIO\_init}!stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_init()}{GPIO\_init()}}
+{\footnotesize\ttfamily \label{stm32f7xx__gpio__driver_8c_a4f7d5621c39de859eb951ff570c42795} 
+int8\+\_\+t GPIO\+\_\+init (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{GPIO\+\_\+x\+Handler}{}\end{DoxyParamCaption})}
+
+
+
+Initializes and configures a GPIO pin. 
+
+Configures the selected GPIO pin according to the settings provided in the GPIO handler structure. Depending on the selected mode, this function performs the following operations:\+
+\begin{DoxyItemize}
+\item Enables the GPIO peripheral clock.
+\item Configures the pin mode (Input, Output, Alternate Function, or Analog).
+\item Configures output type (Push-\/\+Pull/\+\+Open-\/\+Drain) for output modes.
+\item Configures output speed for Output and Alternate Function modes.
+\item Configures internal Pull-\/\+Up/\+\+Pull-\/\+Down resistors.
+\item Configures the Alternate Function selection (if Alternate Function mode is selected).
+\item Configures EXTI, SYSCFG mapping, and interrupt trigger settings (if an interrupt mode is selected).
 \end{DoxyItemize}
 
-{\bfseries{GPIO Features:\+}}
-\begin{DoxyItemize}
-\item 16 pins per port (Port A-\/I available)
-\item Configurable I/\+O modes (input, output, analog, alternate function)
-\item Flexible speed settings (low, medium, high, very high)
-\item Optional internal pull-\/up/\+pull-\/down resistors
-\item Open drain or push-\/pull output
-\item External interrupt capability on all pins
-\end{DoxyItemize}
 
-{\bfseries{Port Mapping:\+}}
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em GPIO\+\_\+x\+Handler} & Pointer to the GPIO handler containing the GPIO port and pin configuration.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
 \begin{DoxyItemize}
-\item GPIOA:\+ Base address 0x40020000, used for buttons, timers
-\item GPIOB:\+ Base address 0x40020400, used for LEDs
-\item GPIOC:\+ Base address 0x40020800, used for UART
-\item GPIOD-\/I:\+ Additional ports for expansion
+\item 0 :\+ GPIO successfully initialized.
+\item -\/1 :\+ Invalid handler, GPIO port, or pin number.
 \end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function automatically enables the peripheral clock for the selected GPIO port before configuring the registers.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+For interrupt modes, this function only configures the GPIO, EXTI, and SYSCFG registers. The corresponding NVIC interrupt must be enabled separately using the interrupt configuration APIs. 
+\end{DoxyWarning}
+\Hypertarget{stm32f7xx__gpio__driver_8c_a7fe383800dce92808971cb7e377633b1}\index{stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}!GPIO\_IntrruptHandler@{GPIO\_IntrruptHandler}}
+\index{GPIO\_IntrruptHandler@{GPIO\_IntrruptHandler}!stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_IntrruptHandler()}{GPIO\_IntrruptHandler()}}
+{\footnotesize\ttfamily \label{stm32f7xx__gpio__driver_8c_a7fe383800dce92808971cb7e377633b1} 
+void GPIO\+\_\+\+Intrrupt\+Handler (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{Pin\+Number}{}\end{DoxyParamCaption})}
+
+
+
+Handles a GPIO interrupt by clearing its EXTI pending flag. 
+
+Invokes the EXTI pending flag clear routine for the specified GPIO pin. This function is intended to be called from the corresponding EXTI interrupt service routine (ISR).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em Pin\+Number} & GPIO pin number (EXTI line number) whose interrupt has been serviced.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+User-\/specific interrupt processing (e.\+g., callbacks or event handling) should be performed before or after invoking this function, as required by the application. 
+\end{DoxyNote}
+\Hypertarget{stm32f7xx__gpio__driver_8c_af6edf50e6a92fb65dda39d61fd222a91}\index{stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}!GPIO\_ReadPin@{GPIO\_ReadPin}}
+\index{GPIO\_ReadPin@{GPIO\_ReadPin}!stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_ReadPin()}{GPIO\_ReadPin()}}
+{\footnotesize\ttfamily \label{stm32f7xx__gpio__driver_8c_af6edf50e6a92fb65dda39d61fd222a91} 
+uint8\+\_\+t GPIO\+\_\+\+Read\+Pin (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+GPIO\+\_\+x}{, }\item[{uint8\+\_\+t}]{Pin\+Number}{}\end{DoxyParamCaption})}
+
+
+
+Reads the logic level of the specified GPIO pin. 
+
+Reads the corresponding bit from the Input Data Register (IDR) and returns the current logic level of the selected GPIO pin.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em p\+GPIO\+\_\+x} & Pointer to the GPIO peripheral.\\
+\hline
+\doxymbox{\texttt{in}}  & {\em Pin\+Number} & GPIO pin number (0–15).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Current logic level of the selected pin.
+\begin{DoxyItemize}
+\item 0 :\+ Logic LOW
+\item 1 :\+ Logic HIGH
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The pin state is read from the Input Data Register (IDR), irrespective of whether the pin is configured as an input or output.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+This function does not validate the GPIO pointer or pin number. Passing an invalid pointer or pin number results in undefined behavior. 
+\end{DoxyWarning}
+\Hypertarget{stm32f7xx__gpio__driver_8c_af8ac80e35f3c59aa1e2014656d042937}\index{stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}!GPIO\_ReadPort@{GPIO\_ReadPort}}
+\index{GPIO\_ReadPort@{GPIO\_ReadPort}!stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_ReadPort()}{GPIO\_ReadPort()}}
+{\footnotesize\ttfamily \label{stm32f7xx__gpio__driver_8c_af8ac80e35f3c59aa1e2014656d042937} 
+uint16\+\_\+t GPIO\+\_\+\+Read\+Port (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+GPIO\+\_\+x}{}\end{DoxyParamCaption})}
+
+
+
+Reads the current state of all GPIO pins in a port. 
+
+Returns the 16-\/bit value of the Input Data Register (IDR), where each bit represents the logic level of the corresponding GPIO pin.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em p\+GPIO\+\_\+x} & Pointer to the GPIO peripheral.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+16-\/bit value representing the current input state of GPIO pins (Pin 0 to Pin 15).
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Bit 0 corresponds to Pin 0 and Bit 15 corresponds to Pin 15.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+This function does not validate the GPIO pointer. Passing an invalid pointer results in undefined behavior. 
+\end{DoxyWarning}
+\Hypertarget{stm32f7xx__gpio__driver_8c_ab91b403af49caadb0d07f649d5a0ad9f}\index{stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}!GPIO\_SYSCFG\_SetUp@{GPIO\_SYSCFG\_SetUp}}
+\index{GPIO\_SYSCFG\_SetUp@{GPIO\_SYSCFG\_SetUp}!stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_SYSCFG\_SetUp()}{GPIO\_SYSCFG\_SetUp()}}
+{\footnotesize\ttfamily \label{stm32f7xx__gpio__driver_8c_ab91b403af49caadb0d07f649d5a0ad9f} 
+void GPIO\+\_\+\+SYSCFG\+\_\+\+Set\+Up (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{GPIO\+\_\+x\+Handler}{}\end{DoxyParamCaption})}
+
+
+
+Configures the SYSCFG EXTI mapping for a GPIO pin. 
+
+Maps the selected GPIO port to the corresponding EXTI line by updating the appropriate field in the SYSCFG External Interrupt Configuration Register (EXTICR). This enables the EXTI controller to associate the selected GPIO pin with its interrupt line.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em GPIO\+\_\+x\+Handler} & Pointer to the GPIO handler containing the GPIO port and pin configuration.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Each EXTI line (0–15) can be connected to only one GPIO port at a time. This function is intended for GPIO interrupt configuration.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+The SYSCFG peripheral clock must be enabled before calling this function. Assumes that GPIO ports are contiguous in memory and separated by 0x400 bytes. 
+\end{DoxyWarning}
+\Hypertarget{stm32f7xx__gpio__driver_8c_a15e391f43335d9937fbcfaad6fc2fd5f}\index{stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}!GPIO\_TogglePin@{GPIO\_TogglePin}}
+\index{GPIO\_TogglePin@{GPIO\_TogglePin}!stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_TogglePin()}{GPIO\_TogglePin()}}
+{\footnotesize\ttfamily \label{stm32f7xx__gpio__driver_8c_a15e391f43335d9937fbcfaad6fc2fd5f} 
+int8\+\_\+t GPIO\+\_\+\+Toggle\+Pin (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+GPIO\+\_\+x}{, }\item[{uint8\+\_\+t}]{Pin\+Number}{}\end{DoxyParamCaption})}
+
+
+
+Toggles the output state of the specified GPIO pin. 
+
+Inverts the current logic level of the selected GPIO pin by toggling its corresponding bit in the Output Data Register (ODR). A HIGH output becomes LOW, and a LOW output becomes HIGH.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em p\+GPIO\+\_\+x} & Pointer to the GPIO peripheral.\\
+\hline
+\doxymbox{\texttt{in}}  & {\em Pin\+Number} & GPIO pin number (0–15).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item 0 :\+ Pin toggled successfully.
+\item -\/1 :\+ Invalid GPIO pointer or pin number.
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function performs a read-\/modify-\/write operation on the ODR register.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+The toggle operation is not atomic and may be affected if the ODR register is modified concurrently by an interrupt or another execution context. 
+\end{DoxyWarning}
+\Hypertarget{stm32f7xx__gpio__driver_8c_a27e2dc156571c63c30d824b49a96173c}\index{stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}!GPIO\_WritePin@{GPIO\_WritePin}}
+\index{GPIO\_WritePin@{GPIO\_WritePin}!stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_WritePin()}{GPIO\_WritePin()}}
+{\footnotesize\ttfamily \label{stm32f7xx__gpio__driver_8c_a27e2dc156571c63c30d824b49a96173c} 
+int8\+\_\+t GPIO\+\_\+\+Write\+Pin (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+GPIO\+\_\+x}{, }\item[{uint8\+\_\+t}]{Pin\+Number}{, }\item[{uint8\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Writes a logic level to the specified GPIO pin. 
+
+Sets or clears the corresponding bit in the Output Data Register (ODR) to drive the selected GPIO pin HIGH or LOW.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em p\+GPIO\+\_\+x} & Pointer to the GPIO peripheral.\\
+\hline
+\doxymbox{\texttt{in}}  & {\em Pin\+Number} & GPIO pin number (0–15).\\
+\hline
+\doxymbox{\texttt{in}}  & {\em value} & Logic level to be written to the pin.
+\begin{DoxyItemize}
+\item ENABLE :\+ Sets the pin HIGH.
+\item DISABLE :\+ Sets the pin LOW.
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item 0 :\+ Pin written successfully.
+\item -\/1 :\+ Invalid GPIO pointer or pin number.
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function performs a read-\/modify-\/write operation on the ODR register.
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Since ODR is modified using a read-\/modify-\/write sequence, the operation is not atomic. For interrupt-\/safe GPIO updates, consider using the BSRR register. 
+\end{DoxyWarning}
+\Hypertarget{stm32f7xx__gpio__driver_8c_ac1ab15a426fa500a24be249bc63520f7}\index{stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}!GPIO\_WritePort@{GPIO\_WritePort}}
+\index{GPIO\_WritePort@{GPIO\_WritePort}!stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_WritePort()}{GPIO\_WritePort()}}
+{\footnotesize\ttfamily \label{stm32f7xx__gpio__driver_8c_ac1ab15a426fa500a24be249bc63520f7} 
+int8\+\_\+t GPIO\+\_\+\+Write\+Port (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o___reg_def__t}{GPIO\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+GPIO\+\_\+x}{, }\item[{uint16\+\_\+t}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Writes a 16-\/bit value to the GPIO output port. 
+
+Updates the Output Data Register (ODR) of the selected GPIO port, thereby setting the logic level of all 16 GPIO pins simultaneously.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{in}}  & {\em p\+GPIO\+\_\+x} & Pointer to the GPIO peripheral.\\
+\hline
+\doxymbox{\texttt{in}}  & {\em value} & 16-\/bit value to be written to the Output Data Register (ODR).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item 0 :\+ Port written successfully.
+\item -\/1 :\+ Invalid GPIO pointer.
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Each bit of the value corresponds to the output state of the respective GPIO pin (Pin 0 to Pin 15).
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+This function overwrites the entire ODR register. Pins configured as outputs will immediately reflect the new values. Use with caution if only specific pins need to be modified. 
+\end{DoxyWarning}
+\Hypertarget{stm32f7xx__gpio__driver_8c_ab84a90a1c2319251768540c388b0168e}\index{stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}!SYSCFG\_CLK\_Enable@{SYSCFG\_CLK\_Enable}}
+\index{SYSCFG\_CLK\_Enable@{SYSCFG\_CLK\_Enable}!stm32f7xx\_gpio\_driver.c@{stm32f7xx\_gpio\_driver.c}}
+\doxysubsubsection{\texorpdfstring{SYSCFG\_CLK\_Enable()}{SYSCFG\_CLK\_Enable()}}
+{\footnotesize\ttfamily \label{stm32f7xx__gpio__driver_8c_ab84a90a1c2319251768540c388b0168e} 
+void SYSCFG\+\_\+\+CLK\+\_\+\+Enable (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Enables the clock for the SYSCFG peripheral. 
+
+Enables the SYSCFG peripheral by setting the corresponding bit in the RCC APB2 Peripheral Clock Enable Register (APB2\+ENR). The SYSCFG clock must be enabled before accessing its registers, such as the EXTI configuration registers (EXTICR).
 
 \begin{DoxyNote}{Note}
-
-\begin{DoxyItemize}
-\item GPIO clocks must be enabled in RCC before calling these functions
-\item EXTI configuration requires SYSCFG clock enable
-\item Some pins have limited alternate function options
-\item Pin state changes are immediate (no queuing)
-\end{DoxyItemize}
+This function is typically called before configuring GPIO interrupt mappings using the SYSCFG peripheral. 
 \end{DoxyNote}
-\begin{DoxyAttention}{Attention}
-
-\begin{DoxyItemize}
-\item Invalid port addresses cause system hang or hard fault
-\item Do not access pins before GPIO clock enable
-\item EXTI handlers must be implemented by application
-\item Interrupt flags must be cleared in handler
-\end{DoxyItemize}
-\end{DoxyAttention}
-\begin{DoxyCopyright}{Copyright}
-2026 Likith025 -\/ MIT License 
-\end{DoxyCopyright}
-\begin{DoxySeeAlso}{See also}
-\doxylink{stm32f756zg__reg_8h}{stm32f756zg\+\_\+reg.\+h} -\/ GPIO register definitions 
-\end{DoxySeeAlso}

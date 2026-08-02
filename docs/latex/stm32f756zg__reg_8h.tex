@@ -23,6 +23,8 @@ struct \doxymbox{\hyperlink{struct_e_x_t_i___reg_def__t}{EXTI\+\_\+\+Reg\+Def\+\
 struct \doxymbox{\hyperlink{struct_s_y_s_c_f_g___reg_def__t}{SYSCFG\+\_\+\+Reg\+Def\+\_\+t}}
 \item 
 struct \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t}{TIMER\+\_\+\+Reg\+Def\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
@@ -80,6 +82,14 @@ struct \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t}{TIMER\+\_\+\+Reg\+Def
 \+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a33283243f681a8ae4a78650b57ae2ca5}{RTC\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x2800)
 \item 
 \+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a3bcddabab65750a963da37f3d6b86c05}{CAN1\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x6400)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ae8d3966b8f3f2cd9771a8bff397c6794}{SPI1\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab070484b11418209e3763e2bfc87751d}{APB2\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x3000)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_aa0eb3ab9c5a3760cd0f1ece1d7bec114}{SPI4\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab070484b11418209e3763e2bfc87751d}{APB2\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0\+X3400)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a7fc5d960fac4d69fb86f85e0cb817d69}{SPI5\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab070484b11418209e3763e2bfc87751d}{APB2\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0\+X5000)
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ac35770bb505dfc4b648b638514970ab5}{SPI6\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab070484b11418209e3763e2bfc87751d}{APB2\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0\+X5400)
 \item 
 \+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_aa34dbd8b8960cf53983854f03af4cb5a}{EXTI\+\_\+\+BASE\+\_\+\+ADDR}}~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab070484b11418209e3763e2bfc87751d}{APB2\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x3\+C00)
 \item 
@@ -147,6 +157,18 @@ struct \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t}{TIMER\+\_\+\+Reg\+Def
 \item 
 \+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_aca904d0e4ebb6d643c349f7f05613995}{TIMER2}}~((\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t}{TIMER\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_ad2cd93e65dc8655afe1f220db52b3a8f}{TIMMER\+\_\+2\+\_\+\+BASE\+\_\+\+ADDR}})
 \item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ad483be344a28ac800be8f03654a9612f}{SPI1}}~((\doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_ae8d3966b8f3f2cd9771a8bff397c6794}{SPI1\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_af2c3d8ce359dcfbb2261e07ed42af72b}{SPI2}}~((\doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a488cdec69ceceb27f8691e6eeae735a5}{SPI2\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ab2339cbf25502bf562b19208b1b257fc}{SPI3}}~((\doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a494f0f77208521bb2c8a88a5d26a6b27}{SPI3\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a2a2e6edef68cfe1946f39a5033da2301}{SPI4}}~((\doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_aa0eb3ab9c5a3760cd0f1ece1d7bec114}{SPI4\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a5e676c061e19ced149b7c6de6b8985e5}{SPI5}}~((\doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a7fc5d960fac4d69fb86f85e0cb817d69}{SPI5\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a0f05da7f4b924ab39c1f8afcea225074}{SPI6}}~((\doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_ac35770bb505dfc4b648b638514970ab5}{SPI6\+\_\+\+BASE\+\_\+\+ADDR}})
+\item 
 \+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_abafd764fa6dcf27ebb3405975fe221c7}{IRQ\+\_\+\+NO\+\_\+\+EXTI0}}~6
 \item 
 \+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a3c28288c2813252972ae24078a87db92}{IRQ\+\_\+\+NO\+\_\+\+EXTI1}}~7
@@ -162,6 +184,18 @@ struct \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t}{TIMER\+\_\+\+Reg\+Def
 \+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_a441c6f7b1015971562173cd86357b763}{IRQ\+\_\+\+NO\+\_\+\+EXTI10\+\_\+15}}~40
 \item 
 \+\#define \doxymbox{\hyperlink{stm32f756zg__reg_8h_ab9ba48ca89736017f3863845344882bc}{IRQ\+\_\+\+NO\+\_\+\+USART3}}~39
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d}{Status\+\_\+t}} \{ \newline
+\doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9da7e4a42e3b6dd63708c64cf3db6f69566}{STATUS\+\_\+\+OK}} = 0
+, \doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9da5bde228d9506a863d51ffbc868ff67f7}{STATUS\+\_\+\+ERROR}}
+, \doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9da27b7b4ca606d6208a2ada6df1af6ab88}{STATUS\+\_\+\+BUSY}}
+, \doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9da1d57e6000a93a7eb812752846715a58c}{STATUS\+\_\+\+TIMEOUT}}
+, \newline
+\doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9da0c947b2b9ee0e7f6aa68426e202e0035}{STATUS\+\_\+\+INVALID\+\_\+\+PARAM}}
+ \}
 \end{DoxyCompactItemize}
 
 
@@ -222,9 +256,6 @@ struct \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t}{TIMER\+\_\+\+Reg\+Def
 {\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a514ad415fb6125ba296793df7d1a468a} 
 \+\#define ENABLE~0x1\+UL}
 
-\begin{Desc}
-\item[Examples]\par
-\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.\+c}}, and \doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm3af55355a29d26a5b0c1e7bf31cd146ed}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+src/\+nvic.\+c}}.\end{Desc}
 \Hypertarget{stm32f756zg__reg_8h_a9189e770cd9b63dadd36683eb9843cac}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!EXTI@{EXTI}}
 \index{EXTI@{EXTI}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
 \doxysubsubsection{\texorpdfstring{EXTI}{EXTI}}
@@ -447,9 +478,6 @@ struct \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t}{TIMER\+\_\+\+Reg\+Def
 {\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ac8e97e8ce56ae9f57da1363a937f8a17} 
 \+\#define NVIC~((\doxymbox{\hyperlink{struct_n_v_i_c___reg_def__t}{NVIC\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a425ec323753362f97c4b9ad5d31ad2c9}{NVIC\+\_\+\+BASE\+\_\+\+ADDR}}))}
 
-\begin{Desc}
-\item[Examples]\par
-\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm3af55355a29d26a5b0c1e7bf31cd146ed}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+src/\+nvic.\+c}}.\end{Desc}
 \Hypertarget{stm32f756zg__reg_8h_a425ec323753362f97c4b9ad5d31ad2c9}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!NVIC\_BASE\_ADDR@{NVIC\_BASE\_ADDR}}
 \index{NVIC\_BASE\_ADDR@{NVIC\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
 \doxysubsubsection{\texorpdfstring{NVIC\_BASE\_ADDR}{NVIC\_BASE\_ADDR}}
@@ -462,9 +490,6 @@ struct \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t}{TIMER\+\_\+\+Reg\+Def
 {\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a74944438a086975793d26ae48d5882d4} 
 \+\#define RCC~((\doxymbox{\hyperlink{struct_r_c_c___reg_def__t}{RCC\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_aa918567a93fe95a5e24ba45dcbb89afa}{RCC\+\_\+\+BASE\+\_\+\+ADDR}})}
 
-\begin{Desc}
-\item[Examples]\par
-\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm3d5261a4aa95132b8263076c1e5eec627}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+src/\+stm32f7xx\+\_\+timer\+\_\+driver.\+c}}.\end{Desc}
 \Hypertarget{stm32f756zg__reg_8h_aa918567a93fe95a5e24ba45dcbb89afa}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!RCC\_BASE\_ADDR@{RCC\_BASE\_ADDR}}
 \index{RCC\_BASE\_ADDR@{RCC\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
 \doxysubsubsection{\texorpdfstring{RCC\_BASE\_ADDR}{RCC\_BASE\_ADDR}}
@@ -477,17 +502,77 @@ struct \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t}{TIMER\+\_\+\+Reg\+Def
 {\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a33283243f681a8ae4a78650b57ae2ca5} 
 \+\#define RTC\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x2800)}
 
+\Hypertarget{stm32f756zg__reg_8h_ad483be344a28ac800be8f03654a9612f}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SPI1@{SPI1}}
+\index{SPI1@{SPI1}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{SPI1}{SPI1}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ad483be344a28ac800be8f03654a9612f} 
+\+\#define SPI1~((\doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_ae8d3966b8f3f2cd9771a8bff397c6794}{SPI1\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_ae8d3966b8f3f2cd9771a8bff397c6794}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SPI1\_BASE\_ADDR@{SPI1\_BASE\_ADDR}}
+\index{SPI1\_BASE\_ADDR@{SPI1\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{SPI1\_BASE\_ADDR}{SPI1\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ae8d3966b8f3f2cd9771a8bff397c6794} 
+\+\#define SPI1\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab070484b11418209e3763e2bfc87751d}{APB2\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x3000)}
+
+\Hypertarget{stm32f756zg__reg_8h_af2c3d8ce359dcfbb2261e07ed42af72b}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SPI2@{SPI2}}
+\index{SPI2@{SPI2}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{SPI2}{SPI2}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_af2c3d8ce359dcfbb2261e07ed42af72b} 
+\+\#define SPI2~((\doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a488cdec69ceceb27f8691e6eeae735a5}{SPI2\+\_\+\+BASE\+\_\+\+ADDR}})}
+
 \Hypertarget{stm32f756zg__reg_8h_a488cdec69ceceb27f8691e6eeae735a5}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SPI2\_BASE\_ADDR@{SPI2\_BASE\_ADDR}}
 \index{SPI2\_BASE\_ADDR@{SPI2\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
 \doxysubsubsection{\texorpdfstring{SPI2\_BASE\_ADDR}{SPI2\_BASE\_ADDR}}
 {\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a488cdec69ceceb27f8691e6eeae735a5} 
 \+\#define SPI2\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x3800)}
 
+\Hypertarget{stm32f756zg__reg_8h_ab2339cbf25502bf562b19208b1b257fc}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SPI3@{SPI3}}
+\index{SPI3@{SPI3}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{SPI3}{SPI3}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ab2339cbf25502bf562b19208b1b257fc} 
+\+\#define SPI3~((\doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a494f0f77208521bb2c8a88a5d26a6b27}{SPI3\+\_\+\+BASE\+\_\+\+ADDR}})}
+
 \Hypertarget{stm32f756zg__reg_8h_a494f0f77208521bb2c8a88a5d26a6b27}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SPI3\_BASE\_ADDR@{SPI3\_BASE\_ADDR}}
 \index{SPI3\_BASE\_ADDR@{SPI3\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
 \doxysubsubsection{\texorpdfstring{SPI3\_BASE\_ADDR}{SPI3\_BASE\_ADDR}}
 {\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a494f0f77208521bb2c8a88a5d26a6b27} 
 \+\#define SPI3\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_a716e3fb964e68520db9dc2ac240c16ae}{APB1\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0x3\+C00)}
+
+\Hypertarget{stm32f756zg__reg_8h_a2a2e6edef68cfe1946f39a5033da2301}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SPI4@{SPI4}}
+\index{SPI4@{SPI4}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{SPI4}{SPI4}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a2a2e6edef68cfe1946f39a5033da2301} 
+\+\#define SPI4~((\doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_aa0eb3ab9c5a3760cd0f1ece1d7bec114}{SPI4\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_aa0eb3ab9c5a3760cd0f1ece1d7bec114}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SPI4\_BASE\_ADDR@{SPI4\_BASE\_ADDR}}
+\index{SPI4\_BASE\_ADDR@{SPI4\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{SPI4\_BASE\_ADDR}{SPI4\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_aa0eb3ab9c5a3760cd0f1ece1d7bec114} 
+\+\#define SPI4\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab070484b11418209e3763e2bfc87751d}{APB2\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0\+X3400)}
+
+\Hypertarget{stm32f756zg__reg_8h_a5e676c061e19ced149b7c6de6b8985e5}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SPI5@{SPI5}}
+\index{SPI5@{SPI5}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{SPI5}{SPI5}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a5e676c061e19ced149b7c6de6b8985e5} 
+\+\#define SPI5~((\doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_a7fc5d960fac4d69fb86f85e0cb817d69}{SPI5\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_a7fc5d960fac4d69fb86f85e0cb817d69}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SPI5\_BASE\_ADDR@{SPI5\_BASE\_ADDR}}
+\index{SPI5\_BASE\_ADDR@{SPI5\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{SPI5\_BASE\_ADDR}{SPI5\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a7fc5d960fac4d69fb86f85e0cb817d69} 
+\+\#define SPI5\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab070484b11418209e3763e2bfc87751d}{APB2\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0\+X5000)}
+
+\Hypertarget{stm32f756zg__reg_8h_a0f05da7f4b924ab39c1f8afcea225074}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SPI6@{SPI6}}
+\index{SPI6@{SPI6}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{SPI6}{SPI6}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a0f05da7f4b924ab39c1f8afcea225074} 
+\+\#define SPI6~((\doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_ac35770bb505dfc4b648b638514970ab5}{SPI6\+\_\+\+BASE\+\_\+\+ADDR}})}
+
+\Hypertarget{stm32f756zg__reg_8h_ac35770bb505dfc4b648b638514970ab5}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SPI6\_BASE\_ADDR@{SPI6\_BASE\_ADDR}}
+\index{SPI6\_BASE\_ADDR@{SPI6\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{SPI6\_BASE\_ADDR}{SPI6\_BASE\_ADDR}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ac35770bb505dfc4b648b638514970ab5} 
+\+\#define SPI6\+\_\+\+BASE\+\_\+\+ADDR~(\doxymbox{\hyperlink{stm32f756zg__reg_8h_ab070484b11418209e3763e2bfc87751d}{APB2\+\_\+\+PERIPH\+\_\+\+BASE\+\_\+\+ADDR}}+0\+X5400)}
 
 \Hypertarget{stm32f756zg__reg_8h_ad1c97617b06af2b0d93bae9642145bda}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!SRAM@{SRAM}}
 \index{SRAM@{SRAM}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
@@ -525,9 +610,6 @@ struct \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t}{TIMER\+\_\+\+Reg\+Def
 {\footnotesize\ttfamily \label{stm32f756zg__reg_8h_aca904d0e4ebb6d643c349f7f05613995} 
 \+\#define TIMER2~((\doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t}{TIMER\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_ad2cd93e65dc8655afe1f220db52b3a8f}{TIMMER\+\_\+2\+\_\+\+BASE\+\_\+\+ADDR}})}
 
-\begin{Desc}
-\item[Examples]\par
-\doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.\+c}}, and \doxymbox{\hyperlink{_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm3d5261a4aa95132b8263076c1e5eec627}{D:\+/\+embedded/\+\+STM32\+\_\+\+Driver\+\_\+\+Dev/\+\+STM32\+F756\+ZG-\/\+Bare-\/\+Metal-\/\+Driver-\/\+Development/\+stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+src/\+stm32f7xx\+\_\+timer\+\_\+driver.\+c}}.\end{Desc}
 \Hypertarget{stm32f756zg__reg_8h_ad2cd93e65dc8655afe1f220db52b3a8f}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!TIMMER\_2\_BASE\_ADDR@{TIMMER\_2\_BASE\_ADDR}}
 \index{TIMMER\_2\_BASE\_ADDR@{TIMMER\_2\_BASE\_ADDR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
 \doxysubsubsection{\texorpdfstring{TIMMER\_2\_BASE\_ADDR}{TIMMER\_2\_BASE\_ADDR}}
@@ -588,3 +670,46 @@ struct \doxymbox{\hyperlink{struct_t_i_m_e_r___reg_def__t}{TIMER\+\_\+\+Reg\+Def
 {\footnotesize\ttfamily \label{stm32f756zg__reg_8h_ac5033744578bb55d59c2e56d4ce67cd1} 
 \+\#define USART\+\_\+3~((\doxymbox{\hyperlink{struct_u_s_a_r_t___reg_def__t}{USART\+\_\+\+Reg\+Def\+\_\+t}}\texorpdfstring{$\ast$}{*})\doxymbox{\hyperlink{stm32f756zg__reg_8h_aa4dd93a8c45e5fde587745de4dc5662a}{USART3\+\_\+\+BASE\+\_\+\+ADDR}})}
 
+
+
+\label{doc-enum-members}
+\Hypertarget{stm32f756zg__reg_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d}\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!Status\_t@{Status\_t}}
+\index{Status\_t@{Status\_t}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\doxysubsubsection{\texorpdfstring{Status\_t}{Status\_t}}
+{\footnotesize\ttfamily \label{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d} 
+enum \doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d}{Status\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATUS\_OK@{STATUS\_OK}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!STATUS\_OK@{STATUS\_OK}}
+}\Hypertarget{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9da7e4a42e3b6dd63708c64cf3db6f69566}\label{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9da7e4a42e3b6dd63708c64cf3db6f69566} 
+STATUS\+\_\+\+OK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATUS\_ERROR@{STATUS\_ERROR}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!STATUS\_ERROR@{STATUS\_ERROR}}
+}\Hypertarget{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9da5bde228d9506a863d51ffbc868ff67f7}\label{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9da5bde228d9506a863d51ffbc868ff67f7} 
+STATUS\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATUS\_BUSY@{STATUS\_BUSY}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!STATUS\_BUSY@{STATUS\_BUSY}}
+}\Hypertarget{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9da27b7b4ca606d6208a2ada6df1af6ab88}\label{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9da27b7b4ca606d6208a2ada6df1af6ab88} 
+STATUS\+\_\+\+BUSY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATUS\_TIMEOUT@{STATUS\_TIMEOUT}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!STATUS\_TIMEOUT@{STATUS\_TIMEOUT}}
+}\Hypertarget{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9da1d57e6000a93a7eb812752846715a58c}\label{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9da1d57e6000a93a7eb812752846715a58c} 
+STATUS\+\_\+\+TIMEOUT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATUS\_INVALID\_PARAM@{STATUS\_INVALID\_PARAM}!stm32f756zg\_reg.h@{stm32f756zg\_reg.h}}
+\index{stm32f756zg\_reg.h@{stm32f756zg\_reg.h}!STATUS\_INVALID\_PARAM@{STATUS\_INVALID\_PARAM}}
+}\Hypertarget{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9da0c947b2b9ee0e7f6aa68426e202e0035}\label{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9da0c947b2b9ee0e7f6aa68426e202e0035} 
+STATUS\+\_\+\+INVALID\+\_\+\+PARAM&\\
+\hline
+
+\end{DoxyEnumFields}

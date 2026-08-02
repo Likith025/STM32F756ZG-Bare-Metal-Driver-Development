@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['key_20learning_20outcomes_0',['Key Learning Outcomes',['../index.html#autotoc_md26',1,'']]]
+  ['implemented_20drivers_0',['Implemented Drivers',['../md__r_e_a_d_m_e.html#autotoc_md33',1,'']]],
+  ['improvements_1',['Future Improvements',['../index.html#autotoc_md20',1,'']]],
+  ['initialization_2',['GPIO Initialization',['../index.html#autotoc_md14',1,'']]],
+  ['intended_20audience_3',['Intended Audience',['../index.html#autotoc_md24',1,'']]]
 ];

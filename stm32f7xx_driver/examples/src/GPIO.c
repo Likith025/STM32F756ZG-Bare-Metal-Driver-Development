@@ -7,6 +7,7 @@
 
 
 #include "peripheral_config.h"
+#include "GPIO.h"
 
 /**
  * @brief Controls the blue LED using the user push button.

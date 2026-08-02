@@ -46,18 +46,15 @@ var NAVTREE =
     [ "Documentation", "index.html#autotoc_md28", null ],
     [ "Author", "index.html#autotoc_md30", null ],
     [ "STM32F756ZG Bare-Metal Driver Development", "md__r_e_a_d_m_e.html", [
-      [ "🎯 Project Objectives", "md__r_e_a_d_m_e.html#autotoc_md32", null ],
-      [ "🏗️ Architecture &amp; Design Philosophy", "md__r_e_a_d_m_e.html#autotoc_md33", null ],
-      [ "📋 Design Principles", "md__r_e_a_d_m_e.html#autotoc_md34", null ],
-      [ "🔧 Implemented Peripherals", "md__r_e_a_d_m_e.html#autotoc_md35", null ],
-      [ "📱 Target Hardware", "md__r_e_a_d_m_e.html#autotoc_md36", null ],
-      [ "🚀 Getting Started", "md__r_e_a_d_m_e.html#autotoc_md37", null ],
-      [ "📖 Reference Documentation", "md__r_e_a_d_m_e.html#autotoc_md38", null ],
-      [ "💡 Learning Path", "md__r_e_a_d_m_e.html#autotoc_md39", null ],
-      [ "🤝 Contributing", "md__r_e_a_d_m_e.html#autotoc_md40", null ],
-      [ "📝 License", "md__r_e_a_d_m_e.html#autotoc_md41", null ]
+      [ "Implemented Drivers", "md__r_e_a_d_m_e.html#autotoc_md33", null ],
+      [ "Project Structure", "md__r_e_a_d_m_e.html#autotoc_md35", null ],
+      [ "Key Features", "md__r_e_a_d_m_e.html#autotoc_md37", null ],
+      [ "Target Hardware", "md__r_e_a_d_m_e.html#autotoc_md39", null ],
+      [ "Build &amp; Run", "md__r_e_a_d_m_e.html#autotoc_md41", null ],
+      [ "Examples", "md__r_e_a_d_m_e.html#autotoc_md43", null ],
+      [ "References", "md__r_e_a_d_m_e.html#autotoc_md45", null ],
+      [ "Documentation", "md__r_e_a_d_m_e.html#autotoc_md46", null ]
     ] ],
-    [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -76,16 +73,15 @@ var NAVTREE =
         [ "Enumerator", "globals_eval.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
-    ] ],
-    [ "Examples", "examples.html", "examples" ]
+    ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_d_1_2embedded_2_s_t_m32__driver__dev_2_s_t_m32_f756_z_g-_bare-_metal-_driver-_development_2stm32147fb7fabced8d8e5d515d08b8f5026.html",
-"stm32f7xx__gpio__driver_8h.html#aecb389afe423ca0f17fffc16200a12d7",
-"struct_u_s_a_r_t__handler__t.html#aaa34248f69508b562b3ca6c0f3d98fb6"
+"_g_p_i_o_8c.html",
+"stm32f7xx__gpio__driver_8h.html#ad01ce8d1432be014835cb946137ad7ee",
+"struct_r_c_c___reg_def__t.html#a00096c2921811ef1ad3463e9330f1ef6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

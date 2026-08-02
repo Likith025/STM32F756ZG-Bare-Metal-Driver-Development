@@ -92,9 +92,6 @@ $(function(){initNavTree('nvic_8c.html','',''); });
   <div class="headertitle"><div class="title">nvic.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Nested Vectored Interrupt Controller (NVIC) driver for STM32F756ZG.  
-<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="nvic_8h_source.html">nvic.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -105,22 +102,80 @@ Include dependency graph for nvic.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga74a8392488d643fee9f6d2321b11cfe9" id="r_ga74a8392488d643fee9f6d2321b11cfe9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___n_v_i_c___f_u_n_c_t_i_o_n_s.html#ga74a8392488d643fee9f6d2321b11cfe9">IntrruptConfig</a> (uint8_t IRQNumber, uint32_t IRQPriority, uint8_t enable)</td></tr>
-<tr class="memitem:ga5dc8baf024ad34bb2821385868e9b126" id="r_ga5dc8baf024ad34bb2821385868e9b126"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___n_v_i_c___f_u_n_c_t_i_o_n_s.html#ga5dc8baf024ad34bb2821385868e9b126">IRQ_IntrruptConfig</a> (uint8_t IRQ_Number, uint8_t status)</td></tr>
-<tr class="memitem:ga0612965a087a6f9a4e22af466104d18c" id="r_ga0612965a087a6f9a4e22af466104d18c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___n_v_i_c___f_u_n_c_t_i_o_n_s.html#ga0612965a087a6f9a4e22af466104d18c">IRQ_PriorityConfig</a> (uint8_t IRQ_Number, uint32_t IRQ_Priority)</td></tr>
+<tr class="memitem:a74a8392488d643fee9f6d2321b11cfe9" id="r_a74a8392488d643fee9f6d2321b11cfe9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a74a8392488d643fee9f6d2321b11cfe9">IntrruptConfig</a> (uint8_t IRQNumber, uint32_t IRQPriority, uint8_t enable)</td></tr>
+<tr class="memitem:a5dc8baf024ad34bb2821385868e9b126" id="r_a5dc8baf024ad34bb2821385868e9b126"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5dc8baf024ad34bb2821385868e9b126">IRQ_IntrruptConfig</a> (uint8_t IRQ_Number, uint8_t status)</td></tr>
+<tr class="memitem:a0612965a087a6f9a4e22af466104d18c" id="r_a0612965a087a6f9a4e22af466104d18c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0612965a087a6f9a4e22af466104d18c">IRQ_PriorityConfig</a> (uint8_t IRQ_Number, uint32_t IRQ_Priority)</td></tr>
 </table>
-<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Nested Vectored Interrupt Controller (NVIC) driver for STM32F756ZG. </p>
-<dl class="section author"><dt>Author</dt><dd>Likith025 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>March 22, 2026 </dd></dl>
-<p>This driver provides low-level interrupt management functions for the ARM Cortex-M7 Nested Vectored Interrupt Controller (NVIC). It handles:</p><ul>
-<li>Interrupt enable/disable</li>
-<li>Priority configuration</li>
-<li>IRQ management for all STM32F756ZG peripherals</li>
-</ul>
-<dl class="section copyright"><dt>Copyright</dt><dd>2026 Likith025 - MIT License </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="stm32f756zg__reg_8h.html">stm32f756zg_reg.h</a> - <a class="el" href="stm32f756zg__reg_8h.html#ac8e97e8ce56ae9f57da1363a937f8a17">NVIC</a> register definitions </dd></dl>
-</div></div><!-- contents -->
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a74a8392488d643fee9f6d2321b11cfe9" name="a74a8392488d643fee9f6d2321b11cfe9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74a8392488d643fee9f6d2321b11cfe9">&#9670;&#160;</a></span>IntrruptConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IntrruptConfig </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>IRQNumber</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>IRQPriority</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>enable</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5dc8baf024ad34bb2821385868e9b126" name="a5dc8baf024ad34bb2821385868e9b126"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dc8baf024ad34bb2821385868e9b126">&#9670;&#160;</a></span>IRQ_IntrruptConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IRQ_IntrruptConfig </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>IRQ_Number</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>status</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0612965a087a6f9a4e22af466104d18c" name="a0612965a087a6f9a4e22af466104d18c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0612965a087a6f9a4e22af466104d18c">&#9670;&#160;</a></span>IRQ_PriorityConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IRQ_PriorityConfig </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>IRQ_Number</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>IRQ_Priority</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

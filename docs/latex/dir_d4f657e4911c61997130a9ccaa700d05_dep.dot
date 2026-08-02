@@ -10,5 +10,5 @@ digraph "stm32f7xx_driver/bsp"
   dir_37d1c223d4da8c9af2134fd188e0ec83 [label="driver", fillcolor="#a2b4d6", color="red", style="filled", URL="dir_37d1c223d4da8c9af2134fd188e0ec83.html",tooltip=""];
   dir_d4f657e4911c61997130a9ccaa700d05 [label="bsp", fillcolor="#edf0f7", color="grey25", style="filled,bold", URL="dir_d4f657e4911c61997130a9ccaa700d05.html",tooltip=""];
   }
-  dir_d4f657e4911c61997130a9ccaa700d05->dir_37d1c223d4da8c9af2134fd188e0ec83 [headlabel="4", labeldistance=1.5 headhref="dir_000000_000001.html" href="dir_000000_000001.html" color="steelblue1" fontcolor="steelblue1"];
+  dir_d4f657e4911c61997130a9ccaa700d05->dir_37d1c223d4da8c9af2134fd188e0ec83 [headlabel="9", labeldistance=1.5 headhref="dir_000000_000001.html" href="dir_000000_000001.html" color="steelblue1" fontcolor="steelblue1"];
 }

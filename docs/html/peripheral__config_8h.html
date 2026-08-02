@@ -96,6 +96,7 @@ $(function(){initNavTree('peripheral__config_8h.html','',''); });
 <code>#include &quot;<a class="el" href="stm32f7xx__gpio__driver_8h_source.html">stm32f7xx_gpio_driver.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="stm32f7xx__timer__driver_8h_source.html">stm32f7xx_timer_driver.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="nvic_8h_source.html">nvic.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stm32f7xx__spi_8h_source.html">stm32f7xx_spi.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for peripheral_config.h:</div>
 <div class="dyncontent">
@@ -111,19 +112,20 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga1d8ed4eda8ef2b3adc80c0de7b8d1897" id="r_ga1d8ed4eda8ef2b3adc80c0de7b8d1897"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s.html#ga1d8ed4eda8ef2b3adc80c0de7b8d1897">led_setup_blue</a> (<a class="el" href="struct_g_p_i_o__handler__t.html">GPIO_handler_t</a> *LED)</td></tr>
-<tr class="memdesc:ga1d8ed4eda8ef2b3adc80c0de7b8d1897"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure blue LED (GPIO_B pin 15).  <br /></td></tr>
-<tr class="memitem:ga149103b303430f06e1bb902c91dfabea" id="r_ga149103b303430f06e1bb902c91dfabea"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s.html#ga149103b303430f06e1bb902c91dfabea">led_setup_red</a> (<a class="el" href="struct_g_p_i_o__handler__t.html">GPIO_handler_t</a> *LED)</td></tr>
+<tr class="memitem:a8167f54a45da346003f04321f7344b6b" id="r_a8167f54a45da346003f04321f7344b6b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8167f54a45da346003f04321f7344b6b">led_setup_blue</a> (<a class="el" href="struct_g_p_i_o__handler__t.html">GPIO_handler_t</a> *LED)</td></tr>
+<tr class="memdesc:a8167f54a45da346003f04321f7344b6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the blue user LED.  <br /></td></tr>
+<tr class="memitem:aa9d9269b3bad59572316be64186afc60" id="r_aa9d9269b3bad59572316be64186afc60"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa9d9269b3bad59572316be64186afc60">led_setup_red</a> (<a class="el" href="struct_g_p_i_o__handler__t.html">GPIO_handler_t</a> *LED)</td></tr>
+<tr class="memdesc:aa9d9269b3bad59572316be64186afc60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the red user LED.  <br /></td></tr>
 <tr class="memitem:a732b9fd5baa226cd12b01d8159016a68" id="r_a732b9fd5baa226cd12b01d8159016a68"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a732b9fd5baa226cd12b01d8159016a68">button_setup</a> (<a class="el" href="struct_g_p_i_o__handler__t.html">GPIO_handler_t</a> *BUTTON)</td></tr>
+<tr class="memdesc:a732b9fd5baa226cd12b01d8159016a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the user push button as a GPIO input.  <br /></td></tr>
 <tr class="memitem:ae7d9acb96739a1d81784b69563127982" id="r_ae7d9acb96739a1d81784b69563127982"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae7d9acb96739a1d81784b69563127982">button_interrupt_setup</a> (<a class="el" href="struct_g_p_i_o__handler__t.html">GPIO_handler_t</a> *BUTTON)</td></tr>
-<tr class="memitem:gae862bef71de80c107ecac7ceab728b82" id="r_gae862bef71de80c107ecac7ceab728b82"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s.html#gae862bef71de80c107ecac7ceab728b82">usart3_init</a> (<a class="el" href="struct_u_s_a_r_t__handler__t.html">USART_handler_t</a> *handler)</td></tr>
-<tr class="memdesc:gae862bef71de80c107ecac7ceab728b82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize USART3 with default settings.  <br /></td></tr>
-<tr class="memitem:ga59d034137a5e59672ddd16be41fb516a" id="r_ga59d034137a5e59672ddd16be41fb516a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s.html#ga59d034137a5e59672ddd16be41fb516a">usart3_tx</a> (<a class="el" href="struct_g_p_i_o__handler__t.html">GPIO_handler_t</a> *handler)</td></tr>
-<tr class="memdesc:ga59d034137a5e59672ddd16be41fb516a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure USART3 TX pin (GPIO_C pin 10).  <br /></td></tr>
-<tr class="memitem:ga7598dcb2f135070c5fc9ee7298d861fa" id="r_ga7598dcb2f135070c5fc9ee7298d861fa"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s.html#ga7598dcb2f135070c5fc9ee7298d861fa">usart3_rx</a> (<a class="el" href="struct_g_p_i_o__handler__t.html">GPIO_handler_t</a> *handler)</td></tr>
-<tr class="memdesc:ga7598dcb2f135070c5fc9ee7298d861fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure USART3 RX pin (GPIO_C pin 11).  <br /></td></tr>
+<tr class="memdesc:ae7d9acb96739a1d81784b69563127982"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the user push button as an external interrupt source.  <br /></td></tr>
+<tr class="memitem:a67bc3fe7779a3fc58d1dca81d3ea9f1d" id="r_a67bc3fe7779a3fc58d1dca81d3ea9f1d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a67bc3fe7779a3fc58d1dca81d3ea9f1d">usart3_init</a> (<a class="el" href="struct_u_s_a_r_t__handler__t.html">USART_handler_t</a> *handler)</td></tr>
+<tr class="memdesc:a67bc3fe7779a3fc58d1dca81d3ea9f1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes USART3 peripheral.  <br /></td></tr>
 <tr class="memitem:abe324fe42a678f7bacd271db37bfb36b" id="r_abe324fe42a678f7bacd271db37bfb36b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abe324fe42a678f7bacd271db37bfb36b">timer2_setup</a> (<a class="el" href="struct_t_i_m_e_r__handler__t.html">TIMER_handler_t</a> *handler, <a class="el" href="stm32f7xx__timer__driver_8h.html#a3f783190e54bca7cb813a798fe4995ab">Timer_direction_t</a> direction)</td></tr>
+<tr class="memdesc:abe324fe42a678f7bacd271db37bfb36b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes TIM2.  <br /></td></tr>
 <tr class="memitem:a4b456e45cc9e59d402e8872fdbd993b7" id="r_a4b456e45cc9e59d402e8872fdbd993b7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4b456e45cc9e59d402e8872fdbd993b7">timer2ch1</a> (<a class="el" href="struct_g_p_i_o__handler__t.html">GPIO_handler_t</a> *handler)</td></tr>
+<tr class="memdesc:a4b456e45cc9e59d402e8872fdbd993b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures TIM2 Channel 1 GPIO pin.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -151,6 +153,16 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Configures the user push button as an external interrupt source. </p>
+<p>Initializes the button GPIO pin for falling-edge triggered EXTI operation, clears any pending interrupt flag, and enables the corresponding NVIC interrupt.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">BUTTON</td><td>Pointer to the GPIO handler associated with the push button.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This function configures GPIO, EXTI, SYSCFG, and NVIC for button interrupts. </dd></dl>
+
 </div>
 </div>
 <a id="a732b9fd5baa226cd12b01d8159016a68" name="a732b9fd5baa226cd12b01d8159016a68"></a>
@@ -167,6 +179,67 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initializes the user push button as a GPIO input. </p>
+<p>Configures the button GPIO pin as a digital input with no internal pull-up or pull-down resistor.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">BUTTON</td><td>Pointer to the GPIO handler associated with the push button. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8167f54a45da346003f04321f7344b6b" name="a8167f54a45da346003f04321f7344b6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8167f54a45da346003f04321f7344b6b">&#9670;&#160;</a></span>led_setup_blue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void led_setup_blue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_g_p_i_o__handler__t.html">GPIO_handler_t</a> *</td>          <td class="paramname"><span class="paramname"><em>LED</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes the blue user LED. </p>
+<p>Configures the GPIO pin connected to the blue LED as a low-speed push-pull output and initializes the corresponding GPIO peripheral.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">LED</td><td>Pointer to the GPIO handler associated with the blue LED. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa9d9269b3bad59572316be64186afc60" name="aa9d9269b3bad59572316be64186afc60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9d9269b3bad59572316be64186afc60">&#9670;&#160;</a></span>led_setup_red()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void led_setup_red </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_g_p_i_o__handler__t.html">GPIO_handler_t</a> *</td>          <td class="paramname"><span class="paramname"><em>LED</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes the red user LED. </p>
+<p>Configures the GPIO pin connected to the red LED as a low-speed push-pull output and initializes the corresponding GPIO peripheral.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">LED</td><td>Pointer to the GPIO handler associated with the red LED. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -189,6 +262,16 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initializes TIM2. </p>
+<p>Configures and initializes Timer 2 with the specified counting direction.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">handler</td><td>Pointer to the timer handler.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">direction</td><td>Timer counting direction (up-counting or down-counting). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a4b456e45cc9e59d402e8872fdbd993b7" name="a4b456e45cc9e59d402e8872fdbd993b7"></a>
@@ -205,6 +288,42 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Configures TIM2 Channel 1 GPIO pin. </p>
+<p>Initializes the GPIO pin associated with TIM2 Channel 1 in Alternate Function mode for timer operation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">handler</td><td>Pointer to the GPIO handler for TIM2 Channel 1. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a67bc3fe7779a3fc58d1dca81d3ea9f1d" name="a67bc3fe7779a3fc58d1dca81d3ea9f1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67bc3fe7779a3fc58d1dca81d3ea9f1d">&#9670;&#160;</a></span>usart3_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usart3_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_u_s_a_r_t__handler__t.html">USART_handler_t</a> *</td>          <td class="paramname"><span class="paramname"><em>handler</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes USART3 peripheral. </p>
+<p>Configures USART3 with the desired communication parameters and initializes its associated TX and RX GPIO pins.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">handler</td><td>Pointer to the USART handler structure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>USART3 TX and RX pins are configured automatically by this function. </dd></dl>
 
 </div>
 </div>

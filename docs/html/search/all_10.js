@@ -4,7 +4,7 @@ var searchData=
   ['rcc_5fbase_5faddr_1',['RCC_BASE_ADDR',['../stm32f756zg__reg_8h.html#aa918567a93fe95a5e24ba45dcbb89afa',1,'stm32f756zg_reg.h']]],
   ['rcc_5fregdef_5ft_2',['RCC_RegDef_t',['../struct_r_c_c___reg_def__t.html',1,'']]],
   ['readme_2emd_3',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
-  ['reference_20documentation_4',['📖 Reference Documentation',['../md__r_e_a_d_m_e.html#autotoc_md38',1,'']]],
+  ['references_4',['References',['../md__r_e_a_d_m_e.html#autotoc_md45',1,'']]],
   ['reserved_5',['reserved',['../struct_s_y_s_c_f_g___reg_def__t.html#a429fa9468053302980a66c0173a0464d',1,'SYSCFG_RegDef_t']]],
   ['reserved0_6',['RESERVED0',['../struct_n_v_i_c___reg_def__t.html#ac1caa7c9648d47f5a8fc13179351fca1',1,'NVIC_RegDef_t']]],
   ['reserved1_7',['RESERVED1',['../struct_n_v_i_c___reg_def__t.html#af958e5470fafa63acddf63f9508a6486',1,'NVIC_RegDef_t']]],
@@ -19,6 +19,6 @@ var searchData=
   ['reserved_5f6_16',['RESERVED_6',['../struct_r_c_c___reg_def__t.html#a03bfaaa2e3c43f9f4d082b021b1954da',1,'RCC_RegDef_t']]],
   ['reserved_5f7_17',['RESERVED_7',['../struct_r_c_c___reg_def__t.html#abfe4cafc7b618cacce4c9400fdc0f1a8',1,'RCC_RegDef_t']]],
   ['rtc_5fbase_5faddr_18',['RTC_BASE_ADDR',['../stm32f756zg__reg_8h.html#a33283243f681a8ae4a78650b57ae2ca5',1,'stm32f756zg_reg.h']]],
-  ['rx_5fbyte_19',['rx_byte',['../main_8c.html#abecb9f7f424287335a67817a45e061a0',1,'main.c']]],
+  ['run_19',['Build &amp;amp; Run',['../md__r_e_a_d_m_e.html#autotoc_md41',1,'']]],
   ['rx_5flen_20',['rx_len',['../struct_u_s_a_r_t__handler__t.html#a7c4a5e5d6237b662e592d3579aaf31ba',1,'USART_handler_t']]]
 ];

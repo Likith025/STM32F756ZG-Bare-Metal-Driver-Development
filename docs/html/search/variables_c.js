@@ -1,8 +1,26 @@
 var searchData=
 [
-  ['sscgr_0',['SSCGR',['../struct_r_c_c___reg_def__t.html#a0addf6bf7447e8de71be463cbaa317f9',1,'RCC_RegDef_t']]],
-  ['syscfg_5fcmpcr_1',['SYSCFG_CMPCR',['../struct_s_y_s_c_f_g___reg_def__t.html#a7f72dcdc3c72ff373ed11c633aeed392',1,'SYSCFG_RegDef_t']]],
-  ['syscfg_5fexticr_2',['SYSCFG_EXTICR',['../struct_s_y_s_c_f_g___reg_def__t.html#ad5c121e5eb0827f8d8e2062a11f1f0ee',1,'SYSCFG_RegDef_t']]],
-  ['syscfg_5fmemrmp_3',['SYSCFG_MEMRMP',['../struct_s_y_s_c_f_g___reg_def__t.html#a85968b8178667ab6670d187481866b71',1,'SYSCFG_RegDef_t']]],
-  ['syscfg_5fpmc_4',['SYSCFG_PMC',['../struct_s_y_s_c_f_g___reg_def__t.html#a649f2aa6fb14b052c2b2d2e34156d89e',1,'SYSCFG_RegDef_t']]]
+  ['spi_5fbusconfig_0',['SPI_BusConfig',['../struct_s_p_i__config__t.html#a30f6da1531339c7be3c339b2664b9841',1,'SPI_config_t']]],
+  ['spi_5fbyteorder_1',['SPI_ByteOrder',['../struct_s_p_i__config__t.html#af9531a13dd93fa4862d3186f3a5f9460',1,'SPI_config_t']]],
+  ['spi_5fclkspeed_2',['SPI_ClkSpeed',['../struct_s_p_i__config__t.html#a29187412b90a1602d26d3772ac2939ea',1,'SPI_config_t']]],
+  ['spi_5fcpha_3',['SPI_CPHA',['../struct_s_p_i__config__t.html#a3c5b420ad0be839eeee6cd2263cfd576',1,'SPI_config_t']]],
+  ['spi_5fcpol_4',['SPI_CPOL',['../struct_s_p_i__config__t.html#a9f67fbe8da9ccdf0ca04e70a44be8ab7',1,'SPI_config_t']]],
+  ['spi_5fcr1_5',['SPI_CR1',['../struct_s_p_i___reg_def__t.html#a729d58443d1e637574b72c5436f59137',1,'SPI_RegDef_t']]],
+  ['spi_5fcr2_6',['SPI_CR2',['../struct_s_p_i___reg_def__t.html#a9e7f463a3ff87a53389ba6bfb316bb4a',1,'SPI_RegDef_t']]],
+  ['spi_5fcrcpr_7',['SPI_CRCPR',['../struct_s_p_i___reg_def__t.html#ac1f9cbf4620ca1c27b976e4ac48f506d',1,'SPI_RegDef_t']]],
+  ['spi_5fdevicemode_8',['SPI_DeviceMode',['../struct_s_p_i__config__t.html#a5bd0dd18ba639c059f82a5febb632843',1,'SPI_config_t']]],
+  ['spi_5fdr_9',['SPI_DR',['../struct_s_p_i___reg_def__t.html#ac06069faacfae45ae0936dd292263fd6',1,'SPI_RegDef_t']]],
+  ['spi_5fframesize_10',['SPI_FrameSize',['../struct_s_p_i__config__t.html#a8c32c03b6dbfe4e0afafcf7c5c971a6a',1,'SPI_config_t']]],
+  ['spi_5fi2scfgr_11',['SPI_I2SCFGR',['../struct_s_p_i___reg_def__t.html#a381b10efff260e4c347b968d3b2e8e62',1,'SPI_RegDef_t']]],
+  ['spi_5fi2spr_12',['SPI_I2SPR',['../struct_s_p_i___reg_def__t.html#ac8a4754a15f884caeefa9f865c2b92e4',1,'SPI_RegDef_t']]],
+  ['spi_5frxcrcr_13',['SPI_RXCRCR',['../struct_s_p_i___reg_def__t.html#a55de89eb6afe946276adeb132cf39543',1,'SPI_RegDef_t']]],
+  ['spi_5fsr_14',['SPI_SR',['../struct_s_p_i___reg_def__t.html#a34578a7d1f4eb7d9bce3119ecb4bdc4c',1,'SPI_RegDef_t']]],
+  ['spi_5fssm_15',['SPI_SSM',['../struct_s_p_i__config__t.html#a291b01805ffdcd339a1bc2e5b371fcbd',1,'SPI_config_t']]],
+  ['spi_5ftxcrcr_16',['SPI_TXCRCR',['../struct_s_p_i___reg_def__t.html#a5cfbd45c43be3ecaab86eee9032e6be1',1,'SPI_RegDef_t']]],
+  ['spiconfig_17',['SPIConfig',['../structspi__handler__t.html#a810de66d10efaf6747f2d6f5897a8294',1,'spi_handler_t']]],
+  ['sscgr_18',['SSCGR',['../struct_r_c_c___reg_def__t.html#a0addf6bf7447e8de71be463cbaa317f9',1,'RCC_RegDef_t']]],
+  ['syscfg_5fcmpcr_19',['SYSCFG_CMPCR',['../struct_s_y_s_c_f_g___reg_def__t.html#a7f72dcdc3c72ff373ed11c633aeed392',1,'SYSCFG_RegDef_t']]],
+  ['syscfg_5fexticr_20',['SYSCFG_EXTICR',['../struct_s_y_s_c_f_g___reg_def__t.html#ad5c121e5eb0827f8d8e2062a11f1f0ee',1,'SYSCFG_RegDef_t']]],
+  ['syscfg_5fmemrmp_21',['SYSCFG_MEMRMP',['../struct_s_y_s_c_f_g___reg_def__t.html#a85968b8178667ab6670d187481866b71',1,'SYSCFG_RegDef_t']]],
+  ['syscfg_5fpmc_22',['SYSCFG_PMC',['../struct_s_y_s_c_f_g___reg_def__t.html#a649f2aa6fb14b052c2b2d2e34156d89e',1,'SYSCFG_RegDef_t']]]
 ];

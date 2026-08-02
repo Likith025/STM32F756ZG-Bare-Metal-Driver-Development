@@ -93,104 +93,94 @@ $(function(){initNavTree('md__r_e_a_d_m_e.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md31"></a></p>
-<p>A comprehensive collection of peripheral drivers for the STM32F756ZG microcontroller, developed from the ground up using direct register-level programming. This project builds a strong foundation in embedded firmware development by working at the hardware level without relying on STM32 HAL or middleware libraries.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md32"></a>
-🎯 Project Objectives</h1>
-<ul>
-<li>Master ARM Cortex-M7 architecture fundamentals</li>
-<li>Understand STM32F7 memory organization (Flash, DTCM, SRAM1, SRAM2)</li>
-<li>Implement accurate register structures based on RM0385 reference manual</li>
-<li>Master peripheral clock control using RCC</li>
-<li>Perform safe and deterministic bit-level register manipulation</li>
-<li>Build clean, reusable, and modular driver abstractions</li>
-<li>Develop production-quality embedded firmware patterns</li>
-</ul>
+<p>This repository contains bare-metal peripheral drivers for the STM32F756ZG, implemented using direct register-level programming without STM32 HAL or middleware.</p>
+<p>The focus of this project is to understand how peripherals work at the hardware level by using the reference manual and building drivers from scratch.</p>
+<hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md33"></a>
-🏗️ Architecture &amp; Design Philosophy</h1>
-<p>This project emphasizes:</p>
-<ul>
-<li><b>Hardware Awareness</b>: Deep understanding of Cortex-M memory model</li>
-<li><b>Bus Architecture</b>: Working with AHB and APB bus protocols</li>
-<li><b>Clock Management</b>: Proper peripheral clock gating and RCC configuration</li>
-<li><b>Register Safety</b>: Correct use of <span class="tt">volatile</span> for hardware registers and proper offset alignment</li>
-<li><b>Clean Code</b>: Minimal abstraction overhead with modular, scalable driver structure</li>
-<li><b>Verification</b>: All register structures verified against STM32F7 reference manual (RM0385)</li>
-</ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
-📋 Design Principles</h1>
-<p>✓ <b>No HAL/Middleware</b>: Pure register-level implementation <br  />
- ✓ <b>Minimal Abstraction</b>: Direct hardware control with clean macros <br  />
- ✓ <b>Deterministic Behavior</b>: Predictable register access patterns <br  />
- ✓ <b>Modular Structure</b>: Reusable and scalable driver architecture <br  />
- ✓ <b>Production Ready</b>: Follows embedded systems best practices <br  />
-</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
-🔧 Implemented Peripherals</h1>
+Implemented Drivers</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Peripheral  </th><th class="markdownTableHeadNone">Status  </th><th class="markdownTableHeadNone">Notes  </th></tr>
+<th class="markdownTableHeadNone">Peripheral  </th><th class="markdownTableHeadNone">Status  </th><th class="markdownTableHeadNone">Description  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">RCC  </td><td class="markdownTableBodyNone">✅ Complete  </td><td class="markdownTableBodyNone">Clock control and system configuration  </td></tr>
+<td class="markdownTableBodyNone">RCC  </td><td class="markdownTableBodyNone">Complete  </td><td class="markdownTableBodyNone">Peripheral clock configuration  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">GPIO  </td><td class="markdownTableBodyNone">✅ Complete  </td><td class="markdownTableBodyNone">Digital I/O control  </td></tr>
+<td class="markdownTableBodyNone">GPIO  </td><td class="markdownTableBodyNone">Complete  </td><td class="markdownTableBodyNone">Digital input/output  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">EXTI  </td><td class="markdownTableBodyNone">✅ Completed  </td><td class="markdownTableBodyNone">External interrupts  </td></tr>
+<td class="markdownTableBodyNone">EXTI  </td><td class="markdownTableBodyNone">Complete  </td><td class="markdownTableBodyNone">External interrupt handling  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">USART/UART  </td><td class="markdownTableBodyNone">✅ Completed  </td><td class="markdownTableBodyNone">Serial communication  </td></tr>
+<td class="markdownTableBodyNone">USART  </td><td class="markdownTableBodyNone">Complete  </td><td class="markdownTableBodyNone">Serial communication  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">SPI  </td><td class="markdownTableBodyNone">📋 Planned  </td><td class="markdownTableBodyNone">Serial peripheral interface  </td></tr>
+<td class="markdownTableBodyNone">NVIC  </td><td class="markdownTableBodyNone">Complete  </td><td class="markdownTableBodyNone">Interrupt controller  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">I2C  </td><td class="markdownTableBodyNone">📋 Planned  </td><td class="markdownTableBodyNone">Inter-integrated circuit  </td></tr>
+<td class="markdownTableBodyNone">Timers  </td><td class="markdownTableBodyNone">Complete  </td><td class="markdownTableBodyNone">General-purpose + PWM  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Timers  </td><td class="markdownTableBodyNone">✅ Planned  </td><td class="markdownTableBodyNone">General-purpose and PWM  </td></tr>
+<td class="markdownTableBodyNone">SPI  </td><td class="markdownTableBodyNone">Planned  </td><td class="markdownTableBodyNone">Serial peripheral interface  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">DMA  </td><td class="markdownTableBodyNone">📋 Planned  </td><td class="markdownTableBodyNone">Direct memory access  </td></tr>
+<td class="markdownTableBodyNone">I2C  </td><td class="markdownTableBodyNone">Planned  </td><td class="markdownTableBodyNone">Inter-integrated communication  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">NVIC  </td><td class="markdownTableBodyNone">✅ Completed  </td><td class="markdownTableBodyNone">Nested vectored interrupt controller  </td></tr>
+<td class="markdownTableBodyNone">DMA  </td><td class="markdownTableBodyNone">Planned  </td><td class="markdownTableBodyNone">Data transfer engine  </td></tr>
 </table>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
-📱 Target Hardware</h1>
-<ul>
-<li><b>MCU</b>: STM32F756ZG</li>
-<li><b>Core</b>: ARM Cortex-M7 @ 216 MHz</li>
-<li><b>Flash</b>: 1 MB</li>
-<li><b>RAM</b>: 316 KB (DTCM + SRAM)</li>
-</ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
-🚀 Getting Started</h1>
-<div class="fragment"><div class="line"># Clone the repository</div>
-<div class="line">git clone https://github.com/Likith025/STM32F756ZG-Bare-Metal-Driver-Development.git</div>
-<div class="line">cd STM32F756ZG-Bare-Metal-Driver-Development</div>
-<div class="line"> </div>
-<div class="line"># Review the architecture and memory maps</div>
-<div class="line"># Start with RCC driver implementation</div>
-<div class="line"># Follow the register structure patterns</div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md38"></a>
-📖 Reference Documentation</h1>
-<ul>
-<li><b>STM32F756ZG Datasheet</b>: Official device specifications</li>
-<li><b>RM0385 Reference Manual</b>: Complete register definitions and peripheral descriptions</li>
-<li><b>ARM Cortex-M7 Technical Reference Manual</b>: CPU architecture details</li>
-</ul>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md39"></a>
-💡 Learning Path</h1>
-<ol type="1">
-<li>Understand the STM32F7 memory map and address spaces</li>
-<li>Learn RCC configuration and clock tree management</li>
-<li>Master GPIO operations and register patterns</li>
-<li>Implement interrupt handling with NVIC</li>
-<li>Build advanced peripherals (Timers, UART, SPI, I2C)</li>
-<li>Explore DMA for efficient data transfers</li>
-</ol>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md40"></a>
-🤝 Contributing</h1>
-<p>This is a personal learning project, but suggestions and improvements are welcome. Feel free to open issues for bug reports or feature requests.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md41"></a>
-📝 License</h1>
-<p>This project is provided for educational purposes.</p>
 <hr  />
-<p><b>Purpose</b>: A growing driver foundation aimed at strengthening low-level embedded firmware development skills and building reusable peripheral drivers from scratch. </p>
-</div></div><!-- contents -->
+<h1 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
+Project Structure</h1>
+<div class="fragment"><div class="line">.</div>
+<div class="line">├── driver/</div>
+<div class="line">│   ├── driver_src/    # Peripheral driver implementations</div>
+<div class="line">│   └── driver_inc/    # Header files and register definitions</div>
+<div class="line">├── bsp/               # Board support / hardware-specific setup</div>
+<div class="line">├── Src/               # Application code</div>
+<div class="line">└── Startup/           # Startup code and vector table</div>
+</div><!-- fragment --> <hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
+Key Features</h1>
+<ul>
+<li>Direct register-level programming (no HAL)</li>
+<li>Register structures implemented based on RM0385</li>
+<li>Proper use of <span class="tt">volatile</span> for hardware registers</li>
+<li>Modular driver design for reuse across projects</li>
+</ul>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md39"></a>
+Target Hardware</h1>
+<ul>
+<li>MCU: STM32F756ZG</li>
+<li>Core: ARM Cortex-M7</li>
+<li>Board: STM32 Nucleo-144</li>
+<li>Max Clock: 216 MHz</li>
+</ul>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md41"></a>
+Build &amp; Run</h1>
+<div class="fragment"><div class="line">git clone https://github.com/Likith025/STM32F756ZG-Bare-Metal-Driver-Development.git</div>
+<div class="line">cd STM32F756ZG-Bare-Metal-Driver-Development</div>
+</div><!-- fragment --><p>Build using STM32CubeIDE or GCC ARM toolchain. Flash to STM32 Nucleo board and test using example applications.</p>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md43"></a>
+Examples</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Peripheral  </th><th class="markdownTableHeadNone">Test  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">USART  </td><td class="markdownTableBodyNone">Data transmission at 115200 baud (polling + IT)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">GPIO  </td><td class="markdownTableBodyNone">LED toggle verified on board  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">EXTI  </td><td class="markdownTableBodyNone">Button interrupt triggers handler  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Timer/PWM  </td><td class="markdownTableBodyNone">Duty cycle control verified using timer registers  </td></tr>
+</table>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md45"></a>
+References</h1>
+<ul>
+<li><a href="https://www.st.com/resource/en/reference_manual/rm0385-stm32f75xxx-and-stm32f74xxx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf">RM0385 Reference Manual</a></li>
+<li><a href="https://www.st.com/en/microcontrollers-microprocessors/stm32f756zg.html">STM32F756ZG Datasheet</a></li>
+<li>ARM Cortex-M7 Technical Reference Manual</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md46"></a>
+Documentation</h1>
+<p>Generate locally using Doxygen: </p><div class="fragment"><div class="line">doxygen Doxyfile</div>
+</div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

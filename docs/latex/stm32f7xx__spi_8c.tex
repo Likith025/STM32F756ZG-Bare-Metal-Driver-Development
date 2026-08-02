@@ -1,0 +1,53 @@
+\doxysection{stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+src/\+stm32f7xx\+\_\+spi.c File Reference}
+\hypertarget{stm32f7xx__spi_8c}{}\label{stm32f7xx__spi_8c}\index{stm32f7xx\_driver/driver/driver\_src/stm32f7xx\_spi.c@{stm32f7xx\_driver/driver/driver\_src/stm32f7xx\_spi.c}}
+{\ttfamily \+\#include "{}stm32f7xx\+\_\+spi.\+h"{}}\newline
+Include dependency graph for stm32f7xx\+\_\+spi.\+c:\+
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d}{Status\+\_\+t}} \doxymbox{\hyperlink{stm32f7xx__spi_8c_a1a2779ce157974acdab2ecd7ca9697d3}{SPI\+\_\+init}} (\doxymbox{\hyperlink{structspi__handler__t}{spi\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}spi\+\_\+handle)
+\item 
+\doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d}{Status\+\_\+t}} \doxymbox{\hyperlink{stm32f7xx__spi_8c_a8a4d0e9086bee8712d276d757c0c7b85}{SPI\+\_\+clk\+\_\+init}} (const \doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}spi\+\_\+ptr, const uint8\+\_\+t enable)
+\item 
+\doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d}{Status\+\_\+t}} \doxymbox{\hyperlink{stm32f7xx__spi_8c_ab43525a8864a9f1a77036116dcd285e9}{SPI\+\_\+\+Deinit}} (const \doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}spi\+\_\+ptr)
+\item 
+void \doxymbox{\hyperlink{stm32f7xx__spi_8c_ae93541024a6d6fa912a3ce5becb8ec4e}{SPI\+\_\+\+Start}} (\doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+SPI, uint8\+\_\+t enable)
+\item 
+\doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d}{Status\+\_\+t}} \doxymbox{\hyperlink{stm32f7xx__spi_8c_a63d479083b411bcac9c863ffd401882b}{SPI\+\_\+\+Send\+Data}} (\doxymbox{\hyperlink{structspi__handler__t}{spi\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+SPIHandle, void \texorpdfstring{$\ast$}{*}p\+Tx\+Buffer, uint32\+\_\+t Frame\+Count)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{stm32f7xx__spi_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{stm32f7xx__spi_8c_a8a4d0e9086bee8712d276d757c0c7b85}\index{stm32f7xx\_spi.c@{stm32f7xx\_spi.c}!SPI\_clk\_init@{SPI\_clk\_init}}
+\index{SPI\_clk\_init@{SPI\_clk\_init}!stm32f7xx\_spi.c@{stm32f7xx\_spi.c}}
+\doxysubsubsection{\texorpdfstring{SPI\_clk\_init()}{SPI\_clk\_init()}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8c_a8a4d0e9086bee8712d276d757c0c7b85} 
+\doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d}{Status\+\_\+t}} SPI\+\_\+clk\+\_\+init (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{spi\+\_\+ptr}{, }\item[{const uint8\+\_\+t}]{enable}{}\end{DoxyParamCaption})}
+
+\Hypertarget{stm32f7xx__spi_8c_ab43525a8864a9f1a77036116dcd285e9}\index{stm32f7xx\_spi.c@{stm32f7xx\_spi.c}!SPI\_Deinit@{SPI\_Deinit}}
+\index{SPI\_Deinit@{SPI\_Deinit}!stm32f7xx\_spi.c@{stm32f7xx\_spi.c}}
+\doxysubsubsection{\texorpdfstring{SPI\_Deinit()}{SPI\_Deinit()}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8c_ab43525a8864a9f1a77036116dcd285e9} 
+\doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d}{Status\+\_\+t}} SPI\+\_\+\+Deinit (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{spi\+\_\+ptr}{}\end{DoxyParamCaption})}
+
+\Hypertarget{stm32f7xx__spi_8c_a1a2779ce157974acdab2ecd7ca9697d3}\index{stm32f7xx\_spi.c@{stm32f7xx\_spi.c}!SPI\_init@{SPI\_init}}
+\index{SPI\_init@{SPI\_init}!stm32f7xx\_spi.c@{stm32f7xx\_spi.c}}
+\doxysubsubsection{\texorpdfstring{SPI\_init()}{SPI\_init()}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8c_a1a2779ce157974acdab2ecd7ca9697d3} 
+\doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d}{Status\+\_\+t}} SPI\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structspi__handler__t}{spi\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{spi\+\_\+handle}{}\end{DoxyParamCaption})}
+
+\Hypertarget{stm32f7xx__spi_8c_a63d479083b411bcac9c863ffd401882b}\index{stm32f7xx\_spi.c@{stm32f7xx\_spi.c}!SPI\_SendData@{SPI\_SendData}}
+\index{SPI\_SendData@{SPI\_SendData}!stm32f7xx\_spi.c@{stm32f7xx\_spi.c}}
+\doxysubsubsection{\texorpdfstring{SPI\_SendData()}{SPI\_SendData()}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8c_a63d479083b411bcac9c863ffd401882b} 
+\doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d}{Status\+\_\+t}} SPI\+\_\+\+Send\+Data (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structspi__handler__t}{spi\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+SPIHandle}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Tx\+Buffer}{, }\item[{uint32\+\_\+t}]{Frame\+Count}{}\end{DoxyParamCaption})}
+
+\Hypertarget{stm32f7xx__spi_8c_ae93541024a6d6fa912a3ce5becb8ec4e}\index{stm32f7xx\_spi.c@{stm32f7xx\_spi.c}!SPI\_Start@{SPI\_Start}}
+\index{SPI\_Start@{SPI\_Start}!stm32f7xx\_spi.c@{stm32f7xx\_spi.c}}
+\doxysubsubsection{\texorpdfstring{SPI\_Start()}{SPI\_Start()}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8c_ae93541024a6d6fa912a3ce5becb8ec4e} 
+void SPI\+\_\+\+Start (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+SPI}{, }\item[{uint8\+\_\+t}]{enable}{}\end{DoxyParamCaption})}
+

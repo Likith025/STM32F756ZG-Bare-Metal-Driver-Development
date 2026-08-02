@@ -1,0 +1,401 @@
+\doxysection{stm32f7xx\+\_\+driver/\+driver/\+driver\+\_\+inc/\+stm32f7xx\+\_\+spi.h File Reference}
+\hypertarget{stm32f7xx__spi_8h}{}\label{stm32f7xx__spi_8h}\index{stm32f7xx\_driver/driver/driver\_inc/stm32f7xx\_spi.h@{stm32f7xx\_driver/driver/driver\_inc/stm32f7xx\_spi.h}}
+{\ttfamily \+\#include "{}stm32f756zg\+\_\+reg.\+h"{}}\newline
+Include dependency graph for stm32f7xx\+\_\+spi.\+h:\+
+% FIG 0
+This graph shows which files directly or indirectly include this file:\+
+% FIG 1
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_s_p_i__config__t}{SPI\+\_\+config\+\_\+t}}
+\item 
+struct \doxymbox{\hyperlink{structspi__handler__t}{spi\+\_\+handler\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__spi_8h_a2f1d2c5a9e481ca06d0e29332f6f948a}{SPI\+\_\+\+CR1\+\_\+\+CPHA\+\_\+\+Pos}}~0U
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__spi_8h_add3274c0dce6293370773c5050f9c4be}{SPI\+\_\+\+CR1\+\_\+\+CPOL\+\_\+\+Pos}}~1U
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__spi_8h_a27567886a2c76d088e01ad16851cdb71}{SPI\+\_\+\+CR1\+\_\+\+MSTR\+\_\+\+Pos}}~2U
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__spi_8h_ac6a71c219a81b476e66c3579d72120b9}{SPI\+\_\+\+CR1\+\_\+\+BR\+\_\+\+Pos}}~3U
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__spi_8h_a3f5515b536f82c1d91a64bd534030284}{SPI\+\_\+\+CR1\+\_\+\+SPE\+\_\+\+Pos}}~6U
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__spi_8h_a982b564879d1dc60a3be787409df0c27}{SPI\+\_\+\+CR1\+\_\+\+LSBFIRST\+\_\+\+Pos}}~7U
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__spi_8h_ad99cf4909aa9307e01f61645451a9d0e}{SPI\+\_\+\+CR1\+\_\+\+SSI\+\_\+\+Pos}}~8U
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__spi_8h_ab2909290fab17ee930afc335811f574c}{SPI\+\_\+\+CR1\+\_\+\+SSM\+\_\+\+Pos}}~9U
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__spi_8h_add702fae4dcca65f3b43b2e02f67ee7b}{SPI\+\_\+\+CR1\+\_\+\+RXONLY\+\_\+\+Pos}}~10U
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__spi_8h_a4c2d98395ecf237291ec91b5be6425c1}{SPI\+\_\+\+CR1\+\_\+\+BIDI\+\_\+\+Pos}}~15U
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__spi_8h_a2d99d892c07e86bdec0167e55afefea2}{SPI\+\_\+\+CR2\+\_\+\+DS\+\_\+\+Pos}}~8U
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__spi_8h_a306a27b203d1275f848f2767d76c9e3b}{SPI\+\_\+\+SR\+\_\+\+RXNE\+\_\+\+Pos}}~0U
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__spi_8h_a92e10388eb117c22b63994b491d9ec9d}{SPI\+\_\+\+SR\+\_\+\+TXE\+\_\+\+Pos}}~1U
+\item 
+\+\#define \doxymbox{\hyperlink{stm32f7xx__spi_8h_a8313629719f8dc81536dd8faa824e6c8}{SPI\+\_\+\+SR\+\_\+\+BSY\+\_\+\+Pos}}~7U
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__spi_8h_aa0189a896925510c932361de86315d0a}{SPI\+\_\+\+Device\+Mode\+\_\+t}} \{ \doxymbox{\hyperlink{stm32f7xx__spi_8h_aa0189a896925510c932361de86315d0aa5005ea26b83625dced9072a237a315ab}{Slave\+\_\+\+Mode}} =0
+, \doxymbox{\hyperlink{stm32f7xx__spi_8h_aa0189a896925510c932361de86315d0aaeb85d5f51f7628f0c731332722c81625}{Master\+\_\+\+Mode}}
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__spi_8h_a5d3963ec6d72d88d1d98d88f53b4127a}{SPI\+\_\+\+Bus\+Mode\+\_\+t}} \{ \doxymbox{\hyperlink{stm32f7xx__spi_8h_a5d3963ec6d72d88d1d98d88f53b4127aa17f24d3706638cbbe886402d4502c4bc}{SPI\+\_\+\+BUS\+\_\+\+Simplex\+\_\+\+RXonly}}
+, \doxymbox{\hyperlink{stm32f7xx__spi_8h_a5d3963ec6d72d88d1d98d88f53b4127aa958d13f3e49dae36bf6ff8f7ec3c94b2}{SPI\+\_\+\+BUS\+\_\+\+Half\+\_\+\+Duplex}}
+, \doxymbox{\hyperlink{stm32f7xx__spi_8h_a5d3963ec6d72d88d1d98d88f53b4127aa59b68dfa3bfbc63f284d9a1b7b6997a7}{SPI\+\_\+\+BUS\+\_\+\+Full\+\_\+\+Duplex}}
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__spi_8h_a4b035b947f400799db96f14ce31dbcc5}{SPI\+\_\+\+Slave\+Select\+Mode\+\_\+t}} \{ \doxymbox{\hyperlink{stm32f7xx__spi_8h_a4b035b947f400799db96f14ce31dbcc5a535b1adfb52340d29a6d8750f7bb2d4a}{SPI\+\_\+\+Hardware\+\_\+\+Slave\+Select}} =0
+, \doxymbox{\hyperlink{stm32f7xx__spi_8h_a4b035b947f400799db96f14ce31dbcc5a0cdca15ec8a218938cff43d1710c7683}{SPI\+\_\+\+Software\+\_\+\+Slave\+Select}}
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ff}{SPI\+\_\+\+Clk\+Prescaler\+\_\+t}} \{ \newline
+\doxymbox{\hyperlink{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa867f46fbe4af80f5e3a567bc137e08fb}{SPI\+\_\+\+CLK\+\_\+\+DIV2}} =0
+, \doxymbox{\hyperlink{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffab4ac7c5dd537cdae9e0720a9a05e6808}{SPI\+\_\+\+CLK\+\_\+\+DIV4}}
+, \doxymbox{\hyperlink{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa70e0db3c88a21047b1b10d7ff39658f9}{SPI\+\_\+\+CLK\+\_\+\+DIV8}}
+, \doxymbox{\hyperlink{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffacc3ab0c55da034e547e43c67f6ec5c9f}{SPI\+\_\+\+CLK\+\_\+\+DIV16}}
+, \newline
+\doxymbox{\hyperlink{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa244b97af3141f61614324b789ae9d653}{SPI\+\_\+\+CLK\+\_\+\+DIV32}}
+, \doxymbox{\hyperlink{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa36c5dcd21aadf514c1f488defd011344}{SPI\+\_\+\+CLK\+\_\+\+DIV64}}
+, \doxymbox{\hyperlink{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa48699c095d331b515f106e2afa3181fe}{SPI\+\_\+\+CLK\+\_\+\+DIV128}}
+, \doxymbox{\hyperlink{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa9283a1a894ad0e61d7ae99ba186e2d7e}{SPI\+\_\+\+CLK\+\_\+\+DIV256}}
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__spi_8h_ad9e859aa89a25131b4b0ebd7ddaf8d4f}{SPI\+\_\+\+Byte\+Order\+\_\+t}} \{ \doxymbox{\hyperlink{stm32f7xx__spi_8h_ad9e859aa89a25131b4b0ebd7ddaf8d4faa1d6cd2f1771c351629086f2827b843e}{SPI\+\_\+\+MSB\+\_\+\+First}} =0
+, \doxymbox{\hyperlink{stm32f7xx__spi_8h_ad9e859aa89a25131b4b0ebd7ddaf8d4fa7d2a58ba0ceebc70de0e908baf2da3ba}{SPI\+\_\+\+LSB\+\_\+\+First}}
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__spi_8h_a81542e7c0a854e1b7dc3667f1a8d0161}{SPI\+\_\+\+Clock\+Phase\+\_\+t}} \{ \doxymbox{\hyperlink{stm32f7xx__spi_8h_a81542e7c0a854e1b7dc3667f1a8d0161acd02c7a48ea505e06bd326ddf0601f94}{SPI\+\_\+\+Capture\+First\+Edge}} =0
+, \doxymbox{\hyperlink{stm32f7xx__spi_8h_a81542e7c0a854e1b7dc3667f1a8d0161a2400e32eda60a021c554a2106f240adc}{SPI\+\_\+\+Capture\+Second\+Edge}}
+ \}
+\item 
+enum \doxymbox{\hyperlink{stm32f7xx__spi_8h_a0f5db04a5d1580434c49fbbf9b47cf6a}{SPI\+\_\+\+Clock\+Polarity\+\_\+t}} \{ \doxymbox{\hyperlink{stm32f7xx__spi_8h_a0f5db04a5d1580434c49fbbf9b47cf6aaf467ea2646b40725365c3b34d71f2da6}{SPI\+\_\+\+Clk\+Low}} =0
+, \doxymbox{\hyperlink{stm32f7xx__spi_8h_a0f5db04a5d1580434c49fbbf9b47cf6aa91b73e66e6809b2ed90286f5c905b874}{SPI\+\_\+\+Clk\+High}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d}{Status\+\_\+t}} \doxymbox{\hyperlink{stm32f7xx__spi_8h_a1a2779ce157974acdab2ecd7ca9697d3}{SPI\+\_\+init}} (\doxymbox{\hyperlink{structspi__handler__t}{spi\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}spi\+\_\+handle)
+\item 
+\doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d}{Status\+\_\+t}} \doxymbox{\hyperlink{stm32f7xx__spi_8h_a8a4d0e9086bee8712d276d757c0c7b85}{SPI\+\_\+clk\+\_\+init}} (const \doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}spi\+\_\+ptr, const uint8\+\_\+t enable)
+\item 
+void \doxymbox{\hyperlink{stm32f7xx__spi_8h_ae93541024a6d6fa912a3ce5becb8ec4e}{SPI\+\_\+\+Start}} (\doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+SPI, uint8\+\_\+t enable)
+\item 
+\doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d}{Status\+\_\+t}} \doxymbox{\hyperlink{stm32f7xx__spi_8h_a63d479083b411bcac9c863ffd401882b}{SPI\+\_\+\+Send\+Data}} (\doxymbox{\hyperlink{structspi__handler__t}{spi\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+SPIHandle, void \texorpdfstring{$\ast$}{*}p\+Tx\+Buffer, uint32\+\_\+t Frame\+Count)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{stm32f7xx__spi_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{stm32f7xx__spi_8h_a4c2d98395ecf237291ec91b5be6425c1}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CR1\_BIDI\_Pos@{SPI\_CR1\_BIDI\_Pos}}
+\index{SPI\_CR1\_BIDI\_Pos@{SPI\_CR1\_BIDI\_Pos}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CR1\_BIDI\_Pos}{SPI\_CR1\_BIDI\_Pos}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_a4c2d98395ecf237291ec91b5be6425c1} 
+\+\#define SPI\+\_\+\+CR1\+\_\+\+BIDI\+\_\+\+Pos~15U}
+
+\Hypertarget{stm32f7xx__spi_8h_ac6a71c219a81b476e66c3579d72120b9}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CR1\_BR\_Pos@{SPI\_CR1\_BR\_Pos}}
+\index{SPI\_CR1\_BR\_Pos@{SPI\_CR1\_BR\_Pos}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CR1\_BR\_Pos}{SPI\_CR1\_BR\_Pos}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_ac6a71c219a81b476e66c3579d72120b9} 
+\+\#define SPI\+\_\+\+CR1\+\_\+\+BR\+\_\+\+Pos~3U}
+
+\Hypertarget{stm32f7xx__spi_8h_a2f1d2c5a9e481ca06d0e29332f6f948a}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CR1\_CPHA\_Pos@{SPI\_CR1\_CPHA\_Pos}}
+\index{SPI\_CR1\_CPHA\_Pos@{SPI\_CR1\_CPHA\_Pos}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CR1\_CPHA\_Pos}{SPI\_CR1\_CPHA\_Pos}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_a2f1d2c5a9e481ca06d0e29332f6f948a} 
+\+\#define SPI\+\_\+\+CR1\+\_\+\+CPHA\+\_\+\+Pos~0U}
+
+\Hypertarget{stm32f7xx__spi_8h_add3274c0dce6293370773c5050f9c4be}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CR1\_CPOL\_Pos@{SPI\_CR1\_CPOL\_Pos}}
+\index{SPI\_CR1\_CPOL\_Pos@{SPI\_CR1\_CPOL\_Pos}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CR1\_CPOL\_Pos}{SPI\_CR1\_CPOL\_Pos}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_add3274c0dce6293370773c5050f9c4be} 
+\+\#define SPI\+\_\+\+CR1\+\_\+\+CPOL\+\_\+\+Pos~1U}
+
+\Hypertarget{stm32f7xx__spi_8h_a982b564879d1dc60a3be787409df0c27}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CR1\_LSBFIRST\_Pos@{SPI\_CR1\_LSBFIRST\_Pos}}
+\index{SPI\_CR1\_LSBFIRST\_Pos@{SPI\_CR1\_LSBFIRST\_Pos}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CR1\_LSBFIRST\_Pos}{SPI\_CR1\_LSBFIRST\_Pos}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_a982b564879d1dc60a3be787409df0c27} 
+\+\#define SPI\+\_\+\+CR1\+\_\+\+LSBFIRST\+\_\+\+Pos~7U}
+
+\Hypertarget{stm32f7xx__spi_8h_a27567886a2c76d088e01ad16851cdb71}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CR1\_MSTR\_Pos@{SPI\_CR1\_MSTR\_Pos}}
+\index{SPI\_CR1\_MSTR\_Pos@{SPI\_CR1\_MSTR\_Pos}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CR1\_MSTR\_Pos}{SPI\_CR1\_MSTR\_Pos}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_a27567886a2c76d088e01ad16851cdb71} 
+\+\#define SPI\+\_\+\+CR1\+\_\+\+MSTR\+\_\+\+Pos~2U}
+
+\Hypertarget{stm32f7xx__spi_8h_add702fae4dcca65f3b43b2e02f67ee7b}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CR1\_RXONLY\_Pos@{SPI\_CR1\_RXONLY\_Pos}}
+\index{SPI\_CR1\_RXONLY\_Pos@{SPI\_CR1\_RXONLY\_Pos}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CR1\_RXONLY\_Pos}{SPI\_CR1\_RXONLY\_Pos}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_add702fae4dcca65f3b43b2e02f67ee7b} 
+\+\#define SPI\+\_\+\+CR1\+\_\+\+RXONLY\+\_\+\+Pos~10U}
+
+\Hypertarget{stm32f7xx__spi_8h_a3f5515b536f82c1d91a64bd534030284}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CR1\_SPE\_Pos@{SPI\_CR1\_SPE\_Pos}}
+\index{SPI\_CR1\_SPE\_Pos@{SPI\_CR1\_SPE\_Pos}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CR1\_SPE\_Pos}{SPI\_CR1\_SPE\_Pos}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_a3f5515b536f82c1d91a64bd534030284} 
+\+\#define SPI\+\_\+\+CR1\+\_\+\+SPE\+\_\+\+Pos~6U}
+
+\Hypertarget{stm32f7xx__spi_8h_ad99cf4909aa9307e01f61645451a9d0e}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CR1\_SSI\_Pos@{SPI\_CR1\_SSI\_Pos}}
+\index{SPI\_CR1\_SSI\_Pos@{SPI\_CR1\_SSI\_Pos}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CR1\_SSI\_Pos}{SPI\_CR1\_SSI\_Pos}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_ad99cf4909aa9307e01f61645451a9d0e} 
+\+\#define SPI\+\_\+\+CR1\+\_\+\+SSI\+\_\+\+Pos~8U}
+
+\Hypertarget{stm32f7xx__spi_8h_ab2909290fab17ee930afc335811f574c}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CR1\_SSM\_Pos@{SPI\_CR1\_SSM\_Pos}}
+\index{SPI\_CR1\_SSM\_Pos@{SPI\_CR1\_SSM\_Pos}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CR1\_SSM\_Pos}{SPI\_CR1\_SSM\_Pos}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_ab2909290fab17ee930afc335811f574c} 
+\+\#define SPI\+\_\+\+CR1\+\_\+\+SSM\+\_\+\+Pos~9U}
+
+\Hypertarget{stm32f7xx__spi_8h_a2d99d892c07e86bdec0167e55afefea2}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CR2\_DS\_Pos@{SPI\_CR2\_DS\_Pos}}
+\index{SPI\_CR2\_DS\_Pos@{SPI\_CR2\_DS\_Pos}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_CR2\_DS\_Pos}{SPI\_CR2\_DS\_Pos}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_a2d99d892c07e86bdec0167e55afefea2} 
+\+\#define SPI\+\_\+\+CR2\+\_\+\+DS\+\_\+\+Pos~8U}
+
+\Hypertarget{stm32f7xx__spi_8h_a8313629719f8dc81536dd8faa824e6c8}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_SR\_BSY\_Pos@{SPI\_SR\_BSY\_Pos}}
+\index{SPI\_SR\_BSY\_Pos@{SPI\_SR\_BSY\_Pos}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_SR\_BSY\_Pos}{SPI\_SR\_BSY\_Pos}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_a8313629719f8dc81536dd8faa824e6c8} 
+\+\#define SPI\+\_\+\+SR\+\_\+\+BSY\+\_\+\+Pos~7U}
+
+\Hypertarget{stm32f7xx__spi_8h_a306a27b203d1275f848f2767d76c9e3b}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_SR\_RXNE\_Pos@{SPI\_SR\_RXNE\_Pos}}
+\index{SPI\_SR\_RXNE\_Pos@{SPI\_SR\_RXNE\_Pos}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_SR\_RXNE\_Pos}{SPI\_SR\_RXNE\_Pos}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_a306a27b203d1275f848f2767d76c9e3b} 
+\+\#define SPI\+\_\+\+SR\+\_\+\+RXNE\+\_\+\+Pos~0U}
+
+\Hypertarget{stm32f7xx__spi_8h_a92e10388eb117c22b63994b491d9ec9d}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_SR\_TXE\_Pos@{SPI\_SR\_TXE\_Pos}}
+\index{SPI\_SR\_TXE\_Pos@{SPI\_SR\_TXE\_Pos}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_SR\_TXE\_Pos}{SPI\_SR\_TXE\_Pos}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_a92e10388eb117c22b63994b491d9ec9d} 
+\+\#define SPI\+\_\+\+SR\+\_\+\+TXE\+\_\+\+Pos~1U}
+
+
+
+\label{doc-enum-members}
+\Hypertarget{stm32f7xx__spi_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{stm32f7xx__spi_8h_a5d3963ec6d72d88d1d98d88f53b4127a}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_BusMode\_t@{SPI\_BusMode\_t}}
+\index{SPI\_BusMode\_t@{SPI\_BusMode\_t}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_BusMode\_t}{SPI\_BusMode\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_a5d3963ec6d72d88d1d98d88f53b4127a} 
+enum \doxymbox{\hyperlink{stm32f7xx__spi_8h_a5d3963ec6d72d88d1d98d88f53b4127a}{SPI\+\_\+\+Bus\+Mode\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_BUS\_Simplex\_RXonly@{SPI\_BUS\_Simplex\_RXonly}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_BUS\_Simplex\_RXonly@{SPI\_BUS\_Simplex\_RXonly}}
+}\Hypertarget{stm32f7xx__spi_8h_a5d3963ec6d72d88d1d98d88f53b4127aa17f24d3706638cbbe886402d4502c4bc}\label{stm32f7xx__spi_8h_a5d3963ec6d72d88d1d98d88f53b4127aa17f24d3706638cbbe886402d4502c4bc} 
+SPI\+\_\+\+BUS\+\_\+\+Simplex\+\_\+\+RXonly&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_BUS\_Half\_Duplex@{SPI\_BUS\_Half\_Duplex}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_BUS\_Half\_Duplex@{SPI\_BUS\_Half\_Duplex}}
+}\Hypertarget{stm32f7xx__spi_8h_a5d3963ec6d72d88d1d98d88f53b4127aa958d13f3e49dae36bf6ff8f7ec3c94b2}\label{stm32f7xx__spi_8h_a5d3963ec6d72d88d1d98d88f53b4127aa958d13f3e49dae36bf6ff8f7ec3c94b2} 
+SPI\+\_\+\+BUS\+\_\+\+Half\+\_\+\+Duplex&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_BUS\_Full\_Duplex@{SPI\_BUS\_Full\_Duplex}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_BUS\_Full\_Duplex@{SPI\_BUS\_Full\_Duplex}}
+}\Hypertarget{stm32f7xx__spi_8h_a5d3963ec6d72d88d1d98d88f53b4127aa59b68dfa3bfbc63f284d9a1b7b6997a7}\label{stm32f7xx__spi_8h_a5d3963ec6d72d88d1d98d88f53b4127aa59b68dfa3bfbc63f284d9a1b7b6997a7} 
+SPI\+\_\+\+BUS\+\_\+\+Full\+\_\+\+Duplex&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{stm32f7xx__spi_8h_ad9e859aa89a25131b4b0ebd7ddaf8d4f}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_ByteOrder\_t@{SPI\_ByteOrder\_t}}
+\index{SPI\_ByteOrder\_t@{SPI\_ByteOrder\_t}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_ByteOrder\_t}{SPI\_ByteOrder\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_ad9e859aa89a25131b4b0ebd7ddaf8d4f} 
+enum \doxymbox{\hyperlink{stm32f7xx__spi_8h_ad9e859aa89a25131b4b0ebd7ddaf8d4f}{SPI\+\_\+\+Byte\+Order\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_MSB\_First@{SPI\_MSB\_First}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_MSB\_First@{SPI\_MSB\_First}}
+}\Hypertarget{stm32f7xx__spi_8h_ad9e859aa89a25131b4b0ebd7ddaf8d4faa1d6cd2f1771c351629086f2827b843e}\label{stm32f7xx__spi_8h_ad9e859aa89a25131b4b0ebd7ddaf8d4faa1d6cd2f1771c351629086f2827b843e} 
+SPI\+\_\+\+MSB\+\_\+\+First&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_LSB\_First@{SPI\_LSB\_First}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_LSB\_First@{SPI\_LSB\_First}}
+}\Hypertarget{stm32f7xx__spi_8h_ad9e859aa89a25131b4b0ebd7ddaf8d4fa7d2a58ba0ceebc70de0e908baf2da3ba}\label{stm32f7xx__spi_8h_ad9e859aa89a25131b4b0ebd7ddaf8d4fa7d2a58ba0ceebc70de0e908baf2da3ba} 
+SPI\+\_\+\+LSB\+\_\+\+First&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ff}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_ClkPrescaler\_t@{SPI\_ClkPrescaler\_t}}
+\index{SPI\_ClkPrescaler\_t@{SPI\_ClkPrescaler\_t}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_ClkPrescaler\_t}{SPI\_ClkPrescaler\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ff} 
+enum \doxymbox{\hyperlink{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ff}{SPI\+\_\+\+Clk\+Prescaler\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_CLK\_DIV2@{SPI\_CLK\_DIV2}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CLK\_DIV2@{SPI\_CLK\_DIV2}}
+}\Hypertarget{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa867f46fbe4af80f5e3a567bc137e08fb}\label{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa867f46fbe4af80f5e3a567bc137e08fb} 
+SPI\+\_\+\+CLK\+\_\+\+DIV2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_CLK\_DIV4@{SPI\_CLK\_DIV4}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CLK\_DIV4@{SPI\_CLK\_DIV4}}
+}\Hypertarget{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffab4ac7c5dd537cdae9e0720a9a05e6808}\label{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffab4ac7c5dd537cdae9e0720a9a05e6808} 
+SPI\+\_\+\+CLK\+\_\+\+DIV4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_CLK\_DIV8@{SPI\_CLK\_DIV8}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CLK\_DIV8@{SPI\_CLK\_DIV8}}
+}\Hypertarget{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa70e0db3c88a21047b1b10d7ff39658f9}\label{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa70e0db3c88a21047b1b10d7ff39658f9} 
+SPI\+\_\+\+CLK\+\_\+\+DIV8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_CLK\_DIV16@{SPI\_CLK\_DIV16}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CLK\_DIV16@{SPI\_CLK\_DIV16}}
+}\Hypertarget{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffacc3ab0c55da034e547e43c67f6ec5c9f}\label{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffacc3ab0c55da034e547e43c67f6ec5c9f} 
+SPI\+\_\+\+CLK\+\_\+\+DIV16&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_CLK\_DIV32@{SPI\_CLK\_DIV32}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CLK\_DIV32@{SPI\_CLK\_DIV32}}
+}\Hypertarget{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa244b97af3141f61614324b789ae9d653}\label{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa244b97af3141f61614324b789ae9d653} 
+SPI\+\_\+\+CLK\+\_\+\+DIV32&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_CLK\_DIV64@{SPI\_CLK\_DIV64}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CLK\_DIV64@{SPI\_CLK\_DIV64}}
+}\Hypertarget{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa36c5dcd21aadf514c1f488defd011344}\label{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa36c5dcd21aadf514c1f488defd011344} 
+SPI\+\_\+\+CLK\+\_\+\+DIV64&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_CLK\_DIV128@{SPI\_CLK\_DIV128}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CLK\_DIV128@{SPI\_CLK\_DIV128}}
+}\Hypertarget{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa48699c095d331b515f106e2afa3181fe}\label{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa48699c095d331b515f106e2afa3181fe} 
+SPI\+\_\+\+CLK\+\_\+\+DIV128&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_CLK\_DIV256@{SPI\_CLK\_DIV256}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CLK\_DIV256@{SPI\_CLK\_DIV256}}
+}\Hypertarget{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa9283a1a894ad0e61d7ae99ba186e2d7e}\label{stm32f7xx__spi_8h_aed0f2f8c3abf46d1aa871f462b2aa4ffa9283a1a894ad0e61d7ae99ba186e2d7e} 
+SPI\+\_\+\+CLK\+\_\+\+DIV256&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{stm32f7xx__spi_8h_a81542e7c0a854e1b7dc3667f1a8d0161}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_ClockPhase\_t@{SPI\_ClockPhase\_t}}
+\index{SPI\_ClockPhase\_t@{SPI\_ClockPhase\_t}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_ClockPhase\_t}{SPI\_ClockPhase\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_a81542e7c0a854e1b7dc3667f1a8d0161} 
+enum \doxymbox{\hyperlink{stm32f7xx__spi_8h_a81542e7c0a854e1b7dc3667f1a8d0161}{SPI\+\_\+\+Clock\+Phase\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_CaptureFirstEdge@{SPI\_CaptureFirstEdge}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CaptureFirstEdge@{SPI\_CaptureFirstEdge}}
+}\Hypertarget{stm32f7xx__spi_8h_a81542e7c0a854e1b7dc3667f1a8d0161acd02c7a48ea505e06bd326ddf0601f94}\label{stm32f7xx__spi_8h_a81542e7c0a854e1b7dc3667f1a8d0161acd02c7a48ea505e06bd326ddf0601f94} 
+SPI\+\_\+\+Capture\+First\+Edge&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_CaptureSecondEdge@{SPI\_CaptureSecondEdge}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_CaptureSecondEdge@{SPI\_CaptureSecondEdge}}
+}\Hypertarget{stm32f7xx__spi_8h_a81542e7c0a854e1b7dc3667f1a8d0161a2400e32eda60a021c554a2106f240adc}\label{stm32f7xx__spi_8h_a81542e7c0a854e1b7dc3667f1a8d0161a2400e32eda60a021c554a2106f240adc} 
+SPI\+\_\+\+Capture\+Second\+Edge&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{stm32f7xx__spi_8h_a0f5db04a5d1580434c49fbbf9b47cf6a}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_ClockPolarity\_t@{SPI\_ClockPolarity\_t}}
+\index{SPI\_ClockPolarity\_t@{SPI\_ClockPolarity\_t}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_ClockPolarity\_t}{SPI\_ClockPolarity\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_a0f5db04a5d1580434c49fbbf9b47cf6a} 
+enum \doxymbox{\hyperlink{stm32f7xx__spi_8h_a0f5db04a5d1580434c49fbbf9b47cf6a}{SPI\+\_\+\+Clock\+Polarity\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_ClkLow@{SPI\_ClkLow}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_ClkLow@{SPI\_ClkLow}}
+}\Hypertarget{stm32f7xx__spi_8h_a0f5db04a5d1580434c49fbbf9b47cf6aaf467ea2646b40725365c3b34d71f2da6}\label{stm32f7xx__spi_8h_a0f5db04a5d1580434c49fbbf9b47cf6aaf467ea2646b40725365c3b34d71f2da6} 
+SPI\+\_\+\+Clk\+Low&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_ClkHigh@{SPI\_ClkHigh}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_ClkHigh@{SPI\_ClkHigh}}
+}\Hypertarget{stm32f7xx__spi_8h_a0f5db04a5d1580434c49fbbf9b47cf6aa91b73e66e6809b2ed90286f5c905b874}\label{stm32f7xx__spi_8h_a0f5db04a5d1580434c49fbbf9b47cf6aa91b73e66e6809b2ed90286f5c905b874} 
+SPI\+\_\+\+Clk\+High&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{stm32f7xx__spi_8h_aa0189a896925510c932361de86315d0a}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_DeviceMode\_t@{SPI\_DeviceMode\_t}}
+\index{SPI\_DeviceMode\_t@{SPI\_DeviceMode\_t}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_DeviceMode\_t}{SPI\_DeviceMode\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_aa0189a896925510c932361de86315d0a} 
+enum \doxymbox{\hyperlink{stm32f7xx__spi_8h_aa0189a896925510c932361de86315d0a}{SPI\+\_\+\+Device\+Mode\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Slave\_Mode@{Slave\_Mode}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!Slave\_Mode@{Slave\_Mode}}
+}\Hypertarget{stm32f7xx__spi_8h_aa0189a896925510c932361de86315d0aa5005ea26b83625dced9072a237a315ab}\label{stm32f7xx__spi_8h_aa0189a896925510c932361de86315d0aa5005ea26b83625dced9072a237a315ab} 
+Slave\+\_\+\+Mode&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Master\_Mode@{Master\_Mode}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!Master\_Mode@{Master\_Mode}}
+}\Hypertarget{stm32f7xx__spi_8h_aa0189a896925510c932361de86315d0aaeb85d5f51f7628f0c731332722c81625}\label{stm32f7xx__spi_8h_aa0189a896925510c932361de86315d0aaeb85d5f51f7628f0c731332722c81625} 
+Master\+\_\+\+Mode&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{stm32f7xx__spi_8h_a4b035b947f400799db96f14ce31dbcc5}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_SlaveSelectMode\_t@{SPI\_SlaveSelectMode\_t}}
+\index{SPI\_SlaveSelectMode\_t@{SPI\_SlaveSelectMode\_t}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_SlaveSelectMode\_t}{SPI\_SlaveSelectMode\_t}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_a4b035b947f400799db96f14ce31dbcc5} 
+enum \doxymbox{\hyperlink{stm32f7xx__spi_8h_a4b035b947f400799db96f14ce31dbcc5}{SPI\+\_\+\+Slave\+Select\+Mode\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_Hardware\_SlaveSelect@{SPI\_Hardware\_SlaveSelect}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_Hardware\_SlaveSelect@{SPI\_Hardware\_SlaveSelect}}
+}\Hypertarget{stm32f7xx__spi_8h_a4b035b947f400799db96f14ce31dbcc5a535b1adfb52340d29a6d8750f7bb2d4a}\label{stm32f7xx__spi_8h_a4b035b947f400799db96f14ce31dbcc5a535b1adfb52340d29a6d8750f7bb2d4a} 
+SPI\+\_\+\+Hardware\+\_\+\+Slave\+Select&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI\_Software\_SlaveSelect@{SPI\_Software\_SlaveSelect}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_Software\_SlaveSelect@{SPI\_Software\_SlaveSelect}}
+}\Hypertarget{stm32f7xx__spi_8h_a4b035b947f400799db96f14ce31dbcc5a0cdca15ec8a218938cff43d1710c7683}\label{stm32f7xx__spi_8h_a4b035b947f400799db96f14ce31dbcc5a0cdca15ec8a218938cff43d1710c7683} 
+SPI\+\_\+\+Software\+\_\+\+Slave\+Select&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{stm32f7xx__spi_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{stm32f7xx__spi_8h_a8a4d0e9086bee8712d276d757c0c7b85}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_clk\_init@{SPI\_clk\_init}}
+\index{SPI\_clk\_init@{SPI\_clk\_init}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_clk\_init()}{SPI\_clk\_init()}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_a8a4d0e9086bee8712d276d757c0c7b85} 
+\doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d}{Status\+\_\+t}} SPI\+\_\+clk\+\_\+init (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{spi\+\_\+ptr}{, }\item[{const uint8\+\_\+t}]{enable}{}\end{DoxyParamCaption})}
+
+\Hypertarget{stm32f7xx__spi_8h_a1a2779ce157974acdab2ecd7ca9697d3}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_init@{SPI\_init}}
+\index{SPI\_init@{SPI\_init}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_init()}{SPI\_init()}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_a1a2779ce157974acdab2ecd7ca9697d3} 
+\doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d}{Status\+\_\+t}} SPI\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structspi__handler__t}{spi\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{spi\+\_\+handle}{}\end{DoxyParamCaption})}
+
+\Hypertarget{stm32f7xx__spi_8h_a63d479083b411bcac9c863ffd401882b}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_SendData@{SPI\_SendData}}
+\index{SPI\_SendData@{SPI\_SendData}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_SendData()}{SPI\_SendData()}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_a63d479083b411bcac9c863ffd401882b} 
+\doxymbox{\hyperlink{stm32f756zg__reg_8h_a952ea32d355af359a672bae581818c9d}{Status\+\_\+t}} SPI\+\_\+\+Send\+Data (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structspi__handler__t}{spi\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+SPIHandle}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p\+Tx\+Buffer}{, }\item[{uint32\+\_\+t}]{Frame\+Count}{}\end{DoxyParamCaption})}
+
+\Hypertarget{stm32f7xx__spi_8h_ae93541024a6d6fa912a3ce5becb8ec4e}\index{stm32f7xx\_spi.h@{stm32f7xx\_spi.h}!SPI\_Start@{SPI\_Start}}
+\index{SPI\_Start@{SPI\_Start}!stm32f7xx\_spi.h@{stm32f7xx\_spi.h}}
+\doxysubsubsection{\texorpdfstring{SPI\_Start()}{SPI\_Start()}}
+{\footnotesize\ttfamily \label{stm32f7xx__spi_8h_ae93541024a6d6fa912a3ce5becb8ec4e} 
+void SPI\+\_\+\+Start (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_s_p_i___reg_def__t}{SPI\+\_\+\+Reg\+Def\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{p\+SPI}{, }\item[{uint8\+\_\+t}]{enable}{}\end{DoxyParamCaption})}
+

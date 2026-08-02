@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['metal_20driver_20development_0',['STM32F756ZG Bare-Metal Driver Development',['../md__r_e_a_d_m_e.html',1,'']]],
-  ['metal_20drivers_1',['STM32F756ZG Bare Metal Drivers',['../index.html',1,'']]]
+  ['layer_0',['Driver Layer',['../index.html#autotoc_md5',1,'']]],
+  ['learning_20outcomes_1',['Key Learning Outcomes',['../index.html#autotoc_md26',1,'']]],
+  ['limitations_2',['Limitations',['../index.html#autotoc_md18',1,'']]]
 ];

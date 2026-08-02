@@ -1,121 +1,230 @@
 \doxysection{stm32f7xx\+\_\+driver/\+bsp/\+peripheral\+\_\+config.c File Reference}
 \hypertarget{peripheral__config_8c}{}\label{peripheral__config_8c}\index{stm32f7xx\_driver/bsp/peripheral\_config.c@{stm32f7xx\_driver/bsp/peripheral\_config.c}}
-
-
-Board Support Package (BSP) Configuration for STM32\+F756\+ZG.  
-
-
+{\ttfamily \+\#include "{}stm32f7xx\+\_\+gpio\+\_\+driver.\+h"{}}\newline
+{\ttfamily \+\#include "{}stm32f7xx\+\_\+uart\+\_\+driver.\+h"{}}\newline
+{\ttfamily \+\#include "{}stm32f7xx\+\_\+timer\+\_\+driver.\+h"{}}\newline
 {\ttfamily \+\#include "{}peripheral\+\_\+config.\+h"{}}\newline
+{\ttfamily \+\#include "{}stm32f7xx\+\_\+spi.\+h"{}}\newline
 Include dependency graph for peripheral\+\_\+config.\+c:\+
 % FIG 0
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \doxymbox{\hyperlink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga149103b303430f06e1bb902c91dfabea}{led\+\_\+setup\+\_\+red}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+LED)
+void \doxymbox{\hyperlink{peripheral__config_8c_a8167f54a45da346003f04321f7344b6b}{led\+\_\+setup\+\_\+blue}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}LED)
+\begin{DoxyCompactList}\small\item\em Initializes the blue user LED. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{peripheral__config_8c_aa9d9269b3bad59572316be64186afc60}{led\+\_\+setup\+\_\+red}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}LED)
+\begin{DoxyCompactList}\small\item\em Initializes the red user LED. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{peripheral__config_8c_a732b9fd5baa226cd12b01d8159016a68}{button\+\_\+setup}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}BUTTON)
+\begin{DoxyCompactList}\small\item\em Initializes the user push button as a GPIO input. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{peripheral__config_8c_ae7d9acb96739a1d81784b69563127982}{button\+\_\+interrupt\+\_\+setup}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}BUTTON)
+\begin{DoxyCompactList}\small\item\em Configures the user push button as an external interrupt source. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{peripheral__config_8c_a67bc3fe7779a3fc58d1dca81d3ea9f1d}{usart3\+\_\+init}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}handler)
+\begin{DoxyCompactList}\small\item\em Initializes USART3 peripheral. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{peripheral__config_8c_a4b456e45cc9e59d402e8872fdbd993b7}{timer2ch1}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}handler)
+\begin{DoxyCompactList}\small\item\em Configures TIM2 Channel 1 GPIO pin. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{peripheral__config_8c_abe324fe42a678f7bacd271db37bfb36b}{timer2\+\_\+setup}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}handler, \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995ab}{Timer\+\_\+direction\+\_\+t}} direction)
+\begin{DoxyCompactList}\small\item\em Initializes TIM2. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{peripheral__config_8c_a50c624d6f36e9b9614da7682ecbee683}{spi2\+\_\+init}} (\doxymbox{\hyperlink{structspi__handler__t}{spi\+\_\+handler\+\_\+t}} SPI\+\_\+\+Handle)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
 \item 
-void \doxymbox{\hyperlink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga1d8ed4eda8ef2b3adc80c0de7b8d1897}{led\+\_\+setup\+\_\+blue}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+LED)
-\begin{DoxyCompactList}\small\item\em Configure blue LED (GPIO\+\_\+B pin 15). \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{group___b_s_p___b_u_t_t_o_n___f_u_n_c_t_i_o_n_s_gacdfc58cc10456684450ff03693b2182f}{button\+\_\+setup}} (void)
+\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \doxymbox{\hyperlink{peripheral__config_8c_a4d477d59aad5b697be7db9678482140f}{g\+\_\+usart3}} = \{0\}
 \item 
-void \doxymbox{\hyperlink{group___b_s_p___b_u_t_t_o_n___f_u_n_c_t_i_o_n_s_gafd89cef713a19170a6f26ed8ebb3e62a}{button\+\_\+interrupt\+\_\+setup}} (void)
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \doxymbox{\hyperlink{peripheral__config_8c_a5ebfabcbd0cb54cba4ea3c39bc794a5d}{g\+\_\+led3}} = \{0\}
 \item 
-void \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_gae862bef71de80c107ecac7ceab728b82}{usart3\+\_\+init}} (\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+USART)
-\begin{DoxyCompactList}\small\item\em Initialize USART3 with default settings. \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga59d034137a5e59672ddd16be41fb516a}{usart3\+\_\+tx}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+TX)
-\begin{DoxyCompactList}\small\item\em Configure USART3 TX pin (GPIO\+\_\+C pin 10). \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga7598dcb2f135070c5fc9ee7298d861fa}{usart3\+\_\+rx}} (\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+RX)
-\begin{DoxyCompactList}\small\item\em Configure USART3 RX pin (GPIO\+\_\+C pin 11). \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gaea49d1d61b33255209ce0f3c1ee1b2b7}{timer2ch1}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+CH1)
-\begin{DoxyCompactList}\small\item\em Configure TIMER2 Channel 1 PWM output (GPIO\+\_\+A pin 0). \end{DoxyCompactList}\item 
-void \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae8b0f4376afc1cfd12067a9276e84d88}{timer2\+\_\+setup}} (\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}p\+Timer, uint8\+\_\+t direction)
-\begin{DoxyCompactList}\small\item\em Initialize TIMER2 with default settings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \doxymbox{\hyperlink{peripheral__config_8c_a3d93d26f01991f8ddb47874f56610170}{g\+\_\+button}} = \{0\}
+\item 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \doxymbox{\hyperlink{peripheral__config_8c_a31bd06294777e39b760a6b82f6d2b13f}{g\+\_\+usart3\+\_\+tx}} = \{0\}
+\item 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \doxymbox{\hyperlink{peripheral__config_8c_a8c4bb0dbdac5c077024e78150213500f}{g\+\_\+usart3\+\_\+rx}} = \{0\}
+\item 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \doxymbox{\hyperlink{peripheral__config_8c_afccf372354e18524c982712ca006cf5e}{g\+\_\+timer2\+\_\+ch1}} =\{0\}
+\item 
+\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \doxymbox{\hyperlink{peripheral__config_8c_a24ffbc2efdb5e4fe07ad0e8a1b6eeccf}{g\+\_\+timer2}} =\{0\}
+\end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
-Board Support Package (BSP) Configuration for STM32\+F756\+ZG. 
-
-\begin{DoxyAuthor}{Author}
-Likith025 
-\end{DoxyAuthor}
-\begin{DoxyDate}{Date}
-April 2026 
-\end{DoxyDate}
-This module contains hardware initialization functions for all peripherals used in the embedded CLI application. It provides simple, high-\/level setup functions that configure:\+
-\begin{DoxyItemize}
-\item GPIO for LED indicators (red, blue on PORT B)
-\item GPIO for button input (PORT A)
-\item USART3 for serial communication (TX on C10, RX on C11)
-\item TIMER2 for PWM generation (CH1 on A0)
-\end{DoxyItemize}
-
-{\bfseries{Hardware Mapping:\+}} 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{LED\ (Red):\ \ \ \ \ \ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a15e8b58ea6382db53cfb4f8de4c8920c}{GPIO\_B}},\ Pin\ 14\ \ (Output,\ Push-\/pull)}
-\DoxyCodeLine{LED\ (Blue):\ \ \ \ \ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a15e8b58ea6382db53cfb4f8de4c8920c}{GPIO\_B}},\ Pin\ 15\ \ (Output,\ Push-\/pull)}
-\DoxyCodeLine{Button:\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{stm32f756zg__reg_8h_aa416d284516ae97d71abeb030ea10625}{GPIO\_A}},\ Pin\ 0\ \ \ (Input,\ Pull-\/up)}
-\DoxyCodeLine{USART3\ TX:\ \ \ \ \ \ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a2f4bc04dde207c6fd5e8caeaa2331f6a}{GPIO\_C}},\ Pin\ 10\ \ (Alternate\ Function)}
-\DoxyCodeLine{USART3\ RX:\ \ \ \ \ \ \doxymbox{\hyperlink{stm32f756zg__reg_8h_a2f4bc04dde207c6fd5e8caeaa2331f6a}{GPIO\_C}},\ Pin\ 11\ \ (Alternate\ Function)}
-\DoxyCodeLine{\doxymbox{\hyperlink{stm32f756zg__reg_8h_aca904d0e4ebb6d643c349f7f05613995}{TIMER2}}\ \doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_ad00264b7e0149a86d2140348ceb78c26a703cf81b7a9530ba8650e0ee2f29d68e}{CH1}}:\ \ \ \ \ \doxymbox{\hyperlink{stm32f756zg__reg_8h_aa416d284516ae97d71abeb030ea10625}{GPIO\_A}},\ Pin\ 0\ \ \ (Alternate\ Function,\ PWM)}
-
-\end{DoxyCode}
+\label{doc-func-members}
+\Hypertarget{peripheral__config_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{peripheral__config_8c_ae7d9acb96739a1d81784b69563127982}\index{peripheral\_config.c@{peripheral\_config.c}!button\_interrupt\_setup@{button\_interrupt\_setup}}
+\index{button\_interrupt\_setup@{button\_interrupt\_setup}!peripheral\_config.c@{peripheral\_config.c}}
+\doxysubsubsection{\texorpdfstring{button\_interrupt\_setup()}{button\_interrupt\_setup()}}
+{\footnotesize\ttfamily \label{peripheral__config_8c_ae7d9acb96739a1d81784b69563127982} 
+void button\+\_\+interrupt\+\_\+setup (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{BUTTON}{}\end{DoxyParamCaption})}
 
 
-{\bfseries{Initialization Sequence:\+}} In \doxylink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main()} after system clock initialization:\+ 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{1.\ \doxymbox{\hyperlink{group___b_s_p___l_e_d___f_u_n_c_t_i_o_n_s_ga149103b303430f06e1bb902c91dfabea}{led\_setup\_red}}(\&\doxymbox{\hyperlink{peripheral__config_8h_a5ebfabcbd0cb54cba4ea3c39bc794a5d}{g\_led3}});\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configure\ red\ LED\ output}}
-\DoxyCodeLine{2.\ \doxymbox{\hyperlink{group___b_s_p___b_u_t_t_o_n___f_u_n_c_t_i_o_n_s_gacdfc58cc10456684450ff03693b2182f}{button\_setup}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configure\ button\ input}}
-\DoxyCodeLine{3.\ \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_gae862bef71de80c107ecac7ceab728b82}{usart3\_init}}(\&\doxymbox{\hyperlink{peripheral__config_8h_a4d477d59aad5b697be7db9678482140f}{g\_usart3}});\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialize\ UART}}
-\DoxyCodeLine{4.\ \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga59d034137a5e59672ddd16be41fb516a}{usart3\_tx}}(\&\doxymbox{\hyperlink{peripheral__config_8h_a31bd06294777e39b760a6b82f6d2b13f}{g\_usart3\_tx}});\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configure\ TX\ pin}}
-\DoxyCodeLine{5.\ \doxymbox{\hyperlink{group___b_s_p___u_s_a_r_t___f_u_n_c_t_i_o_n_s_ga7598dcb2f135070c5fc9ee7298d861fa}{usart3\_rx}}(\&\doxymbox{\hyperlink{peripheral__config_8h_a8c4bb0dbdac5c077024e78150213500f}{g\_usart3\_rx}});\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configure\ RX\ pin}}
-\DoxyCodeLine{6.\ \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gae8b0f4376afc1cfd12067a9276e84d88}{timer2\_setup}}(\&\doxymbox{\hyperlink{peripheral__config_8h_a24ffbc2efdb5e4fe07ad0e8a1b6eeccf}{g\_timer2}});\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialize\ timer}}
-\DoxyCodeLine{7.\ \doxymbox{\hyperlink{group___b_s_p___t_i_m_e_r___f_u_n_c_t_i_o_n_s_gaea49d1d61b33255209ce0f3c1ee1b2b7}{timer2ch1}}(\&\doxymbox{\hyperlink{peripheral__config_8h_afccf372354e18524c982712ca006cf5e}{g\_timer2\_ch1}});\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Configure\ PWM\ output}}
 
-\end{DoxyCode}
+Configures the user push button as an external interrupt source. 
+
+Initializes the button GPIO pin for falling-\/edge triggered EXTI operation, clears any pending interrupt flag, and enables the corresponding NVIC interrupt.
 
 
-{\bfseries{Clock Configuration:\+}}
-\begin{DoxyItemize}
-\item System Clock:\+ 216 MHz (via PLL)
-\item APB1:\+ 54 MHz (TIM2, USART2-\/5)
-\item APB2:\+ 108 MHz (USART1, USART6)
-\item GPIO:\+ APB2 clock domain
-\end{DoxyItemize}
-
-{\bfseries{Global Instances:\+}}
-\begin{DoxyItemize}
-\item g\+\_\+led3:\+ GPIO handler for red LED (GPIOB port, pin 14)
-\item g\+\_\+usart3:\+ UART3 handler (TX/\+\+RX on GPIOC)
-\item g\+\_\+usart3\+\_\+tx:\+ TX configuration structure
-\item g\+\_\+usart3\+\_\+rx:\+ RX configuration structure
-\item g\+\_\+timer2:\+ TIMER2 handler for PWM
-\item g\+\_\+timer2\+\_\+ch1:\+ TIMER2 channel 1 configuration
-\end{DoxyItemize}
-
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{out}}  & {\em BUTTON} & Pointer to the GPIO handler associated with the push button.\\
+\hline
+\end{DoxyParams}
 \begin{DoxyNote}{Note}
-
-\begin{DoxyItemize}
-\item All functions are stateless (idempotent)
-\item Can be called multiple times safely
-\item No return values (assume success)
-\item GPIO pins are NOT de-\/initialized (static allocation)
-\end{DoxyItemize}
+This function configures GPIO, EXTI, SYSCFG, and NVIC for button interrupts. 
 \end{DoxyNote}
-\begin{DoxyAttention}{Attention}
+\Hypertarget{peripheral__config_8c_a732b9fd5baa226cd12b01d8159016a68}\index{peripheral\_config.c@{peripheral\_config.c}!button\_setup@{button\_setup}}
+\index{button\_setup@{button\_setup}!peripheral\_config.c@{peripheral\_config.c}}
+\doxysubsubsection{\texorpdfstring{button\_setup()}{button\_setup()}}
+{\footnotesize\ttfamily \label{peripheral__config_8c_a732b9fd5baa226cd12b01d8159016a68} 
+void button\+\_\+setup (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{BUTTON}{}\end{DoxyParamCaption})}
 
-\begin{DoxyItemize}
-\item Call after system clock initialization
-\item Call before using configured peripherals
-\item Peripheral clocks must be enabled via RCC
-\item Interrupt handlers must be linked separately
-\end{DoxyItemize}
-\end{DoxyAttention}
-\begin{DoxyCopyright}{Copyright}
-2026 Likith025 -\/ MIT License 
-\end{DoxyCopyright}
-\begin{DoxySeeAlso}{See also}
-\doxylink{stm32f7xx__gpio__driver_8h}{stm32f7xx\+\_\+gpio\+\_\+driver.\+h} -\/ GPIO driver 
 
-\doxylink{stm32f7xx__uart__driver_8h}{stm32f7xx\+\_\+uart\+\_\+driver.\+h} -\/ UART driver 
 
-\doxylink{stm32f7xx__timer__driver_8h}{stm32f7xx\+\_\+timer\+\_\+driver.\+h} -\/ TIMER driver 
-\end{DoxySeeAlso}
+Initializes the user push button as a GPIO input. 
+
+Configures the button GPIO pin as a digital input with no internal pull-\/up or pull-\/down resistor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{out}}  & {\em BUTTON} & Pointer to the GPIO handler associated with the push button. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{peripheral__config_8c_a8167f54a45da346003f04321f7344b6b}\index{peripheral\_config.c@{peripheral\_config.c}!led\_setup\_blue@{led\_setup\_blue}}
+\index{led\_setup\_blue@{led\_setup\_blue}!peripheral\_config.c@{peripheral\_config.c}}
+\doxysubsubsection{\texorpdfstring{led\_setup\_blue()}{led\_setup\_blue()}}
+{\footnotesize\ttfamily \label{peripheral__config_8c_a8167f54a45da346003f04321f7344b6b} 
+void led\+\_\+setup\+\_\+blue (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{LED}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the blue user LED. 
+
+Configures the GPIO pin connected to the blue LED as a low-\/speed push-\/pull output and initializes the corresponding GPIO peripheral.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{out}}  & {\em LED} & Pointer to the GPIO handler associated with the blue LED. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{peripheral__config_8c_aa9d9269b3bad59572316be64186afc60}\index{peripheral\_config.c@{peripheral\_config.c}!led\_setup\_red@{led\_setup\_red}}
+\index{led\_setup\_red@{led\_setup\_red}!peripheral\_config.c@{peripheral\_config.c}}
+\doxysubsubsection{\texorpdfstring{led\_setup\_red()}{led\_setup\_red()}}
+{\footnotesize\ttfamily \label{peripheral__config_8c_aa9d9269b3bad59572316be64186afc60} 
+void led\+\_\+setup\+\_\+red (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{LED}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the red user LED. 
+
+Configures the GPIO pin connected to the red LED as a low-\/speed push-\/pull output and initializes the corresponding GPIO peripheral.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{out}}  & {\em LED} & Pointer to the GPIO handler associated with the red LED. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{peripheral__config_8c_a50c624d6f36e9b9614da7682ecbee683}\index{peripheral\_config.c@{peripheral\_config.c}!spi2\_init@{spi2\_init}}
+\index{spi2\_init@{spi2\_init}!peripheral\_config.c@{peripheral\_config.c}}
+\doxysubsubsection{\texorpdfstring{spi2\_init()}{spi2\_init()}}
+{\footnotesize\ttfamily \label{peripheral__config_8c_a50c624d6f36e9b9614da7682ecbee683} 
+void spi2\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structspi__handler__t}{spi\+\_\+handler\+\_\+t}}}]{SPI\+\_\+\+Handle}{}\end{DoxyParamCaption})}
+
+\Hypertarget{peripheral__config_8c_abe324fe42a678f7bacd271db37bfb36b}\index{peripheral\_config.c@{peripheral\_config.c}!timer2\_setup@{timer2\_setup}}
+\index{timer2\_setup@{timer2\_setup}!peripheral\_config.c@{peripheral\_config.c}}
+\doxysubsubsection{\texorpdfstring{timer2\_setup()}{timer2\_setup()}}
+{\footnotesize\ttfamily \label{peripheral__config_8c_abe324fe42a678f7bacd271db37bfb36b} 
+void timer2\+\_\+setup (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handler}{, }\item[{\doxymbox{\hyperlink{stm32f7xx__timer__driver_8h_a3f783190e54bca7cb813a798fe4995ab}{Timer\+\_\+direction\+\_\+t}}}]{direction}{}\end{DoxyParamCaption})}
+
+
+
+Initializes TIM2. 
+
+Configures and initializes Timer 2 with the specified counting direction.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{out}}  & {\em handler} & Pointer to the timer handler.\\
+\hline
+\doxymbox{\texttt{in}}  & {\em direction} & Timer counting direction (up-\/counting or down-\/counting). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{peripheral__config_8c_a4b456e45cc9e59d402e8872fdbd993b7}\index{peripheral\_config.c@{peripheral\_config.c}!timer2ch1@{timer2ch1}}
+\index{timer2ch1@{timer2ch1}!peripheral\_config.c@{peripheral\_config.c}}
+\doxysubsubsection{\texorpdfstring{timer2ch1()}{timer2ch1()}}
+{\footnotesize\ttfamily \label{peripheral__config_8c_a4b456e45cc9e59d402e8872fdbd993b7} 
+void timer2ch1 (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handler}{}\end{DoxyParamCaption})}
+
+
+
+Configures TIM2 Channel 1 GPIO pin. 
+
+Initializes the GPIO pin associated with TIM2 Channel 1 in Alternate Function mode for timer operation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{out}}  & {\em handler} & Pointer to the GPIO handler for TIM2 Channel 1. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{peripheral__config_8c_a67bc3fe7779a3fc58d1dca81d3ea9f1d}\index{peripheral\_config.c@{peripheral\_config.c}!usart3\_init@{usart3\_init}}
+\index{usart3\_init@{usart3\_init}!peripheral\_config.c@{peripheral\_config.c}}
+\doxysubsubsection{\texorpdfstring{usart3\_init()}{usart3\_init()}}
+{\footnotesize\ttfamily \label{peripheral__config_8c_a67bc3fe7779a3fc58d1dca81d3ea9f1d} 
+void usart3\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handler}{}\end{DoxyParamCaption})}
+
+
+
+Initializes USART3 peripheral. 
+
+Configures USART3 with the desired communication parameters and initializes its associated TX and RX GPIO pins.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\doxymbox{\texttt{out}}  & {\em handler} & Pointer to the USART handler structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+USART3 TX and RX pins are configured automatically by this function. 
+\end{DoxyNote}
+
+
+\label{doc-var-members}
+\Hypertarget{peripheral__config_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{peripheral__config_8c_a3d93d26f01991f8ddb47874f56610170}\index{peripheral\_config.c@{peripheral\_config.c}!g\_button@{g\_button}}
+\index{g\_button@{g\_button}!peripheral\_config.c@{peripheral\_config.c}}
+\doxysubsubsection{\texorpdfstring{g\_button}{g\_button}}
+{\footnotesize\ttfamily \label{peripheral__config_8c_a3d93d26f01991f8ddb47874f56610170} 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} g\+\_\+button = \{0\}}
+
+\Hypertarget{peripheral__config_8c_a5ebfabcbd0cb54cba4ea3c39bc794a5d}\index{peripheral\_config.c@{peripheral\_config.c}!g\_led3@{g\_led3}}
+\index{g\_led3@{g\_led3}!peripheral\_config.c@{peripheral\_config.c}}
+\doxysubsubsection{\texorpdfstring{g\_led3}{g\_led3}}
+{\footnotesize\ttfamily \label{peripheral__config_8c_a5ebfabcbd0cb54cba4ea3c39bc794a5d} 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} g\+\_\+led3 = \{0\}}
+
+\Hypertarget{peripheral__config_8c_a24ffbc2efdb5e4fe07ad0e8a1b6eeccf}\index{peripheral\_config.c@{peripheral\_config.c}!g\_timer2@{g\_timer2}}
+\index{g\_timer2@{g\_timer2}!peripheral\_config.c@{peripheral\_config.c}}
+\doxysubsubsection{\texorpdfstring{g\_timer2}{g\_timer2}}
+{\footnotesize\ttfamily \label{peripheral__config_8c_a24ffbc2efdb5e4fe07ad0e8a1b6eeccf} 
+\doxymbox{\hyperlink{struct_t_i_m_e_r__handler__t}{TIMER\+\_\+handler\+\_\+t}} g\+\_\+timer2 =\{0\}}
+
+\Hypertarget{peripheral__config_8c_afccf372354e18524c982712ca006cf5e}\index{peripheral\_config.c@{peripheral\_config.c}!g\_timer2\_ch1@{g\_timer2\_ch1}}
+\index{g\_timer2\_ch1@{g\_timer2\_ch1}!peripheral\_config.c@{peripheral\_config.c}}
+\doxysubsubsection{\texorpdfstring{g\_timer2\_ch1}{g\_timer2\_ch1}}
+{\footnotesize\ttfamily \label{peripheral__config_8c_afccf372354e18524c982712ca006cf5e} 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} g\+\_\+timer2\+\_\+ch1 =\{0\}}
+
+\Hypertarget{peripheral__config_8c_a4d477d59aad5b697be7db9678482140f}\index{peripheral\_config.c@{peripheral\_config.c}!g\_usart3@{g\_usart3}}
+\index{g\_usart3@{g\_usart3}!peripheral\_config.c@{peripheral\_config.c}}
+\doxysubsubsection{\texorpdfstring{g\_usart3}{g\_usart3}}
+{\footnotesize\ttfamily \label{peripheral__config_8c_a4d477d59aad5b697be7db9678482140f} 
+\doxymbox{\hyperlink{struct_u_s_a_r_t__handler__t}{USART\+\_\+handler\+\_\+t}} g\+\_\+usart3 = \{0\}}
+
+\Hypertarget{peripheral__config_8c_a8c4bb0dbdac5c077024e78150213500f}\index{peripheral\_config.c@{peripheral\_config.c}!g\_usart3\_rx@{g\_usart3\_rx}}
+\index{g\_usart3\_rx@{g\_usart3\_rx}!peripheral\_config.c@{peripheral\_config.c}}
+\doxysubsubsection{\texorpdfstring{g\_usart3\_rx}{g\_usart3\_rx}}
+{\footnotesize\ttfamily \label{peripheral__config_8c_a8c4bb0dbdac5c077024e78150213500f} 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} g\+\_\+usart3\+\_\+rx = \{0\}}
+
+\Hypertarget{peripheral__config_8c_a31bd06294777e39b760a6b82f6d2b13f}\index{peripheral\_config.c@{peripheral\_config.c}!g\_usart3\_tx@{g\_usart3\_tx}}
+\index{g\_usart3\_tx@{g\_usart3\_tx}!peripheral\_config.c@{peripheral\_config.c}}
+\doxysubsubsection{\texorpdfstring{g\_usart3\_tx}{g\_usart3\_tx}}
+{\footnotesize\ttfamily \label{peripheral__config_8c_a31bd06294777e39b760a6b82f6d2b13f} 
+\doxymbox{\hyperlink{struct_g_p_i_o__handler__t}{GPIO\+\_\+handler\+\_\+t}} g\+\_\+usart3\+\_\+tx = \{0\}}
+

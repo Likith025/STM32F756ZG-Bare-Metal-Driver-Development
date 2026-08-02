@@ -8,9 +8,9 @@ digraph "stm32f7xx_driver/driver/driver_inc/nvic.h"
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="stm32f7xx_driver/bsp\l/peripheral_config.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$peripheral__config_8h.html",tooltip=" "];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="stm32f7xx_driver/Src\l/main.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$main_8c.html",tooltip=": Main program body"];
+  Node3 [id="Node000003",label="stm32f7xx_driver/bsp\l/peripheral_config.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$peripheral__config_8c.html",tooltip=" "];
   Node2 -> Node4 [id="edge3_Node000002_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="stm32f7xx_driver/bsp\l/peripheral_config.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$peripheral__config_8c.html",tooltip="Board Support Package (BSP) Configuration for STM32F756ZG."];
+  Node4 [id="Node000004",label="stm32f7xx_driver/examples\l/src/GPIO.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_g_p_i_o_8c.html",tooltip=" "];
   Node1 -> Node5 [id="edge4_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node5 [id="Node000005",label="stm32f7xx_driver/driver\l/driver_src/nvic.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$nvic_8c.html",tooltip="Nested Vectored Interrupt Controller (NVIC) driver for STM32F756ZG."];
+  Node5 [id="Node000005",label="stm32f7xx_driver/driver\l/driver_src/nvic.c",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$nvic_8c.html",tooltip=" "];
 }

@@ -1,0 +1,63 @@
+\doxysection{stm32f7xx\+\_\+driver/\+examples/\+inc/\+\+GPIO.h File Reference}
+\hypertarget{_g_p_i_o_8h}{}\label{_g_p_i_o_8h}\index{stm32f7xx\_driver/examples/inc/GPIO.h@{stm32f7xx\_driver/examples/inc/GPIO.h}}
+This graph shows which files directly or indirectly include this file:\+
+% FIG 0
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{_g_p_i_o_8h_a83f81da97b4e58853debaf82e8921d7b}{button\+\_\+led}} (void)
+\begin{DoxyCompactList}\small\item\em Controls the blue LED using the user push button. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{_g_p_i_o_8h_ae17600245280bcb3e7021f8cfa633fee}{led\+\_\+blink}} (void)
+\begin{DoxyCompactList}\small\item\em Blinks the blue LED continuously. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{_g_p_i_o_8h_a029fd47124d554cd11a894e252a60a90}{button\+\_\+led\+\_\+interrupt}} (void)
+\begin{DoxyCompactList}\small\item\em Demonstrates GPIO interrupt handling using the user push button. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{_g_p_i_o_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_g_p_i_o_8h_a83f81da97b4e58853debaf82e8921d7b}\index{GPIO.h@{GPIO.h}!button\_led@{button\_led}}
+\index{button\_led@{button\_led}!GPIO.h@{GPIO.h}}
+\doxysubsubsection{\texorpdfstring{button\_led()}{button\_led()}}
+{\footnotesize\ttfamily \label{_g_p_i_o_8h_a83f81da97b4e58853debaf82e8921d7b} 
+void button\+\_\+led (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Controls the blue LED using the user push button. 
+
+Initializes the blue LED and push button GPIOs. The button state is continuously read, and the blue LED output is updated to match the current button state.
+
+\begin{DoxyNote}{Note}
+This function runs indefinitely and is intended as a basic GPIO input/\+output demonstration. 
+\end{DoxyNote}
+\Hypertarget{_g_p_i_o_8h_a029fd47124d554cd11a894e252a60a90}\index{GPIO.h@{GPIO.h}!button\_led\_interrupt@{button\_led\_interrupt}}
+\index{button\_led\_interrupt@{button\_led\_interrupt}!GPIO.h@{GPIO.h}}
+\doxysubsubsection{\texorpdfstring{button\_led\_interrupt()}{button\_led\_interrupt()}}
+{\footnotesize\ttfamily \label{_g_p_i_o_8h_a029fd47124d554cd11a894e252a60a90} 
+void button\+\_\+led\+\_\+interrupt (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Demonstrates GPIO interrupt handling using the user push button. 
+
+Configures the user button as an external interrupt source and initializes the red LED. When the button interrupt occurs, the corresponding ISR toggles the red LED.
+
+\begin{DoxyNote}{Note}
+This function performs only the peripheral initialization. The interrupt handling is implemented in the EXTI15\+\_\+10 interrupt service routine. 
+\end{DoxyNote}
+\Hypertarget{_g_p_i_o_8h_ae17600245280bcb3e7021f8cfa633fee}\index{GPIO.h@{GPIO.h}!led\_blink@{led\_blink}}
+\index{led\_blink@{led\_blink}!GPIO.h@{GPIO.h}}
+\doxysubsubsection{\texorpdfstring{led\_blink()}{led\_blink()}}
+{\footnotesize\ttfamily \label{_g_p_i_o_8h_ae17600245280bcb3e7021f8cfa633fee} 
+void led\+\_\+blink (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Blinks the blue LED continuously. 
+
+Initializes the blue LED GPIO and repeatedly toggles its state with a software delay to produce a visible blinking effect.
+
+\begin{DoxyNote}{Note}
+The delay is generated using a busy-\/wait loop and is dependent on the processor clock frequency. 
+\end{DoxyNote}

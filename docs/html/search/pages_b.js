@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['objectives_0',['🎯 Project Objectives',['../md__r_e_a_d_m_e.html#autotoc_md32',1,'']]],
-  ['outcomes_1',['Key Learning Outcomes',['../index.html#autotoc_md26',1,'']]],
-  ['overview_2',['Overview',['../index.html#autotoc_md2',1,'']]]
+  ['metal_20driver_20development_0',['STM32F756ZG Bare-Metal Driver Development',['../md__r_e_a_d_m_e.html',1,'']]],
+  ['metal_20drivers_1',['STM32F756ZG Bare Metal Drivers',['../index.html',1,'']]]
 ];

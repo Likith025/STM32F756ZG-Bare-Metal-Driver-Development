@@ -22,7 +22,6 @@ var searchData=
   ['apb2lpenr_19',['APB2LPENR',['../struct_r_c_c___reg_def__t.html#ab7a6c876d40b24bc87fa77108508271d',1,'RCC_RegDef_t']]],
   ['apb2rstr_20',['APB2RSTR',['../struct_r_c_c___reg_def__t.html#a6c1588013b885c32b78b912e8249a26c',1,'RCC_RegDef_t']]],
   ['architecture_21',['Architecture',['../index.html#autotoc_md4',1,'']]],
-  ['architecture_20design_20philosophy_22',['🏗️ Architecture &amp;amp; Design Philosophy',['../md__r_e_a_d_m_e.html#autotoc_md33',1,'']]],
-  ['audience_23',['Intended Audience',['../index.html#autotoc_md24',1,'']]],
-  ['author_24',['Author',['../index.html#autotoc_md30',1,'']]]
+  ['audience_22',['Intended Audience',['../index.html#autotoc_md24',1,'']]],
+  ['author_23',['Author',['../index.html#autotoc_md30',1,'']]]
 ];

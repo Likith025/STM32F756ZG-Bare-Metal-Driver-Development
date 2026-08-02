@@ -4,86 +4,95 @@
 \Hypertarget{md__r_e_a_d_m_e_autotoc_md31}%
 
 
-A comprehensive collection of peripheral drivers for the STM32\+F756\+ZG microcontroller, developed from the ground up using direct register-\/level programming. This project builds a strong foundation in embedded firmware development by working at the hardware level without relying on STM32 HAL or middleware libraries.\hypertarget{md__r_e_a_d_m_e_autotoc_md32}{}\doxysection{\texorpdfstring{🎯 Project Objectives}{🎯 Project Objectives}}\label{md__r_e_a_d_m_e_autotoc_md32}
+This repository contains bare-\/metal peripheral drivers for the STM32\+F756\+ZG, implemented using direct register-\/level programming without STM32 HAL or middleware.
 
-\begin{DoxyItemize}
-\item Master ARM Cortex-\/\+M7 architecture fundamentals
-\item Understand STM32\+F7 memory organization (Flash, DTCM, SRAM1, SRAM2)
-\item Implement accurate register structures based on RM0385 reference manual
-\item Master peripheral clock control using RCC
-\item Perform safe and deterministic bit-\/level register manipulation
-\item Build clean, reusable, and modular driver abstractions
-\item Develop production-\/quality embedded firmware patterns
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md33}{}\doxysection{\texorpdfstring{🏗️ Architecture \& Design Philosophy}{🏗️ Architecture \& Design Philosophy}}\label{md__r_e_a_d_m_e_autotoc_md33}
-This project emphasizes:\+
-
-
-\begin{DoxyItemize}
-\item {\bfseries{Hardware Awareness}}:\+ Deep understanding of Cortex-\/M memory model
-\item {\bfseries{Bus Architecture}}:\+ Working with AHB and APB bus protocols
-\item {\bfseries{Clock Management}}:\+ Proper peripheral clock gating and RCC configuration
-\item {\bfseries{Register Safety}}:\+ Correct use of {\ttfamily volatile} for hardware registers and proper offset alignment
-\item {\bfseries{Clean Code}}:\+ Minimal abstraction overhead with modular, scalable driver structure
-\item {\bfseries{Verification}}:\+ All register structures verified against STM32\+F7 reference manual (RM0385)
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md34}{}\doxysection{\texorpdfstring{📋 Design Principles}{📋 Design Principles}}\label{md__r_e_a_d_m_e_autotoc_md34}
-✓ {\bfseries{No HAL/\+\+Middleware}}:\+ Pure register-\/level implementation ~\newline
- ✓ {\bfseries{Minimal Abstraction}}:\+ Direct hardware control with clean macros ~\newline
- ✓ {\bfseries{Deterministic Behavior}}:\+ Predictable register access patterns ~\newline
- ✓ {\bfseries{Modular Structure}}:\+ Reusable and scalable driver architecture ~\newline
- ✓ {\bfseries{Production Ready}}:\+ Follows embedded systems best practices ~\newline
-\hypertarget{md__r_e_a_d_m_e_autotoc_md35}{}\doxysection{\texorpdfstring{🔧 Implemented Peripherals}{🔧 Implemented Peripherals}}\label{md__r_e_a_d_m_e_autotoc_md35}
-
-\begin{DoxyTable}{3}{}{}{1}
-\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Peripheral  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Status  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Notes  \\
-RCC  &✅ Complete  &Clock control and system configuration  \\
-GPIO  &✅ Complete  &Digital I/\+O control  \\
-EXTI  &✅ Completed  &External interrupts  \\
-USART/\+\+UART  &✅ Completed  &Serial communication  \\
-SPI  &📋 Planned  &Serial peripheral interface  \\
-I2C  &📋 Planned  &Inter-\/integrated circuit  \\
-Timers  &✅ Planned  &General-\/purpose and PWM  \\
-DMA  &📋 Planned  &Direct memory access  \\
-NVIC  &✅ Completed  &Nested vectored interrupt controller  \\
-\end{DoxyTable}
-\hypertarget{md__r_e_a_d_m_e_autotoc_md36}{}\doxysection{\texorpdfstring{📱 Target Hardware}{📱 Target Hardware}}\label{md__r_e_a_d_m_e_autotoc_md36}
-
-\begin{DoxyItemize}
-\item {\bfseries{MCU}}:\+ STM32\+F756\+ZG
-\item {\bfseries{Core}}:\+ ARM Cortex-\/\+M7 @ 216 MHz
-\item {\bfseries{Flash}}:\+ 1 MB
-\item {\bfseries{RAM}}:\+ 316 KB (DTCM + SRAM)
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md37}{}\doxysection{\texorpdfstring{🚀 Getting Started}{🚀 Getting Started}}\label{md__r_e_a_d_m_e_autotoc_md37}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\#\ Clone\ the\ repository}
-\DoxyCodeLine{git\ clone\ https://github.com/Likith025/STM32F756ZG-\/Bare-\/Metal-\/Driver-\/Development.git}
-\DoxyCodeLine{cd\ STM32F756ZG-\/Bare-\/Metal-\/Driver-\/Development}
-\DoxyCodeLine{}
-\DoxyCodeLine{\#\ Review\ the\ architecture\ and\ memory\ maps}
-\DoxyCodeLine{\#\ Start\ with\ RCC\ driver\ implementation}
-\DoxyCodeLine{\#\ Follow\ the\ register\ structure\ patterns}
-
-\end{DoxyCode}
-\hypertarget{md__r_e_a_d_m_e_autotoc_md38}{}\doxysection{\texorpdfstring{📖 Reference Documentation}{📖 Reference Documentation}}\label{md__r_e_a_d_m_e_autotoc_md38}
-
-\begin{DoxyItemize}
-\item {\bfseries{STM32\+F756\+ZG Datasheet}}:\+ Official device specifications
-\item {\bfseries{RM0385 Reference Manual}}:\+ Complete register definitions and peripheral descriptions
-\item {\bfseries{ARM Cortex-\/\+M7 Technical Reference Manual}}:\+ CPU architecture details
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md39}{}\doxysection{\texorpdfstring{💡 Learning Path}{💡 Learning Path}}\label{md__r_e_a_d_m_e_autotoc_md39}
-
-\begin{DoxyEnumerate}
-\item Understand the STM32\+F7 memory map and address spaces
-\item Learn RCC configuration and clock tree management
-\item Master GPIO operations and register patterns
-\item Implement interrupt handling with NVIC
-\item Build advanced peripherals (Timers, UART, SPI, I2C)
-\item Explore DMA for efficient data transfers
-\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md40}{}\doxysection{\texorpdfstring{🤝 Contributing}{🤝 Contributing}}\label{md__r_e_a_d_m_e_autotoc_md40}
-This is a personal learning project, but suggestions and improvements are welcome. Feel free to open issues for bug reports or feature requests.\hypertarget{md__r_e_a_d_m_e_autotoc_md41}{}\doxysection{\texorpdfstring{📝 License}{📝 License}}\label{md__r_e_a_d_m_e_autotoc_md41}
-This project is provided for educational purposes.
+The focus of this project is to understand how peripherals work at the hardware level by using the reference manual and building drivers from scratch.
 
 \DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md33}{}\doxysection{\texorpdfstring{Implemented Drivers}{Implemented Drivers}}\label{md__r_e_a_d_m_e_autotoc_md33}
+
+\begin{DoxyTable}{3}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Peripheral  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Status  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Description  \\
+RCC  &Complete  &Peripheral clock configuration  \\
+GPIO  &Complete  &Digital input/\+output  \\
+EXTI  &Complete  &External interrupt handling  \\
+USART  &Complete  &Serial communication  \\
+NVIC  &Complete  &Interrupt controller  \\
+Timers  &Complete  &General-\/purpose + PWM  \\
+SPI  &Planned  &Serial peripheral interface  \\
+I2C  &Planned  &Inter-\/integrated communication  \\
+DMA  &Planned  &Data transfer engine  \\
+\end{DoxyTable}
 
 
-{\bfseries{Purpose}}:\+ A growing driver foundation aimed at strengthening low-\/level embedded firmware development skills and building reusable peripheral drivers from scratch. 
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md35}{}\doxysection{\texorpdfstring{Project Structure}{Project Structure}}\label{md__r_e_a_d_m_e_autotoc_md35}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{.}
+\DoxyCodeLine{├──\ driver/}
+\DoxyCodeLine{│\ \ \ ├──\ driver\_src/\ \ \ \ \#\ Peripheral\ driver\ implementations}
+\DoxyCodeLine{│\ \ \ └──\ driver\_inc/\ \ \ \ \#\ Header\ files\ and\ register\ definitions}
+\DoxyCodeLine{├──\ bsp/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Board\ support\ /\ hardware-\/specific\ setup}
+\DoxyCodeLine{├──\ Src/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Application\ code}
+\DoxyCodeLine{└──\ Startup/\ \ \ \ \ \ \ \ \ \ \ \#\ Startup\ code\ and\ vector\ table}
+
+\end{DoxyCode}
+ \DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md37}{}\doxysection{\texorpdfstring{Key Features}{Key Features}}\label{md__r_e_a_d_m_e_autotoc_md37}
+
+\begin{DoxyItemize}
+\item Direct register-\/level programming (no HAL)
+\item Register structures implemented based on RM0385
+\item Proper use of {\ttfamily volatile} for hardware registers
+\item Modular driver design for reuse across projects
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md39}{}\doxysection{\texorpdfstring{Target Hardware}{Target Hardware}}\label{md__r_e_a_d_m_e_autotoc_md39}
+
+\begin{DoxyItemize}
+\item MCU:\+ STM32\+F756\+ZG
+\item Core:\+ ARM Cortex-\/\+M7
+\item Board:\+ STM32 Nucleo-\/144
+\item Max Clock:\+ 216 MHz
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md41}{}\doxysection{\texorpdfstring{Build \& Run}{Build \& Run}}\label{md__r_e_a_d_m_e_autotoc_md41}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/Likith025/STM32F756ZG-\/Bare-\/Metal-\/Driver-\/Development.git}
+\DoxyCodeLine{cd\ STM32F756ZG-\/Bare-\/Metal-\/Driver-\/Development}
+
+\end{DoxyCode}
+
+
+Build using STM32\+Cube\+IDE or GCC ARM toolchain. Flash to STM32 Nucleo board and test using example applications.
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md43}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md__r_e_a_d_m_e_autotoc_md43}
+
+\begin{DoxyTable}{2}{}{}{1}
+\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Peripheral  &\SetCell{c,bg=\tableheadbgcolor,font=\bfseries}Test  \\
+USART  &Data transmission at 115200 baud (polling + IT)  \\
+GPIO  &LED toggle verified on board  \\
+EXTI  &Button interrupt triggers handler  \\
+Timer/\+\+PWM  &Duty cycle control verified using timer registers  \\
+\end{DoxyTable}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md45}{}\doxysection{\texorpdfstring{References}{References}}\label{md__r_e_a_d_m_e_autotoc_md45}
+
+\begin{DoxyItemize}
+\item \href{https://www.st.com/resource/en/reference_manual/rm0385-stm32f75xxx-and-stm32f74xxx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf}{\texttt{RM0385 Reference Manual}}
+\item \href{https://www.st.com/en/microcontrollers-microprocessors/stm32f756zg.html}{\texttt{STM32\+F756\+ZG Datasheet}}
+\item ARM Cortex-\/\+M7 Technical Reference Manual
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md46}{}\doxysection{\texorpdfstring{Documentation}{Documentation}}\label{md__r_e_a_d_m_e_autotoc_md46}
+Generate locally using Doxygen:\+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{doxygen\ Doxyfile}
+
+\end{DoxyCode}
+ 
