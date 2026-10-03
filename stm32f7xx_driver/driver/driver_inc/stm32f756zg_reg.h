@@ -123,6 +123,7 @@ typedef struct
 #define GPIOK_BASE_ADDR		(AHB1_PERIPH_BASE_ADDR+0x2800)
 
 #define RCC_BASE_ADDR		(AHB1_PERIPH_BASE_ADDR+0x3800)
+#define FLASH_CTRL_BASE_ADDR	(AHB1_PERIPH_BASE_ADDR+0x3C00)
 
 
 //Defining Base address of GPIO peripherals
@@ -140,6 +141,7 @@ typedef struct
 
 
 #define RCC 	((RCC_RegDef_t*)RCC_BASE_ADDR)
+#define FLASH 	((FLASH_RegDef_t*)FLASH_CTRL_BASE_ADDR)
 
 
 #define USART_2 ((USART_RegDef_t*)USART2_BASE_ADDR)
@@ -220,6 +222,16 @@ typedef struct{
 	volatile uint32_t DCKCFGR2;		//RCC Dedicated Clocks configuration register2
 }RCC_RegDef_t;
 
+typedef struct{
+	volatile uint32_t FLASH_ACR;
+	volatile uint32_t FLASH_KEYR;
+	volatile uint32_t FLASH_OPTKEYR;
+	volatile uint32_t FLASH_SR;
+	volatile uint32_t FLASH_CR;
+	volatile uint32_t FLASH_OPTCR;
+	volatile uint32_t FLASH_OPTCR1;
+}FLASH_RegDef_t;
+
 
 typedef struct{
 	volatile uint32_t  USART_CR1;
@@ -283,7 +295,6 @@ typedef struct{
 
 }TIMER_RegDef_t;
 
-#include "stm32f7xx_gpio_driver.h"
 
 
 
