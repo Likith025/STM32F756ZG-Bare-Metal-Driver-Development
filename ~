@@ -1,0 +1,6 @@
+Merge branch 'doc_branch' of https://github.com/Likith025/STM32F756ZG-Bare-Metal-Driver-Development into doc_branch
+# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+git rm -r --cached your-folder-name/# Lines starting with '#' will be ignored, and an empty message aborts
+# the commit.

@@ -107,3 +107,8 @@ void TimerPWM_DutyCycle(TIMER_handler_t* timer_handle,Timer_channel_t Channel,ui
 
     *ccr_reg = ccr;
 }
+
+void TimerIntrruptConfig(TIMER_handler_t* timer_handle)
+{
+	timer_handle->pTimer->TIM_DIER|=(1<<0);
+}

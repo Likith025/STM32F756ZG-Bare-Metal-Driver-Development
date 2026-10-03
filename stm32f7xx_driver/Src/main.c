@@ -17,13 +17,14 @@
  */
 
 
+
 #include "GPIO.h"
 
 
 int main()
 {
 	//button_led_inttrupt();
-	button_led_inttrupt();
+	button_led_interrupt();
 
 	return 0;
 }
