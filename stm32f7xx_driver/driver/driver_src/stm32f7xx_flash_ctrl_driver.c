@@ -77,7 +77,10 @@ Flash_StatusType_e Flash_EraseSector(uint8_t sector_num)
 	if(Flash_IsBusy()==0)
 	{
 
-		if(sector_num>=8){
+		if(Flash_IsLocked()==1){
+			sector_erase_sts=Status_ERROR;
+		}
+		else if(sector_num>=8){
 			sector_erase_sts=Status_ERROR;
 		}
 		else
