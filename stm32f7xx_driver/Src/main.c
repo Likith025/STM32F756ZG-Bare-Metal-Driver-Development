@@ -85,7 +85,7 @@ int main(void)
 
     	test_locked_before = Flash_IsLocked();
 
-    	Flash_EraseSector(6);
+    	Flash_EraseSector(2);
 
     while (1)
     {

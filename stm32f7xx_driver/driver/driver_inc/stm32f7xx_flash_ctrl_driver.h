@@ -25,4 +25,6 @@ Flash_StatusType_e Flash_Unlock(void);
 uint8_t Flash_IsLocked(void);
 Flash_StatusType_e Flash_Lock(void);
 Flash_StatusType_e Flash_EraseSector(uint8_t sector_num);
+
+Flash_StatusType_e Flash_WaitReady(uint32_t timeout);
 #endif /* DRIVER_INC_STM32F7XX_FLASH_CTRL_DRIVER_H_ */
