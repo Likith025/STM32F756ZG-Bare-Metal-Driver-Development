@@ -21,6 +21,8 @@
 #define ERASE_TIMEOUT	(50000000UL)
 
 
+Flash_OperationStatus_t Operation_status;
+
 uint8_t Flash_IsBusy(void)
 {
 	uint8_t	reval=0;
@@ -91,33 +93,64 @@ Flash_StatusType_e Flash_WaitReady(uint32_t timeout)
 	return timeout_flag;
 }
 
+Flash_StatusType_e Flash_GetError(void)
+{
+	Flash_StatusType_e status=Status_OK;
+
+	Operation_status.Erase_seq_error=((FLASH->FLASH_SR>>7U)&1U);
+	Operation_status.Opertaion_error=((FLASH->FLASH_SR>>1U)&1U);
+	Operation_status.Pro_align_error=((FLASH->FLASH_SR>>5U)&1U);
+	Operation_status.Pro_parallel_error=((FLASH->FLASH_SR>>6U)&1U);
+	Operation_status.Write_protection_error=((FLASH->FLASH_SR>>4U)&1U);
+	Operation_status.End_of_op=((FLASH->FLASH_SR>>0U)&1U);
+
+	 if ((Operation_status.Erase_seq_error != 0U) ||
+	        (Operation_status.Opertaion_error != 0U) ||
+	        (Operation_status.Pro_align_error != 0U) ||
+	        (Operation_status.Pro_parallel_error != 0U) ||
+	        (Operation_status.Write_protection_error != 0U))
+	    {
+	        status = Status_ERROR;
+	    }
+return status;
+}
+
 
 Flash_StatusType_e Flash_EraseSector(uint8_t sector_num)
 {
-	Flash_StatusType_e sector_erase_sts=Status_OK;
+    Flash_StatusType_e sector_erase_sts = Status_OK;
 
+    if (Flash_IsLocked() == 1U)
+    {
+        sector_erase_sts = Status_ERROR;
+    }
+    else if (sector_num >= 8U)
+    {
+        sector_erase_sts = Status_ERROR;
+    }
+    else
+    {
+        sector_erase_sts = Flash_WaitReady(ERASE_TIMEOUT);
+    }
 
-		if(Flash_IsLocked()==1U){
-			sector_erase_sts=Status_ERROR;
-		}
-		else if(sector_num>=8){
-			sector_erase_sts=Status_ERROR;
-		}
-		else
-		{
-			sector_erase_sts=Flash_WaitReady(ERASE_TIMEOUT);
-		}
-		if(sector_erase_sts==Status_OK)
-		{
-			FLASH->FLASH_CR|=(1<<SECTOR_ERASE_flag);
-			FLASH->FLASH_CR&=~(0xfu<<sector_num_pos);
-			FLASH->FLASH_CR|=(sector_num<<sector_num_pos);
-			FLASH->FLASH_CR|=(1<<Start_pos);
-			sector_erase_sts=Flash_WaitReady(ERASE_TIMEOUT);
-			FLASH->FLASH_CR &= ~(1UL << SECTOR_ERASE_flag);
-			//add get status and error
-		}
+    if (sector_erase_sts == Status_OK)
+    {
+        FLASH->FLASH_CR |= (1UL << SECTOR_ERASE_flag);
+        FLASH->FLASH_CR &= ~(0xFUL << sector_num_pos);
+        FLASH->FLASH_CR |= ((uint32_t)sector_num << sector_num_pos);
+        FLASH->FLASH_CR |= (1UL << Start_pos);
+        sector_erase_sts = Flash_WaitReady(ERASE_TIMEOUT);
+        if (sector_erase_sts == Status_OK)
+        {
+            sector_erase_sts = Flash_GetError();
+        }
 
+        if (Flash_IsBusy() == 0U)
+        {
+            FLASH->FLASH_CR &= ~(1UL << SECTOR_ERASE_flag);
+        }
+    }
 
-	return sector_erase_sts;
+    return sector_erase_sts;
 }
+
