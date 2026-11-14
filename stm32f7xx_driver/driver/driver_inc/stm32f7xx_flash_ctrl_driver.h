@@ -16,6 +16,14 @@ typedef enum
   Status_TIMEOUT  = 0x03U
 } Flash_StatusType_e;
 
+
+typedef enum
+{
+ FLASH_TYPEPROGRAM_BYTE    =   0x00U,
+ FLASH_TYPEPROGRAM_HALFWORD  =  0X01U,
+ FLASH_TYPEPROGRAM_WORD      =  0x02U,
+}Flash_Write_Width_e;
+
 typedef struct flash_status_tag
 {
 	uint8_t Erase_seq_error;
@@ -35,4 +43,7 @@ Flash_StatusType_e Flash_Lock(void);
 Flash_StatusType_e Flash_EraseSector(uint8_t sector_num);
 Flash_StatusType_e Flash_GetError(void);
 Flash_StatusType_e Flash_WaitReady(uint32_t timeout);
+Flash_StatusType_e Flash_ClearErrorFlags(void);
+
+Flash_StatusType_e Flash_Write(Flash_Write_Width_e width,uint32_t address,uint64_t data);
 #endif /* DRIVER_INC_STM32F7XX_FLASH_CTRL_DRIVER_H_ */
