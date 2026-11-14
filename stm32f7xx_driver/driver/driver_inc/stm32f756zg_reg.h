@@ -60,6 +60,7 @@ typedef struct
 
 //Defining BASE address of memory regions
 #define FLASH_BASE_ADDR					0x08000000UL  //Base Address of flash memory
+#define FLASH_END_ADDR					0x080FFFFFUL  // End Address of flash memory
 #define DTCM_BASE_ADDR                  0x20000000UL	//Base Address of DTCM
 #define SRAM1_BASE_ADDR					0x20010000UL //Base Address of SRAM1 memory
 #define SRAM2_BASE_ADDR					0x2004C000UL //Base Address of SRAM2 memory

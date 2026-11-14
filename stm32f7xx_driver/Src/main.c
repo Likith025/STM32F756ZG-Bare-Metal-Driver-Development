@@ -62,32 +62,96 @@
 //	}
 //
 
+#include <stdint.h>
 #include "stm32f756zg_reg.h"
 #include "stm32f7xx_flash_ctrl_driver.h"
 
-volatile uint8_t test_busy;
-volatile uint8_t test_locked_before;
-volatile uint8_t test_locked_after_unlock;
-volatile uint8_t test_locked_after_lock;
-volatile Flash_StatusType_e test_unlock_status;
+#define TEST_FLASH_ADDRESS    (0x08080000U)
+#define TEST_FLASH_SECTOR     (6U)
+
+volatile uint8_t  byte_readback;
+volatile uint16_t halfword_readback;
+volatile uint32_t word_readback;
+volatile uint64_t doubleword_readback;
+
+volatile uint8_t byte_test_result;
+volatile uint8_t halfword_test_result;
+volatile uint8_t word_test_result;
+volatile uint8_t doubleword_test_result;
+
+volatile Flash_StatusType_e test_status;
 
 int main(void)
 {
-    test_busy = Flash_IsBusy();
+    Flash_StatusType_e status = Status_OK;
 
-    test_locked_before = Flash_IsLocked();
+    const uint8_t byte_data = 0xA5U;
+    const uint16_t halfword_data = 0xABCDU;
+    const uint32_t word_data = 0x12345678U;
+    const uint64_t doubleword_data = 0x123456789ABCDEF0ULL;
 
-     Flash_Unlock();
+    /* Unlock Flash */
+    status = Flash_Unlock();
 
-    test_locked_before = Flash_IsLocked();
+    if (status == Status_OK)
+    {
+        /* Erase sector 6 */
+        status = Flash_EraseSector(TEST_FLASH_SECTOR);
+    }
 
-//    	Flash_Lock();
+    /* BYTE WRITE */
+    if (status == Status_OK)
+    {
+        status = Flash_Write(FLASH_TYPEPROGRAM_BYTE,
+                             TEST_FLASH_ADDRESS,
+                             byte_data);
 
-    	test_locked_before = Flash_IsLocked();
+        byte_readback = *(volatile uint8_t *)TEST_FLASH_ADDRESS;
 
-    	Flash_EraseSector(2);
+        byte_test_result =
+            ((status == Status_OK) &&
+             (byte_readback == byte_data)) ? 1U : 0U;
+    }
+
+    /* HALFWORD WRITE */
+    if (status == Status_OK)
+    {
+        status = Flash_Write(FLASH_TYPEPROGRAM_HALFWORD,
+                             TEST_FLASH_ADDRESS + 2U,
+                             halfword_data);
+
+        halfword_readback =
+            *(volatile uint16_t *)(TEST_FLASH_ADDRESS + 2U);
+
+        halfword_test_result =
+            ((status == Status_OK) &&
+             (halfword_readback == halfword_data)) ? 1U : 0U;
+    }
+
+    /* WORD WRITE */
+    if (status == Status_OK)
+    {
+        status = Flash_Write(FLASH_TYPEPROGRAM_WORD,
+                             TEST_FLASH_ADDRESS + 4U,
+                             word_data);
+
+        word_readback =
+            *(volatile uint32_t *)(TEST_FLASH_ADDRESS + 4U);
+
+        word_test_result =
+            ((status == Status_OK) &&
+             (word_readback == word_data)) ? 1U : 0U;
+    }
+
+
+
+    /* Lock Flash */
+    Flash_Lock();
+
+    test_status = status;
 
     while (1)
     {
+        /* Inspect test results in the debugger */
     }
 }
